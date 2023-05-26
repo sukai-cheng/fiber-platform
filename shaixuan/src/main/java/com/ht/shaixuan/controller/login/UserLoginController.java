@@ -20,6 +20,11 @@ public class UserLoginController {
     @Resource
     private TAccountServiceImpl accountService;
 
+    /**
+     * url: http://localhost:8088/user/login
+     * @param loginInfo
+     * @return
+     */
     @PostMapping("/user/login")
     public AjaxResult userLogin(@RequestBody LoginVo loginInfo) {
         return accountService.userLogin(loginInfo);
