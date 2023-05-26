@@ -168,4 +168,14 @@
         )
     </foreach>
   </insert>
+
+  <select id="findByUserNameAndPassWord" resultType="Integer">
+      select
+      <include refid="Base_Column_List"/>
+      from t_Account
+      where fAccount = #{userName,jdbcType=VARCHAR}
+        and fPassword = #{password,jdbcType=VARCHAR}
+        and State = '1'
+  </select>
+
 </mapper>

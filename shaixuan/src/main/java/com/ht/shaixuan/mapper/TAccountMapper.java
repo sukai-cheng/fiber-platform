@@ -25,4 +25,7 @@ public interface TAccountMapper extends BaseMapper<TAccount> {
     int updateBatch(List<TAccount> list);
 
     int batchInsert(@Param("list") List<TAccount> list);
+
+     Integer findByUserNameAndPassWord(@Param("userName") String fAccount, @Param("password") String password);
+
 }
