@@ -1,7 +1,7 @@
-package com.ht.base.api.vo;
+package com.ht.base.domain;
 
 
-import constant.CommonConstant;
+import com.ht.base.constant.CommonConstant;
 import lombok.Data;
 
 import java.io.Serializable;

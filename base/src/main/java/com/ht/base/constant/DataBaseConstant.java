@@ -1,4 +1,4 @@
-package constant;
+package com.ht.base.constant;
 /**
  * 数据库上下文常量
  */

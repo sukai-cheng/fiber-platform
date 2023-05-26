@@ -1,4 +1,4 @@
-package constant;
+package com.ht.base.constant;
 /**
  * 基础数据类型常量
  */

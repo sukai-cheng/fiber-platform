@@ -1,4 +1,4 @@
-package utils.bean;
+package com.ht.base.utils.bean;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;

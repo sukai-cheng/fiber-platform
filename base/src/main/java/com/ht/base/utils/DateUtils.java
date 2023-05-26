@@ -1,4 +1,4 @@
-package utils;
+package com.ht.base.utils;
 
 
 import org.apache.commons.lang.StringUtils;

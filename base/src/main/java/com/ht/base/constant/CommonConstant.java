@@ -1,4 +1,4 @@
-package constant;
+package com.ht.base.constant;
 
 public interface CommonConstant {
 

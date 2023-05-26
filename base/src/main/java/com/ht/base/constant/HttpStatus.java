@@ -1,4 +1,4 @@
-package constant;
+package com.ht.base.constant;
 
 /**
  * 返回状态码
