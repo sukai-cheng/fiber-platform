@@ -8,7 +8,7 @@
     </parent>
     <groupId>com.sukai</groupId>
     <artifactId>base</artifactId>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <name>base Maven Webapp</name>
     <url>https://maven.apache.org</url>
     <dependencies>

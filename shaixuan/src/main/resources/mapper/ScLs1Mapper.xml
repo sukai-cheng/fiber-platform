@@ -1,0 +1,1498 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.shaixuan.mapper.ScLs1Mapper">
+  <resultMap id="BaseResultMap" type="com.ht.shaixuan.entity.ScLs1">
+    <!--@mbg.generated-->
+    <!--@Table SC_LS1-->
+    <id column="LSBH" jdbcType="VARCHAR" property="lsbh" />
+    <result column="ZZPBH" jdbcType="VARCHAR" property="zzpbh" />
+    <result column="ZZPCD" jdbcType="OTHER" property="zzpcd" />
+    <result column="GBBH" jdbcType="VARCHAR" property="gbbh" />
+    <result column="SCBZ" jdbcType="VARCHAR" property="scbz" />
+    <result column="SCRQ" jdbcType="TIMESTAMP" property="scrq" />
+    <result column="GH1" jdbcType="VARCHAR" property="gh1" />
+    <result column="GH2" jdbcType="VARCHAR" property="gh2" />
+    <result column="GH3" jdbcType="VARCHAR" property="gh3" />
+    <result column="SBBH" jdbcType="VARCHAR" property="sbbh" />
+    <result column="WLBH1" jdbcType="VARCHAR" property="wlbh1" />
+    <result column="WLBH2" jdbcType="VARCHAR" property="wlbh2" />
+    <result column="LSTWD" jdbcType="OTHER" property="lstwd" />
+    <result column="LSTSD" jdbcType="OTHER" property="lstsd" />
+    <result column="SFQX" jdbcType="VARCHAR" property="sfqx" />
+    <result column="ZDR" jdbcType="VARCHAR" property="zdr" />
+    <result column="ZDRQ" jdbcType="TIMESTAMP" property="zdrq" />
+    <result column="SHR" jdbcType="VARCHAR" property="checker" />
+    <result column="SHRQ" jdbcType="TIMESTAMP" property="shrq" />
+    <result column="GB" jdbcType="VARCHAR" property="gb" />
+    <result column="ISrise" jdbcType="INTEGER" property="isrise" />
+    <result column="manufactureType" jdbcType="CHAR" property="manufactureType" />
+    <result column="classA" jdbcType="FLOAT" property="classa" />
+    <result column="classB" jdbcType="FLOAT" property="classb" />
+    <result column="classC" jdbcType="FLOAT" property="classc" />
+    <result column="velocity" jdbcType="INTEGER" property="velocity" />
+    <result column="dxsp" jdbcType="CHAR" property="dxsp" />
+    <result column="isrgl" jdbcType="INTEGER" property="isrgl" />
+    <result column="SBBH1" jdbcType="VARCHAR" property="sbbh1" />
+    <result column="PLWXH" jdbcType="VARCHAR" property="plwxh" />
+    <result column="zlh" jdbcType="VARCHAR" property="zlh" />
+    <result column="MPSH" jdbcType="VARCHAR" property="mpsh" />
+    <result column="numOfSml" jdbcType="INTEGER" property="numOfSml" />
+    <result column="isClareStove" jdbcType="INTEGER" property="isClareStove" />
+    <result column="isClareMold" jdbcType="INTEGER" property="isClareMold" />
+    <result column="strStove" jdbcType="CHAR" property="strStove" />
+    <result column="strMold" jdbcType="CHAR" property="strMold" />
+    <result column="strRise" jdbcType="CHAR" property="strRise" />
+    <result column="YM" jdbcType="CHAR" property="ym" />
+    <result column="ISLSOK" jdbcType="INTEGER" property="islsok" />
+    <result column="GROUPID" jdbcType="INTEGER" property="groupId" />
+    <result column="NextGPTime" jdbcType="TIMESTAMP" property="nextGptime" />
+    <result column="AllotCount" jdbcType="INTEGER" property="allotCount" />
+    <result column="igCount" jdbcType="INTEGER" property="igCount" />
+    <result column="FA" jdbcType="FLOAT" property="fa" />
+    <result column="FB" jdbcType="FLOAT" property="fb" />
+    <result column="FC" jdbcType="FLOAT" property="fc" />
+    <result column="FLENC" jdbcType="FLOAT" property="flenc" />
+    <result column="FLENB" jdbcType="FLOAT" property="flenb" />
+    <result column="FLENA" jdbcType="FLOAT" property="flena" />
+    <result column="StrCL" jdbcType="CHAR" property="strcl" />
+    <result column="StrCL1" jdbcType="CHAR" property="strcl1" />
+    <result column="StrCL2" jdbcType="CHAR" property="strcl2" />
+    <result column="StrF" jdbcType="CHAR" property="strf" />
+    <result column="strFormula" jdbcType="CHAR" property="strFormula" />
+    <result column="clTotal" jdbcType="FLOAT" property="clTotal" />
+    <result column="Mchange" jdbcType="CHAR" property="mchange" />
+    <result column="LLCD" jdbcType="FLOAT" property="llcd" />
+    <result column="sxcd" jdbcType="FLOAT" property="sxcd" />
+    <result column="mpcd" jdbcType="FLOAT" property="mpcd" />
+    <result column="PJnum" jdbcType="CHAR" property="pjnum" />
+    <result column="JDWZ" jdbcType="FLOAT" property="jdwz" />
+    <result column="isout" jdbcType="INTEGER" property="isout" />
+    <result column="ischange" jdbcType="INTEGER" property="ischange" />
+    <result column="bwl" jdbcType="INTEGER" property="bwl" />
+    <result column="bwlbz" jdbcType="CHAR" property="bwlbz" />
+    <result column="jsbz" jdbcType="CHAR" property="jsbz" />
+    <result column="ismini" jdbcType="VARCHAR" property="ismini" />
+    <result column="isyx" jdbcType="VARCHAR" property="isyx" />
+    <result column="isbs" jdbcType="INTEGER" property="isbs" />
+    <result column="lastUpdateTime" jdbcType="TIMESTAMP" property="lastUpdateTime" />
+    <result column="lastUpdateAccountId" jdbcType="VARCHAR" property="lastUpdateAccountId" />
+    <result column="WLBH1Number" jdbcType="VARCHAR" property="wlbh1number" />
+    <result column="WLBH2Number" jdbcType="VARCHAR" property="wlbh2number" />
+    <result column="Color" jdbcType="VARCHAR" property="color" />
+    <result column="isFX" jdbcType="INTEGER" property="isfx" />
+    <result column="SampleKeepFailed" jdbcType="INTEGER" property="sampleKeepFailed" />
+    <result column="LampType" jdbcType="VARCHAR" property="lampType" />
+    <result column="ConsistencyCheck" jdbcType="INTEGER" property="consistencyCheck" />
+    <result column="iszddq" jdbcType="INTEGER" property="iszddq" />
+    <result column="zddqwz" jdbcType="CHAR" property="zddqwz" />
+    <result column="WLBH1ModelType" jdbcType="VARCHAR" property="wlbh1ModelType" />
+    <result column="WLBH2ModelType" jdbcType="VARCHAR" property="wlbh2ModelType" />
+    <result column="rglName" jdbcType="VARCHAR" property="rglName" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    LSBH, ZZPBH, ZZPCD, GBBH, SCBZ, SCRQ, GH1, GH2, GH3, SBBH, WLBH1, WLBH2, LSTWD, LSTSD, 
+    SFQX, ZDR, ZDRQ, SHR, SHRQ, GB, ISrise, manufactureType, classA, classB, classC, 
+    velocity, dxsp, isrgl, SBBH1, PLWXH, zlh, MPSH, numOfSml, isClareStove, isClareMold, 
+    strStove, strMold, strRise, YM, ISLSOK, GROUPID, NextGPTime, AllotCount, igCount, 
+    FA, FB, FC, FLENC, FLENB, FLENA, StrCL, StrCL1, StrCL2, StrF, strFormula, clTotal, 
+    Mchange, LLCD, sxcd, mpcd, PJnum, JDWZ, isout, ischange, bwl, bwlbz, jsbz, ismini, 
+    isyx, isbs, lastUpdateTime, lastUpdateAccountId, WLBH1Number, WLBH2Number, Color, 
+    isFX, SampleKeepFailed, LampType, ConsistencyCheck, iszddq, zddqwz, WLBH1ModelType, 
+    WLBH2ModelType, rglName
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from SC_LS1
+    where LSBH = #{lsbh,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from SC_LS1
+    where LSBH = #{lsbh,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.ht.shaixuan.entity.ScLs1">
+    <!--@mbg.generated-->
+    insert into SC_LS1 (LSBH, ZZPBH, ZZPCD, 
+      GBBH, SCBZ, SCRQ, 
+      GH1, GH2, GH3, SBBH, 
+      WLBH1, WLBH2, LSTWD, 
+      LSTSD, SFQX, ZDR, ZDRQ, 
+      SHR, SHRQ, GB, ISrise, 
+      manufactureType, classA, classB, 
+      classC, velocity, dxsp, 
+      isrgl, SBBH1, PLWXH, 
+      zlh, MPSH, numOfSml, 
+      isClareStove, isClareMold, strStove, 
+      strMold, strRise, YM, ISLSOK, 
+      GROUPID, NextGPTime, AllotCount, 
+      igCount, FA, FB, FC, 
+      FLENC, FLENB, FLENA, StrCL, 
+      StrCL1, StrCL2, StrF, strFormula, 
+      clTotal, Mchange, LLCD, sxcd, 
+      mpcd, PJnum, JDWZ, isout, 
+      ischange, bwl, bwlbz, 
+      jsbz, ismini, isyx, isbs, 
+      lastUpdateTime, lastUpdateAccountId, 
+      WLBH1Number, WLBH2Number, Color, 
+      isFX, SampleKeepFailed, LampType, 
+      ConsistencyCheck, iszddq, zddqwz, 
+      WLBH1ModelType, WLBH2ModelType, rglName
+      )
+    values (#{lsbh,jdbcType=VARCHAR}, #{zzpbh,jdbcType=VARCHAR}, #{zzpcd,jdbcType=OTHER}, 
+      #{gbbh,jdbcType=VARCHAR}, #{scbz,jdbcType=VARCHAR}, #{scrq,jdbcType=TIMESTAMP}, 
+      #{gh1,jdbcType=VARCHAR}, #{gh2,jdbcType=VARCHAR}, #{gh3,jdbcType=VARCHAR}, #{sbbh,jdbcType=VARCHAR}, 
+      #{wlbh1,jdbcType=VARCHAR}, #{wlbh2,jdbcType=VARCHAR}, #{lstwd,jdbcType=OTHER}, 
+      #{lstsd,jdbcType=OTHER}, #{sfqx,jdbcType=VARCHAR}, #{zdr,jdbcType=VARCHAR}, #{zdrq,jdbcType=TIMESTAMP}, 
+      #{checker,jdbcType=VARCHAR}, #{shrq,jdbcType=TIMESTAMP}, #{gb,jdbcType=VARCHAR}, #{isrise,jdbcType=INTEGER},
+      #{manufactureType,jdbcType=CHAR}, #{classa,jdbcType=FLOAT}, #{classb,jdbcType=FLOAT}, 
+      #{classc,jdbcType=FLOAT}, #{velocity,jdbcType=INTEGER}, #{dxsp,jdbcType=CHAR}, 
+      #{isrgl,jdbcType=INTEGER}, #{sbbh1,jdbcType=VARCHAR}, #{plwxh,jdbcType=VARCHAR}, 
+      #{zlh,jdbcType=VARCHAR}, #{mpsh,jdbcType=VARCHAR}, #{numOfSml,jdbcType=INTEGER}, 
+      #{isClareStove,jdbcType=INTEGER}, #{isClareMold,jdbcType=INTEGER}, #{strStove,jdbcType=CHAR}, 
+      #{strMold,jdbcType=CHAR}, #{strRise,jdbcType=CHAR}, #{ym,jdbcType=CHAR}, #{islsok,jdbcType=INTEGER}, 
+      #{groupId,jdbcType=INTEGER}, #{nextGptime,jdbcType=TIMESTAMP}, #{allotCount,jdbcType=INTEGER}, 
+      #{igCount,jdbcType=INTEGER}, #{fa,jdbcType=FLOAT}, #{fb,jdbcType=FLOAT}, #{fc,jdbcType=FLOAT}, 
+      #{flenc,jdbcType=FLOAT}, #{flenb,jdbcType=FLOAT}, #{flena,jdbcType=FLOAT}, #{strcl,jdbcType=CHAR}, 
+      #{strcl1,jdbcType=CHAR}, #{strcl2,jdbcType=CHAR}, #{strf,jdbcType=CHAR}, #{strFormula,jdbcType=CHAR}, 
+      #{clTotal,jdbcType=FLOAT}, #{mchange,jdbcType=CHAR}, #{llcd,jdbcType=FLOAT}, #{sxcd,jdbcType=FLOAT}, 
+      #{mpcd,jdbcType=FLOAT}, #{pjnum,jdbcType=CHAR}, #{jdwz,jdbcType=FLOAT}, #{isout,jdbcType=INTEGER}, 
+      #{ischange,jdbcType=INTEGER}, #{bwl,jdbcType=INTEGER}, #{bwlbz,jdbcType=CHAR}, 
+      #{jsbz,jdbcType=CHAR}, #{ismini,jdbcType=VARCHAR}, #{isyx,jdbcType=VARCHAR}, #{isbs,jdbcType=INTEGER}, 
+      #{lastUpdateTime,jdbcType=TIMESTAMP}, #{lastUpdateAccountId,jdbcType=VARCHAR}, 
+      #{wlbh1number,jdbcType=VARCHAR}, #{wlbh2number,jdbcType=VARCHAR}, #{color,jdbcType=VARCHAR}, 
+      #{isfx,jdbcType=INTEGER}, #{sampleKeepFailed,jdbcType=INTEGER}, #{lampType,jdbcType=VARCHAR}, 
+      #{consistencyCheck,jdbcType=INTEGER}, #{iszddq,jdbcType=INTEGER}, #{zddqwz,jdbcType=CHAR}, 
+      #{wlbh1ModelType,jdbcType=VARCHAR}, #{wlbh2ModelType,jdbcType=VARCHAR}, #{rglName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ht.shaixuan.entity.ScLs1">
+    <!--@mbg.generated-->
+    insert into SC_LS1
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="lsbh != null">
+        LSBH,
+      </if>
+      <if test="zzpbh != null">
+        ZZPBH,
+      </if>
+      <if test="zzpcd != null">
+        ZZPCD,
+      </if>
+      <if test="gbbh != null">
+        GBBH,
+      </if>
+      <if test="scbz != null">
+        SCBZ,
+      </if>
+      <if test="scrq != null">
+        SCRQ,
+      </if>
+      <if test="gh1 != null">
+        GH1,
+      </if>
+      <if test="gh2 != null">
+        GH2,
+      </if>
+      <if test="gh3 != null">
+        GH3,
+      </if>
+      <if test="sbbh != null">
+        SBBH,
+      </if>
+      <if test="wlbh1 != null">
+        WLBH1,
+      </if>
+      <if test="wlbh2 != null">
+        WLBH2,
+      </if>
+      <if test="lstwd != null">
+        LSTWD,
+      </if>
+      <if test="lstsd != null">
+        LSTSD,
+      </if>
+      <if test="sfqx != null">
+        SFQX,
+      </if>
+      <if test="zdr != null">
+        ZDR,
+      </if>
+      <if test="zdrq != null">
+        ZDRQ,
+      </if>
+      <if test="checker != null">
+        SHR,
+      </if>
+      <if test="shrq != null">
+        SHRQ,
+      </if>
+      <if test="gb != null">
+        GB,
+      </if>
+      <if test="isrise != null">
+        ISrise,
+      </if>
+      <if test="manufactureType != null">
+        manufactureType,
+      </if>
+      <if test="classa != null">
+        classA,
+      </if>
+      <if test="classb != null">
+        classB,
+      </if>
+      <if test="classc != null">
+        classC,
+      </if>
+      <if test="velocity != null">
+        velocity,
+      </if>
+      <if test="dxsp != null">
+        dxsp,
+      </if>
+      <if test="isrgl != null">
+        isrgl,
+      </if>
+      <if test="sbbh1 != null">
+        SBBH1,
+      </if>
+      <if test="plwxh != null">
+        PLWXH,
+      </if>
+      <if test="zlh != null">
+        zlh,
+      </if>
+      <if test="mpsh != null">
+        MPSH,
+      </if>
+      <if test="numOfSml != null">
+        numOfSml,
+      </if>
+      <if test="isClareStove != null">
+        isClareStove,
+      </if>
+      <if test="isClareMold != null">
+        isClareMold,
+      </if>
+      <if test="strStove != null">
+        strStove,
+      </if>
+      <if test="strMold != null">
+        strMold,
+      </if>
+      <if test="strRise != null">
+        strRise,
+      </if>
+      <if test="ym != null">
+        YM,
+      </if>
+      <if test="islsok != null">
+        ISLSOK,
+      </if>
+      <if test="groupId != null">
+        GROUPID,
+      </if>
+      <if test="nextGptime != null">
+        NextGPTime,
+      </if>
+      <if test="allotCount != null">
+        AllotCount,
+      </if>
+      <if test="igCount != null">
+        igCount,
+      </if>
+      <if test="fa != null">
+        FA,
+      </if>
+      <if test="fb != null">
+        FB,
+      </if>
+      <if test="fc != null">
+        FC,
+      </if>
+      <if test="flenc != null">
+        FLENC,
+      </if>
+      <if test="flenb != null">
+        FLENB,
+      </if>
+      <if test="flena != null">
+        FLENA,
+      </if>
+      <if test="strcl != null">
+        StrCL,
+      </if>
+      <if test="strcl1 != null">
+        StrCL1,
+      </if>
+      <if test="strcl2 != null">
+        StrCL2,
+      </if>
+      <if test="strf != null">
+        StrF,
+      </if>
+      <if test="strFormula != null">
+        strFormula,
+      </if>
+      <if test="clTotal != null">
+        clTotal,
+      </if>
+      <if test="mchange != null">
+        Mchange,
+      </if>
+      <if test="llcd != null">
+        LLCD,
+      </if>
+      <if test="sxcd != null">
+        sxcd,
+      </if>
+      <if test="mpcd != null">
+        mpcd,
+      </if>
+      <if test="pjnum != null">
+        PJnum,
+      </if>
+      <if test="jdwz != null">
+        JDWZ,
+      </if>
+      <if test="isout != null">
+        isout,
+      </if>
+      <if test="ischange != null">
+        ischange,
+      </if>
+      <if test="bwl != null">
+        bwl,
+      </if>
+      <if test="bwlbz != null">
+        bwlbz,
+      </if>
+      <if test="jsbz != null">
+        jsbz,
+      </if>
+      <if test="ismini != null">
+        ismini,
+      </if>
+      <if test="isyx != null">
+        isyx,
+      </if>
+      <if test="isbs != null">
+        isbs,
+      </if>
+      <if test="lastUpdateTime != null">
+        lastUpdateTime,
+      </if>
+      <if test="lastUpdateAccountId != null">
+        lastUpdateAccountId,
+      </if>
+      <if test="wlbh1number != null">
+        WLBH1Number,
+      </if>
+      <if test="wlbh2number != null">
+        WLBH2Number,
+      </if>
+      <if test="color != null">
+        Color,
+      </if>
+      <if test="isfx != null">
+        isFX,
+      </if>
+      <if test="sampleKeepFailed != null">
+        SampleKeepFailed,
+      </if>
+      <if test="lampType != null">
+        LampType,
+      </if>
+      <if test="consistencyCheck != null">
+        ConsistencyCheck,
+      </if>
+      <if test="iszddq != null">
+        iszddq,
+      </if>
+      <if test="zddqwz != null">
+        zddqwz,
+      </if>
+      <if test="wlbh1ModelType != null">
+        WLBH1ModelType,
+      </if>
+      <if test="wlbh2ModelType != null">
+        WLBH2ModelType,
+      </if>
+      <if test="rglName != null">
+        rglName,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="lsbh != null">
+        #{lsbh,jdbcType=VARCHAR},
+      </if>
+      <if test="zzpbh != null">
+        #{zzpbh,jdbcType=VARCHAR},
+      </if>
+      <if test="zzpcd != null">
+        #{zzpcd,jdbcType=OTHER},
+      </if>
+      <if test="gbbh != null">
+        #{gbbh,jdbcType=VARCHAR},
+      </if>
+      <if test="scbz != null">
+        #{scbz,jdbcType=VARCHAR},
+      </if>
+      <if test="scrq != null">
+        #{scrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gh1 != null">
+        #{gh1,jdbcType=VARCHAR},
+      </if>
+      <if test="gh2 != null">
+        #{gh2,jdbcType=VARCHAR},
+      </if>
+      <if test="gh3 != null">
+        #{gh3,jdbcType=VARCHAR},
+      </if>
+      <if test="sbbh != null">
+        #{sbbh,jdbcType=VARCHAR},
+      </if>
+      <if test="wlbh1 != null">
+        #{wlbh1,jdbcType=VARCHAR},
+      </if>
+      <if test="wlbh2 != null">
+        #{wlbh2,jdbcType=VARCHAR},
+      </if>
+      <if test="lstwd != null">
+        #{lstwd,jdbcType=OTHER},
+      </if>
+      <if test="lstsd != null">
+        #{lstsd,jdbcType=OTHER},
+      </if>
+      <if test="sfqx != null">
+        #{sfqx,jdbcType=VARCHAR},
+      </if>
+      <if test="zdr != null">
+        #{zdr,jdbcType=VARCHAR},
+      </if>
+      <if test="zdrq != null">
+        #{zdrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checker != null">
+        #{checker,jdbcType=VARCHAR},
+      </if>
+      <if test="shrq != null">
+        #{shrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gb != null">
+        #{gb,jdbcType=VARCHAR},
+      </if>
+      <if test="isrise != null">
+        #{isrise,jdbcType=INTEGER},
+      </if>
+      <if test="manufactureType != null">
+        #{manufactureType,jdbcType=CHAR},
+      </if>
+      <if test="classa != null">
+        #{classa,jdbcType=FLOAT},
+      </if>
+      <if test="classb != null">
+        #{classb,jdbcType=FLOAT},
+      </if>
+      <if test="classc != null">
+        #{classc,jdbcType=FLOAT},
+      </if>
+      <if test="velocity != null">
+        #{velocity,jdbcType=INTEGER},
+      </if>
+      <if test="dxsp != null">
+        #{dxsp,jdbcType=CHAR},
+      </if>
+      <if test="isrgl != null">
+        #{isrgl,jdbcType=INTEGER},
+      </if>
+      <if test="sbbh1 != null">
+        #{sbbh1,jdbcType=VARCHAR},
+      </if>
+      <if test="plwxh != null">
+        #{plwxh,jdbcType=VARCHAR},
+      </if>
+      <if test="zlh != null">
+        #{zlh,jdbcType=VARCHAR},
+      </if>
+      <if test="mpsh != null">
+        #{mpsh,jdbcType=VARCHAR},
+      </if>
+      <if test="numOfSml != null">
+        #{numOfSml,jdbcType=INTEGER},
+      </if>
+      <if test="isClareStove != null">
+        #{isClareStove,jdbcType=INTEGER},
+      </if>
+      <if test="isClareMold != null">
+        #{isClareMold,jdbcType=INTEGER},
+      </if>
+      <if test="strStove != null">
+        #{strStove,jdbcType=CHAR},
+      </if>
+      <if test="strMold != null">
+        #{strMold,jdbcType=CHAR},
+      </if>
+      <if test="strRise != null">
+        #{strRise,jdbcType=CHAR},
+      </if>
+      <if test="ym != null">
+        #{ym,jdbcType=CHAR},
+      </if>
+      <if test="islsok != null">
+        #{islsok,jdbcType=INTEGER},
+      </if>
+      <if test="groupId != null">
+        #{groupId,jdbcType=INTEGER},
+      </if>
+      <if test="nextGptime != null">
+        #{nextGptime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="allotCount != null">
+        #{allotCount,jdbcType=INTEGER},
+      </if>
+      <if test="igCount != null">
+        #{igCount,jdbcType=INTEGER},
+      </if>
+      <if test="fa != null">
+        #{fa,jdbcType=FLOAT},
+      </if>
+      <if test="fb != null">
+        #{fb,jdbcType=FLOAT},
+      </if>
+      <if test="fc != null">
+        #{fc,jdbcType=FLOAT},
+      </if>
+      <if test="flenc != null">
+        #{flenc,jdbcType=FLOAT},
+      </if>
+      <if test="flenb != null">
+        #{flenb,jdbcType=FLOAT},
+      </if>
+      <if test="flena != null">
+        #{flena,jdbcType=FLOAT},
+      </if>
+      <if test="strcl != null">
+        #{strcl,jdbcType=CHAR},
+      </if>
+      <if test="strcl1 != null">
+        #{strcl1,jdbcType=CHAR},
+      </if>
+      <if test="strcl2 != null">
+        #{strcl2,jdbcType=CHAR},
+      </if>
+      <if test="strf != null">
+        #{strf,jdbcType=CHAR},
+      </if>
+      <if test="strFormula != null">
+        #{strFormula,jdbcType=CHAR},
+      </if>
+      <if test="clTotal != null">
+        #{clTotal,jdbcType=FLOAT},
+      </if>
+      <if test="mchange != null">
+        #{mchange,jdbcType=CHAR},
+      </if>
+      <if test="llcd != null">
+        #{llcd,jdbcType=FLOAT},
+      </if>
+      <if test="sxcd != null">
+        #{sxcd,jdbcType=FLOAT},
+      </if>
+      <if test="mpcd != null">
+        #{mpcd,jdbcType=FLOAT},
+      </if>
+      <if test="pjnum != null">
+        #{pjnum,jdbcType=CHAR},
+      </if>
+      <if test="jdwz != null">
+        #{jdwz,jdbcType=FLOAT},
+      </if>
+      <if test="isout != null">
+        #{isout,jdbcType=INTEGER},
+      </if>
+      <if test="ischange != null">
+        #{ischange,jdbcType=INTEGER},
+      </if>
+      <if test="bwl != null">
+        #{bwl,jdbcType=INTEGER},
+      </if>
+      <if test="bwlbz != null">
+        #{bwlbz,jdbcType=CHAR},
+      </if>
+      <if test="jsbz != null">
+        #{jsbz,jdbcType=CHAR},
+      </if>
+      <if test="ismini != null">
+        #{ismini,jdbcType=VARCHAR},
+      </if>
+      <if test="isyx != null">
+        #{isyx,jdbcType=VARCHAR},
+      </if>
+      <if test="isbs != null">
+        #{isbs,jdbcType=INTEGER},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdateAccountId != null">
+        #{lastUpdateAccountId,jdbcType=VARCHAR},
+      </if>
+      <if test="wlbh1number != null">
+        #{wlbh1number,jdbcType=VARCHAR},
+      </if>
+      <if test="wlbh2number != null">
+        #{wlbh2number,jdbcType=VARCHAR},
+      </if>
+      <if test="color != null">
+        #{color,jdbcType=VARCHAR},
+      </if>
+      <if test="isfx != null">
+        #{isfx,jdbcType=INTEGER},
+      </if>
+      <if test="sampleKeepFailed != null">
+        #{sampleKeepFailed,jdbcType=INTEGER},
+      </if>
+      <if test="lampType != null">
+        #{lampType,jdbcType=VARCHAR},
+      </if>
+      <if test="consistencyCheck != null">
+        #{consistencyCheck,jdbcType=INTEGER},
+      </if>
+      <if test="iszddq != null">
+        #{iszddq,jdbcType=INTEGER},
+      </if>
+      <if test="zddqwz != null">
+        #{zddqwz,jdbcType=CHAR},
+      </if>
+      <if test="wlbh1ModelType != null">
+        #{wlbh1ModelType,jdbcType=VARCHAR},
+      </if>
+      <if test="wlbh2ModelType != null">
+        #{wlbh2ModelType,jdbcType=VARCHAR},
+      </if>
+      <if test="rglName != null">
+        #{rglName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ht.shaixuan.entity.ScLs1">
+    <!--@mbg.generated-->
+    update SC_LS1
+    <set>
+      <if test="zzpbh != null">
+        ZZPBH = #{zzpbh,jdbcType=VARCHAR},
+      </if>
+      <if test="zzpcd != null">
+        ZZPCD = #{zzpcd,jdbcType=OTHER},
+      </if>
+      <if test="gbbh != null">
+        GBBH = #{gbbh,jdbcType=VARCHAR},
+      </if>
+      <if test="scbz != null">
+        SCBZ = #{scbz,jdbcType=VARCHAR},
+      </if>
+      <if test="scrq != null">
+        SCRQ = #{scrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gh1 != null">
+        GH1 = #{gh1,jdbcType=VARCHAR},
+      </if>
+      <if test="gh2 != null">
+        GH2 = #{gh2,jdbcType=VARCHAR},
+      </if>
+      <if test="gh3 != null">
+        GH3 = #{gh3,jdbcType=VARCHAR},
+      </if>
+      <if test="sbbh != null">
+        SBBH = #{sbbh,jdbcType=VARCHAR},
+      </if>
+      <if test="wlbh1 != null">
+        WLBH1 = #{wlbh1,jdbcType=VARCHAR},
+      </if>
+      <if test="wlbh2 != null">
+        WLBH2 = #{wlbh2,jdbcType=VARCHAR},
+      </if>
+      <if test="lstwd != null">
+        LSTWD = #{lstwd,jdbcType=OTHER},
+      </if>
+      <if test="lstsd != null">
+        LSTSD = #{lstsd,jdbcType=OTHER},
+      </if>
+      <if test="sfqx != null">
+        SFQX = #{sfqx,jdbcType=VARCHAR},
+      </if>
+      <if test="zdr != null">
+        ZDR = #{zdr,jdbcType=VARCHAR},
+      </if>
+      <if test="zdrq != null">
+        ZDRQ = #{zdrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="checker != null">
+        SHR = #{checker,jdbcType=VARCHAR},
+      </if>
+      <if test="shrq != null">
+        SHRQ = #{shrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gb != null">
+        GB = #{gb,jdbcType=VARCHAR},
+      </if>
+      <if test="isrise != null">
+        ISrise = #{isrise,jdbcType=INTEGER},
+      </if>
+      <if test="manufactureType != null">
+        manufactureType = #{manufactureType,jdbcType=CHAR},
+      </if>
+      <if test="classa != null">
+        classA = #{classa,jdbcType=FLOAT},
+      </if>
+      <if test="classb != null">
+        classB = #{classb,jdbcType=FLOAT},
+      </if>
+      <if test="classc != null">
+        classC = #{classc,jdbcType=FLOAT},
+      </if>
+      <if test="velocity != null">
+        velocity = #{velocity,jdbcType=INTEGER},
+      </if>
+      <if test="dxsp != null">
+        dxsp = #{dxsp,jdbcType=CHAR},
+      </if>
+      <if test="isrgl != null">
+        isrgl = #{isrgl,jdbcType=INTEGER},
+      </if>
+      <if test="sbbh1 != null">
+        SBBH1 = #{sbbh1,jdbcType=VARCHAR},
+      </if>
+      <if test="plwxh != null">
+        PLWXH = #{plwxh,jdbcType=VARCHAR},
+      </if>
+      <if test="zlh != null">
+        zlh = #{zlh,jdbcType=VARCHAR},
+      </if>
+      <if test="mpsh != null">
+        MPSH = #{mpsh,jdbcType=VARCHAR},
+      </if>
+      <if test="numOfSml != null">
+        numOfSml = #{numOfSml,jdbcType=INTEGER},
+      </if>
+      <if test="isClareStove != null">
+        isClareStove = #{isClareStove,jdbcType=INTEGER},
+      </if>
+      <if test="isClareMold != null">
+        isClareMold = #{isClareMold,jdbcType=INTEGER},
+      </if>
+      <if test="strStove != null">
+        strStove = #{strStove,jdbcType=CHAR},
+      </if>
+      <if test="strMold != null">
+        strMold = #{strMold,jdbcType=CHAR},
+      </if>
+      <if test="strRise != null">
+        strRise = #{strRise,jdbcType=CHAR},
+      </if>
+      <if test="ym != null">
+        YM = #{ym,jdbcType=CHAR},
+      </if>
+      <if test="islsok != null">
+        ISLSOK = #{islsok,jdbcType=INTEGER},
+      </if>
+      <if test="groupId != null">
+        GROUPID = #{groupId,jdbcType=INTEGER},
+      </if>
+      <if test="nextGptime != null">
+        NextGPTime = #{nextGptime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="allotCount != null">
+        AllotCount = #{allotCount,jdbcType=INTEGER},
+      </if>
+      <if test="igCount != null">
+        igCount = #{igCount,jdbcType=INTEGER},
+      </if>
+      <if test="fa != null">
+        FA = #{fa,jdbcType=FLOAT},
+      </if>
+      <if test="fb != null">
+        FB = #{fb,jdbcType=FLOAT},
+      </if>
+      <if test="fc != null">
+        FC = #{fc,jdbcType=FLOAT},
+      </if>
+      <if test="flenc != null">
+        FLENC = #{flenc,jdbcType=FLOAT},
+      </if>
+      <if test="flenb != null">
+        FLENB = #{flenb,jdbcType=FLOAT},
+      </if>
+      <if test="flena != null">
+        FLENA = #{flena,jdbcType=FLOAT},
+      </if>
+      <if test="strcl != null">
+        StrCL = #{strcl,jdbcType=CHAR},
+      </if>
+      <if test="strcl1 != null">
+        StrCL1 = #{strcl1,jdbcType=CHAR},
+      </if>
+      <if test="strcl2 != null">
+        StrCL2 = #{strcl2,jdbcType=CHAR},
+      </if>
+      <if test="strf != null">
+        StrF = #{strf,jdbcType=CHAR},
+      </if>
+      <if test="strFormula != null">
+        strFormula = #{strFormula,jdbcType=CHAR},
+      </if>
+      <if test="clTotal != null">
+        clTotal = #{clTotal,jdbcType=FLOAT},
+      </if>
+      <if test="mchange != null">
+        Mchange = #{mchange,jdbcType=CHAR},
+      </if>
+      <if test="llcd != null">
+        LLCD = #{llcd,jdbcType=FLOAT},
+      </if>
+      <if test="sxcd != null">
+        sxcd = #{sxcd,jdbcType=FLOAT},
+      </if>
+      <if test="mpcd != null">
+        mpcd = #{mpcd,jdbcType=FLOAT},
+      </if>
+      <if test="pjnum != null">
+        PJnum = #{pjnum,jdbcType=CHAR},
+      </if>
+      <if test="jdwz != null">
+        JDWZ = #{jdwz,jdbcType=FLOAT},
+      </if>
+      <if test="isout != null">
+        isout = #{isout,jdbcType=INTEGER},
+      </if>
+      <if test="ischange != null">
+        ischange = #{ischange,jdbcType=INTEGER},
+      </if>
+      <if test="bwl != null">
+        bwl = #{bwl,jdbcType=INTEGER},
+      </if>
+      <if test="bwlbz != null">
+        bwlbz = #{bwlbz,jdbcType=CHAR},
+      </if>
+      <if test="jsbz != null">
+        jsbz = #{jsbz,jdbcType=CHAR},
+      </if>
+      <if test="ismini != null">
+        ismini = #{ismini,jdbcType=VARCHAR},
+      </if>
+      <if test="isyx != null">
+        isyx = #{isyx,jdbcType=VARCHAR},
+      </if>
+      <if test="isbs != null">
+        isbs = #{isbs,jdbcType=INTEGER},
+      </if>
+      <if test="lastUpdateTime != null">
+        lastUpdateTime = #{lastUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdateAccountId != null">
+        lastUpdateAccountId = #{lastUpdateAccountId,jdbcType=VARCHAR},
+      </if>
+      <if test="wlbh1number != null">
+        WLBH1Number = #{wlbh1number,jdbcType=VARCHAR},
+      </if>
+      <if test="wlbh2number != null">
+        WLBH2Number = #{wlbh2number,jdbcType=VARCHAR},
+      </if>
+      <if test="color != null">
+        Color = #{color,jdbcType=VARCHAR},
+      </if>
+      <if test="isfx != null">
+        isFX = #{isfx,jdbcType=INTEGER},
+      </if>
+      <if test="sampleKeepFailed != null">
+        SampleKeepFailed = #{sampleKeepFailed,jdbcType=INTEGER},
+      </if>
+      <if test="lampType != null">
+        LampType = #{lampType,jdbcType=VARCHAR},
+      </if>
+      <if test="consistencyCheck != null">
+        ConsistencyCheck = #{consistencyCheck,jdbcType=INTEGER},
+      </if>
+      <if test="iszddq != null">
+        iszddq = #{iszddq,jdbcType=INTEGER},
+      </if>
+      <if test="zddqwz != null">
+        zddqwz = #{zddqwz,jdbcType=CHAR},
+      </if>
+      <if test="wlbh1ModelType != null">
+        WLBH1ModelType = #{wlbh1ModelType,jdbcType=VARCHAR},
+      </if>
+      <if test="wlbh2ModelType != null">
+        WLBH2ModelType = #{wlbh2ModelType,jdbcType=VARCHAR},
+      </if>
+      <if test="rglName != null">
+        rglName = #{rglName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where LSBH = #{lsbh,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ht.shaixuan.entity.ScLs1">
+    <!--@mbg.generated-->
+    update SC_LS1
+    set ZZPBH = #{zzpbh,jdbcType=VARCHAR},
+      ZZPCD = #{zzpcd,jdbcType=OTHER},
+      GBBH = #{gbbh,jdbcType=VARCHAR},
+      SCBZ = #{scbz,jdbcType=VARCHAR},
+      SCRQ = #{scrq,jdbcType=TIMESTAMP},
+      GH1 = #{gh1,jdbcType=VARCHAR},
+      GH2 = #{gh2,jdbcType=VARCHAR},
+      GH3 = #{gh3,jdbcType=VARCHAR},
+      SBBH = #{sbbh,jdbcType=VARCHAR},
+      WLBH1 = #{wlbh1,jdbcType=VARCHAR},
+      WLBH2 = #{wlbh2,jdbcType=VARCHAR},
+      LSTWD = #{lstwd,jdbcType=OTHER},
+      LSTSD = #{lstsd,jdbcType=OTHER},
+      SFQX = #{sfqx,jdbcType=VARCHAR},
+      ZDR = #{zdr,jdbcType=VARCHAR},
+      ZDRQ = #{zdrq,jdbcType=TIMESTAMP},
+      SHR = #{checker,jdbcType=VARCHAR},
+      SHRQ = #{shrq,jdbcType=TIMESTAMP},
+      GB = #{gb,jdbcType=VARCHAR},
+      ISrise = #{isrise,jdbcType=INTEGER},
+      manufactureType = #{manufactureType,jdbcType=CHAR},
+      classA = #{classa,jdbcType=FLOAT},
+      classB = #{classb,jdbcType=FLOAT},
+      classC = #{classc,jdbcType=FLOAT},
+      velocity = #{velocity,jdbcType=INTEGER},
+      dxsp = #{dxsp,jdbcType=CHAR},
+      isrgl = #{isrgl,jdbcType=INTEGER},
+      SBBH1 = #{sbbh1,jdbcType=VARCHAR},
+      PLWXH = #{plwxh,jdbcType=VARCHAR},
+      zlh = #{zlh,jdbcType=VARCHAR},
+      MPSH = #{mpsh,jdbcType=VARCHAR},
+      numOfSml = #{numOfSml,jdbcType=INTEGER},
+      isClareStove = #{isClareStove,jdbcType=INTEGER},
+      isClareMold = #{isClareMold,jdbcType=INTEGER},
+      strStove = #{strStove,jdbcType=CHAR},
+      strMold = #{strMold,jdbcType=CHAR},
+      strRise = #{strRise,jdbcType=CHAR},
+      YM = #{ym,jdbcType=CHAR},
+      ISLSOK = #{islsok,jdbcType=INTEGER},
+      GROUPID = #{groupId,jdbcType=INTEGER},
+      NextGPTime = #{nextGptime,jdbcType=TIMESTAMP},
+      AllotCount = #{allotCount,jdbcType=INTEGER},
+      igCount = #{igCount,jdbcType=INTEGER},
+      FA = #{fa,jdbcType=FLOAT},
+      FB = #{fb,jdbcType=FLOAT},
+      FC = #{fc,jdbcType=FLOAT},
+      FLENC = #{flenc,jdbcType=FLOAT},
+      FLENB = #{flenb,jdbcType=FLOAT},
+      FLENA = #{flena,jdbcType=FLOAT},
+      StrCL = #{strcl,jdbcType=CHAR},
+      StrCL1 = #{strcl1,jdbcType=CHAR},
+      StrCL2 = #{strcl2,jdbcType=CHAR},
+      StrF = #{strf,jdbcType=CHAR},
+      strFormula = #{strFormula,jdbcType=CHAR},
+      clTotal = #{clTotal,jdbcType=FLOAT},
+      Mchange = #{mchange,jdbcType=CHAR},
+      LLCD = #{llcd,jdbcType=FLOAT},
+      sxcd = #{sxcd,jdbcType=FLOAT},
+      mpcd = #{mpcd,jdbcType=FLOAT},
+      PJnum = #{pjnum,jdbcType=CHAR},
+      JDWZ = #{jdwz,jdbcType=FLOAT},
+      isout = #{isout,jdbcType=INTEGER},
+      ischange = #{ischange,jdbcType=INTEGER},
+      bwl = #{bwl,jdbcType=INTEGER},
+      bwlbz = #{bwlbz,jdbcType=CHAR},
+      jsbz = #{jsbz,jdbcType=CHAR},
+      ismini = #{ismini,jdbcType=VARCHAR},
+      isyx = #{isyx,jdbcType=VARCHAR},
+      isbs = #{isbs,jdbcType=INTEGER},
+      lastUpdateTime = #{lastUpdateTime,jdbcType=TIMESTAMP},
+      lastUpdateAccountId = #{lastUpdateAccountId,jdbcType=VARCHAR},
+      WLBH1Number = #{wlbh1number,jdbcType=VARCHAR},
+      WLBH2Number = #{wlbh2number,jdbcType=VARCHAR},
+      Color = #{color,jdbcType=VARCHAR},
+      isFX = #{isfx,jdbcType=INTEGER},
+      SampleKeepFailed = #{sampleKeepFailed,jdbcType=INTEGER},
+      LampType = #{lampType,jdbcType=VARCHAR},
+      ConsistencyCheck = #{consistencyCheck,jdbcType=INTEGER},
+      iszddq = #{iszddq,jdbcType=INTEGER},
+      zddqwz = #{zddqwz,jdbcType=CHAR},
+      WLBH1ModelType = #{wlbh1ModelType,jdbcType=VARCHAR},
+      WLBH2ModelType = #{wlbh2ModelType,jdbcType=VARCHAR},
+      rglName = #{rglName,jdbcType=VARCHAR}
+    where LSBH = #{lsbh,jdbcType=VARCHAR}
+  </update>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update SC_LS1
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="ZZPBH = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.zzpbh,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="ZZPCD = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.zzpcd,jdbcType=OTHER}
+        </foreach>
+      </trim>
+      <trim prefix="GBBH = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.gbbh,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="SCBZ = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.scbz,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="SCRQ = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.scrq,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="GH1 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.gh1,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="GH2 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.gh2,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="GH3 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.gh3,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="SBBH = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.sbbh,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="WLBH1 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.wlbh1,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="WLBH2 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.wlbh2,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="LSTWD = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.lstwd,jdbcType=OTHER}
+        </foreach>
+      </trim>
+      <trim prefix="LSTSD = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.lstsd,jdbcType=OTHER}
+        </foreach>
+      </trim>
+      <trim prefix="SFQX = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.sfqx,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="ZDR = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.zdr,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="ZDRQ = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.zdrq,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="SHR = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.checker,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="SHRQ = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.shrq,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="GB = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.gb,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="ISrise = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.isrise,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="manufactureType = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.manufactureType,jdbcType=CHAR}
+        </foreach>
+      </trim>
+      <trim prefix="classA = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.classa,jdbcType=FLOAT}
+        </foreach>
+      </trim>
+      <trim prefix="classB = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.classb,jdbcType=FLOAT}
+        </foreach>
+      </trim>
+      <trim prefix="classC = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.classc,jdbcType=FLOAT}
+        </foreach>
+      </trim>
+      <trim prefix="velocity = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.velocity,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="dxsp = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.dxsp,jdbcType=CHAR}
+        </foreach>
+      </trim>
+      <trim prefix="isrgl = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.isrgl,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="SBBH1 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.sbbh1,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="PLWXH = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.plwxh,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="zlh = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.zlh,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="MPSH = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.mpsh,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="numOfSml = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.numOfSml,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="isClareStove = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.isClareStove,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="isClareMold = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.isClareMold,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="strStove = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.strStove,jdbcType=CHAR}
+        </foreach>
+      </trim>
+      <trim prefix="strMold = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.strMold,jdbcType=CHAR}
+        </foreach>
+      </trim>
+      <trim prefix="strRise = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.strRise,jdbcType=CHAR}
+        </foreach>
+      </trim>
+      <trim prefix="YM = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.ym,jdbcType=CHAR}
+        </foreach>
+      </trim>
+      <trim prefix="ISLSOK = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.islsok,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="GROUPID = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.groupId,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="NextGPTime = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.nextGptime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="AllotCount = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.allotCount,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="igCount = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.igCount,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="FA = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.fa,jdbcType=FLOAT}
+        </foreach>
+      </trim>
+      <trim prefix="FB = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.fb,jdbcType=FLOAT}
+        </foreach>
+      </trim>
+      <trim prefix="FC = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.fc,jdbcType=FLOAT}
+        </foreach>
+      </trim>
+      <trim prefix="FLENC = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.flenc,jdbcType=FLOAT}
+        </foreach>
+      </trim>
+      <trim prefix="FLENB = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.flenb,jdbcType=FLOAT}
+        </foreach>
+      </trim>
+      <trim prefix="FLENA = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.flena,jdbcType=FLOAT}
+        </foreach>
+      </trim>
+      <trim prefix="StrCL = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.strcl,jdbcType=CHAR}
+        </foreach>
+      </trim>
+      <trim prefix="StrCL1 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.strcl1,jdbcType=CHAR}
+        </foreach>
+      </trim>
+      <trim prefix="StrCL2 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.strcl2,jdbcType=CHAR}
+        </foreach>
+      </trim>
+      <trim prefix="StrF = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.strf,jdbcType=CHAR}
+        </foreach>
+      </trim>
+      <trim prefix="strFormula = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.strFormula,jdbcType=CHAR}
+        </foreach>
+      </trim>
+      <trim prefix="clTotal = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.clTotal,jdbcType=FLOAT}
+        </foreach>
+      </trim>
+      <trim prefix="Mchange = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.mchange,jdbcType=CHAR}
+        </foreach>
+      </trim>
+      <trim prefix="LLCD = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.llcd,jdbcType=FLOAT}
+        </foreach>
+      </trim>
+      <trim prefix="sxcd = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.sxcd,jdbcType=FLOAT}
+        </foreach>
+      </trim>
+      <trim prefix="mpcd = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.mpcd,jdbcType=FLOAT}
+        </foreach>
+      </trim>
+      <trim prefix="PJnum = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.pjnum,jdbcType=CHAR}
+        </foreach>
+      </trim>
+      <trim prefix="JDWZ = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.jdwz,jdbcType=FLOAT}
+        </foreach>
+      </trim>
+      <trim prefix="isout = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.isout,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="ischange = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.ischange,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="bwl = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.bwl,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="bwlbz = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.bwlbz,jdbcType=CHAR}
+        </foreach>
+      </trim>
+      <trim prefix="jsbz = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.jsbz,jdbcType=CHAR}
+        </foreach>
+      </trim>
+      <trim prefix="ismini = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.ismini,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="isyx = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.isyx,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="isbs = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.isbs,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="lastUpdateTime = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.lastUpdateTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="lastUpdateAccountId = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.lastUpdateAccountId,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="WLBH1Number = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.wlbh1number,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="WLBH2Number = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.wlbh2number,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="Color = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.color,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="isFX = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.isfx,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="SampleKeepFailed = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.sampleKeepFailed,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="LampType = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.lampType,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="ConsistencyCheck = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.consistencyCheck,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="iszddq = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.iszddq,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="zddqwz = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.zddqwz,jdbcType=CHAR}
+        </foreach>
+      </trim>
+      <trim prefix="WLBH1ModelType = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.wlbh1ModelType,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="WLBH2ModelType = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.wlbh2ModelType,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="rglName = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.rglName,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+    </trim>
+    where LSBH in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.lsbh,jdbcType=VARCHAR}
+    </foreach>
+  </update>
+  <insert id="batchInsert" parameterType="map">
+      <!--@mbg.generated-->
+      insert into SC_LS1
+      (LSBH, ZZPBH, ZZPCD, GBBH, SCBZ, SCRQ, GH1, GH2, GH3, SBBH, WLBH1, WLBH2, LSTWD,
+       LSTSD, SFQX, ZDR, ZDRQ, SHR, SHRQ, GB, ISrise, manufactureType, classA, classB,
+       classC, velocity, dxsp, isrgl, SBBH1, PLWXH, zlh, MPSH, numOfSml, isClareStove,
+       isClareMold, strStove, strMold, strRise, YM, ISLSOK, GROUPID, NextGPTime, AllotCount,
+       igCount, FA, FB, FC, FLENC, FLENB, FLENA, StrCL, StrCL1, StrCL2, StrF, strFormula,
+       clTotal, Mchange, LLCD, sxcd, mpcd, PJnum, JDWZ, isout, ischange, bwl, bwlbz, jsbz,
+       ismini, isyx, isbs, lastUpdateTime, lastUpdateAccountId, WLBH1Number, WLBH2Number,
+       Color, isFX, SampleKeepFailed, LampType, ConsistencyCheck, iszddq, zddqwz, WLBH1ModelType,
+       WLBH2ModelType, rglName)
+      values
+      <foreach collection="list" item="item" separator=",">
+          (#{item.lsbh,jdbcType=VARCHAR}, #{item.zzpbh,jdbcType=VARCHAR}, #{item.zzpcd,jdbcType=OTHER},
+           #{item.gbbh,jdbcType=VARCHAR}, #{item.scbz,jdbcType=VARCHAR}, #{item.scrq,jdbcType=TIMESTAMP},
+           #{item.gh1,jdbcType=VARCHAR}, #{item.gh2,jdbcType=VARCHAR}, #{item.gh3,jdbcType=VARCHAR},
+           #{item.sbbh,jdbcType=VARCHAR}, #{item.wlbh1,jdbcType=VARCHAR}, #{item.wlbh2,jdbcType=VARCHAR},
+           #{item.lstwd,jdbcType=OTHER}, #{item.lstsd,jdbcType=OTHER}, #{item.sfqx,jdbcType=VARCHAR},
+           #{item.zdr,jdbcType=VARCHAR}, #{item.zdrq,jdbcType=TIMESTAMP}, #{item.checker,jdbcType=VARCHAR},
+           #{item.shrq,jdbcType=TIMESTAMP}, #{item.gb,jdbcType=VARCHAR}, #{item.isrise,jdbcType=INTEGER},
+           #{item.manufactureType,jdbcType=CHAR}, #{item.classa,jdbcType=FLOAT}, #{item.classb,jdbcType=FLOAT},
+           #{item.classc,jdbcType=FLOAT}, #{item.velocity,jdbcType=INTEGER}, #{item.dxsp,jdbcType=CHAR},
+           #{item.isrgl,jdbcType=INTEGER}, #{item.sbbh1,jdbcType=VARCHAR}, #{item.plwxh,jdbcType=VARCHAR},
+           #{item.zlh,jdbcType=VARCHAR}, #{item.mpsh,jdbcType=VARCHAR}, #{item.numOfSml,jdbcType=INTEGER},
+           #{item.isClareStove,jdbcType=INTEGER}, #{item.isClareMold,jdbcType=INTEGER}, #{item.strStove,jdbcType=CHAR},
+           #{item.strMold,jdbcType=CHAR}, #{item.strRise,jdbcType=CHAR}, #{item.ym,jdbcType=CHAR},
+           #{item.islsok,jdbcType=INTEGER}, #{item.groupId,jdbcType=INTEGER}, #{item.nextGptime,jdbcType=TIMESTAMP},
+           #{item.allotCount,jdbcType=INTEGER}, #{item.igCount,jdbcType=INTEGER}, #{item.fa,jdbcType=FLOAT},
+           #{item.fb,jdbcType=FLOAT}, #{item.fc,jdbcType=FLOAT}, #{item.flenc,jdbcType=FLOAT},
+           #{item.flenb,jdbcType=FLOAT}, #{item.flena,jdbcType=FLOAT}, #{item.strcl,jdbcType=CHAR},
+           #{item.strcl1,jdbcType=CHAR}, #{item.strcl2,jdbcType=CHAR}, #{item.strf,jdbcType=CHAR},
+           #{item.strFormula,jdbcType=CHAR}, #{item.clTotal,jdbcType=FLOAT}, #{item.mchange,jdbcType=CHAR},
+           #{item.llcd,jdbcType=FLOAT}, #{item.sxcd,jdbcType=FLOAT}, #{item.mpcd,jdbcType=FLOAT},
+           #{item.pjnum,jdbcType=CHAR}, #{item.jdwz,jdbcType=FLOAT}, #{item.isout,jdbcType=INTEGER},
+           #{item.ischange,jdbcType=INTEGER}, #{item.bwl,jdbcType=INTEGER}, #{item.bwlbz,jdbcType=CHAR},
+           #{item.jsbz,jdbcType=CHAR}, #{item.ismini,jdbcType=VARCHAR}, #{item.isyx,jdbcType=VARCHAR},
+           #{item.isbs,jdbcType=INTEGER}, #{item.lastUpdateTime,jdbcType=TIMESTAMP},
+           #{item.lastUpdateAccountId,jdbcType=VARCHAR},
+           #{item.wlbh1number,jdbcType=VARCHAR}, #{item.wlbh2number,jdbcType=VARCHAR}, #{item.color,jdbcType=VARCHAR},
+           #{item.isfx,jdbcType=INTEGER}, #{item.sampleKeepFailed,jdbcType=INTEGER}, #{item.lampType,jdbcType=VARCHAR},
+           #{item.consistencyCheck,jdbcType=INTEGER}, #{item.iszddq,jdbcType=INTEGER}, #{item.zddqwz,jdbcType=CHAR},
+           #{item.wlbh1ModelType,jdbcType=VARCHAR}, #{item.wlbh2ModelType,jdbcType=VARCHAR},
+           #{item.rglName,jdbcType=VARCHAR})
+      </foreach>
+  </insert>
+</mapper>

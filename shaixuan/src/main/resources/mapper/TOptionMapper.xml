@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.shaixuan.mapper.TOptionMapper">
+  <resultMap id="BaseResultMap" type="com.ht.shaixuan.entity.TOption">
+    <!--@mbg.generated-->
+    <!--@Table T_Option-->
+    <id column="fId" jdbcType="INTEGER" property="fid" />
+    <result column="Action" jdbcType="VARCHAR" property="action" />
+    <result column="Option" jdbcType="VARCHAR" property="option" />
+    <result column="optionValue" jdbcType="VARCHAR" property="optionValue" />
+    <result column="Bz" jdbcType="VARCHAR" property="bz" />
+    <result column="Creator" jdbcType="VARCHAR" property="creator" />
+    <result column="Account" jdbcType="VARCHAR" property="account" />
+    <result column="Time" jdbcType="TIMESTAMP" property="time" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    fId, [Action], [Option], optionValue, Bz, Creator, Account, [Time]
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from T_Option
+    where fId = #{fid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from T_Option
+    where fId = #{fid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="fId" keyProperty="fid" parameterType="com.ht.shaixuan.entity.TOption" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into T_Option ([Action], [Option], optionValue, 
+      Bz, Creator, Account, 
+      [Time])
+    values (#{action,jdbcType=VARCHAR}, #{option,jdbcType=VARCHAR}, #{optionValue,jdbcType=VARCHAR}, 
+      #{bz,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{account,jdbcType=VARCHAR}, 
+      #{time,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="fId" keyProperty="fid" parameterType="com.ht.shaixuan.entity.TOption" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into T_Option
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="action != null">
+        [Action],
+      </if>
+      <if test="option != null">
+        [Option],
+      </if>
+      <if test="optionValue != null">
+        optionValue,
+      </if>
+      <if test="bz != null">
+        Bz,
+      </if>
+      <if test="creator != null">
+        Creator,
+      </if>
+      <if test="account != null">
+        Account,
+      </if>
+      <if test="time != null">
+        [Time],
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="action != null">
+        #{action,jdbcType=VARCHAR},
+      </if>
+      <if test="option != null">
+        #{option,jdbcType=VARCHAR},
+      </if>
+      <if test="optionValue != null">
+        #{optionValue,jdbcType=VARCHAR},
+      </if>
+      <if test="bz != null">
+        #{bz,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="account != null">
+        #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null">
+        #{time,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ht.shaixuan.entity.TOption">
+    <!--@mbg.generated-->
+    update T_Option
+    <set>
+      <if test="action != null">
+        [Action] = #{action,jdbcType=VARCHAR},
+      </if>
+      <if test="option != null">
+        [Option] = #{option,jdbcType=VARCHAR},
+      </if>
+      <if test="optionValue != null">
+        optionValue = #{optionValue,jdbcType=VARCHAR},
+      </if>
+      <if test="bz != null">
+        Bz = #{bz,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        Creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="account != null">
+        Account = #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null">
+        [Time] = #{time,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where fId = #{fid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ht.shaixuan.entity.TOption">
+    <!--@mbg.generated-->
+    update T_Option
+    set [Action] = #{action,jdbcType=VARCHAR},
+      [Option] = #{option,jdbcType=VARCHAR},
+      optionValue = #{optionValue,jdbcType=VARCHAR},
+      Bz = #{bz,jdbcType=VARCHAR},
+      Creator = #{creator,jdbcType=VARCHAR},
+      Account = #{account,jdbcType=VARCHAR},
+      [Time] = #{time,jdbcType=TIMESTAMP}
+    where fId = #{fid,jdbcType=INTEGER}
+  </update>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update T_Option
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="[Action] = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when fId = #{item.fid,jdbcType=INTEGER} then #{item.action,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="[Option] = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when fId = #{item.fid,jdbcType=INTEGER} then #{item.option,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="optionValue = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when fId = #{item.fid,jdbcType=INTEGER} then #{item.optionValue,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="Bz = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when fId = #{item.fid,jdbcType=INTEGER} then #{item.bz,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="Creator = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when fId = #{item.fid,jdbcType=INTEGER} then #{item.creator,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="Account = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when fId = #{item.fid,jdbcType=INTEGER} then #{item.account,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="[Time] = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when fId = #{item.fid,jdbcType=INTEGER} then #{item.time,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+    </trim>
+    where fId in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.fid,jdbcType=INTEGER}
+    </foreach>
+  </update>
+  <insert id="batchInsert" keyColumn="fId" keyProperty="fid" parameterType="map" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into T_Option
+    ([Action], [Option], optionValue, Bz, Creator, Account, [Time])
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.action,jdbcType=VARCHAR}, #{item.option,jdbcType=VARCHAR}, #{item.optionValue,jdbcType=VARCHAR}, 
+        #{item.bz,jdbcType=VARCHAR}, #{item.creator,jdbcType=VARCHAR}, #{item.account,jdbcType=VARCHAR}, 
+        #{item.time,jdbcType=TIMESTAMP})
+    </foreach>
+  </insert>
+</mapper>

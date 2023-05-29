@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.shaixuan.mapper.FiberCutMapper">
+    <resultMap id="BaseResultMap" type="com.ht.shaixuan.entity.ScLsQxqc">
+        <!--@mbg.generated-->
+        <!--@Table sc_ls_qxqc-->
+        <id column="LSBH" jdbcType="VARCHAR" property="lsbh"/>
+        <id column="xh" jdbcType="INTEGER" property="xh"/>
+        <result column="zzpbh" jdbcType="VARCHAR" property="zzpbh"/>
+        <result column="qxdlx" jdbcType="VARCHAR" property="qxdlx"/>
+        <result column="qswz" jdbcType="NUMERIC" property="qswz"/>
+        <result column="zzwz" jdbcType="NUMERIC" property="zzwz"/>
+        <result column="sfqc" jdbcType="VARCHAR" property="sfqc"/>
+        <result column="sfgl" jdbcType="VARCHAR" property="sfgl"/>
+        <result column="glyy" jdbcType="VARCHAR" property="glyy"/>
+        <result column="sfpbl" jdbcType="VARCHAR" property="sfpbl"/>
+        <result column="blyy" jdbcType="VARCHAR" property="blyy"/>
+        <result column="lastUpdateTime" jdbcType="TIMESTAMP" property="lastUpdateTime"/>
+        <result column="lastUpdateAccountId" jdbcType="VARCHAR" property="lastUpdateAccountId"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        LSBH,
+        xh,
+        zzpbh,
+        qxdlx,
+        qswz,
+        zzwz,
+        sfqc,
+        sfgl,
+        glyy,
+        sfpbl,
+        blyy,
+        lastUpdateTime,
+        lastUpdateAccountId
+    </sql>
+
+    <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from sc_ls_qxqc
+        where LSBH = #{lsbh,jdbcType=VARCHAR}
+          and xh = #{xh,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="map">
+        <!--@mbg.generated-->
+        delete
+        from sc_ls_qxqc
+        where LSBH = #{lsbh,jdbcType=VARCHAR}
+          and xh = #{xh,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="com.ht.shaixuan.entity.ScLsQxqc">
+        <!--@mbg.generated-->
+        insert into sc_ls_qxqc (LSBH, xh, zzpbh,
+                                qxdlx, qswz, zzwz,
+                                sfqc, sfgl, glyy, sfpbl,
+                                blyy, lastUpdateTime, lastUpdateAccountId)
+        values (#{lsbh,jdbcType=VARCHAR}, #{xh,jdbcType=INTEGER}, #{zzpbh,jdbcType=VARCHAR},
+                #{qxdlx,jdbcType=VARCHAR}, #{qswz,jdbcType=NUMERIC}, #{zzwz,jdbcType=NUMERIC},
+                #{sfqc,jdbcType=VARCHAR}, #{sfgl,jdbcType=VARCHAR}, #{glyy,jdbcType=VARCHAR}, #{sfpbl,jdbcType=VARCHAR},
+                #{blyy,jdbcType=VARCHAR}, #{lastUpdateTime,jdbcType=TIMESTAMP}, #{lastUpdateAccountId,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="com.ht.shaixuan.entity.ScLsQxqc">
+        <!--@mbg.generated-->
+        insert into sc_ls_qxqc
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="lsbh != null">
+                LSBH,
+            </if>
+            <if test="xh != null">
+                xh,
+            </if>
+            <if test="zzpbh != null">
+                zzpbh,
+            </if>
+            <if test="qxdlx != null">
+                qxdlx,
+            </if>
+            <if test="qswz != null">
+                qswz,
+            </if>
+            <if test="zzwz != null">
+                zzwz,
+            </if>
+            <if test="sfqc != null">
+                sfqc,
+            </if>
+            <if test="sfgl != null">
+                sfgl,
+            </if>
+            <if test="glyy != null">
+                glyy,
+            </if>
+            <if test="sfpbl != null">
+                sfpbl,
+            </if>
+            <if test="blyy != null">
+                blyy,
+            </if>
+            <if test="lastUpdateTime != null">
+                lastUpdateTime,
+            </if>
+            <if test="lastUpdateAccountId != null">
+                lastUpdateAccountId,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="lsbh != null">
+                #{lsbh,jdbcType=VARCHAR},
+            </if>
+            <if test="xh != null">
+                #{xh,jdbcType=INTEGER},
+            </if>
+            <if test="zzpbh != null">
+                #{zzpbh,jdbcType=VARCHAR},
+            </if>
+            <if test="qxdlx != null">
+                #{qxdlx,jdbcType=VARCHAR},
+            </if>
+            <if test="qswz != null">
+                #{qswz,jdbcType=NUMERIC},
+            </if>
+            <if test="zzwz != null">
+                #{zzwz,jdbcType=NUMERIC},
+            </if>
+            <if test="sfqc != null">
+                #{sfqc,jdbcType=VARCHAR},
+            </if>
+            <if test="sfgl != null">
+                #{sfgl,jdbcType=VARCHAR},
+            </if>
+            <if test="glyy != null">
+                #{glyy,jdbcType=VARCHAR},
+            </if>
+            <if test="sfpbl != null">
+                #{sfpbl,jdbcType=VARCHAR},
+            </if>
+            <if test="blyy != null">
+                #{blyy,jdbcType=VARCHAR},
+            </if>
+            <if test="lastUpdateTime != null">
+                #{lastUpdateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lastUpdateAccountId != null">
+                #{lastUpdateAccountId,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.ht.shaixuan.entity.ScLsQxqc">
+        <!--@mbg.generated-->
+        update sc_ls_qxqc
+        <set>
+            <if test="zzpbh != null">
+                zzpbh = #{zzpbh,jdbcType=VARCHAR},
+            </if>
+            <if test="qxdlx != null">
+                qxdlx = #{qxdlx,jdbcType=VARCHAR},
+            </if>
+            <if test="qswz != null">
+                qswz = #{qswz,jdbcType=NUMERIC},
+            </if>
+            <if test="zzwz != null">
+                zzwz = #{zzwz,jdbcType=NUMERIC},
+            </if>
+            <if test="sfqc != null">
+                sfqc = #{sfqc,jdbcType=VARCHAR},
+            </if>
+            <if test="sfgl != null">
+                sfgl = #{sfgl,jdbcType=VARCHAR},
+            </if>
+            <if test="glyy != null">
+                glyy = #{glyy,jdbcType=VARCHAR},
+            </if>
+            <if test="sfpbl != null">
+                sfpbl = #{sfpbl,jdbcType=VARCHAR},
+            </if>
+            <if test="blyy != null">
+                blyy = #{blyy,jdbcType=VARCHAR},
+            </if>
+            <if test="lastUpdateTime != null">
+                lastUpdateTime = #{lastUpdateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lastUpdateAccountId != null">
+                lastUpdateAccountId = #{lastUpdateAccountId,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where LSBH = #{lsbh,jdbcType=VARCHAR}
+          and xh = #{xh,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.ht.shaixuan.entity.ScLsQxqc">
+        <!--@mbg.generated-->
+        update sc_ls_qxqc
+        set zzpbh               = #{zzpbh,jdbcType=VARCHAR},
+            qxdlx               = #{qxdlx,jdbcType=VARCHAR},
+            qswz                = #{qswz,jdbcType=NUMERIC},
+            zzwz                = #{zzwz,jdbcType=NUMERIC},
+            sfqc                = #{sfqc,jdbcType=VARCHAR},
+            sfgl                = #{sfgl,jdbcType=VARCHAR},
+            glyy                = #{glyy,jdbcType=VARCHAR},
+            sfpbl               = #{sfpbl,jdbcType=VARCHAR},
+            blyy                = #{blyy,jdbcType=VARCHAR},
+            lastUpdateTime      = #{lastUpdateTime,jdbcType=TIMESTAMP},
+            lastUpdateAccountId = #{lastUpdateAccountId,jdbcType=VARCHAR}
+        where LSBH = #{lsbh,jdbcType=VARCHAR}
+          and xh = #{xh,jdbcType=INTEGER}
+    </update>
+    <update id="updateBatch" parameterType="java.util.List">
+        <!--@mbg.generated-->
+        update sc_ls_qxqc
+        <trim prefix="set" suffixOverrides=",">
+            <trim prefix="zzpbh = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.zzpbh,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="qxdlx = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.qxdlx,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="qswz = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.qswz,jdbcType=NUMERIC}
+                </foreach>
+            </trim>
+            <trim prefix="zzwz = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.zzwz,jdbcType=NUMERIC}
+                </foreach>
+            </trim>
+            <trim prefix="sfqc = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.sfqc,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="sfgl = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.sfgl,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="glyy = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.glyy,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="sfpbl = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.sfpbl,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="blyy = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.blyy,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="lastUpdateTime = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.lastUpdateTime,jdbcType=TIMESTAMP}
+                </foreach>
+            </trim>
+            <trim prefix="lastUpdateAccountId = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when LSBH = #{item.lsbh,jdbcType=VARCHAR} then #{item.lastUpdateAccountId,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+        </trim>
+        where LSBH in
+        <foreach close=")" collection="list" item="item" open="(" separator=", ">
+            #{item.lsbh,jdbcType=VARCHAR}
+        </foreach>
+    </update>
+    <insert id="batchInsert" parameterType="map">
+        <!--@mbg.generated-->
+        insert into sc_ls_qxqc
+        (LSBH, xh, zzpbh, qxdlx, qswz, zzwz, sfqc, sfgl, glyy, sfpbl, blyy, lastUpdateTime,
+         lastUpdateAccountId)
+        values
+        <foreach collection="list" item="item" separator=",">
+            (#{item.lsbh,jdbcType=VARCHAR}, #{item.xh,jdbcType=INTEGER}, #{item.zzpbh,jdbcType=VARCHAR},
+             #{item.qxdlx,jdbcType=VARCHAR}, #{item.qswz,jdbcType=NUMERIC}, #{item.zzwz,jdbcType=NUMERIC},
+             #{item.sfqc,jdbcType=VARCHAR}, #{item.sfgl,jdbcType=VARCHAR}, #{item.glyy,jdbcType=VARCHAR},
+             #{item.sfpbl,jdbcType=VARCHAR}, #{item.blyy,jdbcType=VARCHAR}, #{item.lastUpdateTime,jdbcType=TIMESTAMP},
+             #{item.lastUpdateAccountId,jdbcType=VARCHAR})
+        </foreach>
+    </insert>
+
+    <select id="fiberCutDetail" resultType="com.ht.shaixuan.dto.FiberDrawingDefectInfo">
+        select t2.ZZPCD - t1.zzwz 'startPos',
+               t2.ZZPCD - t1.zzwz 'endPos',
+               t1.zzwz - t1.qswz  'slitterLen',
+               t1.LSBH            'fiberDrawingNum',
+               t1.qxdlx           'defectType',
+               t1.qswz            'fiberDrawingStartPos',
+               t1.zzwz            'fiberDrawingEndPos',
+               t1.sfqc            'isExcision',
+               t1.sfgl            'isIsolation',
+               t1.glyy            'isolationReason',
+               t1.sfpbl           'isDefective',
+               t1.blyy            'defectiveReason'
+        from sc_ls_qxqc t1
+                 inner join sc_ls1 t2 on t1.LSBH = t2.LSBH and t2.ZZPBH = #{fiberDiskNum,jdbcType=VARCHAR}
+        order by xh desc;
+    </select>
+</mapper>

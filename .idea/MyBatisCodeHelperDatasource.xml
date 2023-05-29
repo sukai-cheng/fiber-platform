@@ -20,7 +20,7 @@
                   <option name="javaModelPacakge" value="com.ht.shaixuan.entity" />
                   <option name="javaModelPath" value="$PROJECT_DIR$/shaixuan/src/main/java" />
                   <option name="javaServiceInterfacePath" value="$PROJECT_DIR$/base/src/main/java" />
-                  <option name="javaServicePath" value="$PROJECT_DIR$/base/src/main/java" />
+                  <option name="javaServicePath" value="$PROJECT_DIR$/shaixuan/src/main/java/com/ht/shaixuan/service" />
                   <option name="xmlPackage" value="mapper" />
                   <option name="xmlPath" value="$PROJECT_DIR$/shaixuan/src/main/resources" />
                 </UserPackageAndPathInfoByModule>
@@ -30,6 +30,48 @@
         </option>
         <option name="tableGenerateConfigs">
           <map>
+            <entry key="dbo:SC_LS1">
+              <value>
+                <TableGenerateConfig>
+                  <option name="batchInsert" value="true" />
+                  <option name="generatedKey" value="" />
+                  <option name="javaModelName" value="ScLs1" />
+                  <option name="moduleName" value="base" />
+                  <option name="sequenceColumn" value="" />
+                  <option name="sequenceId" value="" />
+                  <option name="updateBatch" value="true" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="dbo:T_Option">
+              <value>
+                <TableGenerateConfig>
+                  <option name="batchInsert" value="true" />
+                  <option name="generatedKey" value="fId" />
+                  <option name="javaModelName" value="TOption" />
+                  <option name="moduleName" value="base" />
+                  <option name="sequenceColumn" value="" />
+                  <option name="sequenceId" value="" />
+                  <option name="updateBatch" value="true" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="dbo:sc_ls_qxqc">
+              <value>
+                <TableGenerateConfig>
+                  <option name="batchInsert" value="true" />
+                  <option name="generatedKey" value="" />
+                  <option name="javaModelName" value="ScLsQxqc" />
+                  <option name="moduleName" value="base" />
+                  <option name="sequenceColumn" value="" />
+                  <option name="sequenceId" value="" />
+                  <option name="updateBatch" value="true" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
             <entry key="dbo:t_Account">
               <value>
                 <TableGenerateConfig>
