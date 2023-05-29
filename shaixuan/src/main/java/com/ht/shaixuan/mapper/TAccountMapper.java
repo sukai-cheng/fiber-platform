@@ -2,7 +2,9 @@ package com.ht.shaixuan.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.ht.shaixuan.entity.TAccount;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 /**
@@ -26,6 +28,6 @@ public interface TAccountMapper extends BaseMapper<TAccount> {
 
     int batchInsert(@Param("list") List<TAccount> list);
 
-     Integer findByUserNameAndPassWord(@Param("userName") String fAccount, @Param("password") String password);
+    Integer findByUserNameAndPassWord(@Param("userName") String fAccount, @Param("password") String password);
 
 }

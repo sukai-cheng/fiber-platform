@@ -184,4 +184,8 @@
         #{item.time,jdbcType=TIMESTAMP})
     </foreach>
   </insert>
+
+  <select id="findByAction" resultType="java.lang.String">
+    select OptionValue from T_Option(nolock) where Action = #{actionValue,jdbcType=VARCHAR}
+  </select>
 </mapper>

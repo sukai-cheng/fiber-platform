@@ -1,4 +1,4 @@
-package com.ht.shaixuan.controller.login;
+package com.ht.shaixuan.controller.fiber;
 
 import com.ht.base.domain.AjaxResult;
 import com.ht.shaixuan.request.FiberCutRequest;
@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 
 /**
+ * 断纤
  * @author chengsukai
  */
 @RestController

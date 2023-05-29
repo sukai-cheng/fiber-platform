@@ -1,5 +1,6 @@
 package com.ht.shaixuan.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.ht.shaixuan.entity.TOption;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
@@ -7,9 +8,10 @@ import org.apache.ibatis.annotations.Param;
 /**
  * @author chengsukai
  */
-public interface TOptionMapper {
+public interface TOptionMapper extends BaseMapper<TOption> {
     int deleteByPrimaryKey(Integer fid);
 
+    @Override
     int insert(TOption record);
 
     int insertSelective(TOption record);
@@ -23,4 +25,6 @@ public interface TOptionMapper {
     int updateBatch(List<TOption> list);
 
     int batchInsert(@Param("list") List<TOption> list);
+
+    List<String> findByAction(String actionValue);
 }

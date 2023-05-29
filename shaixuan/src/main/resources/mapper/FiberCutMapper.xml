@@ -287,7 +287,7 @@
 
     <select id="fiberCutDetail" resultType="com.ht.shaixuan.dto.FiberDrawingDefectInfo">
         select t2.ZZPCD - t1.zzwz 'startPos',
-               t2.ZZPCD - t1.zzwz 'endPos',
+               t2.ZZPCD - t1.qswz 'endPos',
                t1.zzwz - t1.qswz  'slitterLen',
                t1.LSBH            'fiberDrawingNum',
                t1.qxdlx           'defectType',
