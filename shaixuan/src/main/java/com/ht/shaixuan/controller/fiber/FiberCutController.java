@@ -23,4 +23,5 @@ public class FiberCutController {
     public AjaxResult fiberCut(@RequestBody FiberCutRequest request) {
         return fiberDrawingDefectService.fiberCutDetail(request.getFiberDiskNum());
     }
+    
 }
