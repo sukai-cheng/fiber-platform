@@ -105,7 +105,7 @@ public class ScSx {
      * 审核人
      */
     @TableField(value = "SHR")
-    private String shr;
+    private String checker;
 
     /**
      * 审核日期

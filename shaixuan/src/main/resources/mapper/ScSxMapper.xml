@@ -18,7 +18,7 @@
     <result column="SFDQ" jdbcType="VARCHAR" property="sfdq" />
     <result column="ZDR" jdbcType="VARCHAR" property="zdr" />
     <result column="ZDRQ" jdbcType="TIMESTAMP" property="zdrq" />
-    <result column="SHR" jdbcType="VARCHAR" property="shr" />
+    <result column="SHR" jdbcType="VARCHAR" property="checker" />
     <result column="SHRQ" jdbcType="TIMESTAMP" property="shrq" />
     <result column="gqcd" jdbcType="FLOAT" property="gqcd" />
     <result column="yl" jdbcType="CHAR" property="yl" />
@@ -68,7 +68,7 @@
       #{scrq,jdbcType=TIMESTAMP}, #{sbbh,jdbcType=VARCHAR}, #{gh,jdbcType=VARCHAR}, #{fxzl,jdbcType=OTHER}, 
       #{sbzk,jdbcType=VARCHAR}, #{sxzl,jdbcType=OTHER}, #{sxsd,jdbcType=OTHER}, #{sfqx,jdbcType=VARCHAR}, 
       #{sfdq,jdbcType=VARCHAR}, #{zdr,jdbcType=VARCHAR}, #{zdrq,jdbcType=TIMESTAMP}, 
-      #{shr,jdbcType=VARCHAR}, #{shrq,jdbcType=TIMESTAMP}, #{gqcd,jdbcType=FLOAT}, #{yl,jdbcType=CHAR}, 
+      #{checker,jdbcType=VARCHAR}, #{shrq,jdbcType=TIMESTAMP}, #{gqcd,jdbcType=FLOAT}, #{yl,jdbcType=CHAR},
       #{lsrate,jdbcType=CHAR}, #{mpsh,jdbcType=VARCHAR}, #{zlh,jdbcType=VARCHAR}, #{isrise,jdbcType=INTEGER}, 
       #{ischange,jdbcType=INTEGER}, #{sxts,jdbcType=INTEGER}, #{color,jdbcType=VARCHAR}, 
       #{pj,jdbcType=VARCHAR}, #{xj,jdbcType=VARCHAR}, #{shrqh,jdbcType=TIMESTAMP}, #{lastupdatetime,jdbcType=TIMESTAMP}, 
@@ -120,7 +120,7 @@
       <if test="zdrq != null">
         ZDRQ,
       </if>
-      <if test="shr != null">
+      <if test="checker != null">
         SHR,
       </if>
       <if test="shrq != null">
@@ -212,8 +212,8 @@
       <if test="zdrq != null">
         #{zdrq,jdbcType=TIMESTAMP},
       </if>
-      <if test="shr != null">
-        #{shr,jdbcType=VARCHAR},
+      <if test="checker != null">
+        #{checker,jdbcType=VARCHAR},
       </if>
       <if test="shrq != null">
         #{shrq,jdbcType=TIMESTAMP},
@@ -305,8 +305,8 @@
       <if test="zdrq != null">
         ZDRQ = #{zdrq,jdbcType=TIMESTAMP},
       </if>
-      <if test="shr != null">
-        SHR = #{shr,jdbcType=VARCHAR},
+      <if test="checker != null">
+        SHR = #{checker,jdbcType=VARCHAR},
       </if>
       <if test="shrq != null">
         SHRQ = #{shrq,jdbcType=TIMESTAMP},
@@ -372,7 +372,7 @@
       SFDQ = #{sfdq,jdbcType=VARCHAR},
       ZDR = #{zdr,jdbcType=VARCHAR},
       ZDRQ = #{zdrq,jdbcType=TIMESTAMP},
-      SHR = #{shr,jdbcType=VARCHAR},
+      SHR = #{checker,jdbcType=VARCHAR},
       SHRQ = #{shrq,jdbcType=TIMESTAMP},
       gqcd = #{gqcd,jdbcType=FLOAT},
       yl = #{yl,jdbcType=CHAR},
@@ -461,7 +461,7 @@
       </trim>
       <trim prefix="SHR = case" suffix="end,">
         <foreach collection="list" index="index" item="item">
-          when SXBH = #{item.sxbh,jdbcType=VARCHAR} then #{item.shr,jdbcType=VARCHAR}
+          when SXBH = #{item.sxbh,jdbcType=VARCHAR} then #{item.checker,jdbcType=VARCHAR}
         </foreach>
       </trim>
       <trim prefix="SHRQ = case" suffix="end,">
@@ -557,7 +557,7 @@
         #{item.scrq,jdbcType=TIMESTAMP}, #{item.sbbh,jdbcType=VARCHAR}, #{item.gh,jdbcType=VARCHAR}, 
         #{item.fxzl,jdbcType=OTHER}, #{item.sbzk,jdbcType=VARCHAR}, #{item.sxzl,jdbcType=OTHER}, 
         #{item.sxsd,jdbcType=OTHER}, #{item.sfqx,jdbcType=VARCHAR}, #{item.sfdq,jdbcType=VARCHAR}, 
-        #{item.zdr,jdbcType=VARCHAR}, #{item.zdrq,jdbcType=TIMESTAMP}, #{item.shr,jdbcType=VARCHAR}, 
+        #{item.zdr,jdbcType=VARCHAR}, #{item.zdrq,jdbcType=TIMESTAMP}, #{item.checker,jdbcType=VARCHAR},
         #{item.shrq,jdbcType=TIMESTAMP}, #{item.gqcd,jdbcType=FLOAT}, #{item.yl,jdbcType=CHAR}, 
         #{item.lsrate,jdbcType=CHAR}, #{item.mpsh,jdbcType=VARCHAR}, #{item.zlh,jdbcType=VARCHAR}, 
         #{item.isrise,jdbcType=INTEGER}, #{item.ischange,jdbcType=INTEGER}, #{item.sxts,jdbcType=INTEGER}, 

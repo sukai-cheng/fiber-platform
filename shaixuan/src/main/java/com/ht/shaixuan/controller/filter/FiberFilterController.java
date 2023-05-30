@@ -5,7 +5,6 @@ import com.ht.shaixuan.request.FilterInfoRequest;
 import com.ht.shaixuan.service.impl.ScSxServiceImpl;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -22,7 +21,7 @@ public class FiberFilterController {
     /**
      * 获取筛选信息
      *
-     * @param filterInfoRequest
+     * @param filterInfoRequest 筛选请求体
      */
     @PostMapping(value = "/getFilterInfo")
     public AjaxResult getFilterInfo(@RequestBody FilterInfoRequest filterInfoRequest) {
