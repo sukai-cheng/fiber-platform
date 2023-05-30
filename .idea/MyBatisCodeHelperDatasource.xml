@@ -58,12 +58,110 @@
                 </TableGenerateConfig>
               </value>
             </entry>
+            <entry key="dbo:SC_SX2">
+              <value>
+                <TableGenerateConfig>
+                  <option name="batchInsert" value="true" />
+                  <option name="generatedKey" value="" />
+                  <option name="javaModelName" value="ScSx2" />
+                  <option name="moduleName" value="base" />
+                  <option name="sequenceColumn" value="" />
+                  <option name="sequenceId" value="" />
+                  <option name="updateBatch" value="true" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
             <entry key="dbo:T_Option">
               <value>
                 <TableGenerateConfig>
                   <option name="batchInsert" value="true" />
                   <option name="generatedKey" value="fId" />
                   <option name="javaModelName" value="TOption" />
+                  <option name="moduleName" value="base" />
+                  <option name="sequenceColumn" value="" />
+                  <option name="sequenceId" value="" />
+                  <option name="updateBatch" value="true" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="dbo:ZL_LSH">
+              <value>
+                <TableGenerateConfig>
+                  <option name="batchInsert" value="true" />
+                  <option name="generatedKey" value="" />
+                  <option name="javaModelName" value="ZlLsh" />
+                  <option name="moduleName" value="base" />
+                  <option name="sequenceColumn" value="" />
+                  <option name="sequenceId" value="" />
+                  <option name="updateBatch" value="true" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="dbo:ZL_LSH_FQXX">
+              <value>
+                <TableGenerateConfig>
+                  <option name="batchInsert" value="true" />
+                  <option name="generatedKey" value="" />
+                  <option name="javaModelName" value="ZlLshFqxx" />
+                  <option name="moduleName" value="base" />
+                  <option name="sequenceColumn" value="" />
+                  <option name="sequenceId" value="" />
+                  <option name="updateBatch" value="true" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="dbo:ZL_LSH_OTDR">
+              <value>
+                <TableGenerateConfig>
+                  <option name="batchInsert" value="true" />
+                  <option name="generatedKey" value="" />
+                  <option name="javaModelName" value="ZlLshOtdr" />
+                  <option name="moduleName" value="base" />
+                  <option name="sequenceColumn" value="" />
+                  <option name="sequenceId" value="" />
+                  <option name="updateBatch" value="true" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="dbo:ZL_LSH_PK2200">
+              <value>
+                <TableGenerateConfig>
+                  <option name="batchInsert" value="true" />
+                  <option name="generatedKey" value="" />
+                  <option name="javaModelName" value="ZlLshPk2200" />
+                  <option name="moduleName" value="base" />
+                  <option name="sequenceColumn" value="" />
+                  <option name="sequenceId" value="" />
+                  <option name="updateBatch" value="true" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="dbo:ZL_LSH_PK2400">
+              <value>
+                <TableGenerateConfig>
+                  <option name="batchInsert" value="true" />
+                  <option name="generatedKey" value="" />
+                  <option name="javaModelName" value="ZlLshPk2400" />
+                  <option name="moduleName" value="base" />
+                  <option name="sequenceColumn" value="" />
+                  <option name="sequenceId" value="" />
+                  <option name="updateBatch" value="true" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="dbo:sc_ls_cl">
+              <value>
+                <TableGenerateConfig>
+                  <option name="batchInsert" value="true" />
+                  <option name="generatedKey" value="" />
+                  <option name="javaModelName" value="ScLsCl" />
                   <option name="moduleName" value="base" />
                   <option name="sequenceColumn" value="" />
                   <option name="sequenceId" value="" />
@@ -86,12 +184,40 @@
                 </TableGenerateConfig>
               </value>
             </entry>
+            <entry key="dbo:sc_ls_sml">
+              <value>
+                <TableGenerateConfig>
+                  <option name="batchInsert" value="true" />
+                  <option name="generatedKey" value="id" />
+                  <option name="javaModelName" value="ScLsSml" />
+                  <option name="moduleName" value="base" />
+                  <option name="sequenceColumn" value="" />
+                  <option name="sequenceId" value="" />
+                  <option name="updateBatch" value="true" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
             <entry key="dbo:t_Account">
               <value>
                 <TableGenerateConfig>
                   <option name="batchInsert" value="true" />
                   <option name="generatedKey" value="fId" />
                   <option name="javaModelName" value="TAccount" />
+                  <option name="moduleName" value="base" />
+                  <option name="sequenceColumn" value="" />
+                  <option name="sequenceId" value="" />
+                  <option name="updateBatch" value="true" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="dbo:yzb_MiddleTable">
+              <value>
+                <TableGenerateConfig>
+                  <option name="batchInsert" value="true" />
+                  <option name="generatedKey" value="" />
+                  <option name="javaModelName" value="YzbMiddleTable" />
                   <option name="moduleName" value="base" />
                   <option name="sequenceColumn" value="" />
                   <option name="sequenceId" value="" />
