@@ -1,0 +1,947 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.shaixuan.mapper.ScSx2Mapper">
+  <resultMap id="BaseResultMap" type="com.ht.shaixuan.entity.ScSx2">
+    <!--@mbg.generated-->
+    <!--@Table SC_SX2-->
+    <id column="SXBH" jdbcType="VARCHAR" property="sxbh" />
+    <id column="XH" jdbcType="VARCHAR" property="xh" />
+    <result column="XPTM" jdbcType="VARCHAR" property="xptm" />
+    <result column="ewz" jdbcType="NUMERIC" property="ewz" />
+    <result column="CD" jdbcType="NUMERIC" property="cd" />
+    <result column="DQQK" jdbcType="VARCHAR" property="dqqk" />
+    <result column="GB" jdbcType="VARCHAR" property="gb" />
+    <result column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="isPT" jdbcType="INTEGER" property="ispt" />
+    <result column="isoldtray" jdbcType="INTEGER" property="isoldtray" />
+    <result column="isbigtray" jdbcType="INTEGER" property="isbigtray" />
+    <result column="ManufactureType" jdbcType="CHAR" property="manufacturetype" />
+    <result column="color" jdbcType="CHAR" property="color" />
+    <result column="PTnum" jdbcType="INTEGER" property="ptnum" />
+    <result column="ISheadCauda" jdbcType="INTEGER" property="isheadcauda" />
+    <result column="dqcd" jdbcType="NUMERIC" property="dqcd" />
+    <result column="qxlb" jdbcType="VARCHAR" property="qxlb" />
+    <result column="qgcd" jdbcType="NUMERIC" property="qgcd" />
+    <result column="issh" jdbcType="INTEGER" property="issh" />
+    <result column="isdy" jdbcType="INTEGER" property="isdy" />
+    <result column="blyy" jdbcType="VARCHAR" property="blyy" />
+    <result column="labour" jdbcType="VARCHAR" property="labour" />
+    <result column="sxr" jdbcType="VARCHAR" property="sxr" />
+    <result column="crdate" jdbcType="TIMESTAMP" property="crdate" />
+    <result column="sh_labour" jdbcType="VARCHAR" property="shLabour" />
+    <result column="sxshr" jdbcType="VARCHAR" property="sxshr" />
+    <result column="xhgl" jdbcType="INTEGER" property="xhgl" />
+    <result column="istestDC" jdbcType="INTEGER" property="istestdc" />
+    <result column="istest2200" jdbcType="INTEGER" property="istest2200" />
+    <result column="istest2400" jdbcType="INTEGER" property="istest2400" />
+    <result column="BPCD" jdbcType="FLOAT" property="bpcd" />
+    <result column="JDWZ" jdbcType="FLOAT" property="jdwz" />
+    <result column="lsbz" jdbcType="CHAR" property="lsbz" />
+    <result column="ss_totallen" jdbcType="FLOAT" property="ssTotallen" />
+    <result column="zzpcd" jdbcType="FLOAT" property="zzpcd" />
+    <result column="ischange" jdbcType="INTEGER" property="ischange" />
+    <result column="PJ" jdbcType="VARCHAR" property="pj" />
+    <result column="XJ" jdbcType="VARCHAR" property="xj" />
+    <result column="glqk" jdbcType="VARCHAR" property="glqk" />
+    <result column="stime" jdbcType="TIMESTAMP" property="stime" />
+    <result column="etime" jdbcType="TIMESTAMP" property="etime" />
+    <result column="syl" jdbcType="VARCHAR" property="syl" />
+    <result column="sxms" jdbcType="INTEGER" property="sxms" />
+    <result column="qjms" jdbcType="VARCHAR" property="qjms" />
+    <result column="dqjd" jdbcType="INTEGER" property="dqjd" />
+    <result column="dqmscd" jdbcType="NUMERIC" property="dqmscd" />
+    <result column="isfg" jdbcType="INTEGER" property="isfg" />
+    <result column="SBBHD" jdbcType="VARCHAR" property="sbbhd" />
+    <result column="dqcs" jdbcType="INTEGER" property="dqcs" />
+    <result column="LastUpdateTime" jdbcType="TIMESTAMP" property="lastupdatetime" />
+    <result column="LastUpdateAccountId" jdbcType="VARCHAR" property="lastupdateaccountid" />
+    <result column="istestPMD" jdbcType="INTEGER" property="istestpmd" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    SXBH, XH, XPTM, ewz, CD, DQQK, GB, ID, isPT, isoldtray, isbigtray, ManufactureType, 
+    color, PTnum, ISheadCauda, dqcd, qxlb, qgcd, issh, isdy, blyy, labour, sxr, crdate, 
+    sh_labour, sxshr, xhgl, istestDC, istest2200, istest2400, BPCD, JDWZ, lsbz, ss_totallen, 
+    zzpcd, ischange, PJ, XJ, glqk, stime, etime, syl, sxms, qjms, dqjd, dqmscd, isfg, 
+    SBBHD, dqcs, LastUpdateTime, LastUpdateAccountId, istestPMD
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from SC_SX2
+    where SXBH = #{sxbh,jdbcType=VARCHAR}
+      and XH = #{xh,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    <!--@mbg.generated-->
+    delete from SC_SX2
+    where SXBH = #{sxbh,jdbcType=VARCHAR}
+      and XH = #{xh,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.ht.shaixuan.entity.ScSx2">
+    <!--@mbg.generated-->
+    insert into SC_SX2 (SXBH, XH, XPTM, 
+      ewz, CD, DQQK, GB, 
+      ID, isPT, isoldtray, 
+      isbigtray, ManufactureType, color, 
+      PTnum, ISheadCauda, dqcd, 
+      qxlb, qgcd, issh, isdy, 
+      blyy, labour, sxr, 
+      crdate, sh_labour, sxshr, 
+      xhgl, istestDC, istest2200, 
+      istest2400, BPCD, JDWZ, 
+      lsbz, ss_totallen, zzpcd, ischange, 
+      PJ, XJ, glqk, stime, 
+      etime, syl, sxms, 
+      qjms, dqjd, dqmscd, 
+      isfg, SBBHD, dqcs, 
+      LastUpdateTime, LastUpdateAccountId, 
+      istestPMD)
+    values (#{sxbh,jdbcType=VARCHAR}, #{xh,jdbcType=VARCHAR}, #{xptm,jdbcType=VARCHAR}, 
+      #{ewz,jdbcType=NUMERIC}, #{cd,jdbcType=NUMERIC}, #{dqqk,jdbcType=VARCHAR}, #{gb,jdbcType=VARCHAR}, 
+      #{id,jdbcType=VARCHAR}, #{ispt,jdbcType=INTEGER}, #{isoldtray,jdbcType=INTEGER}, 
+      #{isbigtray,jdbcType=INTEGER}, #{manufacturetype,jdbcType=CHAR}, #{color,jdbcType=CHAR}, 
+      #{ptnum,jdbcType=INTEGER}, #{isheadcauda,jdbcType=INTEGER}, #{dqcd,jdbcType=NUMERIC}, 
+      #{qxlb,jdbcType=VARCHAR}, #{qgcd,jdbcType=NUMERIC}, #{issh,jdbcType=INTEGER}, #{isdy,jdbcType=INTEGER}, 
+      #{blyy,jdbcType=VARCHAR}, #{labour,jdbcType=VARCHAR}, #{sxr,jdbcType=VARCHAR}, 
+      #{crdate,jdbcType=TIMESTAMP}, #{shLabour,jdbcType=VARCHAR}, #{sxshr,jdbcType=VARCHAR}, 
+      #{xhgl,jdbcType=INTEGER}, #{istestdc,jdbcType=INTEGER}, #{istest2200,jdbcType=INTEGER}, 
+      #{istest2400,jdbcType=INTEGER}, #{bpcd,jdbcType=FLOAT}, #{jdwz,jdbcType=FLOAT}, 
+      #{lsbz,jdbcType=CHAR}, #{ssTotallen,jdbcType=FLOAT}, #{zzpcd,jdbcType=FLOAT}, #{ischange,jdbcType=INTEGER}, 
+      #{pj,jdbcType=VARCHAR}, #{xj,jdbcType=VARCHAR}, #{glqk,jdbcType=VARCHAR}, #{stime,jdbcType=TIMESTAMP}, 
+      #{etime,jdbcType=TIMESTAMP}, #{syl,jdbcType=VARCHAR}, #{sxms,jdbcType=INTEGER}, 
+      #{qjms,jdbcType=VARCHAR}, #{dqjd,jdbcType=INTEGER}, #{dqmscd,jdbcType=NUMERIC}, 
+      #{isfg,jdbcType=INTEGER}, #{sbbhd,jdbcType=VARCHAR}, #{dqcs,jdbcType=INTEGER}, 
+      #{lastupdatetime,jdbcType=TIMESTAMP}, #{lastupdateaccountid,jdbcType=VARCHAR}, 
+      #{istestpmd,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ht.shaixuan.entity.ScSx2">
+    <!--@mbg.generated-->
+    insert into SC_SX2
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="sxbh != null">
+        SXBH,
+      </if>
+      <if test="xh != null">
+        XH,
+      </if>
+      <if test="xptm != null">
+        XPTM,
+      </if>
+      <if test="ewz != null">
+        ewz,
+      </if>
+      <if test="cd != null">
+        CD,
+      </if>
+      <if test="dqqk != null">
+        DQQK,
+      </if>
+      <if test="gb != null">
+        GB,
+      </if>
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="ispt != null">
+        isPT,
+      </if>
+      <if test="isoldtray != null">
+        isoldtray,
+      </if>
+      <if test="isbigtray != null">
+        isbigtray,
+      </if>
+      <if test="manufacturetype != null">
+        ManufactureType,
+      </if>
+      <if test="color != null">
+        color,
+      </if>
+      <if test="ptnum != null">
+        PTnum,
+      </if>
+      <if test="isheadcauda != null">
+        ISheadCauda,
+      </if>
+      <if test="dqcd != null">
+        dqcd,
+      </if>
+      <if test="qxlb != null">
+        qxlb,
+      </if>
+      <if test="qgcd != null">
+        qgcd,
+      </if>
+      <if test="issh != null">
+        issh,
+      </if>
+      <if test="isdy != null">
+        isdy,
+      </if>
+      <if test="blyy != null">
+        blyy,
+      </if>
+      <if test="labour != null">
+        labour,
+      </if>
+      <if test="sxr != null">
+        sxr,
+      </if>
+      <if test="crdate != null">
+        crdate,
+      </if>
+      <if test="shLabour != null">
+        sh_labour,
+      </if>
+      <if test="sxshr != null">
+        sxshr,
+      </if>
+      <if test="xhgl != null">
+        xhgl,
+      </if>
+      <if test="istestdc != null">
+        istestDC,
+      </if>
+      <if test="istest2200 != null">
+        istest2200,
+      </if>
+      <if test="istest2400 != null">
+        istest2400,
+      </if>
+      <if test="bpcd != null">
+        BPCD,
+      </if>
+      <if test="jdwz != null">
+        JDWZ,
+      </if>
+      <if test="lsbz != null">
+        lsbz,
+      </if>
+      <if test="ssTotallen != null">
+        ss_totallen,
+      </if>
+      <if test="zzpcd != null">
+        zzpcd,
+      </if>
+      <if test="ischange != null">
+        ischange,
+      </if>
+      <if test="pj != null">
+        PJ,
+      </if>
+      <if test="xj != null">
+        XJ,
+      </if>
+      <if test="glqk != null">
+        glqk,
+      </if>
+      <if test="stime != null">
+        stime,
+      </if>
+      <if test="etime != null">
+        etime,
+      </if>
+      <if test="syl != null">
+        syl,
+      </if>
+      <if test="sxms != null">
+        sxms,
+      </if>
+      <if test="qjms != null">
+        qjms,
+      </if>
+      <if test="dqjd != null">
+        dqjd,
+      </if>
+      <if test="dqmscd != null">
+        dqmscd,
+      </if>
+      <if test="isfg != null">
+        isfg,
+      </if>
+      <if test="sbbhd != null">
+        SBBHD,
+      </if>
+      <if test="dqcs != null">
+        dqcs,
+      </if>
+      <if test="lastupdatetime != null">
+        LastUpdateTime,
+      </if>
+      <if test="lastupdateaccountid != null">
+        LastUpdateAccountId,
+      </if>
+      <if test="istestpmd != null">
+        istestPMD,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="sxbh != null">
+        #{sxbh,jdbcType=VARCHAR},
+      </if>
+      <if test="xh != null">
+        #{xh,jdbcType=VARCHAR},
+      </if>
+      <if test="xptm != null">
+        #{xptm,jdbcType=VARCHAR},
+      </if>
+      <if test="ewz != null">
+        #{ewz,jdbcType=NUMERIC},
+      </if>
+      <if test="cd != null">
+        #{cd,jdbcType=NUMERIC},
+      </if>
+      <if test="dqqk != null">
+        #{dqqk,jdbcType=VARCHAR},
+      </if>
+      <if test="gb != null">
+        #{gb,jdbcType=VARCHAR},
+      </if>
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="ispt != null">
+        #{ispt,jdbcType=INTEGER},
+      </if>
+      <if test="isoldtray != null">
+        #{isoldtray,jdbcType=INTEGER},
+      </if>
+      <if test="isbigtray != null">
+        #{isbigtray,jdbcType=INTEGER},
+      </if>
+      <if test="manufacturetype != null">
+        #{manufacturetype,jdbcType=CHAR},
+      </if>
+      <if test="color != null">
+        #{color,jdbcType=CHAR},
+      </if>
+      <if test="ptnum != null">
+        #{ptnum,jdbcType=INTEGER},
+      </if>
+      <if test="isheadcauda != null">
+        #{isheadcauda,jdbcType=INTEGER},
+      </if>
+      <if test="dqcd != null">
+        #{dqcd,jdbcType=NUMERIC},
+      </if>
+      <if test="qxlb != null">
+        #{qxlb,jdbcType=VARCHAR},
+      </if>
+      <if test="qgcd != null">
+        #{qgcd,jdbcType=NUMERIC},
+      </if>
+      <if test="issh != null">
+        #{issh,jdbcType=INTEGER},
+      </if>
+      <if test="isdy != null">
+        #{isdy,jdbcType=INTEGER},
+      </if>
+      <if test="blyy != null">
+        #{blyy,jdbcType=VARCHAR},
+      </if>
+      <if test="labour != null">
+        #{labour,jdbcType=VARCHAR},
+      </if>
+      <if test="sxr != null">
+        #{sxr,jdbcType=VARCHAR},
+      </if>
+      <if test="crdate != null">
+        #{crdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="shLabour != null">
+        #{shLabour,jdbcType=VARCHAR},
+      </if>
+      <if test="sxshr != null">
+        #{sxshr,jdbcType=VARCHAR},
+      </if>
+      <if test="xhgl != null">
+        #{xhgl,jdbcType=INTEGER},
+      </if>
+      <if test="istestdc != null">
+        #{istestdc,jdbcType=INTEGER},
+      </if>
+      <if test="istest2200 != null">
+        #{istest2200,jdbcType=INTEGER},
+      </if>
+      <if test="istest2400 != null">
+        #{istest2400,jdbcType=INTEGER},
+      </if>
+      <if test="bpcd != null">
+        #{bpcd,jdbcType=FLOAT},
+      </if>
+      <if test="jdwz != null">
+        #{jdwz,jdbcType=FLOAT},
+      </if>
+      <if test="lsbz != null">
+        #{lsbz,jdbcType=CHAR},
+      </if>
+      <if test="ssTotallen != null">
+        #{ssTotallen,jdbcType=FLOAT},
+      </if>
+      <if test="zzpcd != null">
+        #{zzpcd,jdbcType=FLOAT},
+      </if>
+      <if test="ischange != null">
+        #{ischange,jdbcType=INTEGER},
+      </if>
+      <if test="pj != null">
+        #{pj,jdbcType=VARCHAR},
+      </if>
+      <if test="xj != null">
+        #{xj,jdbcType=VARCHAR},
+      </if>
+      <if test="glqk != null">
+        #{glqk,jdbcType=VARCHAR},
+      </if>
+      <if test="stime != null">
+        #{stime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="etime != null">
+        #{etime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="syl != null">
+        #{syl,jdbcType=VARCHAR},
+      </if>
+      <if test="sxms != null">
+        #{sxms,jdbcType=INTEGER},
+      </if>
+      <if test="qjms != null">
+        #{qjms,jdbcType=VARCHAR},
+      </if>
+      <if test="dqjd != null">
+        #{dqjd,jdbcType=INTEGER},
+      </if>
+      <if test="dqmscd != null">
+        #{dqmscd,jdbcType=NUMERIC},
+      </if>
+      <if test="isfg != null">
+        #{isfg,jdbcType=INTEGER},
+      </if>
+      <if test="sbbhd != null">
+        #{sbbhd,jdbcType=VARCHAR},
+      </if>
+      <if test="dqcs != null">
+        #{dqcs,jdbcType=INTEGER},
+      </if>
+      <if test="lastupdatetime != null">
+        #{lastupdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastupdateaccountid != null">
+        #{lastupdateaccountid,jdbcType=VARCHAR},
+      </if>
+      <if test="istestpmd != null">
+        #{istestpmd,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ht.shaixuan.entity.ScSx2">
+    <!--@mbg.generated-->
+    update SC_SX2
+    <set>
+      <if test="xptm != null">
+        XPTM = #{xptm,jdbcType=VARCHAR},
+      </if>
+      <if test="ewz != null">
+        ewz = #{ewz,jdbcType=NUMERIC},
+      </if>
+      <if test="cd != null">
+        CD = #{cd,jdbcType=NUMERIC},
+      </if>
+      <if test="dqqk != null">
+        DQQK = #{dqqk,jdbcType=VARCHAR},
+      </if>
+      <if test="gb != null">
+        GB = #{gb,jdbcType=VARCHAR},
+      </if>
+      <if test="id != null">
+        ID = #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="ispt != null">
+        isPT = #{ispt,jdbcType=INTEGER},
+      </if>
+      <if test="isoldtray != null">
+        isoldtray = #{isoldtray,jdbcType=INTEGER},
+      </if>
+      <if test="isbigtray != null">
+        isbigtray = #{isbigtray,jdbcType=INTEGER},
+      </if>
+      <if test="manufacturetype != null">
+        ManufactureType = #{manufacturetype,jdbcType=CHAR},
+      </if>
+      <if test="color != null">
+        color = #{color,jdbcType=CHAR},
+      </if>
+      <if test="ptnum != null">
+        PTnum = #{ptnum,jdbcType=INTEGER},
+      </if>
+      <if test="isheadcauda != null">
+        ISheadCauda = #{isheadcauda,jdbcType=INTEGER},
+      </if>
+      <if test="dqcd != null">
+        dqcd = #{dqcd,jdbcType=NUMERIC},
+      </if>
+      <if test="qxlb != null">
+        qxlb = #{qxlb,jdbcType=VARCHAR},
+      </if>
+      <if test="qgcd != null">
+        qgcd = #{qgcd,jdbcType=NUMERIC},
+      </if>
+      <if test="issh != null">
+        issh = #{issh,jdbcType=INTEGER},
+      </if>
+      <if test="isdy != null">
+        isdy = #{isdy,jdbcType=INTEGER},
+      </if>
+      <if test="blyy != null">
+        blyy = #{blyy,jdbcType=VARCHAR},
+      </if>
+      <if test="labour != null">
+        labour = #{labour,jdbcType=VARCHAR},
+      </if>
+      <if test="sxr != null">
+        sxr = #{sxr,jdbcType=VARCHAR},
+      </if>
+      <if test="crdate != null">
+        crdate = #{crdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="shLabour != null">
+        sh_labour = #{shLabour,jdbcType=VARCHAR},
+      </if>
+      <if test="sxshr != null">
+        sxshr = #{sxshr,jdbcType=VARCHAR},
+      </if>
+      <if test="xhgl != null">
+        xhgl = #{xhgl,jdbcType=INTEGER},
+      </if>
+      <if test="istestdc != null">
+        istestDC = #{istestdc,jdbcType=INTEGER},
+      </if>
+      <if test="istest2200 != null">
+        istest2200 = #{istest2200,jdbcType=INTEGER},
+      </if>
+      <if test="istest2400 != null">
+        istest2400 = #{istest2400,jdbcType=INTEGER},
+      </if>
+      <if test="bpcd != null">
+        BPCD = #{bpcd,jdbcType=FLOAT},
+      </if>
+      <if test="jdwz != null">
+        JDWZ = #{jdwz,jdbcType=FLOAT},
+      </if>
+      <if test="lsbz != null">
+        lsbz = #{lsbz,jdbcType=CHAR},
+      </if>
+      <if test="ssTotallen != null">
+        ss_totallen = #{ssTotallen,jdbcType=FLOAT},
+      </if>
+      <if test="zzpcd != null">
+        zzpcd = #{zzpcd,jdbcType=FLOAT},
+      </if>
+      <if test="ischange != null">
+        ischange = #{ischange,jdbcType=INTEGER},
+      </if>
+      <if test="pj != null">
+        PJ = #{pj,jdbcType=VARCHAR},
+      </if>
+      <if test="xj != null">
+        XJ = #{xj,jdbcType=VARCHAR},
+      </if>
+      <if test="glqk != null">
+        glqk = #{glqk,jdbcType=VARCHAR},
+      </if>
+      <if test="stime != null">
+        stime = #{stime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="etime != null">
+        etime = #{etime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="syl != null">
+        syl = #{syl,jdbcType=VARCHAR},
+      </if>
+      <if test="sxms != null">
+        sxms = #{sxms,jdbcType=INTEGER},
+      </if>
+      <if test="qjms != null">
+        qjms = #{qjms,jdbcType=VARCHAR},
+      </if>
+      <if test="dqjd != null">
+        dqjd = #{dqjd,jdbcType=INTEGER},
+      </if>
+      <if test="dqmscd != null">
+        dqmscd = #{dqmscd,jdbcType=NUMERIC},
+      </if>
+      <if test="isfg != null">
+        isfg = #{isfg,jdbcType=INTEGER},
+      </if>
+      <if test="sbbhd != null">
+        SBBHD = #{sbbhd,jdbcType=VARCHAR},
+      </if>
+      <if test="dqcs != null">
+        dqcs = #{dqcs,jdbcType=INTEGER},
+      </if>
+      <if test="lastupdatetime != null">
+        LastUpdateTime = #{lastupdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastupdateaccountid != null">
+        LastUpdateAccountId = #{lastupdateaccountid,jdbcType=VARCHAR},
+      </if>
+      <if test="istestpmd != null">
+        istestPMD = #{istestpmd,jdbcType=INTEGER},
+      </if>
+    </set>
+    where SXBH = #{sxbh,jdbcType=VARCHAR}
+      and XH = #{xh,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ht.shaixuan.entity.ScSx2">
+    <!--@mbg.generated-->
+    update SC_SX2
+    set XPTM = #{xptm,jdbcType=VARCHAR},
+      ewz = #{ewz,jdbcType=NUMERIC},
+      CD = #{cd,jdbcType=NUMERIC},
+      DQQK = #{dqqk,jdbcType=VARCHAR},
+      GB = #{gb,jdbcType=VARCHAR},
+      ID = #{id,jdbcType=VARCHAR},
+      isPT = #{ispt,jdbcType=INTEGER},
+      isoldtray = #{isoldtray,jdbcType=INTEGER},
+      isbigtray = #{isbigtray,jdbcType=INTEGER},
+      ManufactureType = #{manufacturetype,jdbcType=CHAR},
+      color = #{color,jdbcType=CHAR},
+      PTnum = #{ptnum,jdbcType=INTEGER},
+      ISheadCauda = #{isheadcauda,jdbcType=INTEGER},
+      dqcd = #{dqcd,jdbcType=NUMERIC},
+      qxlb = #{qxlb,jdbcType=VARCHAR},
+      qgcd = #{qgcd,jdbcType=NUMERIC},
+      issh = #{issh,jdbcType=INTEGER},
+      isdy = #{isdy,jdbcType=INTEGER},
+      blyy = #{blyy,jdbcType=VARCHAR},
+      labour = #{labour,jdbcType=VARCHAR},
+      sxr = #{sxr,jdbcType=VARCHAR},
+      crdate = #{crdate,jdbcType=TIMESTAMP},
+      sh_labour = #{shLabour,jdbcType=VARCHAR},
+      sxshr = #{sxshr,jdbcType=VARCHAR},
+      xhgl = #{xhgl,jdbcType=INTEGER},
+      istestDC = #{istestdc,jdbcType=INTEGER},
+      istest2200 = #{istest2200,jdbcType=INTEGER},
+      istest2400 = #{istest2400,jdbcType=INTEGER},
+      BPCD = #{bpcd,jdbcType=FLOAT},
+      JDWZ = #{jdwz,jdbcType=FLOAT},
+      lsbz = #{lsbz,jdbcType=CHAR},
+      ss_totallen = #{ssTotallen,jdbcType=FLOAT},
+      zzpcd = #{zzpcd,jdbcType=FLOAT},
+      ischange = #{ischange,jdbcType=INTEGER},
+      PJ = #{pj,jdbcType=VARCHAR},
+      XJ = #{xj,jdbcType=VARCHAR},
+      glqk = #{glqk,jdbcType=VARCHAR},
+      stime = #{stime,jdbcType=TIMESTAMP},
+      etime = #{etime,jdbcType=TIMESTAMP},
+      syl = #{syl,jdbcType=VARCHAR},
+      sxms = #{sxms,jdbcType=INTEGER},
+      qjms = #{qjms,jdbcType=VARCHAR},
+      dqjd = #{dqjd,jdbcType=INTEGER},
+      dqmscd = #{dqmscd,jdbcType=NUMERIC},
+      isfg = #{isfg,jdbcType=INTEGER},
+      SBBHD = #{sbbhd,jdbcType=VARCHAR},
+      dqcs = #{dqcs,jdbcType=INTEGER},
+      LastUpdateTime = #{lastupdatetime,jdbcType=TIMESTAMP},
+      LastUpdateAccountId = #{lastupdateaccountid,jdbcType=VARCHAR},
+      istestPMD = #{istestpmd,jdbcType=INTEGER}
+    where SXBH = #{sxbh,jdbcType=VARCHAR}
+      and XH = #{xh,jdbcType=VARCHAR}
+  </update>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update SC_SX2
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="XPTM = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when SXBH = #{item.sxbh,jdbcType=VARCHAR} then #{item.xptm,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="ewz = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when SXBH = #{item.sxbh,jdbcType=VARCHAR} then #{item.ewz,jdbcType=NUMERIC}
+        </foreach>
+      </trim>
+      <trim prefix="CD = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when SXBH = #{item.sxbh,jdbcType=VARCHAR} then #{item.cd,jdbcType=NUMERIC}
+        </foreach>
+      </trim>
+      <trim prefix="DQQK = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when SXBH = #{item.sxbh,jdbcType=VARCHAR} then #{item.dqqk,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="GB = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when SXBH = #{item.sxbh,jdbcType=VARCHAR} then #{item.gb,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="ID = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when SXBH = #{item.sxbh,jdbcType=VARCHAR} then #{item.id,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="isPT = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when SXBH = #{item.sxbh,jdbcType=VARCHAR} then #{item.ispt,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="isoldtray = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when SXBH = #{item.sxbh,jdbcType=VARCHAR} then #{item.isoldtray,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="isbigtray = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when SXBH = #{item.sxbh,jdbcType=VARCHAR} then #{item.isbigtray,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="ManufactureType = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when SXBH = #{item.sxbh,jdbcType=VARCHAR} then #{item.manufacturetype,jdbcType=CHAR}
+        </foreach>
+      </trim>
+      <trim prefix="color = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when SXBH = #{item.sxbh,jdbcType=VARCHAR} then #{item.color,jdbcType=CHAR}
+        </foreach>
+      </trim>
+      <trim prefix="PTnum = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when SXBH = #{item.sxbh,jdbcType=VARCHAR} then #{item.ptnum,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="ISheadCauda = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when SXBH = #{item.sxbh,jdbcType=VARCHAR} then #{item.isheadcauda,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="dqcd = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when SXBH = #{item.sxbh,jdbcType=VARCHAR} then #{item.dqcd,jdbcType=NUMERIC}
+        </foreach>
+      </trim>
+      <trim prefix="qxlb = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when SXBH = #{item.sxbh,jdbcType=VARCHAR} then #{item.qxlb,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="qgcd = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when SXBH = #{item.sxbh,jdbcType=VARCHAR} then #{item.qgcd,jdbcType=NUMERIC}
+        </foreach>
+      </trim>
+      <trim prefix="issh = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when SXBH = #{item.sxbh,jdbcType=VARCHAR} then #{item.issh,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="isdy = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when SXBH = #{item.sxbh,jdbcType=VARCHAR} then #{item.isdy,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="blyy = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when SXBH = #{item.sxbh,jdbcType=VARCHAR} then #{item.blyy,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="labour = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when SXBH = #{item.sxbh,jdbcType=VARCHAR} then #{item.labour,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="sxr = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when SXBH = #{item.sxbh,jdbcType=VARCHAR} then #{item.sxr,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="crdate = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when SXBH = #{item.sxbh,jdbcType=VARCHAR} then #{item.crdate,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="sh_labour = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when SXBH = #{item.sxbh,jdbcType=VARCHAR} then #{item.shLabour,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="sxshr = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when SXBH = #{item.sxbh,jdbcType=VARCHAR} then #{item.sxshr,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="xhgl = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when SXBH = #{item.sxbh,jdbcType=VARCHAR} then #{item.xhgl,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="istestDC = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when SXBH = #{item.sxbh,jdbcType=VARCHAR} then #{item.istestdc,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="istest2200 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when SXBH = #{item.sxbh,jdbcType=VARCHAR} then #{item.istest2200,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="istest2400 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when SXBH = #{item.sxbh,jdbcType=VARCHAR} then #{item.istest2400,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="BPCD = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when SXBH = #{item.sxbh,jdbcType=VARCHAR} then #{item.bpcd,jdbcType=FLOAT}
+        </foreach>
+      </trim>
+      <trim prefix="JDWZ = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when SXBH = #{item.sxbh,jdbcType=VARCHAR} then #{item.jdwz,jdbcType=FLOAT}
+        </foreach>
+      </trim>
+      <trim prefix="lsbz = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when SXBH = #{item.sxbh,jdbcType=VARCHAR} then #{item.lsbz,jdbcType=CHAR}
+        </foreach>
+      </trim>
+      <trim prefix="ss_totallen = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when SXBH = #{item.sxbh,jdbcType=VARCHAR} then #{item.ssTotallen,jdbcType=FLOAT}
+        </foreach>
+      </trim>
+      <trim prefix="zzpcd = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when SXBH = #{item.sxbh,jdbcType=VARCHAR} then #{item.zzpcd,jdbcType=FLOAT}
+        </foreach>
+      </trim>
+      <trim prefix="ischange = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when SXBH = #{item.sxbh,jdbcType=VARCHAR} then #{item.ischange,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="PJ = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when SXBH = #{item.sxbh,jdbcType=VARCHAR} then #{item.pj,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="XJ = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when SXBH = #{item.sxbh,jdbcType=VARCHAR} then #{item.xj,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="glqk = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when SXBH = #{item.sxbh,jdbcType=VARCHAR} then #{item.glqk,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="stime = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when SXBH = #{item.sxbh,jdbcType=VARCHAR} then #{item.stime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="etime = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when SXBH = #{item.sxbh,jdbcType=VARCHAR} then #{item.etime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="syl = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when SXBH = #{item.sxbh,jdbcType=VARCHAR} then #{item.syl,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="sxms = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when SXBH = #{item.sxbh,jdbcType=VARCHAR} then #{item.sxms,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="qjms = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when SXBH = #{item.sxbh,jdbcType=VARCHAR} then #{item.qjms,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="dqjd = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when SXBH = #{item.sxbh,jdbcType=VARCHAR} then #{item.dqjd,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="dqmscd = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when SXBH = #{item.sxbh,jdbcType=VARCHAR} then #{item.dqmscd,jdbcType=NUMERIC}
+        </foreach>
+      </trim>
+      <trim prefix="isfg = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when SXBH = #{item.sxbh,jdbcType=VARCHAR} then #{item.isfg,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="SBBHD = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when SXBH = #{item.sxbh,jdbcType=VARCHAR} then #{item.sbbhd,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="dqcs = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when SXBH = #{item.sxbh,jdbcType=VARCHAR} then #{item.dqcs,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="LastUpdateTime = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when SXBH = #{item.sxbh,jdbcType=VARCHAR} then #{item.lastupdatetime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="LastUpdateAccountId = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when SXBH = #{item.sxbh,jdbcType=VARCHAR} then #{item.lastupdateaccountid,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="istestPMD = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when SXBH = #{item.sxbh,jdbcType=VARCHAR} then #{item.istestpmd,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+    </trim>
+    where SXBH in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.sxbh,jdbcType=VARCHAR}
+    </foreach>
+  </update>
+  <insert id="batchInsert" parameterType="map">
+    <!--@mbg.generated-->
+    insert into SC_SX2
+    (SXBH, XH, XPTM, ewz, CD, DQQK, GB, ID, isPT, isoldtray, isbigtray, ManufactureType, 
+      color, PTnum, ISheadCauda, dqcd, qxlb, qgcd, issh, isdy, blyy, labour, sxr, crdate, 
+      sh_labour, sxshr, xhgl, istestDC, istest2200, istest2400, BPCD, JDWZ, lsbz, ss_totallen, 
+      zzpcd, ischange, PJ, XJ, glqk, stime, etime, syl, sxms, qjms, dqjd, dqmscd, isfg, 
+      SBBHD, dqcs, LastUpdateTime, LastUpdateAccountId, istestPMD)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.sxbh,jdbcType=VARCHAR}, #{item.xh,jdbcType=VARCHAR}, #{item.xptm,jdbcType=VARCHAR}, 
+        #{item.ewz,jdbcType=NUMERIC}, #{item.cd,jdbcType=NUMERIC}, #{item.dqqk,jdbcType=VARCHAR}, 
+        #{item.gb,jdbcType=VARCHAR}, #{item.id,jdbcType=VARCHAR}, #{item.ispt,jdbcType=INTEGER}, 
+        #{item.isoldtray,jdbcType=INTEGER}, #{item.isbigtray,jdbcType=INTEGER}, #{item.manufacturetype,jdbcType=CHAR}, 
+        #{item.color,jdbcType=CHAR}, #{item.ptnum,jdbcType=INTEGER}, #{item.isheadcauda,jdbcType=INTEGER}, 
+        #{item.dqcd,jdbcType=NUMERIC}, #{item.qxlb,jdbcType=VARCHAR}, #{item.qgcd,jdbcType=NUMERIC}, 
+        #{item.issh,jdbcType=INTEGER}, #{item.isdy,jdbcType=INTEGER}, #{item.blyy,jdbcType=VARCHAR}, 
+        #{item.labour,jdbcType=VARCHAR}, #{item.sxr,jdbcType=VARCHAR}, #{item.crdate,jdbcType=TIMESTAMP}, 
+        #{item.shLabour,jdbcType=VARCHAR}, #{item.sxshr,jdbcType=VARCHAR}, #{item.xhgl,jdbcType=INTEGER}, 
+        #{item.istestdc,jdbcType=INTEGER}, #{item.istest2200,jdbcType=INTEGER}, #{item.istest2400,jdbcType=INTEGER}, 
+        #{item.bpcd,jdbcType=FLOAT}, #{item.jdwz,jdbcType=FLOAT}, #{item.lsbz,jdbcType=CHAR}, 
+        #{item.ssTotallen,jdbcType=FLOAT}, #{item.zzpcd,jdbcType=FLOAT}, #{item.ischange,jdbcType=INTEGER}, 
+        #{item.pj,jdbcType=VARCHAR}, #{item.xj,jdbcType=VARCHAR}, #{item.glqk,jdbcType=VARCHAR}, 
+        #{item.stime,jdbcType=TIMESTAMP}, #{item.etime,jdbcType=TIMESTAMP}, #{item.syl,jdbcType=VARCHAR}, 
+        #{item.sxms,jdbcType=INTEGER}, #{item.qjms,jdbcType=VARCHAR}, #{item.dqjd,jdbcType=INTEGER}, 
+        #{item.dqmscd,jdbcType=NUMERIC}, #{item.isfg,jdbcType=INTEGER}, #{item.sbbhd,jdbcType=VARCHAR}, 
+        #{item.dqcs,jdbcType=INTEGER}, #{item.lastupdatetime,jdbcType=TIMESTAMP}, #{item.lastupdateaccountid,jdbcType=VARCHAR}, 
+        #{item.istestpmd,jdbcType=INTEGER})
+    </foreach>
+  </insert>
+
+  <select id="findByFilterCode" resultMap="BaseResultMap">
+    select * from SC_SX2 sc where sc.SXBH = #{filterCode,jdbcType=VARCHAR}
+  </select>
+</mapper>

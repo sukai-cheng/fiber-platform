@@ -1,6 +1,8 @@
 package com.ht.shaixuan.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
@@ -18,7 +20,7 @@ public class ScSx {
     /**
      * 筛选编号
      */
-    @TableField(value = "SXBH")
+    @TableId(value = "XSBH", type = IdType.INPUT)
     private String sxbh;
 
     /**
