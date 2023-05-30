@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.shaixuan.mapper.ZlLshMapper">
+  <resultMap id="BaseResultMap" type="com.ht.shaixuan.entity.ZlLsh">
+    <!--@mbg.generated-->
+    <!--@Table ZL_LSH-->
+    <id column="JYDH" jdbcType="VARCHAR" property="jydh" />
+    <result column="JYRQ" jdbcType="TIMESTAMP" property="jyrq" />
+    <result column="SCBZ" jdbcType="VARCHAR" property="scbz" />
+    <result column="JYJG" jdbcType="VARCHAR" property="jyjg" />
+    <result column="GH" jdbcType="VARCHAR" property="gh" />
+    <result column="GQPH" jdbcType="VARCHAR" property="gqph" />
+    <result column="WLBH" jdbcType="VARCHAR" property="wlbh" />
+    <result column="ZDR" jdbcType="VARCHAR" property="zdr" />
+    <result column="ZDRQ" jdbcType="TIMESTAMP" property="zdrq" />
+    <result column="SHR" jdbcType="VARCHAR" property="shr" />
+    <result column="SHRQ" jdbcType="TIMESTAMP" property="shrq" />
+    <result column="bhg" jdbcType="INTEGER" property="bhg" />
+    <result column="ManufactureType" jdbcType="CHAR" property="manufacturetype" />
+    <result column="ISOK_pk2200" jdbcType="INTEGER" property="isokPk2200" />
+    <result column="ISOK_pk2400" jdbcType="INTEGER" property="isokPk2400" />
+    <result column="isYB" jdbcType="INTEGER" property="isyb" />
+    <result column="ischange" jdbcType="INTEGER" property="ischange" />
+    <result column="GLPH" jdbcType="VARCHAR" property="glph" />
+    <result column="ismini" jdbcType="VARCHAR" property="ismini" />
+    <result column="isYellow" jdbcType="INTEGER" property="isyellow" />
+    <result column="isCoatingYC" jdbcType="INTEGER" property="iscoatingyc" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    JYDH, JYRQ, SCBZ, JYJG, GH, GQPH, WLBH, ZDR, ZDRQ, SHR, SHRQ, bhg, ManufactureType, 
+    ISOK_pk2200, ISOK_pk2400, isYB, ischange, GLPH, ismini, isYellow, isCoatingYC
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from ZL_LSH
+    where JYDH = #{jydh,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from ZL_LSH
+    where JYDH = #{jydh,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.ht.shaixuan.entity.ZlLsh">
+    <!--@mbg.generated-->
+    insert into ZL_LSH (JYDH, JYRQ, SCBZ, 
+      JYJG, GH, GQPH, WLBH, 
+      ZDR, ZDRQ, SHR, SHRQ, 
+      bhg, ManufactureType, ISOK_pk2200, 
+      ISOK_pk2400, isYB, ischange, 
+      GLPH, ismini, isYellow, 
+      isCoatingYC)
+    values (#{jydh,jdbcType=VARCHAR}, #{jyrq,jdbcType=TIMESTAMP}, #{scbz,jdbcType=VARCHAR}, 
+      #{jyjg,jdbcType=VARCHAR}, #{gh,jdbcType=VARCHAR}, #{gqph,jdbcType=VARCHAR}, #{wlbh,jdbcType=VARCHAR}, 
+      #{zdr,jdbcType=VARCHAR}, #{zdrq,jdbcType=TIMESTAMP}, #{shr,jdbcType=VARCHAR}, #{shrq,jdbcType=TIMESTAMP}, 
+      #{bhg,jdbcType=INTEGER}, #{manufacturetype,jdbcType=CHAR}, #{isokPk2200,jdbcType=INTEGER}, 
+      #{isokPk2400,jdbcType=INTEGER}, #{isyb,jdbcType=INTEGER}, #{ischange,jdbcType=INTEGER}, 
+      #{glph,jdbcType=VARCHAR}, #{ismini,jdbcType=VARCHAR}, #{isyellow,jdbcType=INTEGER}, 
+      #{iscoatingyc,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ht.shaixuan.entity.ZlLsh">
+    <!--@mbg.generated-->
+    insert into ZL_LSH
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="jydh != null">
+        JYDH,
+      </if>
+      <if test="jyrq != null">
+        JYRQ,
+      </if>
+      <if test="scbz != null">
+        SCBZ,
+      </if>
+      <if test="jyjg != null">
+        JYJG,
+      </if>
+      <if test="gh != null">
+        GH,
+      </if>
+      <if test="gqph != null">
+        GQPH,
+      </if>
+      <if test="wlbh != null">
+        WLBH,
+      </if>
+      <if test="zdr != null">
+        ZDR,
+      </if>
+      <if test="zdrq != null">
+        ZDRQ,
+      </if>
+      <if test="shr != null">
+        SHR,
+      </if>
+      <if test="shrq != null">
+        SHRQ,
+      </if>
+      <if test="bhg != null">
+        bhg,
+      </if>
+      <if test="manufacturetype != null">
+        ManufactureType,
+      </if>
+      <if test="isokPk2200 != null">
+        ISOK_pk2200,
+      </if>
+      <if test="isokPk2400 != null">
+        ISOK_pk2400,
+      </if>
+      <if test="isyb != null">
+        isYB,
+      </if>
+      <if test="ischange != null">
+        ischange,
+      </if>
+      <if test="glph != null">
+        GLPH,
+      </if>
+      <if test="ismini != null">
+        ismini,
+      </if>
+      <if test="isyellow != null">
+        isYellow,
+      </if>
+      <if test="iscoatingyc != null">
+        isCoatingYC,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="jydh != null">
+        #{jydh,jdbcType=VARCHAR},
+      </if>
+      <if test="jyrq != null">
+        #{jyrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="scbz != null">
+        #{scbz,jdbcType=VARCHAR},
+      </if>
+      <if test="jyjg != null">
+        #{jyjg,jdbcType=VARCHAR},
+      </if>
+      <if test="gh != null">
+        #{gh,jdbcType=VARCHAR},
+      </if>
+      <if test="gqph != null">
+        #{gqph,jdbcType=VARCHAR},
+      </if>
+      <if test="wlbh != null">
+        #{wlbh,jdbcType=VARCHAR},
+      </if>
+      <if test="zdr != null">
+        #{zdr,jdbcType=VARCHAR},
+      </if>
+      <if test="zdrq != null">
+        #{zdrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="shr != null">
+        #{shr,jdbcType=VARCHAR},
+      </if>
+      <if test="shrq != null">
+        #{shrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bhg != null">
+        #{bhg,jdbcType=INTEGER},
+      </if>
+      <if test="manufacturetype != null">
+        #{manufacturetype,jdbcType=CHAR},
+      </if>
+      <if test="isokPk2200 != null">
+        #{isokPk2200,jdbcType=INTEGER},
+      </if>
+      <if test="isokPk2400 != null">
+        #{isokPk2400,jdbcType=INTEGER},
+      </if>
+      <if test="isyb != null">
+        #{isyb,jdbcType=INTEGER},
+      </if>
+      <if test="ischange != null">
+        #{ischange,jdbcType=INTEGER},
+      </if>
+      <if test="glph != null">
+        #{glph,jdbcType=VARCHAR},
+      </if>
+      <if test="ismini != null">
+        #{ismini,jdbcType=VARCHAR},
+      </if>
+      <if test="isyellow != null">
+        #{isyellow,jdbcType=INTEGER},
+      </if>
+      <if test="iscoatingyc != null">
+        #{iscoatingyc,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ht.shaixuan.entity.ZlLsh">
+    <!--@mbg.generated-->
+    update ZL_LSH
+    <set>
+      <if test="jyrq != null">
+        JYRQ = #{jyrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="scbz != null">
+        SCBZ = #{scbz,jdbcType=VARCHAR},
+      </if>
+      <if test="jyjg != null">
+        JYJG = #{jyjg,jdbcType=VARCHAR},
+      </if>
+      <if test="gh != null">
+        GH = #{gh,jdbcType=VARCHAR},
+      </if>
+      <if test="gqph != null">
+        GQPH = #{gqph,jdbcType=VARCHAR},
+      </if>
+      <if test="wlbh != null">
+        WLBH = #{wlbh,jdbcType=VARCHAR},
+      </if>
+      <if test="zdr != null">
+        ZDR = #{zdr,jdbcType=VARCHAR},
+      </if>
+      <if test="zdrq != null">
+        ZDRQ = #{zdrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="shr != null">
+        SHR = #{shr,jdbcType=VARCHAR},
+      </if>
+      <if test="shrq != null">
+        SHRQ = #{shrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bhg != null">
+        bhg = #{bhg,jdbcType=INTEGER},
+      </if>
+      <if test="manufacturetype != null">
+        ManufactureType = #{manufacturetype,jdbcType=CHAR},
+      </if>
+      <if test="isokPk2200 != null">
+        ISOK_pk2200 = #{isokPk2200,jdbcType=INTEGER},
+      </if>
+      <if test="isokPk2400 != null">
+        ISOK_pk2400 = #{isokPk2400,jdbcType=INTEGER},
+      </if>
+      <if test="isyb != null">
+        isYB = #{isyb,jdbcType=INTEGER},
+      </if>
+      <if test="ischange != null">
+        ischange = #{ischange,jdbcType=INTEGER},
+      </if>
+      <if test="glph != null">
+        GLPH = #{glph,jdbcType=VARCHAR},
+      </if>
+      <if test="ismini != null">
+        ismini = #{ismini,jdbcType=VARCHAR},
+      </if>
+      <if test="isyellow != null">
+        isYellow = #{isyellow,jdbcType=INTEGER},
+      </if>
+      <if test="iscoatingyc != null">
+        isCoatingYC = #{iscoatingyc,jdbcType=INTEGER},
+      </if>
+    </set>
+    where JYDH = #{jydh,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ht.shaixuan.entity.ZlLsh">
+    <!--@mbg.generated-->
+    update ZL_LSH
+    set JYRQ = #{jyrq,jdbcType=TIMESTAMP},
+      SCBZ = #{scbz,jdbcType=VARCHAR},
+      JYJG = #{jyjg,jdbcType=VARCHAR},
+      GH = #{gh,jdbcType=VARCHAR},
+      GQPH = #{gqph,jdbcType=VARCHAR},
+      WLBH = #{wlbh,jdbcType=VARCHAR},
+      ZDR = #{zdr,jdbcType=VARCHAR},
+      ZDRQ = #{zdrq,jdbcType=TIMESTAMP},
+      SHR = #{shr,jdbcType=VARCHAR},
+      SHRQ = #{shrq,jdbcType=TIMESTAMP},
+      bhg = #{bhg,jdbcType=INTEGER},
+      ManufactureType = #{manufacturetype,jdbcType=CHAR},
+      ISOK_pk2200 = #{isokPk2200,jdbcType=INTEGER},
+      ISOK_pk2400 = #{isokPk2400,jdbcType=INTEGER},
+      isYB = #{isyb,jdbcType=INTEGER},
+      ischange = #{ischange,jdbcType=INTEGER},
+      GLPH = #{glph,jdbcType=VARCHAR},
+      ismini = #{ismini,jdbcType=VARCHAR},
+      isYellow = #{isyellow,jdbcType=INTEGER},
+      isCoatingYC = #{iscoatingyc,jdbcType=INTEGER}
+    where JYDH = #{jydh,jdbcType=VARCHAR}
+  </update>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update ZL_LSH
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="JYRQ = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when JYDH = #{item.jydh,jdbcType=VARCHAR} then #{item.jyrq,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="SCBZ = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when JYDH = #{item.jydh,jdbcType=VARCHAR} then #{item.scbz,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="JYJG = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when JYDH = #{item.jydh,jdbcType=VARCHAR} then #{item.jyjg,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="GH = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when JYDH = #{item.jydh,jdbcType=VARCHAR} then #{item.gh,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="GQPH = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when JYDH = #{item.jydh,jdbcType=VARCHAR} then #{item.gqph,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="WLBH = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when JYDH = #{item.jydh,jdbcType=VARCHAR} then #{item.wlbh,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="ZDR = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when JYDH = #{item.jydh,jdbcType=VARCHAR} then #{item.zdr,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="ZDRQ = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when JYDH = #{item.jydh,jdbcType=VARCHAR} then #{item.zdrq,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="SHR = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when JYDH = #{item.jydh,jdbcType=VARCHAR} then #{item.shr,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="SHRQ = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when JYDH = #{item.jydh,jdbcType=VARCHAR} then #{item.shrq,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="bhg = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when JYDH = #{item.jydh,jdbcType=VARCHAR} then #{item.bhg,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="ManufactureType = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when JYDH = #{item.jydh,jdbcType=VARCHAR} then #{item.manufacturetype,jdbcType=CHAR}
+        </foreach>
+      </trim>
+      <trim prefix="ISOK_pk2200 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when JYDH = #{item.jydh,jdbcType=VARCHAR} then #{item.isokPk2200,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="ISOK_pk2400 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when JYDH = #{item.jydh,jdbcType=VARCHAR} then #{item.isokPk2400,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="isYB = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when JYDH = #{item.jydh,jdbcType=VARCHAR} then #{item.isyb,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="ischange = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when JYDH = #{item.jydh,jdbcType=VARCHAR} then #{item.ischange,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="GLPH = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when JYDH = #{item.jydh,jdbcType=VARCHAR} then #{item.glph,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="ismini = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when JYDH = #{item.jydh,jdbcType=VARCHAR} then #{item.ismini,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="isYellow = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when JYDH = #{item.jydh,jdbcType=VARCHAR} then #{item.isyellow,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="isCoatingYC = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when JYDH = #{item.jydh,jdbcType=VARCHAR} then #{item.iscoatingyc,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+    </trim>
+    where JYDH in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.jydh,jdbcType=VARCHAR}
+    </foreach>
+  </update>
+  <insert id="batchInsert" parameterType="map">
+    <!--@mbg.generated-->
+    insert into ZL_LSH
+    (JYDH, JYRQ, SCBZ, JYJG, GH, GQPH, WLBH, ZDR, ZDRQ, SHR, SHRQ, bhg, ManufactureType, 
+      ISOK_pk2200, ISOK_pk2400, isYB, ischange, GLPH, ismini, isYellow, isCoatingYC)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.jydh,jdbcType=VARCHAR}, #{item.jyrq,jdbcType=TIMESTAMP}, #{item.scbz,jdbcType=VARCHAR}, 
+        #{item.jyjg,jdbcType=VARCHAR}, #{item.gh,jdbcType=VARCHAR}, #{item.gqph,jdbcType=VARCHAR}, 
+        #{item.wlbh,jdbcType=VARCHAR}, #{item.zdr,jdbcType=VARCHAR}, #{item.zdrq,jdbcType=TIMESTAMP}, 
+        #{item.shr,jdbcType=VARCHAR}, #{item.shrq,jdbcType=TIMESTAMP}, #{item.bhg,jdbcType=INTEGER}, 
+        #{item.manufacturetype,jdbcType=CHAR}, #{item.isokPk2200,jdbcType=INTEGER}, #{item.isokPk2400,jdbcType=INTEGER}, 
+        #{item.isyb,jdbcType=INTEGER}, #{item.ischange,jdbcType=INTEGER}, #{item.glph,jdbcType=VARCHAR}, 
+        #{item.ismini,jdbcType=VARCHAR}, #{item.isyellow,jdbcType=INTEGER}, #{item.iscoatingyc,jdbcType=INTEGER}
+        )
+    </foreach>
+  </insert>
+</mapper>

@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.shaixuan.mapper.ZlLshPk2200Mapper">
+  <resultMap id="BaseResultMap" type="com.ht.shaixuan.entity.ZlLshPk2200">
+    <!--@mbg.generated-->
+    <!--@Table ZL_LSH_PK2200-->
+    <id column="JYDH" jdbcType="VARCHAR" property="jydh" />
+    <result column="MCZJ1" jdbcType="CHAR" property="mczj1" />
+    <result column="MCZJ2" jdbcType="CHAR" property="mczj2" />
+    <result column="JZBC" jdbcType="CHAR" property="jzbc" />
+    <result column="GPSH1310" jdbcType="CHAR" property="gpsh1310" />
+    <result column="GPSH1550" jdbcType="CHAR" property="gpsh1550" />
+    <result column="JYY" jdbcType="CHAR" property="jyy" />
+    <result column="Px_compare_1330" jdbcType="FLOAT" property="pxCompare1330" />
+    <result column="Px_compare_1550" jdbcType="FLOAT" property="pxCompare1550" />
+    <result column="crdate" jdbcType="TIMESTAMP" property="crdate" />
+    <result column="computer" jdbcType="VARCHAR" property="computer" />
+    <result column="ISOK" jdbcType="INTEGER" property="isok" />
+    <result column="ischange" jdbcType="INTEGER" property="ischange" />
+    <result column="JZBC22" jdbcType="VARCHAR" property="jzbc22" />
+    <result column="MAC" jdbcType="FLOAT" property="mac" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    JYDH, MCZJ1, MCZJ2, JZBC, GPSH1310, GPSH1550, JYY, Px_compare_1330, Px_compare_1550, 
+    crdate, computer, ISOK, ischange, JZBC22, MAC
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from ZL_LSH_PK2200
+    where JYDH = #{jydh,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from ZL_LSH_PK2200
+    where JYDH = #{jydh,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.ht.shaixuan.entity.ZlLshPk2200">
+    <!--@mbg.generated-->
+    insert into ZL_LSH_PK2200 (JYDH, MCZJ1, MCZJ2, 
+      JZBC, GPSH1310, GPSH1550, JYY, 
+      Px_compare_1330, Px_compare_1550, crdate, 
+      computer, ISOK, ischange, 
+      JZBC22, MAC)
+    values (#{jydh,jdbcType=VARCHAR}, #{mczj1,jdbcType=CHAR}, #{mczj2,jdbcType=CHAR}, 
+      #{jzbc,jdbcType=CHAR}, #{gpsh1310,jdbcType=CHAR}, #{gpsh1550,jdbcType=CHAR}, #{jyy,jdbcType=CHAR}, 
+      #{pxCompare1330,jdbcType=FLOAT}, #{pxCompare1550,jdbcType=FLOAT}, #{crdate,jdbcType=TIMESTAMP}, 
+      #{computer,jdbcType=VARCHAR}, #{isok,jdbcType=INTEGER}, #{ischange,jdbcType=INTEGER}, 
+      #{jzbc22,jdbcType=VARCHAR}, #{mac,jdbcType=FLOAT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ht.shaixuan.entity.ZlLshPk2200">
+    <!--@mbg.generated-->
+    insert into ZL_LSH_PK2200
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="jydh != null">
+        JYDH,
+      </if>
+      <if test="mczj1 != null">
+        MCZJ1,
+      </if>
+      <if test="mczj2 != null">
+        MCZJ2,
+      </if>
+      <if test="jzbc != null">
+        JZBC,
+      </if>
+      <if test="gpsh1310 != null">
+        GPSH1310,
+      </if>
+      <if test="gpsh1550 != null">
+        GPSH1550,
+      </if>
+      <if test="jyy != null">
+        JYY,
+      </if>
+      <if test="pxCompare1330 != null">
+        Px_compare_1330,
+      </if>
+      <if test="pxCompare1550 != null">
+        Px_compare_1550,
+      </if>
+      <if test="crdate != null">
+        crdate,
+      </if>
+      <if test="computer != null">
+        computer,
+      </if>
+      <if test="isok != null">
+        ISOK,
+      </if>
+      <if test="ischange != null">
+        ischange,
+      </if>
+      <if test="jzbc22 != null">
+        JZBC22,
+      </if>
+      <if test="mac != null">
+        MAC,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="jydh != null">
+        #{jydh,jdbcType=VARCHAR},
+      </if>
+      <if test="mczj1 != null">
+        #{mczj1,jdbcType=CHAR},
+      </if>
+      <if test="mczj2 != null">
+        #{mczj2,jdbcType=CHAR},
+      </if>
+      <if test="jzbc != null">
+        #{jzbc,jdbcType=CHAR},
+      </if>
+      <if test="gpsh1310 != null">
+        #{gpsh1310,jdbcType=CHAR},
+      </if>
+      <if test="gpsh1550 != null">
+        #{gpsh1550,jdbcType=CHAR},
+      </if>
+      <if test="jyy != null">
+        #{jyy,jdbcType=CHAR},
+      </if>
+      <if test="pxCompare1330 != null">
+        #{pxCompare1330,jdbcType=FLOAT},
+      </if>
+      <if test="pxCompare1550 != null">
+        #{pxCompare1550,jdbcType=FLOAT},
+      </if>
+      <if test="crdate != null">
+        #{crdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="computer != null">
+        #{computer,jdbcType=VARCHAR},
+      </if>
+      <if test="isok != null">
+        #{isok,jdbcType=INTEGER},
+      </if>
+      <if test="ischange != null">
+        #{ischange,jdbcType=INTEGER},
+      </if>
+      <if test="jzbc22 != null">
+        #{jzbc22,jdbcType=VARCHAR},
+      </if>
+      <if test="mac != null">
+        #{mac,jdbcType=FLOAT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ht.shaixuan.entity.ZlLshPk2200">
+    <!--@mbg.generated-->
+    update ZL_LSH_PK2200
+    <set>
+      <if test="mczj1 != null">
+        MCZJ1 = #{mczj1,jdbcType=CHAR},
+      </if>
+      <if test="mczj2 != null">
+        MCZJ2 = #{mczj2,jdbcType=CHAR},
+      </if>
+      <if test="jzbc != null">
+        JZBC = #{jzbc,jdbcType=CHAR},
+      </if>
+      <if test="gpsh1310 != null">
+        GPSH1310 = #{gpsh1310,jdbcType=CHAR},
+      </if>
+      <if test="gpsh1550 != null">
+        GPSH1550 = #{gpsh1550,jdbcType=CHAR},
+      </if>
+      <if test="jyy != null">
+        JYY = #{jyy,jdbcType=CHAR},
+      </if>
+      <if test="pxCompare1330 != null">
+        Px_compare_1330 = #{pxCompare1330,jdbcType=FLOAT},
+      </if>
+      <if test="pxCompare1550 != null">
+        Px_compare_1550 = #{pxCompare1550,jdbcType=FLOAT},
+      </if>
+      <if test="crdate != null">
+        crdate = #{crdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="computer != null">
+        computer = #{computer,jdbcType=VARCHAR},
+      </if>
+      <if test="isok != null">
+        ISOK = #{isok,jdbcType=INTEGER},
+      </if>
+      <if test="ischange != null">
+        ischange = #{ischange,jdbcType=INTEGER},
+      </if>
+      <if test="jzbc22 != null">
+        JZBC22 = #{jzbc22,jdbcType=VARCHAR},
+      </if>
+      <if test="mac != null">
+        MAC = #{mac,jdbcType=FLOAT},
+      </if>
+    </set>
+    where JYDH = #{jydh,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ht.shaixuan.entity.ZlLshPk2200">
+    <!--@mbg.generated-->
+    update ZL_LSH_PK2200
+    set MCZJ1 = #{mczj1,jdbcType=CHAR},
+      MCZJ2 = #{mczj2,jdbcType=CHAR},
+      JZBC = #{jzbc,jdbcType=CHAR},
+      GPSH1310 = #{gpsh1310,jdbcType=CHAR},
+      GPSH1550 = #{gpsh1550,jdbcType=CHAR},
+      JYY = #{jyy,jdbcType=CHAR},
+      Px_compare_1330 = #{pxCompare1330,jdbcType=FLOAT},
+      Px_compare_1550 = #{pxCompare1550,jdbcType=FLOAT},
+      crdate = #{crdate,jdbcType=TIMESTAMP},
+      computer = #{computer,jdbcType=VARCHAR},
+      ISOK = #{isok,jdbcType=INTEGER},
+      ischange = #{ischange,jdbcType=INTEGER},
+      JZBC22 = #{jzbc22,jdbcType=VARCHAR},
+      MAC = #{mac,jdbcType=FLOAT}
+    where JYDH = #{jydh,jdbcType=VARCHAR}
+  </update>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update ZL_LSH_PK2200
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="MCZJ1 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when JYDH = #{item.jydh,jdbcType=VARCHAR} then #{item.mczj1,jdbcType=CHAR}
+        </foreach>
+      </trim>
+      <trim prefix="MCZJ2 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when JYDH = #{item.jydh,jdbcType=VARCHAR} then #{item.mczj2,jdbcType=CHAR}
+        </foreach>
+      </trim>
+      <trim prefix="JZBC = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when JYDH = #{item.jydh,jdbcType=VARCHAR} then #{item.jzbc,jdbcType=CHAR}
+        </foreach>
+      </trim>
+      <trim prefix="GPSH1310 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when JYDH = #{item.jydh,jdbcType=VARCHAR} then #{item.gpsh1310,jdbcType=CHAR}
+        </foreach>
+      </trim>
+      <trim prefix="GPSH1550 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when JYDH = #{item.jydh,jdbcType=VARCHAR} then #{item.gpsh1550,jdbcType=CHAR}
+        </foreach>
+      </trim>
+      <trim prefix="JYY = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when JYDH = #{item.jydh,jdbcType=VARCHAR} then #{item.jyy,jdbcType=CHAR}
+        </foreach>
+      </trim>
+      <trim prefix="Px_compare_1330 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when JYDH = #{item.jydh,jdbcType=VARCHAR} then #{item.pxCompare1330,jdbcType=FLOAT}
+        </foreach>
+      </trim>
+      <trim prefix="Px_compare_1550 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when JYDH = #{item.jydh,jdbcType=VARCHAR} then #{item.pxCompare1550,jdbcType=FLOAT}
+        </foreach>
+      </trim>
+      <trim prefix="crdate = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when JYDH = #{item.jydh,jdbcType=VARCHAR} then #{item.crdate,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="computer = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when JYDH = #{item.jydh,jdbcType=VARCHAR} then #{item.computer,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="ISOK = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when JYDH = #{item.jydh,jdbcType=VARCHAR} then #{item.isok,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="ischange = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when JYDH = #{item.jydh,jdbcType=VARCHAR} then #{item.ischange,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="JZBC22 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when JYDH = #{item.jydh,jdbcType=VARCHAR} then #{item.jzbc22,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="MAC = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when JYDH = #{item.jydh,jdbcType=VARCHAR} then #{item.mac,jdbcType=FLOAT}
+        </foreach>
+      </trim>
+    </trim>
+    where JYDH in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.jydh,jdbcType=VARCHAR}
+    </foreach>
+  </update>
+  <insert id="batchInsert" parameterType="map">
+    <!--@mbg.generated-->
+    insert into ZL_LSH_PK2200
+    (JYDH, MCZJ1, MCZJ2, JZBC, GPSH1310, GPSH1550, JYY, Px_compare_1330, Px_compare_1550, 
+      crdate, computer, ISOK, ischange, JZBC22, MAC)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.jydh,jdbcType=VARCHAR}, #{item.mczj1,jdbcType=CHAR}, #{item.mczj2,jdbcType=CHAR}, 
+        #{item.jzbc,jdbcType=CHAR}, #{item.gpsh1310,jdbcType=CHAR}, #{item.gpsh1550,jdbcType=CHAR}, 
+        #{item.jyy,jdbcType=CHAR}, #{item.pxCompare1330,jdbcType=FLOAT}, #{item.pxCompare1550,jdbcType=FLOAT}, 
+        #{item.crdate,jdbcType=TIMESTAMP}, #{item.computer,jdbcType=VARCHAR}, #{item.isok,jdbcType=INTEGER}, 
+        #{item.ischange,jdbcType=INTEGER}, #{item.jzbc22,jdbcType=VARCHAR}, #{item.mac,jdbcType=FLOAT}
+        )
+    </foreach>
+  </insert>
+</mapper>

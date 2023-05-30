@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.shaixuan.mapper.YzbMiddleTableMapper">
+  <resultMap id="BaseResultMap" type="com.ht.shaixuan.entity.YzbMiddleTable">
+    <!--@mbg.generated-->
+    <!--@Table yzb_MiddleTable-->
+    <id column="GSID" jdbcType="CHAR" property="gsid" />
+    <result column="fId" jdbcType="INTEGER" property="fid" />
+    <result column="ORDERNO" jdbcType="VARCHAR" property="orderno" />
+    <result column="MATNR" jdbcType="VARCHAR" property="matnr" />
+    <result column="LIFNR" jdbcType="VARCHAR" property="lifnr" />
+    <result column="LastUpdateTime" jdbcType="TIMESTAMP" property="lastupdatetime" />
+    <result column="IniID" jdbcType="VARCHAR" property="iniid" />
+    <result column="AvailbaleCD" jdbcType="DECIMAL" property="availbalecd" />
+    <result column="heft" jdbcType="DECIMAL" property="heft" />
+    <result column="jzbc" jdbcType="VARCHAR" property="jzbc" />
+    <result column="thearyCD" jdbcType="DECIMAL" property="thearycd" />
+    <result column="diaMax" jdbcType="DECIMAL" property="diamax" />
+    <result column="diaMin" jdbcType="DECIMAL" property="diamin" />
+    <result column="MFD" jdbcType="VARCHAR" property="mfd" />
+    <result column="ManufactureType" jdbcType="VARCHAR" property="manufacturetype" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="Mstatus" jdbcType="INTEGER" property="mstatus" />
+    <result column="glkswz" jdbcType="DECIMAL" property="glkswz" />
+    <result column="glzzwz" jdbcType="DECIMAL" property="glzzwz" />
+    <result column="fjfheft" jdbcType="DECIMAL" property="fjfheft" />
+    <result column="diaPJ" jdbcType="DECIMAL" property="diapj" />
+    <result column="Status" jdbcType="VARCHAR" property="status" />
+    <result column="ActualLen" jdbcType="DECIMAL" property="actuallen" />
+    <result column="Remark" jdbcType="VARCHAR" property="remark" />
+    <result column="NodeInfo" jdbcType="VARCHAR" property="nodeinfo" />
+    <result column="IS_Delete" jdbcType="VARCHAR" property="isDelete" />
+    <result column="StandBy1" jdbcType="DECIMAL" property="standby1" />
+    <result column="StandBy2" jdbcType="VARCHAR" property="standby2" />
+    <result column="StandBy3" jdbcType="VARCHAR" property="standby3" />
+    <result column="ImportTime" jdbcType="TIMESTAMP" property="importtime" />
+    <result column="TOutCald" jdbcType="VARCHAR" property="toutcald" />
+    <result column="TypeMark" jdbcType="VARCHAR" property="typemark" />
+    <result column="jzbcN" jdbcType="VARCHAR" property="jzbcn" />
+    <result column="RestTime" jdbcType="DECIMAL" property="resttime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    GSID, fId, ORDERNO, MATNR, LIFNR, LastUpdateTime, IniID, AvailbaleCD, heft, jzbc, 
+    thearyCD, diaMax, diaMin, MFD, ManufactureType, [type], Mstatus, glkswz, glzzwz, 
+    fjfheft, diaPJ, [Status], ActualLen, Remark, NodeInfo, IS_Delete, StandBy1, StandBy2, 
+    StandBy3, ImportTime, TOutCald, TypeMark, jzbcN, RestTime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from yzb_MiddleTable
+    where GSID = #{gsid,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from yzb_MiddleTable
+    where GSID = #{gsid,jdbcType=CHAR}
+  </delete>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ht.shaixuan.entity.YzbMiddleTable">
+    <!--@mbg.generated-->
+    update yzb_MiddleTable
+    <set>
+      <if test="fid != null">
+        fId = #{fid,jdbcType=INTEGER},
+      </if>
+      <if test="orderno != null">
+        ORDERNO = #{orderno,jdbcType=VARCHAR},
+      </if>
+      <if test="matnr != null">
+        MATNR = #{matnr,jdbcType=VARCHAR},
+      </if>
+      <if test="lifnr != null">
+        LIFNR = #{lifnr,jdbcType=VARCHAR},
+      </if>
+      <if test="lastupdatetime != null">
+        LastUpdateTime = #{lastupdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="iniid != null">
+        IniID = #{iniid,jdbcType=VARCHAR},
+      </if>
+      <if test="availbalecd != null">
+        AvailbaleCD = #{availbalecd,jdbcType=DECIMAL},
+      </if>
+      <if test="heft != null">
+        heft = #{heft,jdbcType=DECIMAL},
+      </if>
+      <if test="jzbc != null">
+        jzbc = #{jzbc,jdbcType=VARCHAR},
+      </if>
+      <if test="thearycd != null">
+        thearyCD = #{thearycd,jdbcType=DECIMAL},
+      </if>
+      <if test="diamax != null">
+        diaMax = #{diamax,jdbcType=DECIMAL},
+      </if>
+      <if test="diamin != null">
+        diaMin = #{diamin,jdbcType=DECIMAL},
+      </if>
+      <if test="mfd != null">
+        MFD = #{mfd,jdbcType=VARCHAR},
+      </if>
+      <if test="manufacturetype != null">
+        ManufactureType = #{manufacturetype,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        [type] = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="mstatus != null">
+        Mstatus = #{mstatus,jdbcType=INTEGER},
+      </if>
+      <if test="glkswz != null">
+        glkswz = #{glkswz,jdbcType=DECIMAL},
+      </if>
+      <if test="glzzwz != null">
+        glzzwz = #{glzzwz,jdbcType=DECIMAL},
+      </if>
+      <if test="fjfheft != null">
+        fjfheft = #{fjfheft,jdbcType=DECIMAL},
+      </if>
+      <if test="diapj != null">
+        diaPJ = #{diapj,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null">
+        [Status] = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="actuallen != null">
+        ActualLen = #{actuallen,jdbcType=DECIMAL},
+      </if>
+      <if test="remark != null">
+        Remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="nodeinfo != null">
+        NodeInfo = #{nodeinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="isDelete != null">
+        IS_Delete = #{isDelete,jdbcType=VARCHAR},
+      </if>
+      <if test="standby1 != null">
+        StandBy1 = #{standby1,jdbcType=DECIMAL},
+      </if>
+      <if test="standby2 != null">
+        StandBy2 = #{standby2,jdbcType=VARCHAR},
+      </if>
+      <if test="standby3 != null">
+        StandBy3 = #{standby3,jdbcType=VARCHAR},
+      </if>
+      <if test="importtime != null">
+        ImportTime = #{importtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="toutcald != null">
+        TOutCald = #{toutcald,jdbcType=VARCHAR},
+      </if>
+      <if test="typemark != null">
+        TypeMark = #{typemark,jdbcType=VARCHAR},
+      </if>
+      <if test="jzbcn != null">
+        jzbcN = #{jzbcn,jdbcType=VARCHAR},
+      </if>
+      <if test="resttime != null">
+        RestTime = #{resttime,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where GSID = #{gsid,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ht.shaixuan.entity.YzbMiddleTable">
+    <!--@mbg.generated-->
+    update yzb_MiddleTable
+    set fId = #{fid,jdbcType=INTEGER},
+      ORDERNO = #{orderno,jdbcType=VARCHAR},
+      MATNR = #{matnr,jdbcType=VARCHAR},
+      LIFNR = #{lifnr,jdbcType=VARCHAR},
+      LastUpdateTime = #{lastupdatetime,jdbcType=TIMESTAMP},
+      IniID = #{iniid,jdbcType=VARCHAR},
+      AvailbaleCD = #{availbalecd,jdbcType=DECIMAL},
+      heft = #{heft,jdbcType=DECIMAL},
+      jzbc = #{jzbc,jdbcType=VARCHAR},
+      thearyCD = #{thearycd,jdbcType=DECIMAL},
+      diaMax = #{diamax,jdbcType=DECIMAL},
+      diaMin = #{diamin,jdbcType=DECIMAL},
+      MFD = #{mfd,jdbcType=VARCHAR},
+      ManufactureType = #{manufacturetype,jdbcType=VARCHAR},
+      [type] = #{type,jdbcType=VARCHAR},
+      Mstatus = #{mstatus,jdbcType=INTEGER},
+      glkswz = #{glkswz,jdbcType=DECIMAL},
+      glzzwz = #{glzzwz,jdbcType=DECIMAL},
+      fjfheft = #{fjfheft,jdbcType=DECIMAL},
+      diaPJ = #{diapj,jdbcType=DECIMAL},
+      [Status] = #{status,jdbcType=VARCHAR},
+      ActualLen = #{actuallen,jdbcType=DECIMAL},
+      Remark = #{remark,jdbcType=VARCHAR},
+      NodeInfo = #{nodeinfo,jdbcType=VARCHAR},
+      IS_Delete = #{isDelete,jdbcType=VARCHAR},
+      StandBy1 = #{standby1,jdbcType=DECIMAL},
+      StandBy2 = #{standby2,jdbcType=VARCHAR},
+      StandBy3 = #{standby3,jdbcType=VARCHAR},
+      ImportTime = #{importtime,jdbcType=TIMESTAMP},
+      TOutCald = #{toutcald,jdbcType=VARCHAR},
+      TypeMark = #{typemark,jdbcType=VARCHAR},
+      jzbcN = #{jzbcn,jdbcType=VARCHAR},
+      RestTime = #{resttime,jdbcType=DECIMAL}
+    where GSID = #{gsid,jdbcType=CHAR}
+  </update>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update yzb_MiddleTable
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="fId = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when GSID = #{item.gsid,jdbcType=CHAR} then #{item.fid,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="ORDERNO = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when GSID = #{item.gsid,jdbcType=CHAR} then #{item.orderno,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="MATNR = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when GSID = #{item.gsid,jdbcType=CHAR} then #{item.matnr,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="LIFNR = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when GSID = #{item.gsid,jdbcType=CHAR} then #{item.lifnr,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="LastUpdateTime = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when GSID = #{item.gsid,jdbcType=CHAR} then #{item.lastupdatetime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="IniID = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when GSID = #{item.gsid,jdbcType=CHAR} then #{item.iniid,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="AvailbaleCD = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when GSID = #{item.gsid,jdbcType=CHAR} then #{item.availbalecd,jdbcType=DECIMAL}
+        </foreach>
+      </trim>
+      <trim prefix="heft = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when GSID = #{item.gsid,jdbcType=CHAR} then #{item.heft,jdbcType=DECIMAL}
+        </foreach>
+      </trim>
+      <trim prefix="jzbc = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when GSID = #{item.gsid,jdbcType=CHAR} then #{item.jzbc,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="thearyCD = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when GSID = #{item.gsid,jdbcType=CHAR} then #{item.thearycd,jdbcType=DECIMAL}
+        </foreach>
+      </trim>
+      <trim prefix="diaMax = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when GSID = #{item.gsid,jdbcType=CHAR} then #{item.diamax,jdbcType=DECIMAL}
+        </foreach>
+      </trim>
+      <trim prefix="diaMin = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when GSID = #{item.gsid,jdbcType=CHAR} then #{item.diamin,jdbcType=DECIMAL}
+        </foreach>
+      </trim>
+      <trim prefix="MFD = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when GSID = #{item.gsid,jdbcType=CHAR} then #{item.mfd,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="ManufactureType = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when GSID = #{item.gsid,jdbcType=CHAR} then #{item.manufacturetype,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="[type] = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when GSID = #{item.gsid,jdbcType=CHAR} then #{item.type,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="Mstatus = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when GSID = #{item.gsid,jdbcType=CHAR} then #{item.mstatus,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="glkswz = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when GSID = #{item.gsid,jdbcType=CHAR} then #{item.glkswz,jdbcType=DECIMAL}
+        </foreach>
+      </trim>
+      <trim prefix="glzzwz = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when GSID = #{item.gsid,jdbcType=CHAR} then #{item.glzzwz,jdbcType=DECIMAL}
+        </foreach>
+      </trim>
+      <trim prefix="fjfheft = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when GSID = #{item.gsid,jdbcType=CHAR} then #{item.fjfheft,jdbcType=DECIMAL}
+        </foreach>
+      </trim>
+      <trim prefix="diaPJ = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when GSID = #{item.gsid,jdbcType=CHAR} then #{item.diapj,jdbcType=DECIMAL}
+        </foreach>
+      </trim>
+      <trim prefix="[Status] = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when GSID = #{item.gsid,jdbcType=CHAR} then #{item.status,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="ActualLen = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when GSID = #{item.gsid,jdbcType=CHAR} then #{item.actuallen,jdbcType=DECIMAL}
+        </foreach>
+      </trim>
+      <trim prefix="Remark = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when GSID = #{item.gsid,jdbcType=CHAR} then #{item.remark,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="NodeInfo = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when GSID = #{item.gsid,jdbcType=CHAR} then #{item.nodeinfo,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="IS_Delete = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when GSID = #{item.gsid,jdbcType=CHAR} then #{item.isDelete,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="StandBy1 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when GSID = #{item.gsid,jdbcType=CHAR} then #{item.standby1,jdbcType=DECIMAL}
+        </foreach>
+      </trim>
+      <trim prefix="StandBy2 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when GSID = #{item.gsid,jdbcType=CHAR} then #{item.standby2,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="StandBy3 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when GSID = #{item.gsid,jdbcType=CHAR} then #{item.standby3,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="ImportTime = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when GSID = #{item.gsid,jdbcType=CHAR} then #{item.importtime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="TOutCald = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when GSID = #{item.gsid,jdbcType=CHAR} then #{item.toutcald,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="TypeMark = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when GSID = #{item.gsid,jdbcType=CHAR} then #{item.typemark,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="jzbcN = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when GSID = #{item.gsid,jdbcType=CHAR} then #{item.jzbcn,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="RestTime = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when GSID = #{item.gsid,jdbcType=CHAR} then #{item.resttime,jdbcType=DECIMAL}
+        </foreach>
+      </trim>
+    </trim>
+    where GSID in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.gsid,jdbcType=CHAR}
+    </foreach>
+  </update>
+  <insert id="batchInsert" parameterType="map">
+      <!--@mbg.generated-->
+      insert into yzb_MiddleTable
+      (GSID, ORDERNO, MATNR, LIFNR, LastUpdateTime, IniID, AvailbaleCD, heft, jzbc,
+       thearyCD, diaMax, diaMin, MFD, ManufactureType, [type], Mstatus, glkswz, glzzwz,
+       fjfheft, diaPJ, [Status], ActualLen, Remark, NodeInfo, IS_Delete, StandBy1, StandBy2,
+       StandBy3, ImportTime, TOutCald, TypeMark, jzbcN, RestTime)
+      values
+      <foreach collection="list" item="item" separator=",">
+          (#{item.gsid,jdbcType=CHAR}, #{item.orderno,jdbcType=VARCHAR},
+           #{item.matnr,jdbcType=VARCHAR}, #{item.lifnr,jdbcType=VARCHAR}, #{item.lastupdatetime,jdbcType=TIMESTAMP},
+           #{item.iniid,jdbcType=VARCHAR}, #{item.availbalecd,jdbcType=DECIMAL}, #{item.heft,jdbcType=DECIMAL},
+           #{item.jzbc,jdbcType=VARCHAR}, #{item.thearycd,jdbcType=DECIMAL}, #{item.diamax,jdbcType=DECIMAL},
+           #{item.diamin,jdbcType=DECIMAL}, #{item.mfd,jdbcType=VARCHAR}, #{item.manufacturetype,jdbcType=VARCHAR},
+           #{item.type,jdbcType=VARCHAR}, #{item.mstatus,jdbcType=INTEGER}, #{item.glkswz,jdbcType=DECIMAL},
+           #{item.glzzwz,jdbcType=DECIMAL}, #{item.fjfheft,jdbcType=DECIMAL}, #{item.diapj,jdbcType=DECIMAL},
+           #{item.status,jdbcType=VARCHAR}, #{item.actuallen,jdbcType=DECIMAL}, #{item.remark,jdbcType=VARCHAR},
+           #{item.nodeinfo,jdbcType=VARCHAR}, #{item.isDelete,jdbcType=VARCHAR}, #{item.standby1,jdbcType=DECIMAL},
+           #{item.standby2,jdbcType=VARCHAR}, #{item.standby3,jdbcType=VARCHAR}, #{item.importtime,jdbcType=TIMESTAMP},
+           #{item.toutcald,jdbcType=VARCHAR}, #{item.typemark,jdbcType=VARCHAR}, #{item.jzbcn,jdbcType=VARCHAR},
+           #{item.resttime,jdbcType=DECIMAL})
+      </foreach>
+  </insert>
+</mapper>

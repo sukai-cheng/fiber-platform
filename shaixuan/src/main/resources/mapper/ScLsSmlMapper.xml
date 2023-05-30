@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.shaixuan.mapper.ScLsSmlMapper">
+  <resultMap id="BaseResultMap" type="com.ht.shaixuan.entity.ScLsSml">
+    <!--@mbg.generated-->
+    <!--@Table sc_ls_sml-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="LSBH" jdbcType="VARCHAR" property="lsbh" />
+    <result column="lnqtyl" jdbcType="NUMERIC" property="lnqtyl" />
+    <result column="lzsbqt" jdbcType="NUMERIC" property="lzsbqt" />
+    <result column="lzzbqt" jdbcType="NUMERIC" property="lzzbqt" />
+    <result column="mfgsysj" jdbcType="NUMERIC" property="mfgsysj" />
+    <result column="zxgsysj" jdbcType="NUMERIC" property="zxgsysj" />
+    <result column="bwgsysj" jdbcType="NUMERIC" property="bwgsysj" />
+    <result column="LastUpdateTime" jdbcType="TIMESTAMP" property="lastupdatetime" />
+    <result column="LastUpdateAccountId" jdbcType="VARCHAR" property="lastupdateaccountid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, LSBH, lnqtyl, lzsbqt, lzzbqt, mfgsysj, zxgsysj, bwgsysj, LastUpdateTime, LastUpdateAccountId
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from sc_ls_sml
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from sc_ls_sml
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.ht.shaixuan.entity.ScLsSml" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into sc_ls_sml (LSBH, lnqtyl, lzsbqt, 
+      lzzbqt, mfgsysj, zxgsysj, 
+      bwgsysj, LastUpdateTime, LastUpdateAccountId
+      )
+    values (#{lsbh,jdbcType=VARCHAR}, #{lnqtyl,jdbcType=NUMERIC}, #{lzsbqt,jdbcType=NUMERIC}, 
+      #{lzzbqt,jdbcType=NUMERIC}, #{mfgsysj,jdbcType=NUMERIC}, #{zxgsysj,jdbcType=NUMERIC}, 
+      #{bwgsysj,jdbcType=NUMERIC}, #{lastupdatetime,jdbcType=TIMESTAMP}, #{lastupdateaccountid,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.ht.shaixuan.entity.ScLsSml" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into sc_ls_sml
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="lsbh != null">
+        LSBH,
+      </if>
+      <if test="lnqtyl != null">
+        lnqtyl,
+      </if>
+      <if test="lzsbqt != null">
+        lzsbqt,
+      </if>
+      <if test="lzzbqt != null">
+        lzzbqt,
+      </if>
+      <if test="mfgsysj != null">
+        mfgsysj,
+      </if>
+      <if test="zxgsysj != null">
+        zxgsysj,
+      </if>
+      <if test="bwgsysj != null">
+        bwgsysj,
+      </if>
+      <if test="lastupdatetime != null">
+        LastUpdateTime,
+      </if>
+      <if test="lastupdateaccountid != null">
+        LastUpdateAccountId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="lsbh != null">
+        #{lsbh,jdbcType=VARCHAR},
+      </if>
+      <if test="lnqtyl != null">
+        #{lnqtyl,jdbcType=NUMERIC},
+      </if>
+      <if test="lzsbqt != null">
+        #{lzsbqt,jdbcType=NUMERIC},
+      </if>
+      <if test="lzzbqt != null">
+        #{lzzbqt,jdbcType=NUMERIC},
+      </if>
+      <if test="mfgsysj != null">
+        #{mfgsysj,jdbcType=NUMERIC},
+      </if>
+      <if test="zxgsysj != null">
+        #{zxgsysj,jdbcType=NUMERIC},
+      </if>
+      <if test="bwgsysj != null">
+        #{bwgsysj,jdbcType=NUMERIC},
+      </if>
+      <if test="lastupdatetime != null">
+        #{lastupdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastupdateaccountid != null">
+        #{lastupdateaccountid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ht.shaixuan.entity.ScLsSml">
+    <!--@mbg.generated-->
+    update sc_ls_sml
+    <set>
+      <if test="lsbh != null">
+        LSBH = #{lsbh,jdbcType=VARCHAR},
+      </if>
+      <if test="lnqtyl != null">
+        lnqtyl = #{lnqtyl,jdbcType=NUMERIC},
+      </if>
+      <if test="lzsbqt != null">
+        lzsbqt = #{lzsbqt,jdbcType=NUMERIC},
+      </if>
+      <if test="lzzbqt != null">
+        lzzbqt = #{lzzbqt,jdbcType=NUMERIC},
+      </if>
+      <if test="mfgsysj != null">
+        mfgsysj = #{mfgsysj,jdbcType=NUMERIC},
+      </if>
+      <if test="zxgsysj != null">
+        zxgsysj = #{zxgsysj,jdbcType=NUMERIC},
+      </if>
+      <if test="bwgsysj != null">
+        bwgsysj = #{bwgsysj,jdbcType=NUMERIC},
+      </if>
+      <if test="lastupdatetime != null">
+        LastUpdateTime = #{lastupdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastupdateaccountid != null">
+        LastUpdateAccountId = #{lastupdateaccountid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ht.shaixuan.entity.ScLsSml">
+    <!--@mbg.generated-->
+    update sc_ls_sml
+    set LSBH = #{lsbh,jdbcType=VARCHAR},
+      lnqtyl = #{lnqtyl,jdbcType=NUMERIC},
+      lzsbqt = #{lzsbqt,jdbcType=NUMERIC},
+      lzzbqt = #{lzzbqt,jdbcType=NUMERIC},
+      mfgsysj = #{mfgsysj,jdbcType=NUMERIC},
+      zxgsysj = #{zxgsysj,jdbcType=NUMERIC},
+      bwgsysj = #{bwgsysj,jdbcType=NUMERIC},
+      LastUpdateTime = #{lastupdatetime,jdbcType=TIMESTAMP},
+      LastUpdateAccountId = #{lastupdateaccountid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update sc_ls_sml
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="LSBH = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.lsbh,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="lnqtyl = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.lnqtyl,jdbcType=NUMERIC}
+        </foreach>
+      </trim>
+      <trim prefix="lzsbqt = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.lzsbqt,jdbcType=NUMERIC}
+        </foreach>
+      </trim>
+      <trim prefix="lzzbqt = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.lzzbqt,jdbcType=NUMERIC}
+        </foreach>
+      </trim>
+      <trim prefix="mfgsysj = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.mfgsysj,jdbcType=NUMERIC}
+        </foreach>
+      </trim>
+      <trim prefix="zxgsysj = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.zxgsysj,jdbcType=NUMERIC}
+        </foreach>
+      </trim>
+      <trim prefix="bwgsysj = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.bwgsysj,jdbcType=NUMERIC}
+        </foreach>
+      </trim>
+      <trim prefix="LastUpdateTime = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.lastupdatetime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="LastUpdateAccountId = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when id = #{item.id,jdbcType=INTEGER} then #{item.lastupdateaccountid,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+    </trim>
+    where id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=INTEGER}
+    </foreach>
+  </update>
+  <insert id="batchInsert" keyColumn="id" keyProperty="id" parameterType="map" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into sc_ls_sml
+    (LSBH, lnqtyl, lzsbqt, lzzbqt, mfgsysj, zxgsysj, bwgsysj, LastUpdateTime, LastUpdateAccountId
+      )
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.lsbh,jdbcType=VARCHAR}, #{item.lnqtyl,jdbcType=NUMERIC}, #{item.lzsbqt,jdbcType=NUMERIC}, 
+        #{item.lzzbqt,jdbcType=NUMERIC}, #{item.mfgsysj,jdbcType=NUMERIC}, #{item.zxgsysj,jdbcType=NUMERIC}, 
+        #{item.bwgsysj,jdbcType=NUMERIC}, #{item.lastupdatetime,jdbcType=TIMESTAMP}, #{item.lastupdateaccountid,jdbcType=VARCHAR}
+        )
+    </foreach>
+  </insert>
+</mapper>

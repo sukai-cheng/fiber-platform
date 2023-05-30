@@ -28,59 +28,7 @@
     delete from t_Account
     where fId = #{fid,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" keyColumn="fId" keyProperty="fid" parameterType="com.ht.shaixuan.entity.TAccount" useGeneratedKeys="true">
-    <!--@mbg.generated-->
-    insert into t_Account (fAccount, fName, fPassword, 
-      fIsAdmin, [State], fSection
-      )
-    values (#{fAccount,jdbcType=VARCHAR}, #{fName,jdbcType=VARCHAR}, #{fPassword,jdbcType=VARCHAR},
-      #{fIsAdmin,jdbcType=BIT}, #{state,jdbcType=INTEGER}, #{fSection,jdbcType=INTEGER}
-      )
-  </insert>
-  <insert id="insertSelective" keyColumn="fId" keyProperty="fid" parameterType="com.ht.shaixuan.entity.TAccount" useGeneratedKeys="true">
-    <!--@mbg.generated-->
-    insert into t_Account
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="fAccount != null">
-        fAccount,
-      </if>
-      <if test="fName != null">
-        fName,
-      </if>
-      <if test="fPassword != null">
-        fPassword,
-      </if>
-      <if test="fIsAdmin != null">
-        fIsAdmin,
-      </if>
-      <if test="state != null">
-        [State],
-      </if>
-      <if test="fSection != null">
-        fSection,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="fAccount != null">
-        #{fAccount,jdbcType=VARCHAR},
-      </if>
-      <if test="fName != null">
-        #{fName,jdbcType=VARCHAR},
-      </if>
-      <if test="fPassword != null">
-        #{fPassword,jdbcType=VARCHAR},
-      </if>
-      <if test="fIsAdmin != null">
-        #{fIsAdmin,jdbcType=BIT},
-      </if>
-      <if test="state != null">
-        #{state,jdbcType=INTEGER},
-      </if>
-      <if test="fSection != null">
-        #{fSection,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
+
   <update id="updateByPrimaryKeySelective" parameterType="com.ht.shaixuan.entity.TAccount">
     <!--@mbg.generated-->
     update t_Account

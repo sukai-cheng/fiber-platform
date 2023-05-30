@@ -13,11 +13,6 @@ import org.apache.ibatis.annotations.Param;
 public interface TAccountMapper extends BaseMapper<TAccount> {
     int deleteByPrimaryKey(Integer fid);
 
-    @Override
-    int insert(TAccount record);
-
-    int insertSelective(TAccount record);
-
     TAccount selectByPrimaryKey(Integer fid);
 
     int updateByPrimaryKeySelective(TAccount record);

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.shaixuan.mapper.ZlLshFqxxMapper">
+  <resultMap id="BaseResultMap" type="com.ht.shaixuan.entity.ZlLshFqxx">
+    <!--@mbg.generated-->
+    <!--@Table ZL_LSH_FQXX-->
+    <id column="jydh" jdbcType="VARCHAR" property="jydh" />
+    <id column="fqxh" jdbcType="INTEGER" property="fqxh" />
+    <result column="fqcd" jdbcType="NUMERIC" property="fqcd" />
+    <result column="fqdm" jdbcType="VARCHAR" property="fqdm" />
+    <result column="LastUpdateTime" jdbcType="TIMESTAMP" property="lastupdatetime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    jydh, fqxh, fqcd, fqdm, LastUpdateTime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from ZL_LSH_FQXX
+    where jydh = #{jydh,jdbcType=VARCHAR}
+      and fqxh = #{fqxh,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    <!--@mbg.generated-->
+    delete from ZL_LSH_FQXX
+    where jydh = #{jydh,jdbcType=VARCHAR}
+      and fqxh = #{fqxh,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ht.shaixuan.entity.ZlLshFqxx">
+    <!--@mbg.generated-->
+    insert into ZL_LSH_FQXX (jydh, fqxh, fqcd, 
+      fqdm, LastUpdateTime)
+    values (#{jydh,jdbcType=VARCHAR}, #{fqxh,jdbcType=INTEGER}, #{fqcd,jdbcType=NUMERIC}, 
+      #{fqdm,jdbcType=VARCHAR}, #{lastupdatetime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ht.shaixuan.entity.ZlLshFqxx">
+    <!--@mbg.generated-->
+    insert into ZL_LSH_FQXX
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="jydh != null">
+        jydh,
+      </if>
+      <if test="fqxh != null">
+        fqxh,
+      </if>
+      <if test="fqcd != null">
+        fqcd,
+      </if>
+      <if test="fqdm != null">
+        fqdm,
+      </if>
+      <if test="lastupdatetime != null">
+        LastUpdateTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="jydh != null">
+        #{jydh,jdbcType=VARCHAR},
+      </if>
+      <if test="fqxh != null">
+        #{fqxh,jdbcType=INTEGER},
+      </if>
+      <if test="fqcd != null">
+        #{fqcd,jdbcType=NUMERIC},
+      </if>
+      <if test="fqdm != null">
+        #{fqdm,jdbcType=VARCHAR},
+      </if>
+      <if test="lastupdatetime != null">
+        #{lastupdatetime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ht.shaixuan.entity.ZlLshFqxx">
+    <!--@mbg.generated-->
+    update ZL_LSH_FQXX
+    <set>
+      <if test="fqcd != null">
+        fqcd = #{fqcd,jdbcType=NUMERIC},
+      </if>
+      <if test="fqdm != null">
+        fqdm = #{fqdm,jdbcType=VARCHAR},
+      </if>
+      <if test="lastupdatetime != null">
+        LastUpdateTime = #{lastupdatetime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where jydh = #{jydh,jdbcType=VARCHAR}
+      and fqxh = #{fqxh,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ht.shaixuan.entity.ZlLshFqxx">
+    <!--@mbg.generated-->
+    update ZL_LSH_FQXX
+    set fqcd = #{fqcd,jdbcType=NUMERIC},
+      fqdm = #{fqdm,jdbcType=VARCHAR},
+      LastUpdateTime = #{lastupdatetime,jdbcType=TIMESTAMP}
+    where jydh = #{jydh,jdbcType=VARCHAR}
+      and fqxh = #{fqxh,jdbcType=INTEGER}
+  </update>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update ZL_LSH_FQXX
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="fqcd = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when jydh = #{item.jydh,jdbcType=VARCHAR} then #{item.fqcd,jdbcType=NUMERIC}
+        </foreach>
+      </trim>
+      <trim prefix="fqdm = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when jydh = #{item.jydh,jdbcType=VARCHAR} then #{item.fqdm,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="LastUpdateTime = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when jydh = #{item.jydh,jdbcType=VARCHAR} then #{item.lastupdatetime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+    </trim>
+    where jydh in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.jydh,jdbcType=VARCHAR}
+    </foreach>
+  </update>
+  <insert id="batchInsert" parameterType="map">
+    <!--@mbg.generated-->
+    insert into ZL_LSH_FQXX
+    (jydh, fqxh, fqcd, fqdm, LastUpdateTime)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.jydh,jdbcType=VARCHAR}, #{item.fqxh,jdbcType=INTEGER}, #{item.fqcd,jdbcType=NUMERIC}, 
+        #{item.fqdm,jdbcType=VARCHAR}, #{item.lastupdatetime,jdbcType=TIMESTAMP})
+    </foreach>
+  </insert>
+</mapper>

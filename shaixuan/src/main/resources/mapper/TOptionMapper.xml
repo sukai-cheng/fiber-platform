@@ -29,65 +29,7 @@
     delete from T_Option
     where fId = #{fid,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" keyColumn="fId" keyProperty="fid" parameterType="com.ht.shaixuan.entity.TOption" useGeneratedKeys="true">
-    <!--@mbg.generated-->
-    insert into T_Option ([Action], [Option], optionValue, 
-      Bz, Creator, Account, 
-      [Time])
-    values (#{action,jdbcType=VARCHAR}, #{option,jdbcType=VARCHAR}, #{optionValue,jdbcType=VARCHAR}, 
-      #{bz,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, #{account,jdbcType=VARCHAR}, 
-      #{time,jdbcType=TIMESTAMP})
-  </insert>
-  <insert id="insertSelective" keyColumn="fId" keyProperty="fid" parameterType="com.ht.shaixuan.entity.TOption" useGeneratedKeys="true">
-    <!--@mbg.generated-->
-    insert into T_Option
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="action != null">
-        [Action],
-      </if>
-      <if test="option != null">
-        [Option],
-      </if>
-      <if test="optionValue != null">
-        optionValue,
-      </if>
-      <if test="bz != null">
-        Bz,
-      </if>
-      <if test="creator != null">
-        Creator,
-      </if>
-      <if test="account != null">
-        Account,
-      </if>
-      <if test="time != null">
-        [Time],
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="action != null">
-        #{action,jdbcType=VARCHAR},
-      </if>
-      <if test="option != null">
-        #{option,jdbcType=VARCHAR},
-      </if>
-      <if test="optionValue != null">
-        #{optionValue,jdbcType=VARCHAR},
-      </if>
-      <if test="bz != null">
-        #{bz,jdbcType=VARCHAR},
-      </if>
-      <if test="creator != null">
-        #{creator,jdbcType=VARCHAR},
-      </if>
-      <if test="account != null">
-        #{account,jdbcType=VARCHAR},
-      </if>
-      <if test="time != null">
-        #{time,jdbcType=TIMESTAMP},
-      </if>
-    </trim>
-  </insert>
+
   <update id="updateByPrimaryKeySelective" parameterType="com.ht.shaixuan.entity.TOption">
     <!--@mbg.generated-->
     update T_Option

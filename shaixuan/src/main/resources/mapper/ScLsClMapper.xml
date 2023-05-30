@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.shaixuan.mapper.ScLsClMapper">
+  <resultMap id="BaseResultMap" type="com.ht.shaixuan.entity.ScLsCl">
+    <!--@mbg.generated-->
+    <!--@Table sc_ls_cl-->
+    <id column="lsbh" jdbcType="CHAR" property="lsbh" />
+    <id column="itemid" jdbcType="INTEGER" property="itemid" />
+    <result column="bz" jdbcType="CHAR" property="bz" />
+    <result column="sc_time" jdbcType="TIMESTAMP" property="scTime" />
+    <result column="ZZPBH" jdbcType="CHAR" property="zzpbh" />
+    <result column="cd" jdbcType="FLOAT" property="cd" />
+    <result column="zdr" jdbcType="CHAR" property="zdr" />
+    <result column="CLXS" jdbcType="FLOAT" property="clxs" />
+    <result column="wz" jdbcType="FLOAT" property="wz" />
+    <result column="LastUpdateTime" jdbcType="TIMESTAMP" property="lastupdatetime" />
+    <result column="LastUpdateAccountId" jdbcType="VARCHAR" property="lastupdateaccountid" />
+    <result column="BrokenPosition" jdbcType="VARCHAR" property="brokenposition" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    lsbh, itemid, bz, sc_time, ZZPBH, cd, zdr, CLXS, wz, LastUpdateTime, LastUpdateAccountId, 
+    BrokenPosition
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from sc_ls_cl
+    where lsbh = #{lsbh,jdbcType=CHAR}
+      and itemid = #{itemid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    <!--@mbg.generated-->
+    delete from sc_ls_cl
+    where lsbh = #{lsbh,jdbcType=CHAR}
+      and itemid = #{itemid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ht.shaixuan.entity.ScLsCl">
+    <!--@mbg.generated-->
+    insert into sc_ls_cl (lsbh, itemid, bz, sc_time, 
+      ZZPBH, cd, zdr, CLXS, 
+      wz, LastUpdateTime, LastUpdateAccountId, 
+      BrokenPosition)
+    values (#{lsbh,jdbcType=CHAR}, #{itemid,jdbcType=INTEGER}, #{bz,jdbcType=CHAR}, #{scTime,jdbcType=TIMESTAMP}, 
+      #{zzpbh,jdbcType=CHAR}, #{cd,jdbcType=FLOAT}, #{zdr,jdbcType=CHAR}, #{clxs,jdbcType=FLOAT}, 
+      #{wz,jdbcType=FLOAT}, #{lastupdatetime,jdbcType=TIMESTAMP}, #{lastupdateaccountid,jdbcType=VARCHAR}, 
+      #{brokenposition,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ht.shaixuan.entity.ScLsCl">
+    <!--@mbg.generated-->
+    insert into sc_ls_cl
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="lsbh != null">
+        lsbh,
+      </if>
+      <if test="itemid != null">
+        itemid,
+      </if>
+      <if test="bz != null">
+        bz,
+      </if>
+      <if test="scTime != null">
+        sc_time,
+      </if>
+      <if test="zzpbh != null">
+        ZZPBH,
+      </if>
+      <if test="cd != null">
+        cd,
+      </if>
+      <if test="zdr != null">
+        zdr,
+      </if>
+      <if test="clxs != null">
+        CLXS,
+      </if>
+      <if test="wz != null">
+        wz,
+      </if>
+      <if test="lastupdatetime != null">
+        LastUpdateTime,
+      </if>
+      <if test="lastupdateaccountid != null">
+        LastUpdateAccountId,
+      </if>
+      <if test="brokenposition != null">
+        BrokenPosition,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="lsbh != null">
+        #{lsbh,jdbcType=CHAR},
+      </if>
+      <if test="itemid != null">
+        #{itemid,jdbcType=INTEGER},
+      </if>
+      <if test="bz != null">
+        #{bz,jdbcType=CHAR},
+      </if>
+      <if test="scTime != null">
+        #{scTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="zzpbh != null">
+        #{zzpbh,jdbcType=CHAR},
+      </if>
+      <if test="cd != null">
+        #{cd,jdbcType=FLOAT},
+      </if>
+      <if test="zdr != null">
+        #{zdr,jdbcType=CHAR},
+      </if>
+      <if test="clxs != null">
+        #{clxs,jdbcType=FLOAT},
+      </if>
+      <if test="wz != null">
+        #{wz,jdbcType=FLOAT},
+      </if>
+      <if test="lastupdatetime != null">
+        #{lastupdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastupdateaccountid != null">
+        #{lastupdateaccountid,jdbcType=VARCHAR},
+      </if>
+      <if test="brokenposition != null">
+        #{brokenposition,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ht.shaixuan.entity.ScLsCl">
+    <!--@mbg.generated-->
+    update sc_ls_cl
+    <set>
+      <if test="bz != null">
+        bz = #{bz,jdbcType=CHAR},
+      </if>
+      <if test="scTime != null">
+        sc_time = #{scTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="zzpbh != null">
+        ZZPBH = #{zzpbh,jdbcType=CHAR},
+      </if>
+      <if test="cd != null">
+        cd = #{cd,jdbcType=FLOAT},
+      </if>
+      <if test="zdr != null">
+        zdr = #{zdr,jdbcType=CHAR},
+      </if>
+      <if test="clxs != null">
+        CLXS = #{clxs,jdbcType=FLOAT},
+      </if>
+      <if test="wz != null">
+        wz = #{wz,jdbcType=FLOAT},
+      </if>
+      <if test="lastupdatetime != null">
+        LastUpdateTime = #{lastupdatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastupdateaccountid != null">
+        LastUpdateAccountId = #{lastupdateaccountid,jdbcType=VARCHAR},
+      </if>
+      <if test="brokenposition != null">
+        BrokenPosition = #{brokenposition,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where lsbh = #{lsbh,jdbcType=CHAR}
+      and itemid = #{itemid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ht.shaixuan.entity.ScLsCl">
+    <!--@mbg.generated-->
+    update sc_ls_cl
+    set bz = #{bz,jdbcType=CHAR},
+      sc_time = #{scTime,jdbcType=TIMESTAMP},
+      ZZPBH = #{zzpbh,jdbcType=CHAR},
+      cd = #{cd,jdbcType=FLOAT},
+      zdr = #{zdr,jdbcType=CHAR},
+      CLXS = #{clxs,jdbcType=FLOAT},
+      wz = #{wz,jdbcType=FLOAT},
+      LastUpdateTime = #{lastupdatetime,jdbcType=TIMESTAMP},
+      LastUpdateAccountId = #{lastupdateaccountid,jdbcType=VARCHAR},
+      BrokenPosition = #{brokenposition,jdbcType=VARCHAR}
+    where lsbh = #{lsbh,jdbcType=CHAR}
+      and itemid = #{itemid,jdbcType=INTEGER}
+  </update>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update sc_ls_cl
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="bz = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when lsbh = #{item.lsbh,jdbcType=CHAR} then #{item.bz,jdbcType=CHAR}
+        </foreach>
+      </trim>
+      <trim prefix="sc_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when lsbh = #{item.lsbh,jdbcType=CHAR} then #{item.scTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="ZZPBH = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when lsbh = #{item.lsbh,jdbcType=CHAR} then #{item.zzpbh,jdbcType=CHAR}
+        </foreach>
+      </trim>
+      <trim prefix="cd = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when lsbh = #{item.lsbh,jdbcType=CHAR} then #{item.cd,jdbcType=FLOAT}
+        </foreach>
+      </trim>
+      <trim prefix="zdr = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when lsbh = #{item.lsbh,jdbcType=CHAR} then #{item.zdr,jdbcType=CHAR}
+        </foreach>
+      </trim>
+      <trim prefix="CLXS = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when lsbh = #{item.lsbh,jdbcType=CHAR} then #{item.clxs,jdbcType=FLOAT}
+        </foreach>
+      </trim>
+      <trim prefix="wz = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when lsbh = #{item.lsbh,jdbcType=CHAR} then #{item.wz,jdbcType=FLOAT}
+        </foreach>
+      </trim>
+      <trim prefix="LastUpdateTime = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when lsbh = #{item.lsbh,jdbcType=CHAR} then #{item.lastupdatetime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="LastUpdateAccountId = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when lsbh = #{item.lsbh,jdbcType=CHAR} then #{item.lastupdateaccountid,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="BrokenPosition = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when lsbh = #{item.lsbh,jdbcType=CHAR} then #{item.brokenposition,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+    </trim>
+    where lsbh in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.lsbh,jdbcType=CHAR}
+    </foreach>
+  </update>
+  <insert id="batchInsert" parameterType="map">
+    <!--@mbg.generated-->
+    insert into sc_ls_cl
+    (lsbh, itemid, bz, sc_time, ZZPBH, cd, zdr, CLXS, wz, LastUpdateTime, LastUpdateAccountId, 
+      BrokenPosition)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.lsbh,jdbcType=CHAR}, #{item.itemid,jdbcType=INTEGER}, #{item.bz,jdbcType=CHAR}, 
+        #{item.scTime,jdbcType=TIMESTAMP}, #{item.zzpbh,jdbcType=CHAR}, #{item.cd,jdbcType=FLOAT}, 
+        #{item.zdr,jdbcType=CHAR}, #{item.clxs,jdbcType=FLOAT}, #{item.wz,jdbcType=FLOAT}, 
+        #{item.lastupdatetime,jdbcType=TIMESTAMP}, #{item.lastupdateaccountid,jdbcType=VARCHAR}, 
+        #{item.brokenposition,jdbcType=VARCHAR})
+    </foreach>
+  </insert>
+</mapper>

@@ -12,9 +12,6 @@ import org.apache.ibatis.annotations.Param;
 public interface FiberCutMapper extends BaseMapper<ScLsQxqc> {
     int deleteByPrimaryKey(@Param("lsbh") String lsbh, @Param("xh") Integer xh);
 
-    @Override
-    int insert(ScLsQxqc record);
-
     int insertSelective(ScLsQxqc record);
 
     ScLsQxqc selectByPrimaryKey(@Param("lsbh") String lsbh, @Param("xh") Integer xh);

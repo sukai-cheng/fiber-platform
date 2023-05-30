@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.shaixuan.mapper.ZlLshOtdrMapper">
+  <resultMap id="BaseResultMap" type="com.ht.shaixuan.entity.ZlLshOtdr">
+    <!--@mbg.generated-->
+    <!--@Table ZL_LSH_OTDR-->
+    <id column="JYDH" jdbcType="VARCHAR" property="jydh" />
+    <result column="GQCD" jdbcType="CHAR" property="gqcd" />
+    <result column="SJXS1" jdbcType="CHAR" property="sjxs1" />
+    <result column="SJXS2" jdbcType="CHAR" property="sjxs2" />
+    <result column="SJXS3" jdbcType="CHAR" property="sjxs3" />
+    <result column="BJY1" jdbcType="CHAR" property="bjy1" />
+    <result column="BJY2" jdbcType="CHAR" property="bjy2" />
+    <result column="NDSJ1" jdbcType="CHAR" property="ndsj1" />
+    <result column="NDSJ2" jdbcType="CHAR" property="ndsj2" />
+    <result column="WDSJ1" jdbcType="CHAR" property="wdsj1" />
+    <result column="WDSJ2" jdbcType="CHAR" property="wdsj2" />
+    <result column="DC1310" jdbcType="CHAR" property="dc1310" />
+    <result column="DC1550" jdbcType="CHAR" property="dc1550" />
+    <result column="JYY" jdbcType="CHAR" property="jyy" />
+    <result column="computer" jdbcType="VARCHAR" property="computer" />
+    <result column="crdate" jdbcType="TIMESTAMP" property="crdate" />
+    <result column="ischange" jdbcType="INTEGER" property="ischange" />
+    <result column="LSA1625" jdbcType="VARCHAR" property="lsa1625" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    JYDH, GQCD, SJXS1, SJXS2, SJXS3, BJY1, BJY2, NDSJ1, NDSJ2, WDSJ1, WDSJ2, DC1310, 
+    DC1550, JYY, computer, crdate, ischange, LSA1625
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from ZL_LSH_OTDR
+    where JYDH = #{jydh,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from ZL_LSH_OTDR
+    where JYDH = #{jydh,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.ht.shaixuan.entity.ZlLshOtdr">
+    <!--@mbg.generated-->
+    insert into ZL_LSH_OTDR (JYDH, GQCD, SJXS1, 
+      SJXS2, SJXS3, BJY1, BJY2, 
+      NDSJ1, NDSJ2, WDSJ1, WDSJ2, 
+      DC1310, DC1550, JYY, computer, 
+      crdate, ischange, LSA1625
+      )
+    values (#{jydh,jdbcType=VARCHAR}, #{gqcd,jdbcType=CHAR}, #{sjxs1,jdbcType=CHAR}, 
+      #{sjxs2,jdbcType=CHAR}, #{sjxs3,jdbcType=CHAR}, #{bjy1,jdbcType=CHAR}, #{bjy2,jdbcType=CHAR}, 
+      #{ndsj1,jdbcType=CHAR}, #{ndsj2,jdbcType=CHAR}, #{wdsj1,jdbcType=CHAR}, #{wdsj2,jdbcType=CHAR}, 
+      #{dc1310,jdbcType=CHAR}, #{dc1550,jdbcType=CHAR}, #{jyy,jdbcType=CHAR}, #{computer,jdbcType=VARCHAR}, 
+      #{crdate,jdbcType=TIMESTAMP}, #{ischange,jdbcType=INTEGER}, #{lsa1625,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ht.shaixuan.entity.ZlLshOtdr">
+    <!--@mbg.generated-->
+    insert into ZL_LSH_OTDR
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="jydh != null">
+        JYDH,
+      </if>
+      <if test="gqcd != null">
+        GQCD,
+      </if>
+      <if test="sjxs1 != null">
+        SJXS1,
+      </if>
+      <if test="sjxs2 != null">
+        SJXS2,
+      </if>
+      <if test="sjxs3 != null">
+        SJXS3,
+      </if>
+      <if test="bjy1 != null">
+        BJY1,
+      </if>
+      <if test="bjy2 != null">
+        BJY2,
+      </if>
+      <if test="ndsj1 != null">
+        NDSJ1,
+      </if>
+      <if test="ndsj2 != null">
+        NDSJ2,
+      </if>
+      <if test="wdsj1 != null">
+        WDSJ1,
+      </if>
+      <if test="wdsj2 != null">
+        WDSJ2,
+      </if>
+      <if test="dc1310 != null">
+        DC1310,
+      </if>
+      <if test="dc1550 != null">
+        DC1550,
+      </if>
+      <if test="jyy != null">
+        JYY,
+      </if>
+      <if test="computer != null">
+        computer,
+      </if>
+      <if test="crdate != null">
+        crdate,
+      </if>
+      <if test="ischange != null">
+        ischange,
+      </if>
+      <if test="lsa1625 != null">
+        LSA1625,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="jydh != null">
+        #{jydh,jdbcType=VARCHAR},
+      </if>
+      <if test="gqcd != null">
+        #{gqcd,jdbcType=CHAR},
+      </if>
+      <if test="sjxs1 != null">
+        #{sjxs1,jdbcType=CHAR},
+      </if>
+      <if test="sjxs2 != null">
+        #{sjxs2,jdbcType=CHAR},
+      </if>
+      <if test="sjxs3 != null">
+        #{sjxs3,jdbcType=CHAR},
+      </if>
+      <if test="bjy1 != null">
+        #{bjy1,jdbcType=CHAR},
+      </if>
+      <if test="bjy2 != null">
+        #{bjy2,jdbcType=CHAR},
+      </if>
+      <if test="ndsj1 != null">
+        #{ndsj1,jdbcType=CHAR},
+      </if>
+      <if test="ndsj2 != null">
+        #{ndsj2,jdbcType=CHAR},
+      </if>
+      <if test="wdsj1 != null">
+        #{wdsj1,jdbcType=CHAR},
+      </if>
+      <if test="wdsj2 != null">
+        #{wdsj2,jdbcType=CHAR},
+      </if>
+      <if test="dc1310 != null">
+        #{dc1310,jdbcType=CHAR},
+      </if>
+      <if test="dc1550 != null">
+        #{dc1550,jdbcType=CHAR},
+      </if>
+      <if test="jyy != null">
+        #{jyy,jdbcType=CHAR},
+      </if>
+      <if test="computer != null">
+        #{computer,jdbcType=VARCHAR},
+      </if>
+      <if test="crdate != null">
+        #{crdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ischange != null">
+        #{ischange,jdbcType=INTEGER},
+      </if>
+      <if test="lsa1625 != null">
+        #{lsa1625,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ht.shaixuan.entity.ZlLshOtdr">
+    <!--@mbg.generated-->
+    update ZL_LSH_OTDR
+    <set>
+      <if test="gqcd != null">
+        GQCD = #{gqcd,jdbcType=CHAR},
+      </if>
+      <if test="sjxs1 != null">
+        SJXS1 = #{sjxs1,jdbcType=CHAR},
+      </if>
+      <if test="sjxs2 != null">
+        SJXS2 = #{sjxs2,jdbcType=CHAR},
+      </if>
+      <if test="sjxs3 != null">
+        SJXS3 = #{sjxs3,jdbcType=CHAR},
+      </if>
+      <if test="bjy1 != null">
+        BJY1 = #{bjy1,jdbcType=CHAR},
+      </if>
+      <if test="bjy2 != null">
+        BJY2 = #{bjy2,jdbcType=CHAR},
+      </if>
+      <if test="ndsj1 != null">
+        NDSJ1 = #{ndsj1,jdbcType=CHAR},
+      </if>
+      <if test="ndsj2 != null">
+        NDSJ2 = #{ndsj2,jdbcType=CHAR},
+      </if>
+      <if test="wdsj1 != null">
+        WDSJ1 = #{wdsj1,jdbcType=CHAR},
+      </if>
+      <if test="wdsj2 != null">
+        WDSJ2 = #{wdsj2,jdbcType=CHAR},
+      </if>
+      <if test="dc1310 != null">
+        DC1310 = #{dc1310,jdbcType=CHAR},
+      </if>
+      <if test="dc1550 != null">
+        DC1550 = #{dc1550,jdbcType=CHAR},
+      </if>
+      <if test="jyy != null">
+        JYY = #{jyy,jdbcType=CHAR},
+      </if>
+      <if test="computer != null">
+        computer = #{computer,jdbcType=VARCHAR},
+      </if>
+      <if test="crdate != null">
+        crdate = #{crdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ischange != null">
+        ischange = #{ischange,jdbcType=INTEGER},
+      </if>
+      <if test="lsa1625 != null">
+        LSA1625 = #{lsa1625,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where JYDH = #{jydh,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ht.shaixuan.entity.ZlLshOtdr">
+    <!--@mbg.generated-->
+    update ZL_LSH_OTDR
+    set GQCD = #{gqcd,jdbcType=CHAR},
+      SJXS1 = #{sjxs1,jdbcType=CHAR},
+      SJXS2 = #{sjxs2,jdbcType=CHAR},
+      SJXS3 = #{sjxs3,jdbcType=CHAR},
+      BJY1 = #{bjy1,jdbcType=CHAR},
+      BJY2 = #{bjy2,jdbcType=CHAR},
+      NDSJ1 = #{ndsj1,jdbcType=CHAR},
+      NDSJ2 = #{ndsj2,jdbcType=CHAR},
+      WDSJ1 = #{wdsj1,jdbcType=CHAR},
+      WDSJ2 = #{wdsj2,jdbcType=CHAR},
+      DC1310 = #{dc1310,jdbcType=CHAR},
+      DC1550 = #{dc1550,jdbcType=CHAR},
+      JYY = #{jyy,jdbcType=CHAR},
+      computer = #{computer,jdbcType=VARCHAR},
+      crdate = #{crdate,jdbcType=TIMESTAMP},
+      ischange = #{ischange,jdbcType=INTEGER},
+      LSA1625 = #{lsa1625,jdbcType=VARCHAR}
+    where JYDH = #{jydh,jdbcType=VARCHAR}
+  </update>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update ZL_LSH_OTDR
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="GQCD = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when JYDH = #{item.jydh,jdbcType=VARCHAR} then #{item.gqcd,jdbcType=CHAR}
+        </foreach>
+      </trim>
+      <trim prefix="SJXS1 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when JYDH = #{item.jydh,jdbcType=VARCHAR} then #{item.sjxs1,jdbcType=CHAR}
+        </foreach>
+      </trim>
+      <trim prefix="SJXS2 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when JYDH = #{item.jydh,jdbcType=VARCHAR} then #{item.sjxs2,jdbcType=CHAR}
+        </foreach>
+      </trim>
+      <trim prefix="SJXS3 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when JYDH = #{item.jydh,jdbcType=VARCHAR} then #{item.sjxs3,jdbcType=CHAR}
+        </foreach>
+      </trim>
+      <trim prefix="BJY1 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when JYDH = #{item.jydh,jdbcType=VARCHAR} then #{item.bjy1,jdbcType=CHAR}
+        </foreach>
+      </trim>
+      <trim prefix="BJY2 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when JYDH = #{item.jydh,jdbcType=VARCHAR} then #{item.bjy2,jdbcType=CHAR}
+        </foreach>
+      </trim>
+      <trim prefix="NDSJ1 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when JYDH = #{item.jydh,jdbcType=VARCHAR} then #{item.ndsj1,jdbcType=CHAR}
+        </foreach>
+      </trim>
+      <trim prefix="NDSJ2 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when JYDH = #{item.jydh,jdbcType=VARCHAR} then #{item.ndsj2,jdbcType=CHAR}
+        </foreach>
+      </trim>
+      <trim prefix="WDSJ1 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when JYDH = #{item.jydh,jdbcType=VARCHAR} then #{item.wdsj1,jdbcType=CHAR}
+        </foreach>
+      </trim>
+      <trim prefix="WDSJ2 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when JYDH = #{item.jydh,jdbcType=VARCHAR} then #{item.wdsj2,jdbcType=CHAR}
+        </foreach>
+      </trim>
+      <trim prefix="DC1310 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when JYDH = #{item.jydh,jdbcType=VARCHAR} then #{item.dc1310,jdbcType=CHAR}
+        </foreach>
+      </trim>
+      <trim prefix="DC1550 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when JYDH = #{item.jydh,jdbcType=VARCHAR} then #{item.dc1550,jdbcType=CHAR}
+        </foreach>
+      </trim>
+      <trim prefix="JYY = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when JYDH = #{item.jydh,jdbcType=VARCHAR} then #{item.jyy,jdbcType=CHAR}
+        </foreach>
+      </trim>
+      <trim prefix="computer = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when JYDH = #{item.jydh,jdbcType=VARCHAR} then #{item.computer,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="crdate = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when JYDH = #{item.jydh,jdbcType=VARCHAR} then #{item.crdate,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="ischange = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when JYDH = #{item.jydh,jdbcType=VARCHAR} then #{item.ischange,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="LSA1625 = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when JYDH = #{item.jydh,jdbcType=VARCHAR} then #{item.lsa1625,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+    </trim>
+    where JYDH in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.jydh,jdbcType=VARCHAR}
+    </foreach>
+  </update>
+  <insert id="batchInsert" parameterType="map">
+    <!--@mbg.generated-->
+    insert into ZL_LSH_OTDR
+    (JYDH, GQCD, SJXS1, SJXS2, SJXS3, BJY1, BJY2, NDSJ1, NDSJ2, WDSJ1, WDSJ2, DC1310, 
+      DC1550, JYY, computer, crdate, ischange, LSA1625)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.jydh,jdbcType=VARCHAR}, #{item.gqcd,jdbcType=CHAR}, #{item.sjxs1,jdbcType=CHAR}, 
+        #{item.sjxs2,jdbcType=CHAR}, #{item.sjxs3,jdbcType=CHAR}, #{item.bjy1,jdbcType=CHAR}, 
+        #{item.bjy2,jdbcType=CHAR}, #{item.ndsj1,jdbcType=CHAR}, #{item.ndsj2,jdbcType=CHAR}, 
+        #{item.wdsj1,jdbcType=CHAR}, #{item.wdsj2,jdbcType=CHAR}, #{item.dc1310,jdbcType=CHAR}, 
+        #{item.dc1550,jdbcType=CHAR}, #{item.jyy,jdbcType=CHAR}, #{item.computer,jdbcType=VARCHAR}, 
+        #{item.crdate,jdbcType=TIMESTAMP}, #{item.ischange,jdbcType=INTEGER}, #{item.lsa1625,jdbcType=VARCHAR}
+        )
+    </foreach>
+  </insert>
+</mapper>

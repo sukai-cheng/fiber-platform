@@ -13,9 +13,6 @@ import org.apache.ibatis.annotations.Param;
 public interface ScSxMapper extends BaseMapper<ScSx> {
     int deleteByPrimaryKey(String sxbh);
 
-    @Override
-    int insert(ScSx record);
-
     int insertSelective(ScSx record);
 
     ScSx selectByPrimaryKey(String sxbh);

@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.shaixuan.mapper.ScLsYcdjMapper">
+  <resultMap id="BaseResultMap" type="com.ht.shaixuan.entity.ScLsYcdj">
+    <!--@mbg.generated-->
+    <!--@Table sc_ls_ycdj-->
+    <id column="fid" jdbcType="INTEGER" property="fid" />
+    <result column="zdrq" jdbcType="TIMESTAMP" property="zdrq" />
+    <result column="ycxm" jdbcType="VARCHAR" property="ycxm" />
+    <result column="ycsz" jdbcType="VARCHAR" property="ycsz" />
+    <result column="gcs" jdbcType="VARCHAR" property="gcs" />
+    <result column="gcsgh" jdbcType="VARCHAR" property="gcsgh" />
+    <result column="qrrq" jdbcType="TIMESTAMP" property="qrrq" />
+    <result column="qrsm" jdbcType="VARCHAR" property="qrsm" />
+    <result column="ycxb" jdbcType="VARCHAR" property="ycxb" />
+    <result column="yclb" jdbcType="VARCHAR" property="yclb" />
+    <result column="zdr" jdbcType="VARCHAR" property="zdr" />
+    <result column="ycbz" jdbcType="VARCHAR" property="ycbz" />
+    <result column="flag" jdbcType="VARCHAR" property="flag" />
+    <result column="updateuser" jdbcType="VARCHAR" property="updateuser" />
+    <result column="updatedate" jdbcType="TIMESTAMP" property="updatedate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    fid, zdrq, ycxm, ycsz, gcs, gcsgh, qrrq, qrsm, ycxb, yclb, zdr, ycbz, flag, updateuser, 
+    updatedate
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from sc_ls_ycdj
+    where fid = #{fid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from sc_ls_ycdj
+    where fid = #{fid,jdbcType=INTEGER}
+  </delete>
+
+  <update id="updateByPrimaryKeySelective" parameterType="com.ht.shaixuan.entity.ScLsYcdj">
+    <!--@mbg.generated-->
+    update sc_ls_ycdj
+    <set>
+      <if test="zdrq != null">
+        zdrq = #{zdrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ycxm != null">
+        ycxm = #{ycxm,jdbcType=VARCHAR},
+      </if>
+      <if test="ycsz != null">
+        ycsz = #{ycsz,jdbcType=VARCHAR},
+      </if>
+      <if test="gcs != null">
+        gcs = #{gcs,jdbcType=VARCHAR},
+      </if>
+      <if test="gcsgh != null">
+        gcsgh = #{gcsgh,jdbcType=VARCHAR},
+      </if>
+      <if test="qrrq != null">
+        qrrq = #{qrrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="qrsm != null">
+        qrsm = #{qrsm,jdbcType=VARCHAR},
+      </if>
+      <if test="ycxb != null">
+        ycxb = #{ycxb,jdbcType=VARCHAR},
+      </if>
+      <if test="yclb != null">
+        yclb = #{yclb,jdbcType=VARCHAR},
+      </if>
+      <if test="zdr != null">
+        zdr = #{zdr,jdbcType=VARCHAR},
+      </if>
+      <if test="ycbz != null">
+        ycbz = #{ycbz,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        flag = #{flag,jdbcType=VARCHAR},
+      </if>
+      <if test="updateuser != null">
+        updateuser = #{updateuser,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedate != null">
+        updatedate = #{updatedate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where fid = #{fid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ht.shaixuan.entity.ScLsYcdj">
+    <!--@mbg.generated-->
+    update sc_ls_ycdj
+    set zdrq = #{zdrq,jdbcType=TIMESTAMP},
+      ycxm = #{ycxm,jdbcType=VARCHAR},
+      ycsz = #{ycsz,jdbcType=VARCHAR},
+      gcs = #{gcs,jdbcType=VARCHAR},
+      gcsgh = #{gcsgh,jdbcType=VARCHAR},
+      qrrq = #{qrrq,jdbcType=TIMESTAMP},
+      qrsm = #{qrsm,jdbcType=VARCHAR},
+      ycxb = #{ycxb,jdbcType=VARCHAR},
+      yclb = #{yclb,jdbcType=VARCHAR},
+      zdr = #{zdr,jdbcType=VARCHAR},
+      ycbz = #{ycbz,jdbcType=VARCHAR},
+      flag = #{flag,jdbcType=VARCHAR},
+      updateuser = #{updateuser,jdbcType=VARCHAR},
+      updatedate = #{updatedate,jdbcType=TIMESTAMP}
+    where fid = #{fid,jdbcType=INTEGER}
+  </update>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update sc_ls_ycdj
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="zdrq = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when fid = #{item.fid,jdbcType=INTEGER} then #{item.zdrq,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="ycxm = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when fid = #{item.fid,jdbcType=INTEGER} then #{item.ycxm,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="ycsz = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when fid = #{item.fid,jdbcType=INTEGER} then #{item.ycsz,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="gcs = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when fid = #{item.fid,jdbcType=INTEGER} then #{item.gcs,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="gcsgh = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when fid = #{item.fid,jdbcType=INTEGER} then #{item.gcsgh,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="qrrq = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when fid = #{item.fid,jdbcType=INTEGER} then #{item.qrrq,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="qrsm = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when fid = #{item.fid,jdbcType=INTEGER} then #{item.qrsm,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="ycxb = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when fid = #{item.fid,jdbcType=INTEGER} then #{item.ycxb,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="yclb = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when fid = #{item.fid,jdbcType=INTEGER} then #{item.yclb,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="zdr = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when fid = #{item.fid,jdbcType=INTEGER} then #{item.zdr,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="ycbz = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when fid = #{item.fid,jdbcType=INTEGER} then #{item.ycbz,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="flag = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when fid = #{item.fid,jdbcType=INTEGER} then #{item.flag,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="updateuser = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when fid = #{item.fid,jdbcType=INTEGER} then #{item.updateuser,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="updatedate = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when fid = #{item.fid,jdbcType=INTEGER} then #{item.updatedate,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+    </trim>
+    where fid in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.fid,jdbcType=INTEGER}
+    </foreach>
+  </update>
+  <insert id="batchInsert" keyColumn="fid" keyProperty="fid" parameterType="map" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into sc_ls_ycdj
+    (zdrq, ycxm, ycsz, gcs, gcsgh, qrrq, qrsm, ycxb, yclb, zdr, ycbz, flag, updateuser, 
+      updatedate)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.zdrq,jdbcType=TIMESTAMP}, #{item.ycxm,jdbcType=VARCHAR}, #{item.ycsz,jdbcType=VARCHAR}, 
+        #{item.gcs,jdbcType=VARCHAR}, #{item.gcsgh,jdbcType=VARCHAR}, #{item.qrrq,jdbcType=TIMESTAMP}, 
+        #{item.qrsm,jdbcType=VARCHAR}, #{item.ycxb,jdbcType=VARCHAR}, #{item.yclb,jdbcType=VARCHAR}, 
+        #{item.zdr,jdbcType=VARCHAR}, #{item.ycbz,jdbcType=VARCHAR}, #{item.flag,jdbcType=VARCHAR}, 
+        #{item.updateuser,jdbcType=VARCHAR}, #{item.updatedate,jdbcType=TIMESTAMP})
+    </foreach>
+  </insert>
+    
+  <select id="getElevationDifference" resultMap="BaseResultMap">
+      select b.*
+      from sx_ls (nolock) a
+               inner join sc_ls_ycdj (nolock) b on a.ls = left(ycxm, 2)
+      where yclb = '1'
+        and b.zdrq > getdate() - 2
+        and sx = #{sx,jdbcType=VARCHAR}
+      order by b.zdrq desc;
+  </select>
+</mapper>

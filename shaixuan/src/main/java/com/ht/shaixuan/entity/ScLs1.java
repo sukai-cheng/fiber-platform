@@ -80,6 +80,9 @@ public class ScLs1 {
     @TableField(value = "WLBH2")
     private String wlbh2;
 
+    /**
+     * LSTWD
+     */
     @TableField(value = "LSTWD")
     private Object lstwd;
 
@@ -92,18 +95,27 @@ public class ScLs1 {
     @TableField(value = "ZDR")
     private String zdr;
 
+    /**
+     * 审核时间
+     */
     @TableField(value = "ZDRQ")
     private Date zdrq;
 
     @TableField(value = "SHR")
     private String checker;
 
+    /**
+     * 审核时间
+     */
     @TableField(value = "SHRQ")
     private Date shrq;
 
     @TableField(value = "GB")
     private String gb;
 
+    /**
+     * 是否升速
+     */
     @TableField(value = "ISrise")
     private Integer isrise;
 
@@ -122,6 +134,9 @@ public class ScLs1 {
     @TableField(value = "velocity")
     private Integer velocity;
 
+    /**
+     * 断纤首盘
+     */
     @TableField(value = "dxsp")
     private String dxsp;
 
@@ -134,9 +149,15 @@ public class ScLs1 {
     @TableField(value = "PLWXH")
     private String plwxh;
 
+    /**
+     * 制令号
+     */
     @TableField(value = "zlh")
     private String zlh;
 
+    /**
+     * 任务号
+     */
     @TableField(value = "MPSH")
     private String mpsh;
 
@@ -176,39 +197,72 @@ public class ScLs1 {
     @TableField(value = "IGcount")
     private Integer igCount;
 
+    /**
+     * 产量辅助计算列 - A班系数
+     */
     @TableField(value = "FA")
     private Double fa;
 
+    /**
+     * 产量辅助计算列 - B班系数
+     */
     @TableField(value = "FB")
     private Double fb;
 
+    /**
+     * 产量辅助计算列 - C班系数
+     */
     @TableField(value = "FC")
     private Double fc;
 
+    /**
+     * 产量辅助计算列 - C班产量
+     */
     @TableField(value = "FLENC")
     private Double flenc;
 
+    /**
+     * 产量辅助计算列 - B班产量
+     */
     @TableField(value = "FLENB")
     private Double flenb;
 
+    /**
+     * 产量辅助计算列 - A班产量
+     */
     @TableField(value = "FLENA")
     private Double flena;
 
+    /**
+     * 产量辅助计算列 - 其他拉丝班组1
+     */
     @TableField(value = "StrCL")
     private String strcl;
 
+    /**
+     * 产量辅助计算列 - 其他拉丝班组2
+     */
     @TableField(value = "StrCL1")
     private String strcl1;
 
+    /**
+     * 产量辅助计算列 - 其他拉丝班组3
+     */
     @TableField(value = "StrCL2")
     private String strcl2;
 
     @TableField(value = "StrF")
     private String strf;
 
+    /**
+     * 产量辅助计算列 - 产量系数和并列
+     */
     @TableField(value = "StrFormula")
     private String strFormula;
 
+    /**
+     * 产量辅助计算列 - 总产量
+     */
     @TableField(value = "CLTotal")
     private Double clTotal;
 
@@ -225,7 +279,7 @@ public class ScLs1 {
     private Double mpcd;
 
     /**
-     * 模具
+     * 盘具号
      */
     @TableField(value = "PJnum")
     private String pjnum;
@@ -240,9 +294,15 @@ public class ScLs1 {
     @TableField(value = "ischange")
     private Integer ischange;
 
+    /**
+     * 保温炉
+     */
     @TableField(value = "bwl")
     private Integer bwl;
 
+    /**
+     * 保温炉备注
+     */
     private String bwlbz;
 
     @TableField(value = "jsbz")
@@ -254,6 +314,9 @@ public class ScLs1 {
     @TableField(value = "isyx")
     private String isyx;
 
+    /**
+     * 升速盘标识
+     */
     @TableField(value = "isbs")
     private Integer isbs;
 
@@ -263,6 +326,9 @@ public class ScLs1 {
     @TableField(value = "LastUpdateTime")
     private Date lastUpdateTime;
 
+    /**
+     * 修改人
+     */
     @TableField(value = "LastUpdateAccountId")
     private String lastUpdateAccountId;
 
@@ -323,6 +389,9 @@ public class ScLs1 {
     @TableField(value = "WLBH2ModelType")
     private String wlbh2ModelType;
 
+    /**
+     * 软光缆名称
+     */
     @TableField(value = "rglName")
     private String rglName;
 }

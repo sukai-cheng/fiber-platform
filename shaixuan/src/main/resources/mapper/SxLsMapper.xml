@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.shaixuan.mapper.SxLsMapper">
+    <resultMap id="BaseResultMap" type="com.ht.shaixuan.entity.SxLs">
+        <!--@mbg.generated-->
+        <!--@Table sx_ls-->
+        <id column="ID" jdbcType="OTHER" property="id"/>
+        <result column="sx" jdbcType="VARCHAR" property="sx"/>
+        <result column="ls" jdbcType="VARCHAR" property="ls"/>
+        <result column="pp" jdbcType="VARCHAR" property="pp"/>
+        <result column="CreatedByUserName" jdbcType="VARCHAR" property="createdbyusername"/>
+        <result column="CreatedDateTime" jdbcType="TIMESTAMP" property="createddatetime"/>
+        <result column="IsDelete" jdbcType="INTEGER" property="isdelete"/>
+        <result column="LastUpdatedUserName" jdbcType="VARCHAR" property="lastupdatedusername"/>
+        <result column="LastUpdatedDateTime" jdbcType="TIMESTAMP" property="lastupdateddatetime"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        ID,
+        sx,
+        ls,
+        pp,
+        CreatedByUserName,
+        CreatedDateTime,
+        IsDelete,
+        LastUpdatedUserName,
+        LastUpdatedDateTime
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Object" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from sx_ls
+        where ID = #{id,jdbcType=OTHER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Object">
+        <!--@mbg.generated-->
+        delete
+        from sx_ls
+        where ID = #{id,jdbcType=OTHER}
+    </delete>
+    <update id="updateByPrimaryKeySelective" parameterType="com.ht.shaixuan.entity.SxLs">
+        <!--@mbg.generated-->
+        update sx_ls
+        <set>
+            <if test="sx != null">
+                sx = #{sx,jdbcType=VARCHAR},
+            </if>
+            <if test="ls != null">
+                ls = #{ls,jdbcType=VARCHAR},
+            </if>
+            <if test="pp != null">
+                pp = #{pp,jdbcType=VARCHAR},
+            </if>
+            <if test="createdbyusername != null">
+                CreatedByUserName = #{createdbyusername,jdbcType=VARCHAR},
+            </if>
+            <if test="createddatetime != null">
+                CreatedDateTime = #{createddatetime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="isdelete != null">
+                IsDelete = #{isdelete,jdbcType=INTEGER},
+            </if>
+            <if test="lastupdatedusername != null">
+                LastUpdatedUserName = #{lastupdatedusername,jdbcType=VARCHAR},
+            </if>
+            <if test="lastupdateddatetime != null">
+                LastUpdatedDateTime = #{lastupdateddatetime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where ID = #{id,jdbcType=OTHER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.ht.shaixuan.entity.SxLs">
+        <!--@mbg.generated-->
+        update sx_ls
+        set sx                  = #{sx,jdbcType=VARCHAR},
+            ls                  = #{ls,jdbcType=VARCHAR},
+            pp                  = #{pp,jdbcType=VARCHAR},
+            CreatedByUserName   = #{createdbyusername,jdbcType=VARCHAR},
+            CreatedDateTime     = #{createddatetime,jdbcType=TIMESTAMP},
+            IsDelete            = #{isdelete,jdbcType=INTEGER},
+            LastUpdatedUserName = #{lastupdatedusername,jdbcType=VARCHAR},
+            LastUpdatedDateTime = #{lastupdateddatetime,jdbcType=TIMESTAMP}
+        where ID = #{id,jdbcType=OTHER}
+    </update>
+    <update id="updateBatch" parameterType="java.util.List">
+        <!--@mbg.generated-->
+        update sx_ls
+        <trim prefix="set" suffixOverrides=",">
+            <trim prefix="sx = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when ID = #{item.id,jdbcType=OTHER} then #{item.sx,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="ls = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when ID = #{item.id,jdbcType=OTHER} then #{item.ls,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="pp = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when ID = #{item.id,jdbcType=OTHER} then #{item.pp,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="CreatedByUserName = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when ID = #{item.id,jdbcType=OTHER} then #{item.createdbyusername,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="CreatedDateTime = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when ID = #{item.id,jdbcType=OTHER} then #{item.createddatetime,jdbcType=TIMESTAMP}
+                </foreach>
+            </trim>
+            <trim prefix="IsDelete = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when ID = #{item.id,jdbcType=OTHER} then #{item.isdelete,jdbcType=INTEGER}
+                </foreach>
+            </trim>
+            <trim prefix="LastUpdatedUserName = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when ID = #{item.id,jdbcType=OTHER} then #{item.lastupdatedusername,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="LastUpdatedDateTime = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when ID = #{item.id,jdbcType=OTHER} then #{item.lastupdateddatetime,jdbcType=TIMESTAMP}
+                </foreach>
+            </trim>
+        </trim>
+        where ID in
+        <foreach close=")" collection="list" item="item" open="(" separator=", ">
+            #{item.id,jdbcType=OTHER}
+        </foreach>
+    </update>
+    <insert id="batchInsert" parameterType="map">
+        <!--@mbg.generated-->
+        insert into sx_ls
+        (ID, sx, ls, pp, CreatedByUserName, CreatedDateTime, IsDelete, LastUpdatedUserName,
+         LastUpdatedDateTime)
+        values
+        <foreach collection="list" item="item" separator=",">
+            (#{item.id,jdbcType=OTHER}, #{item.sx,jdbcType=VARCHAR}, #{item.ls,jdbcType=VARCHAR},
+             #{item.pp,jdbcType=VARCHAR}, #{item.createdbyusername,jdbcType=VARCHAR},
+             #{item.createddatetime,jdbcType=TIMESTAMP},
+             #{item.isdelete,jdbcType=INTEGER}, #{item.lastupdatedusername,jdbcType=VARCHAR},
+             #{item.lastupdateddatetime,jdbcType=TIMESTAMP})
+        </foreach>
+    </insert>
+</mapper>

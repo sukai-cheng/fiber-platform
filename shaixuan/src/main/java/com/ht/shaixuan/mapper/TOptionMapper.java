@@ -11,11 +11,6 @@ import org.apache.ibatis.annotations.Param;
 public interface TOptionMapper extends BaseMapper<TOption> {
     int deleteByPrimaryKey(Integer fid);
 
-    @Override
-    int insert(TOption record);
-
-    int insertSelective(TOption record);
-
     TOption selectByPrimaryKey(Integer fid);
 
     int updateByPrimaryKeySelective(TOption record);
