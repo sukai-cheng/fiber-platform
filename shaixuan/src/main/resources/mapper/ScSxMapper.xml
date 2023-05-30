@@ -566,4 +566,9 @@
         )
     </foreach>
   </insert>
+
+  <select id="findByMainDiskCode" resultMap="BaseResultMap">
+    select * from SC_SX sc where sc.YSPH = #{mainDiskCode,jdbcType=VARCHAR}
+  </select>
+
 </mapper>
