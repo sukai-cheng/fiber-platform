@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ht.shaixuan.mapper.ScSx2Mapper">
-  <resultMap id="BaseResultMap" type="com.ht.shaixuan.entity.ScSx2">
+<mapper namespace="com.ht.screening.mapper.ScSx2Mapper">
+  <resultMap id="BaseResultMap" type="com.ht.screening.entity.ScSx2">
     <!--@mbg.generated-->
     <!--@Table SC_SX2-->
     <id column="SXBH" jdbcType="VARCHAR" property="sxbh" />
@@ -79,7 +79,7 @@
     where SXBH = #{sxbh,jdbcType=VARCHAR}
       and XH = #{xh,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.ht.shaixuan.entity.ScSx2">
+  <insert id="insert" parameterType="com.ht.screening.entity.ScSx2">
     <!--@mbg.generated-->
     insert into SC_SX2 (SXBH, XH, XPTM, 
       ewz, CD, DQQK, GB, 
@@ -116,7 +116,7 @@
       #{lastupdatetime,jdbcType=TIMESTAMP}, #{lastupdateaccountid,jdbcType=VARCHAR}, 
       #{istestpmd,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.ht.shaixuan.entity.ScSx2">
+  <insert id="insertSelective" parameterType="com.ht.screening.entity.ScSx2">
     <!--@mbg.generated-->
     insert into SC_SX2
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -436,7 +436,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.ht.shaixuan.entity.ScSx2">
+  <update id="updateByPrimaryKeySelective" parameterType="com.ht.screening.entity.ScSx2">
     <!--@mbg.generated-->
     update SC_SX2
     <set>
@@ -594,7 +594,7 @@
     where SXBH = #{sxbh,jdbcType=VARCHAR}
       and XH = #{xh,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.ht.shaixuan.entity.ScSx2">
+  <update id="updateByPrimaryKey" parameterType="com.ht.screening.entity.ScSx2">
     <!--@mbg.generated-->
     update SC_SX2
     set XPTM = #{xptm,jdbcType=VARCHAR},

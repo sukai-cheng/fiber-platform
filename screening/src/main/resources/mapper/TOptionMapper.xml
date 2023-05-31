@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ht.shaixuan.mapper.TOptionMapper">
-  <resultMap id="BaseResultMap" type="com.ht.shaixuan.entity.TOption">
+<mapper namespace="com.ht.screening.mapper.TOptionMapper">
+  <resultMap id="BaseResultMap" type="com.ht.screening.entity.TOption">
     <!--@mbg.generated-->
     <!--@Table T_Option-->
     <id column="fId" jdbcType="INTEGER" property="fid" />
@@ -30,7 +30,7 @@
     where fId = #{fid,jdbcType=INTEGER}
   </delete>
 
-  <update id="updateByPrimaryKeySelective" parameterType="com.ht.shaixuan.entity.TOption">
+  <update id="updateByPrimaryKeySelective" parameterType="com.ht.screening.entity.TOption">
     <!--@mbg.generated-->
     update T_Option
     <set>
@@ -58,7 +58,7 @@
     </set>
     where fId = #{fid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.ht.shaixuan.entity.TOption">
+  <update id="updateByPrimaryKey" parameterType="com.ht.screening.entity.TOption">
     <!--@mbg.generated-->
     update T_Option
     set [Action] = #{action,jdbcType=VARCHAR},

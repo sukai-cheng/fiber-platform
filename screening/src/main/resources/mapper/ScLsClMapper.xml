@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ht.shaixuan.mapper.ScLsClMapper">
-  <resultMap id="BaseResultMap" type="com.ht.shaixuan.entity.ScLsCl">
+<mapper namespace="com.ht.screening.mapper.ScLsClMapper">
+  <resultMap id="BaseResultMap" type="com.ht.screening.entity.ScLsCl">
     <!--@mbg.generated-->
     <!--@Table sc_ls_cl-->
     <id column="lsbh" jdbcType="CHAR" property="lsbh" />
@@ -36,7 +36,7 @@
     where lsbh = #{lsbh,jdbcType=CHAR}
       and itemid = #{itemid,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.ht.shaixuan.entity.ScLsCl">
+  <insert id="insert" parameterType="com.ht.screening.entity.ScLsCl">
     <!--@mbg.generated-->
     insert into sc_ls_cl (lsbh, itemid, bz, sc_time, 
       ZZPBH, cd, zdr, CLXS, 
@@ -47,7 +47,7 @@
       #{wz,jdbcType=FLOAT}, #{lastupdatetime,jdbcType=TIMESTAMP}, #{lastupdateaccountid,jdbcType=VARCHAR}, 
       #{brokenposition,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.ht.shaixuan.entity.ScLsCl">
+  <insert id="insertSelective" parameterType="com.ht.screening.entity.ScLsCl">
     <!--@mbg.generated-->
     insert into sc_ls_cl
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -127,7 +127,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.ht.shaixuan.entity.ScLsCl">
+  <update id="updateByPrimaryKeySelective" parameterType="com.ht.screening.entity.ScLsCl">
     <!--@mbg.generated-->
     update sc_ls_cl
     <set>
@@ -165,7 +165,7 @@
     where lsbh = #{lsbh,jdbcType=CHAR}
       and itemid = #{itemid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.ht.shaixuan.entity.ScLsCl">
+  <update id="updateByPrimaryKey" parameterType="com.ht.screening.entity.ScLsCl">
     <!--@mbg.generated-->
     update sc_ls_cl
     set bz = #{bz,jdbcType=CHAR},

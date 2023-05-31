@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ht.shaixuan.mapper.ZlLshOtdrMapper">
-  <resultMap id="BaseResultMap" type="com.ht.shaixuan.entity.ZlLshOtdr">
+<mapper namespace="com.ht.screening.mapper.ZlLshOtdrMapper">
+  <resultMap id="BaseResultMap" type="com.ht.screening.entity.ZlLshOtdr">
     <!--@mbg.generated-->
     <!--@Table ZL_LSH_OTDR-->
     <id column="JYDH" jdbcType="VARCHAR" property="jydh" />
@@ -40,7 +40,7 @@
     delete from ZL_LSH_OTDR
     where JYDH = #{jydh,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.ht.shaixuan.entity.ZlLshOtdr">
+  <insert id="insert" parameterType="com.ht.screening.entity.ZlLshOtdr">
     <!--@mbg.generated-->
     insert into ZL_LSH_OTDR (JYDH, GQCD, SJXS1, 
       SJXS2, SJXS3, BJY1, BJY2, 
@@ -55,7 +55,7 @@
       #{crdate,jdbcType=TIMESTAMP}, #{ischange,jdbcType=INTEGER}, #{lsa1625,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.ht.shaixuan.entity.ZlLshOtdr">
+  <insert id="insertSelective" parameterType="com.ht.screening.entity.ZlLshOtdr">
     <!--@mbg.generated-->
     insert into ZL_LSH_OTDR
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -171,7 +171,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.ht.shaixuan.entity.ZlLshOtdr">
+  <update id="updateByPrimaryKeySelective" parameterType="com.ht.screening.entity.ZlLshOtdr">
     <!--@mbg.generated-->
     update ZL_LSH_OTDR
     <set>
@@ -229,7 +229,7 @@
     </set>
     where JYDH = #{jydh,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.ht.shaixuan.entity.ZlLshOtdr">
+  <update id="updateByPrimaryKey" parameterType="com.ht.screening.entity.ZlLshOtdr">
     <!--@mbg.generated-->
     update ZL_LSH_OTDR
     set GQCD = #{gqcd,jdbcType=CHAR},

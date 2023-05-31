@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ht.shaixuan.mapper.YzbMiddleTableMapper">
-  <resultMap id="BaseResultMap" type="com.ht.shaixuan.entity.YzbMiddleTable">
+<mapper namespace="com.ht.screening.mapper.YzbMiddleTableMapper">
+  <resultMap id="BaseResultMap" type="com.ht.screening.entity.YzbMiddleTable">
     <!--@mbg.generated-->
     <!--@Table yzb_MiddleTable-->
     <id column="GSID" jdbcType="CHAR" property="gsid" />
@@ -58,7 +58,7 @@
     delete from yzb_MiddleTable
     where GSID = #{gsid,jdbcType=CHAR}
   </delete>
-  <update id="updateByPrimaryKeySelective" parameterType="com.ht.shaixuan.entity.YzbMiddleTable">
+  <update id="updateByPrimaryKeySelective" parameterType="com.ht.screening.entity.YzbMiddleTable">
     <!--@mbg.generated-->
     update yzb_MiddleTable
     <set>
@@ -164,7 +164,7 @@
     </set>
     where GSID = #{gsid,jdbcType=CHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.ht.shaixuan.entity.YzbMiddleTable">
+  <update id="updateByPrimaryKey" parameterType="com.ht.screening.entity.YzbMiddleTable">
     <!--@mbg.generated-->
     update yzb_MiddleTable
     set fId = #{fid,jdbcType=INTEGER},

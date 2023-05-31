@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ht.shaixuan.mapper.ScSxMapper">
-  <resultMap id="BaseResultMap" type="com.ht.shaixuan.entity.ScSx">
+<mapper namespace="com.ht.screening.mapper.ScSxMapper">
+  <resultMap id="BaseResultMap" type="com.ht.screening.entity.ScSx">
     <!--@mbg.generated-->
     <!--@Table SC_SX-->
     <id column="SXBH" jdbcType="VARCHAR" property="sxbh" />
@@ -53,7 +53,7 @@
     delete from SC_SX
     where SXBH = #{sxbh,jdbcType=VARCHAR}
   </delete>
-  <update id="updateByPrimaryKeySelective" parameterType="com.ht.shaixuan.entity.ScSx">
+  <update id="updateByPrimaryKeySelective" parameterType="com.ht.screening.entity.ScSx">
     <!--@mbg.generated-->
     update SC_SX
     <set>
@@ -147,7 +147,7 @@
     </set>
     where SXBH = #{sxbh,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.ht.shaixuan.entity.ScSx">
+  <update id="updateByPrimaryKey" parameterType="com.ht.screening.entity.ScSx">
     <!--@mbg.generated-->
     update SC_SX
     set YSPH = #{ysph,jdbcType=VARCHAR},

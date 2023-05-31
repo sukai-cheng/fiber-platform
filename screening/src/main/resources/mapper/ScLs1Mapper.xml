@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ht.shaixuan.mapper.ScLs1Mapper">
-  <resultMap id="BaseResultMap" type="com.ht.shaixuan.entity.ScLs1">
+<mapper namespace="com.ht.screening.mapper.ScLs1Mapper">
+  <resultMap id="BaseResultMap" type="com.ht.screening.entity.ScLs1">
     <!--@mbg.generated-->
     <!--@Table SC_LS1-->
     <id column="LSBH" jdbcType="VARCHAR" property="lsbh" />
@@ -113,7 +113,7 @@
     delete from SC_LS1
     where LSBH = #{lsbh,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.ht.shaixuan.entity.ScLs1">
+  <insert id="insert" parameterType="com.ht.screening.entity.ScLs1">
     <!--@mbg.generated-->
     insert into SC_LS1 (LSBH, ZZPBH, ZZPCD, 
       GBBH, SCBZ, SCRQ, 
@@ -168,7 +168,7 @@
       #{wlbh1ModelType,jdbcType=VARCHAR}, #{wlbh2ModelType,jdbcType=VARCHAR}, #{rglName,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.ht.shaixuan.entity.ScLs1">
+  <insert id="insertSelective" parameterType="com.ht.screening.entity.ScLs1">
     <!--@mbg.generated-->
     insert into SC_LS1
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -680,7 +680,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.ht.shaixuan.entity.ScLs1">
+  <update id="updateByPrimaryKeySelective" parameterType="com.ht.screening.entity.ScLs1">
     <!--@mbg.generated-->
     update SC_LS1
     <set>
@@ -936,7 +936,7 @@
     </set>
     where LSBH = #{lsbh,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.ht.shaixuan.entity.ScLs1">
+  <update id="updateByPrimaryKey" parameterType="com.ht.screening.entity.ScLs1">
     <!--@mbg.generated-->
     update SC_LS1
     set ZZPBH = #{zzpbh,jdbcType=VARCHAR},

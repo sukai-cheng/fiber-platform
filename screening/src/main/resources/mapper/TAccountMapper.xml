@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ht.shaixuan.mapper.TAccountMapper">
-  <resultMap id="BaseResultMap" type="com.ht.shaixuan.entity.TAccount">
+<mapper namespace="com.ht.screening.mapper.TAccountMapper">
+  <resultMap id="BaseResultMap" type="com.ht.screening.entity.TAccount">
     <!--@mbg.generated-->
     <!--@Table t_Account-->
     <id column="fId" jdbcType="INTEGER" property="fid" />
@@ -29,7 +29,7 @@
     where fId = #{fid,jdbcType=INTEGER}
   </delete>
 
-  <update id="updateByPrimaryKeySelective" parameterType="com.ht.shaixuan.entity.TAccount">
+  <update id="updateByPrimaryKeySelective" parameterType="com.ht.screening.entity.TAccount">
     <!--@mbg.generated-->
     update t_Account
     <set>
@@ -54,7 +54,7 @@
     </set>
     where fId = #{fid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.ht.shaixuan.entity.TAccount">
+  <update id="updateByPrimaryKey" parameterType="com.ht.screening.entity.TAccount">
     <!--@mbg.generated-->
     update t_Account
     set fAccount = #{fAccount,jdbcType=VARCHAR},

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ht.shaixuan.mapper.ZlLshFqxxMapper">
-  <resultMap id="BaseResultMap" type="com.ht.shaixuan.entity.ZlLshFqxx">
+<mapper namespace="com.ht.screening.mapper.ZlLshFqxxMapper">
+  <resultMap id="BaseResultMap" type="com.ht.screening.entity.ZlLshFqxx">
     <!--@mbg.generated-->
     <!--@Table ZL_LSH_FQXX-->
     <id column="jydh" jdbcType="VARCHAR" property="jydh" />
@@ -28,14 +28,14 @@
     where jydh = #{jydh,jdbcType=VARCHAR}
       and fqxh = #{fqxh,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.ht.shaixuan.entity.ZlLshFqxx">
+  <insert id="insert" parameterType="com.ht.screening.entity.ZlLshFqxx">
     <!--@mbg.generated-->
     insert into ZL_LSH_FQXX (jydh, fqxh, fqcd, 
       fqdm, LastUpdateTime)
     values (#{jydh,jdbcType=VARCHAR}, #{fqxh,jdbcType=INTEGER}, #{fqcd,jdbcType=NUMERIC}, 
       #{fqdm,jdbcType=VARCHAR}, #{lastupdatetime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.ht.shaixuan.entity.ZlLshFqxx">
+  <insert id="insertSelective" parameterType="com.ht.screening.entity.ZlLshFqxx">
     <!--@mbg.generated-->
     insert into ZL_LSH_FQXX
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -73,7 +73,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.ht.shaixuan.entity.ZlLshFqxx">
+  <update id="updateByPrimaryKeySelective" parameterType="com.ht.screening.entity.ZlLshFqxx">
     <!--@mbg.generated-->
     update ZL_LSH_FQXX
     <set>
@@ -90,7 +90,7 @@
     where jydh = #{jydh,jdbcType=VARCHAR}
       and fqxh = #{fqxh,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.ht.shaixuan.entity.ZlLshFqxx">
+  <update id="updateByPrimaryKey" parameterType="com.ht.screening.entity.ZlLshFqxx">
     <!--@mbg.generated-->
     update ZL_LSH_FQXX
     set fqcd = #{fqcd,jdbcType=NUMERIC},

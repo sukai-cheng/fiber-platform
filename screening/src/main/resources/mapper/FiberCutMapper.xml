@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ht.shaixuan.mapper.FiberCutMapper">
-    <resultMap id="BaseResultMap" type="com.ht.shaixuan.entity.ScLsQxqc">
+<mapper namespace="com.ht.screening.mapper.FiberCutMapper">
+    <resultMap id="BaseResultMap" type="com.ht.screening.entity.ScLsQxqc">
         <!--@mbg.generated-->
         <!--@Table sc_ls_qxqc-->
         <id column="LSBH" jdbcType="VARCHAR" property="lsbh"/>
@@ -51,7 +51,7 @@
           and xh = #{xh,jdbcType=INTEGER}
     </delete>
 
-    <update id="updateByPrimaryKeySelective" parameterType="com.ht.shaixuan.entity.ScLsQxqc">
+    <update id="updateByPrimaryKeySelective" parameterType="com.ht.screening.entity.ScLsQxqc">
         <!--@mbg.generated-->
         update sc_ls_qxqc
         <set>
@@ -92,7 +92,7 @@
         where LSBH = #{lsbh,jdbcType=VARCHAR}
           and xh = #{xh,jdbcType=INTEGER}
     </update>
-    <update id="updateByPrimaryKey" parameterType="com.ht.shaixuan.entity.ScLsQxqc">
+    <update id="updateByPrimaryKey" parameterType="com.ht.screening.entity.ScLsQxqc">
         <!--@mbg.generated-->
         update sc_ls_qxqc
         set zzpbh               = #{zzpbh,jdbcType=VARCHAR},
@@ -189,7 +189,7 @@
         </foreach>
     </insert>
 
-    <select id="fiberCutDetail" resultType="com.ht.shaixuan.dto.FiberDrawingDefectInfo">
+    <select id="fiberCutDetail" resultType="com.ht.screening.dto.FiberDrawingDefectInfo">
         select t2.ZZPCD - t1.zzwz 'startPos',
                t2.ZZPCD - t1.qswz 'endPos',
                t1.zzwz - t1.qswz  'slitterLen',

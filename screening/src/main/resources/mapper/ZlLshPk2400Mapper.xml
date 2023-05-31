@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ht.shaixuan.mapper.ZlLshPk2400Mapper">
-  <resultMap id="BaseResultMap" type="com.ht.shaixuan.entity.ZlLshPk2400">
+<mapper namespace="com.ht.screening.mapper.ZlLshPk2400Mapper">
+  <resultMap id="BaseResultMap" type="com.ht.screening.entity.ZlLshPk2400">
     <!--@mbg.generated-->
     <!--@Table ZL_LSH_PK2400-->
     <id column="JYDH" jdbcType="VARCHAR" property="jydh" />
@@ -38,7 +38,7 @@
     delete from ZL_LSH_PK2400
     where JYDH = #{jydh,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.ht.shaixuan.entity.ZlLshPk2400">
+  <insert id="insert" parameterType="com.ht.screening.entity.ZlLshPk2400">
     <!--@mbg.generated-->
     insert into ZL_LSH_PK2400 (JYDH, XCZJ, XCBYD, 
       BCZJ, BCBYD, TXD, NTCZJ, 
@@ -51,7 +51,7 @@
       #{jyy,jdbcType=CHAR}, #{computer,jdbcType=VARCHAR}, #{crdate,jdbcType=TIMESTAMP}, 
       #{isok,jdbcType=INTEGER}, #{ischange,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.ht.shaixuan.entity.ZlLshPk2400">
+  <insert id="insertSelective" parameterType="com.ht.screening.entity.ZlLshPk2400">
     <!--@mbg.generated-->
     insert into ZL_LSH_PK2400
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -155,7 +155,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.ht.shaixuan.entity.ZlLshPk2400">
+  <update id="updateByPrimaryKeySelective" parameterType="com.ht.screening.entity.ZlLshPk2400">
     <!--@mbg.generated-->
     update ZL_LSH_PK2400
     <set>
@@ -207,7 +207,7 @@
     </set>
     where JYDH = #{jydh,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.ht.shaixuan.entity.ZlLshPk2400">
+  <update id="updateByPrimaryKey" parameterType="com.ht.screening.entity.ZlLshPk2400">
     <!--@mbg.generated-->
     update ZL_LSH_PK2400
     set XCZJ = #{xczj,jdbcType=CHAR},

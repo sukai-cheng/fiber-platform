@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ht.shaixuan.mapper.ZlLshPk2200Mapper">
-  <resultMap id="BaseResultMap" type="com.ht.shaixuan.entity.ZlLshPk2200">
+<mapper namespace="com.ht.screening.mapper.ZlLshPk2200Mapper">
+  <resultMap id="BaseResultMap" type="com.ht.screening.entity.ZlLshPk2200">
     <!--@mbg.generated-->
     <!--@Table ZL_LSH_PK2200-->
     <id column="JYDH" jdbcType="VARCHAR" property="jydh" />
@@ -37,7 +37,7 @@
     delete from ZL_LSH_PK2200
     where JYDH = #{jydh,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.ht.shaixuan.entity.ZlLshPk2200">
+  <insert id="insert" parameterType="com.ht.screening.entity.ZlLshPk2200">
     <!--@mbg.generated-->
     insert into ZL_LSH_PK2200 (JYDH, MCZJ1, MCZJ2, 
       JZBC, GPSH1310, GPSH1550, JYY, 
@@ -50,7 +50,7 @@
       #{computer,jdbcType=VARCHAR}, #{isok,jdbcType=INTEGER}, #{ischange,jdbcType=INTEGER}, 
       #{jzbc22,jdbcType=VARCHAR}, #{mac,jdbcType=FLOAT})
   </insert>
-  <insert id="insertSelective" parameterType="com.ht.shaixuan.entity.ZlLshPk2200">
+  <insert id="insertSelective" parameterType="com.ht.screening.entity.ZlLshPk2200">
     <!--@mbg.generated-->
     insert into ZL_LSH_PK2200
     <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -148,7 +148,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.ht.shaixuan.entity.ZlLshPk2200">
+  <update id="updateByPrimaryKeySelective" parameterType="com.ht.screening.entity.ZlLshPk2200">
     <!--@mbg.generated-->
     update ZL_LSH_PK2200
     <set>
@@ -197,7 +197,7 @@
     </set>
     where JYDH = #{jydh,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.ht.shaixuan.entity.ZlLshPk2200">
+  <update id="updateByPrimaryKey" parameterType="com.ht.screening.entity.ZlLshPk2200">
     <!--@mbg.generated-->
     update ZL_LSH_PK2200
     set MCZJ1 = #{mczj1,jdbcType=CHAR},
