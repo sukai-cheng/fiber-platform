@@ -362,4 +362,11 @@
     select * from SC_SX sc where sc.YSPH = #{mainDiskCode,jdbcType=VARCHAR}
   </select>
 
+  <select id="calTotalLen" resultType="java.lang.String">
+      SELECT isnull(sum(ISNULL(CD, 0) + ISNULL(DQCD, 0) + ISNULL(QGCD, 0)), 0) as totallen
+      FROM SC_SX2 T1
+               INNER JOIN SC_SX T2 ON T1.SXBH = T2.SXBH;
+  </select>
+
+
 </mapper>

@@ -18,4 +18,6 @@ public interface ScSxService extends IService<ScSx> {
 
     List<ScSx2> getAccessoryPlateInfo(String filterCode);
 
+    String calTotalLen(String mainDiskCode);
+
 }

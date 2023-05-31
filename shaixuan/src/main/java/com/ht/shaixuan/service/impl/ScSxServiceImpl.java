@@ -43,5 +43,10 @@ public class ScSxServiceImpl extends ServiceImpl<ScSxMapper, ScSx> implements Sc
         return accessoryPlateMapper.findByFilterCode(filterCode);
     }
 
+    @Override
+    public String calTotalLen(String mainDiskCode) {
+        return mainPlateMapper.calTotalLen(mainDiskCode);
+    }
+
 
 }

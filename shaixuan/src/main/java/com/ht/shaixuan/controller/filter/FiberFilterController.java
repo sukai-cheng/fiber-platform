@@ -9,6 +9,7 @@ import com.ht.shaixuan.service.impl.ScSxServiceImpl;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import sun.misc.ObjectInputFilter;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -27,7 +28,6 @@ public class FiberFilterController {
 
     /**
      * 获取筛选信息
-     *
      */
     @PostMapping(value = "/getFilterInfo")
     public AjaxResult getFilterInfo(@RequestBody FilterInfoRequest filterInfoRequest) {
@@ -36,11 +36,22 @@ public class FiberFilterController {
 
     /**
      * 获取强度差反馈信息
-     *
      */
+    @Deprecated
     @PostMapping(value = "/getElevationDifference")
     public AjaxResult getElevationDifference(@RequestBody ElevationDifferenceRequest elevationDifferenceRequest) {
         List<ScLsYcdj> elevationDifferenceInfo = elevationDifferenceService.getElevationDifference(elevationDifferenceRequest.getSx());
         return AjaxResult.success(elevationDifferenceInfo);
     }
+
+    /**
+     * 已筛总长度
+     */
+    @PostMapping(value = "/getTotalLen")
+    public AjaxResult getTotalLen(@RequestBody FilterInfoRequest filterInfoRequest) {
+        String totalLen = filterService.calTotalLen(filterInfoRequest.getMainDiskCode());
+        return AjaxResult.success(totalLen);
+    }
+
+
 }
