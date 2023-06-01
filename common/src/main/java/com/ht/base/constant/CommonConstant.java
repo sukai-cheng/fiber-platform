@@ -1,5 +1,8 @@
 package com.ht.base.constant;
 
+/**
+ * @author chengsukai
+ */
 public interface CommonConstant {
 
 	/**

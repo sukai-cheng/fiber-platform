@@ -1,6 +1,7 @@
 package com.ht.base.constant;
 /**
  * 数据库上下文常量
+ * @author chengsukai
  */
 public interface DataBaseConstant {
 	//*********数据库类型****************************************

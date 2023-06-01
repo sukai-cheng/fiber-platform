@@ -2,7 +2,8 @@ package com.ht.base.exception;
 
 /**
  * 业务异常
- * 
+ *
+ * @author chengsukai
  */
 public final class ServiceException extends RuntimeException
 {

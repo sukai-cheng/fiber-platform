@@ -1,6 +1,7 @@
 package com.ht.base.constant;
 /**
  * 基础数据类型常量
+ * @author chengsukai
  */
 public interface DataTypeConstant {
 	//*********基础数据类型****************************************
