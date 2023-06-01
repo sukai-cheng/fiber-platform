@@ -9,6 +9,7 @@ import lombok.Data;
 import java.util.Date;
 
 /**
+ * 
  * @author chengsukai
  */
 @TableName("SC_LS1")

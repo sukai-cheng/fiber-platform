@@ -5,7 +5,7 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- * 断纤信息请求体
+ * 拉丝筛选缺陷信息请求体
  * @author chengsukai
  */
 @Data

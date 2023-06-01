@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ht.screening.mapper.FiberCutMapper">
-    <resultMap id="BaseResultMap" type="com.ht.screening.entity.ScLsQxqc">
+    <resultMap id="BaseResultMap" type="com.ht.screening.entity.WireDrawingDefectRemovalEntity">
         <!--@mbg.generated-->
         <!--@Table sc_ls_qxqc-->
         <id column="LSBH" jdbcType="VARCHAR" property="lsbh"/>
@@ -51,7 +51,7 @@
           and xh = #{xh,jdbcType=INTEGER}
     </delete>
 
-    <update id="updateByPrimaryKeySelective" parameterType="com.ht.screening.entity.ScLsQxqc">
+    <update id="updateByPrimaryKeySelective" parameterType="com.ht.screening.entity.WireDrawingDefectRemovalEntity">
         <!--@mbg.generated-->
         update sc_ls_qxqc
         <set>
@@ -92,7 +92,7 @@
         where LSBH = #{lsbh,jdbcType=VARCHAR}
           and xh = #{xh,jdbcType=INTEGER}
     </update>
-    <update id="updateByPrimaryKey" parameterType="com.ht.screening.entity.ScLsQxqc">
+    <update id="updateByPrimaryKey" parameterType="com.ht.screening.entity.WireDrawingDefectRemovalEntity">
         <!--@mbg.generated-->
         update sc_ls_qxqc
         set zzpbh               = #{zzpbh,jdbcType=VARCHAR},
@@ -193,7 +193,6 @@
         select t2.ZZPCD - t1.zzwz 'startPos',
                t2.ZZPCD - t1.qswz 'endPos',
                t1.zzwz - t1.qswz  'slitterLen',
-               t1.LSBH            'fiberDrawingNum',
                t1.qxdlx           'defectType',
                t1.qswz            'fiberDrawingStartPos',
                t1.zzwz            'fiberDrawingEndPos',

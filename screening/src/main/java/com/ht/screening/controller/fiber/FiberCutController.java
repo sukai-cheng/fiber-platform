@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 
 /**
- * 断纤
+ * 获取拉丝筛选缺陷信息
  * @author chengsukai
  */
 @RestController

@@ -10,11 +10,12 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 /**
+ * 拉丝缺陷切除表
  * @author chengsukai
  */
 @Data
 @TableName("SC_LS_QXQC")
-public class ScLsQxqc {
+public class WireDrawingDefectRemovalEntity {
     /**
      * 拉丝编号
      */

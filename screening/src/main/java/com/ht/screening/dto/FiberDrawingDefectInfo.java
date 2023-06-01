@@ -25,10 +25,6 @@ public class FiberDrawingDefectInfo {
      */
     Double slitterLen;
 
-    /**
-     * 拉丝编号
-     */
-    String fiberDrawingNum;
 
     /**
      * 缺陷类型
