@@ -5,10 +5,13 @@ import org.quartz.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * @author chengsukai
+ */
 @Configuration
 public class QuartzConfig {
 
-    @Bean("helloJob")
+    @Bean("deviceStatusJob")
     public JobDetail helloJobDetail() {
         return JobBuilder.newJob(DeviceStatusJob.class)
                 .withIdentity("DeviceStatusJob")
