@@ -942,6 +942,6 @@
   </insert>
 
   <select id="findByFilterCode" resultMap="BaseResultMap">
-    select * from SC_SX2 sc where sc.SXBH = #{filterCode,jdbcType=VARCHAR}
+    select t1.* from sc_sx2 t1 inner join sc_sx t2 on t1.SXBH = t2.SXBH and t2.YSPH = #{filterCode,jdbcType=VARCHAR};
   </select>
 </mapper>

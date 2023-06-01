@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.ht.base.domain.AjaxResult;
 import com.ht.screening.entity.ScSx;
 import com.ht.screening.entity.ScSx2;
+import com.ht.screening.vo.FiberFilterSmallDiskVo;
 
 import java.util.List;
 
@@ -16,7 +17,7 @@ public interface ScSxService extends IService<ScSx> {
 
     AjaxResult getMainPlateInfo(String mainDiskCode);
 
-    List<ScSx2> getAccessoryPlateInfo(String filterCode);
+    List<FiberFilterSmallDiskVo> getAccessoryPlateInfo(String filterCode);
 
     String calTotalLen(String mainDiskCode);
 

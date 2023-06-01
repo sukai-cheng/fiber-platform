@@ -42,7 +42,7 @@ public class ScSx {
     private Date scrq;
 
     /**
-     * 筛选机台
+     * 设备编号
      */
     @TableField(value = "SBBH")
     private String sbbh;
@@ -72,7 +72,7 @@ public class ScSx {
     private Object sxzl;
 
     /**
-     * 筛选速度
+     * 收线速度
      */
     @TableField(value = "SXSD")
     private Object sxsd;
