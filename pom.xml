@@ -29,6 +29,7 @@
         <commons.fileupload.version>1.2.1</commons.fileupload.version>
         <fastjson.version>1.2.79</fastjson.version>
         <hsl.communication.version>3.2.0</hsl.communication.version>
+        <org.ini4j.version>0.5.4</org.ini4j.version>
     </properties>
 
     <parent>
@@ -122,7 +123,11 @@
                 <artifactId>spring-boot-starter-amqp</artifactId>
                 <version>${springboot.version}</version>
             </dependency>
-
+            <dependency>
+                <groupId>org.ini4j</groupId>
+                <artifactId>ini4j</artifactId>
+                <version>${org.ini4j.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
     <build>
