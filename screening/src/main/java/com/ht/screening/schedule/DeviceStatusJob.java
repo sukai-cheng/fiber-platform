@@ -15,18 +15,25 @@ import java.util.Date;
  */
 @Slf4j
 public class DeviceStatusJob extends QuartzJobBean {
+
+    private boolean isActived = false;
     @Resource
     private DeviceInfoServiceImpl deviceInfoService;
 
     @Override
     protected void executeInternal(JobExecutionContext context) throws JobExecutionException {
+//        if(!isActived){
+//            return;
+//        }
         context.getJobDetail().getJobDataMap().forEach(
                 (k, v) -> log.info("param, key:{}, value:{}", k, v)
         );
 
         log.info("Start Job执行时间: " + new Date());
+//        if(isActived) {
         DeviceInfo deviceInfo = deviceInfoService.getDeviceInfo();
         saveLog(deviceInfo);
+//        }
 
     }
 
@@ -39,7 +46,7 @@ public class DeviceStatusJob extends QuartzJobBean {
         int normalRunning = deviceInfo.normalRun;
         int exceptionStop = deviceInfo.exceptionStop;
 
-        if(normalRunning == 1 || exceptionStop == 1){
+        if (normalRunning == 1 || exceptionStop == 1) {
             // todo 写入日志
             log.info("写入日志");
         }

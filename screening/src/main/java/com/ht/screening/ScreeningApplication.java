@@ -9,8 +9,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication
 @MapperScan("com.ht.screening.mapper")
-public class ShaiXuanApplication {
+public class ScreeningApplication {
     public static void main(String[] args) {
-        SpringApplication.run(ShaiXuanApplication.class, args);
+        SpringApplication.run(ScreeningApplication.class, args);
     }
 }
