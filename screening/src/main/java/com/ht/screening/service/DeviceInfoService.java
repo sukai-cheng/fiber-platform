@@ -1,6 +1,6 @@
 package com.ht.screening.service;
 
-import com.ht.screening.dto.DeviceInfo;
+import com.ht.screening.vo.DeviceInfoVo;
 
 /**
  * 获取设备信息
@@ -8,6 +8,6 @@ import com.ht.screening.dto.DeviceInfo;
  */
 public interface DeviceInfoService {
 
-    DeviceInfo getDeviceInfo();
+    DeviceInfoVo getDeviceInfo();
 
 }

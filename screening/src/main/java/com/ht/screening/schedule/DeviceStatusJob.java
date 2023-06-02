@@ -31,7 +31,7 @@ public class DeviceStatusJob extends QuartzJobBean {
 
         log.info("Start Job执行时间: " + new Date());
 //        if(isActived) {
-        DeviceInfo deviceInfo = deviceInfoService.getDeviceInfo();
+        DeviceInfo deviceInfo = deviceInfoService.deviceInfoSchedule();
         saveLog(deviceInfo);
 //        }
 
