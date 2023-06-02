@@ -3,8 +3,10 @@ package com.ht.screening.service.impl;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ht.base.domain.AjaxResult;
 import com.ht.base.utils.bean.BeanUtils;
+import com.ht.screening.dto.CalFilterLenDto;
 import com.ht.screening.entity.ScSx;
 import com.ht.screening.entity.ScSx2;
+import com.ht.screening.mapper.FiberCutMapper;
 import com.ht.screening.mapper.ScSx2Mapper;
 import com.ht.screening.mapper.ScSxMapper;
 import com.ht.screening.service.ScSxService;
@@ -30,6 +32,9 @@ public class ScSxServiceImpl extends ServiceImpl<ScSxMapper, ScSx> implements Sc
 
     @Resource
     private ScSx2Mapper accessoryPlateMapper;
+
+    @Resource
+    private FiberCutMapper fiberCutMapper;
 
     @Override
     public AjaxResult getMainPlateInfo(String mainDiskCode) {
@@ -59,6 +64,15 @@ public class ScSxServiceImpl extends ServiceImpl<ScSxMapper, ScSx> implements Sc
     @Override
     public String calTotalLen(String mainDiskCode) {
         return mainPlateMapper.calTotalLen(mainDiskCode);
+    }
+
+    @Override
+    public String calFilterLen(CalFilterLenDto calFilterLenDto) {
+
+        // 获取总长度
+//        fiberCutMapper.fiberCutDetail()
+        //
+        return null;
     }
 
 

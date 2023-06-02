@@ -6,10 +6,10 @@
         <option name="batchInsert" value="true" />
         <option name="controllerTemplateString" value="&#10;#* @vtlvariable name=&quot;tableName&quot; type=&quot;java.lang.String&quot; *#&#10;#* @vtlvariable name=&quot;entityPackageName&quot; type=&quot;java.lang.String&quot; *#&#10;#* @vtlvariable name=&quot;entityClassName&quot; type=&quot;java.lang.String&quot; *#&#10;#* @vtlvariable name=&quot;servicePackageName&quot; type=&quot;java.lang.String&quot; *#&#10;#* @vtlvariable name=&quot;serviceInterfacePackage&quot; type=&quot;java.lang.String&quot; *#&#10;#* @vtlvariable name=&quot;serviceClassName&quot; type=&quot;java.lang.String&quot; *#&#10;#* @vtlvariable name=&quot;serviceInterfaceClassName&quot; type=&quot;java.lang.String&quot; *#&#10;#* @vtlvariable name=&quot;mapperPackageName&quot; type=&quot;java.lang.String&quot; *#&#10;#* @vtlvariable name=&quot;mapperClassName&quot; type=&quot;java.lang.String&quot; *#&#10;#* @vtlvariable name=&quot;controllerPackage&quot; type=&quot;java.lang.String&quot; *#&#10;#* @vtlvariable name=&quot;tableRemark&quot; type=&quot;java.lang.String&quot; *#&#10;#* @vtlvariable name=&quot;myDate&quot; type=&quot;java.util.Date&quot; *#&#10;#* @vtlvariable name=&quot;simpleDateFormat&quot; type=&quot;java.text.SimpleDateFormat&quot; *#&#10;package $!{controllerPackage};&#10;import $!{entityPackageName}.$!{entityClassName};&#10;#set($realServiceName = $!{serviceClassName}+'Impl')&#10;import $!{servicePackageName}.$!{realServiceName};&#10;import org.springframework.web.bind.annotation.*;&#10;&#10;#set($serviceFirstLower = $!{serviceClassName.substring(0,1).toLowerCase()}+$!{serviceClassName.substring(1,$!{serviceClassName.length()})})&#10;import javax.annotation.Resource;&#10;&#10;/**&#10;* $!{info.tableRemarks}($!{tableName})表控制层&#10;*&#10;* @author xxxxx&#10;*/&#10;@RestController&#10;@RequestMapping(&quot;/$!{tableName}&quot;)&#10;public class $!{entityClassName}Controller {&#10;/**&#10;* 服务对象&#10;*/&#10;@Resource&#10;private $!{serviceClassName} $!{serviceFirstLower};&#10;&#10;/**&#10;* 通过主键查询单条数据&#10;*&#10;* @param id 主键&#10;* @return 单条数据&#10;*/&#10;@GetMapping(&quot;selectOne&quot;)&#10;public $!{entityClassName} selectOne(Integer id) {&#10;return $!{serviceFirstLower}.selectByPrimaryKey(id);&#10;}&#10;&#10;}" />
         <option name="javaMapperPackage" value="com.ht.screening.mapper" />
-        <option name="javaMapperPath" value="$PROJECT_DIR$/common/src/main/java" />
+        <option name="javaMapperPath" value="$PROJECT_DIR$/screening/src/main/java" />
         <option name="javaModelPackage" value="com.ht.screening.entity" />
-        <option name="javaModelPath" value="$PROJECT_DIR$/common/src/main/java" />
-        <option name="lastDatabaseCrudChooseModuleName" value="common" />
+        <option name="javaModelPath" value="$PROJECT_DIR$/screening/src/main/java" />
+        <option name="lastDatabaseCrudChooseModuleName" value="screening" />
         <option name="moduleNameToPackageAndPathMap">
           <map>
             <entry key="base">
@@ -37,6 +37,20 @@
                   <option name="javaServicePath" value="$PROJECT_DIR$/common/src/main/java" />
                   <option name="xmlPackage" value="mapper" />
                   <option name="xmlPath" value="$PROJECT_DIR$/screening/src/main/resources/mapper" />
+                </UserPackageAndPathInfoByModule>
+              </value>
+            </entry>
+            <entry key="screening">
+              <value>
+                <UserPackageAndPathInfoByModule>
+                  <option name="javaMapperPackage" value="com.ht.screening.mapper" />
+                  <option name="javaMapperPath" value="$PROJECT_DIR$/screening/src/main/java" />
+                  <option name="javaModelPacakge" value="com.ht.screening.entity" />
+                  <option name="javaModelPath" value="$PROJECT_DIR$/screening/src/main/java" />
+                  <option name="javaServiceInterfacePath" value="$PROJECT_DIR$/screening/src/main/java" />
+                  <option name="javaServicePath" value="$PROJECT_DIR$/screening/src/main/java" />
+                  <option name="xmlPackage" value="mapper" />
+                  <option name="xmlPath" value="$PROJECT_DIR$/screening/src/main/resources" />
                 </UserPackageAndPathInfoByModule>
               </value>
             </entry>
@@ -226,6 +240,20 @@
                 </TableGenerateConfig>
               </value>
             </entry>
+            <entry key="dbo:sc_mpsdetail">
+              <value>
+                <TableGenerateConfig>
+                  <option name="batchInsert" value="true" />
+                  <option name="generatedKey" value="" />
+                  <option name="javaModelName" value="ScMpsdetail" />
+                  <option name="moduleName" value="screening" />
+                  <option name="sequenceColumn" value="" />
+                  <option name="sequenceId" value="" />
+                  <option name="updateBatch" value="true" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
             <entry key="dbo:sx_ls">
               <value>
                 <TableGenerateConfig>
@@ -272,7 +300,7 @@
         </option>
         <option name="updateBatch" value="true" />
         <option name="xmlMapperPackage" value="mapper" />
-        <option name="xmlMapperPath" value="$PROJECT_DIR$/screening/src/main/resources/mapper" />
+        <option name="xmlMapperPath" value="$PROJECT_DIR$/screening/src/main/resources" />
       </ProjectProfile>
     </option>
   </component>

@@ -12,11 +12,6 @@ import org.apache.ibatis.annotations.Param;
 public interface ScLsYcdjMapper extends BaseMapper<ScLsYcdj> {
     int deleteByPrimaryKey(Integer fid);
 
-    @Override
-    int insert(ScLsYcdj record);
-
-    int insertSelective(ScLsYcdj record);
-
     ScLsYcdj selectByPrimaryKey(Integer fid);
 
     int updateByPrimaryKeySelective(ScLsYcdj record);

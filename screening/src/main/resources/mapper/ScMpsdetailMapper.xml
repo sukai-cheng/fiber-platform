@@ -7,7 +7,7 @@
         <id column="paperno" jdbcType="VARCHAR" property="receiptNo"/>
         <id column="itemid" jdbcType="INTEGER" property="itemId"/>
         <result column="productline" jdbcType="VARCHAR" property="productLine"/>
-        <result column="zlh" jdbcType="VARCHAR" property="orderNum"/>
+        <result column="zlh" jdbcType="VARCHAR" property="commandNum"/>
         <result column="qty" jdbcType="FLOAT" property="deliveredQuantity"/>
         <result column="dc" jdbcType="FLOAT" property="segmentLen"/>
         <result column="qiegecd" jdbcType="FLOAT" property="cutLen"/>

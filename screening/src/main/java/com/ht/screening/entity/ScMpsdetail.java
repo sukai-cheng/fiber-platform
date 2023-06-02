@@ -35,7 +35,7 @@ public class ScMpsdetail {
      * 制令号
      */
     @TableField(value = "zlh")
-    private String orderNum;
+    private String commandNum;
 
     /**
      * 本次下达数量
