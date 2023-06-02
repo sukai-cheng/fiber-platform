@@ -1495,4 +1495,17 @@
            #{item.rglName,jdbcType=VARCHAR})
       </foreach>
   </insert>
+
+  <select id="getDrawBenchInfo" resultType="com.ht.screening.dto.DrawBenchDto">
+      select ZZPBH 'diskNum',
+             ZZPCD 'mainDiskLen',
+             T1.zlh 'commandOrder',
+             T1.MPSH 'productPlanNum' ,
+             SCBZ 'drawBenchGroup',
+             ZDR 'drawBenchPerson',
+             dc 'segmentLen',
+             qiegecd 'cutLen'
+      from SC_LS1 T1
+               inner join Sc_mpsdetail T2 on T1.MPSH = T2.MPSH and ZZPBH = #{fiberDiskNum,jdbcType=VARCHAR}
+  </select>
 </mapper>
