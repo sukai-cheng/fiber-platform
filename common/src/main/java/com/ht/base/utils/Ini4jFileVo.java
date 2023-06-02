@@ -14,7 +14,6 @@ class Ini4jFileVo {
     private String Lxzjxx;
     private String Lxzjsx;
     private String ntbh;
-    // wtbh=PHICHE,TEST2,TEST4
     private String wtbh;
     private String ksgl;
     private String scgl;
