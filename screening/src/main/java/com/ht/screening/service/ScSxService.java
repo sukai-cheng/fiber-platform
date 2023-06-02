@@ -31,6 +31,5 @@ public interface ScSxService extends IService<ScSx> {
      * 计算筛选长度
      * @return
      */
-    String calFilterLen(CalFilterLenDto calFilterLenDto);
-
+    String calFilterLen(String mainDiskCode);
 }

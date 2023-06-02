@@ -3,10 +3,12 @@ package com.ht.screening.service.impl;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ht.base.domain.AjaxResult;
 import com.ht.base.utils.bean.BeanUtils;
-import com.ht.screening.dto.CalFilterLenDto;
+import com.ht.screening.dto.DrawBenchDto;
+import com.ht.screening.dto.FiberDrawingDefectInfo;
 import com.ht.screening.entity.ScSx;
 import com.ht.screening.entity.ScSx2;
 import com.ht.screening.mapper.FiberCutMapper;
+import com.ht.screening.mapper.ScLs1Mapper;
 import com.ht.screening.mapper.ScSx2Mapper;
 import com.ht.screening.mapper.ScSxMapper;
 import com.ht.screening.service.ScSxService;
@@ -29,6 +31,9 @@ public class ScSxServiceImpl extends ServiceImpl<ScSxMapper, ScSx> implements Sc
 
     @Resource
     private ScSxMapper mainPlateMapper;
+
+    @Resource
+    private ScLs1Mapper scLs1Mapper;
 
     @Resource
     private ScSx2Mapper accessoryPlateMapper;
@@ -66,12 +71,41 @@ public class ScSxServiceImpl extends ServiceImpl<ScSxMapper, ScSx> implements Sc
         return mainPlateMapper.calTotalLen(mainDiskCode);
     }
 
-    @Override
-    public String calFilterLen(CalFilterLenDto calFilterLenDto) {
 
-        // 获取总长度
-//        fiberCutMapper.fiberCutDetail()
-        //
+    @Override
+    public String calFilterLen(String mainDiskCode) {
+
+        DrawBenchDto drawBenchInfo = scLs1Mapper.getDrawBenchInfo(mainDiskCode);
+        // 获取已筛总长度
+        String totalLen = calTotalLen(mainDiskCode);
+        // 切割长度
+        Double cutLen = drawBenchInfo.getCutLen();
+        // 大盘长度
+        String mainDiskLen = drawBenchInfo.getMainDiskLen();
+        // rstqx
+        List<FiberDrawingDefectInfo> fiberDrawingDefectInfos = fiberCutMapper.fiberCutDetail(mainDiskCode);
+
+
+        return null;
+    }
+
+    /**
+     *
+     * @param totalLen
+     * @param cutLen
+     * @param mainDiskLen
+     * @param fiberDrawingDefectInfos
+     * @return
+     */
+    private String calculateQGCD(String totalLen, String cutLen, String mainDiskLen, List<FiberDrawingDefectInfo> fiberDrawingDefectInfos) {
+
+        int q = 0;
+        for (FiberDrawingDefectInfo drawingDefectInfo : fiberDrawingDefectInfos) {
+            if (Double.parseDouble(totalLen) < Double.parseDouble(drawingDefectInfo.getStartPos())) {
+
+            }
+
+        }
         return null;
     }
 
