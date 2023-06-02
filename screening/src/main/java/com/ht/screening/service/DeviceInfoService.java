@@ -8,6 +8,6 @@ import com.ht.screening.vo.DeviceInfoVo;
  */
 public interface DeviceInfoService {
 
-    DeviceInfoVo getDeviceInfo();
+    DeviceInfoVo getDeviceInfo(String fiberDiskNum);
 
 }

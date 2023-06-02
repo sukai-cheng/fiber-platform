@@ -12,15 +12,18 @@ public class DeviceInfoVo implements Serializable {
     //实际速度 sjsd
     private float actualVelocity;
     //放线长度 fxcd
-    public float payOffLength;
+    private float payOffLength;
     //收线长度 sxcd
-    public float retractLength;
+    private float retractLength;
+    // 剩余长度
+    private float residualLen;
     //收线长度设定 sxcdsd
-    public float assignRetractLength;
+    private float assignRetractLength;
     //实际张力 sjzl
-    public float actualTension;
+    private float actualTension;
     //正常运行 zcyx
-    public int normalRun;
+    private int normalRun;
     //异常停止 yctz
-    public int exceptionStop;
+    private int exceptionStop;
+
 }

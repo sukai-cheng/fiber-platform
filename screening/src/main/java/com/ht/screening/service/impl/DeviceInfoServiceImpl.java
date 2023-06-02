@@ -4,6 +4,8 @@ import HslCommunication.Core.Types.OperateResultExOne;
 import HslCommunication.Profinet.Siemens.SiemensS7Net;
 import com.ht.base.utils.NumberUtils;
 import com.ht.screening.dto.DeviceInfo;
+import com.ht.screening.dto.DrawBenchDto;
+import com.ht.screening.mapper.ScLs1Mapper;
 import com.ht.screening.service.DeviceInfoService;
 import com.ht.screening.vo.DeviceInfoVo;
 import lombok.extern.slf4j.Slf4j;
@@ -23,8 +25,11 @@ public class DeviceInfoServiceImpl implements DeviceInfoService {
     @Resource
     private DeviceConnectServiceImpl deviceConnectService;
 
+    @Resource
+    ScLs1Mapper scLs1Mapper;
+
     @Override
-    public DeviceInfoVo getDeviceInfo() {
+    public DeviceInfoVo getDeviceInfo(String fiberDiskNum) {
 
         DeviceInfo deviceInfo = new DeviceInfo();
         // 通过西门子S7-S1500协议模块连接设备
@@ -201,10 +206,16 @@ public class DeviceInfoServiceImpl implements DeviceInfoService {
         deviceInfoVo.setActualTension(deviceInfo.getActualTension());
         deviceInfoVo.setNormalRun(deviceInfo.getNormalRun());
         deviceInfoVo.setExceptionStop(deviceInfo.getExceptionStop());
+        DrawBenchDto drawBenchInfo = scLs1Mapper.getDrawBenchInfo(fiberDiskNum);
+        Double cutLen = drawBenchInfo.getCutLen();// 切割长度
+        deviceInfoVo.setResidualLen((float) (cutLen - deviceInfo.getRetractLength()));
 
         return deviceInfoVo;
     }
 
+    /**
+     * 定时任务轮训查询设备信息
+     */
     public DeviceInfo deviceInfoSchedule() {
 
         DeviceInfo deviceInfo = new DeviceInfo();
