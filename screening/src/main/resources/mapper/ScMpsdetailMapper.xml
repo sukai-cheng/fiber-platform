@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.screening.mapper.ScMpsdetailMapper">
+    <resultMap id="BaseResultMap" type="com.ht.screening.entity.ScMpsdetail">
+        <!--@mbg.generated-->
+        <!--@Table sc_mpsdetail-->
+        <id column="paperno" jdbcType="VARCHAR" property="receiptNo"/>
+        <id column="itemid" jdbcType="INTEGER" property="itemId"/>
+        <result column="productline" jdbcType="VARCHAR" property="productLine"/>
+        <result column="zlh" jdbcType="VARCHAR" property="orderNum"/>
+        <result column="qty" jdbcType="FLOAT" property="deliveredQuantity"/>
+        <result column="dc" jdbcType="FLOAT" property="segmentLen"/>
+        <result column="qiegecd" jdbcType="FLOAT" property="cutLen"/>
+        <result column="note" jdbcType="VARCHAR" property="note"/>
+        <result column="yqrq" jdbcType="TIMESTAMP" property="requiredDate"/>
+        <result column="rkqty" jdbcType="FLOAT" property="stockedNum"/>
+        <result column="wcrq" jdbcType="TIMESTAMP" property="completeDate"/>
+        <result column="ManufactureType" jdbcType="VARCHAR" property="manufactureType"/>
+        <result column="JYJG" jdbcType="VARCHAR" property="grade"/>
+        <result column="LSSL" jdbcType="FLOAT" property="drawingNumber"/>
+        <result column="isclose" jdbcType="INTEGER" property="isClose"/>
+        <result column="iscease" jdbcType="INTEGER" property="isPause"/>
+        <result column="ztsj" jdbcType="TIMESTAMP" property="pauseTime"/>
+        <result column="MPSH" jdbcType="VARCHAR" property="taskNum"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        paperno,
+        itemid,
+        productline,
+        zlh,
+        qty,
+        dc,
+        qiegecd,
+        note,
+        yqrq,
+        rkqty,
+        wcrq,
+        ManufactureType,
+        JYJG,
+        LSSL,
+        isclose,
+        iscease,
+        ztsj,
+        MPSH
+    </sql>
+</mapper>
