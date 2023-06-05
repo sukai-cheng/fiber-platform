@@ -15,6 +15,8 @@ import com.ht.screening.service.ScSxService;
 import com.ht.screening.vo.FiberFilterMainDiskVo;
 import com.ht.screening.vo.FiberFilterSmallDiskVo;
 import com.ht.screening.vo.FiberFilterVo;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -27,6 +29,7 @@ import java.util.List;
  * @author chengsukai
  */
 @Service
+@Slf4j
 public class ScSxServiceImpl extends ServiceImpl<ScSxMapper, ScSx> implements ScSxService {
 
     @Resource
@@ -77,19 +80,21 @@ public class ScSxServiceImpl extends ServiceImpl<ScSxMapper, ScSx> implements Sc
 
         DrawBenchDto drawBenchInfo = scLs1Mapper.getDrawBenchInfo(mainDiskCode);
         // 获取已筛总长度
-        String totalLen = calTotalLen(mainDiskCode);
+        Double totalLen = Double.parseDouble(calTotalLen(mainDiskCode));
         // 切割长度
         Double cutLen = drawBenchInfo.getCutLen();
         // 大盘长度
-        String mainDiskLen = drawBenchInfo.getMainDiskLen();
+        Double mainDiskLen = Double.parseDouble(drawBenchInfo.getMainDiskLen());
         // rstqx
         List<FiberDrawingDefectInfo> fiberDrawingDefectInfos = fiberCutMapper.fiberCutDetail(mainDiskCode);
 
+        Double filterLen = calculateQGCD(totalLen, cutLen, mainDiskLen, fiberDrawingDefectInfos);
 
-        return null;
+        return String.valueOf(filterLen);
     }
 
     /**
+     * 计算筛选长度
      *
      * @param totalLen
      * @param cutLen
@@ -97,17 +102,77 @@ public class ScSxServiceImpl extends ServiceImpl<ScSxMapper, ScSx> implements Sc
      * @param fiberDrawingDefectInfos
      * @return
      */
-    private String calculateQGCD(String totalLen, String cutLen, String mainDiskLen, List<FiberDrawingDefectInfo> fiberDrawingDefectInfos) {
+    private Double calculateQGCD(Double totalLen, Double cutLen, Double mainDiskLen, List<FiberDrawingDefectInfo> fiberDrawingDefectInfos) {
 
         int q = 0;
-        for (FiberDrawingDefectInfo drawingDefectInfo : fiberDrawingDefectInfos) {
-            if (Double.parseDouble(totalLen) < Double.parseDouble(drawingDefectInfo.getStartPos())) {
+        int i = 0;
+        double isqc = 0;
+        double QCCD = 0;
+        double Xqcqcd = 0;
+        double res = 0;
+        String sblyy = "";
+        String sqxlx = "";
+        String sglqk = "";
 
+        for (int index = 0; index < fiberDrawingDefectInfos.size() && q != 1; index++) {
+            FiberDrawingDefectInfo drawingDefectInfo = fiberDrawingDefectInfos.get(index);
+            if (totalLen < drawingDefectInfo.getStartPos()) {
+                q = 1;
+                if (totalLen + cutLen < drawingDefectInfo.getStartPos()) {
+                    res = cutLen;
+                    isqc = 0;
+                    QCCD = 0;
+                    Xqcqcd = 0;
+                } else {
+                    QCCD = drawingDefectInfo.getSlitterLen();
+                    Xqcqcd = drawingDefectInfo.getStartPos() - totalLen;
+                    if (Xqcqcd >= 2.05) {
+                        res = Xqcqcd;
+                        sqxlx = drawingDefectInfo.getDefectType();
+                    } else {
+                        res = Xqcqcd + QCCD;
+                        sqxlx = drawingDefectInfo.getDefectType();
+                    }
+                }
+                if (StringUtils.isNotEmpty(drawingDefectInfo.getIsDefective())) {
+                    sqxlx = drawingDefectInfo.getDefectType();
+                }
             }
-
+            if (totalLen >= drawingDefectInfo.getStartPos() && totalLen < drawingDefectInfo.getEndPos() && StringUtils.equals(drawingDefectInfo.getIsExcision(), "yes")) {
+                q = 1;
+                if (drawingDefectInfo.getEndPos() - totalLen < 34) {
+                    res = drawingDefectInfo.getEndPos() - totalLen;
+                } else {
+                    res = 34;
+                }
+            }
+            sqxlx = drawingDefectInfo.getDefectType();
+            log.info("Please cut");
+            if (totalLen >= drawingDefectInfo.getStartPos() && totalLen < drawingDefectInfo.getEndPos() && StringUtils.equals(drawingDefectInfo.getIsIsolation(), "yes")) {
+                q = 1;
+                if (drawingDefectInfo.getEndPos() - totalLen < cutLen) {
+                    res = drawingDefectInfo.getEndPos() - totalLen;
+                } else {
+                    res = cutLen;
+                }
+                sglqk = drawingDefectInfo.getIsolationReason();
+                log.info("Please cut");
+            }
+            if (totalLen >= drawingDefectInfo.getStartPos() && totalLen < drawingDefectInfo.getEndPos() && StringUtils.equals(drawingDefectInfo.getIsDefective(), "yes")) {
+                sblyy = drawingDefectInfo.getIsDefective();
+            }
         }
-        return null;
+
+        if (q == 0) {
+            if (totalLen + cutLen <= mainDiskLen - 0.5) {
+                res = cutLen;
+            } else {
+                res = mainDiskLen - totalLen - 0.5;
+            }
+        }
+
+        return res;
     }
-
-
 }
+
+
