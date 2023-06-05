@@ -9,7 +9,7 @@
         <option name="javaMapperPath" value="$PROJECT_DIR$/screening/src/main/java" />
         <option name="javaModelPackage" value="com.ht.screening.entity" />
         <option name="javaModelPath" value="$PROJECT_DIR$/screening/src/main/java" />
-        <option name="lastDatabaseCrudChooseModuleName" value="screening" />
+        <option name="lastDatabaseCrudChooseModuleName" value="common" />
         <option name="moduleNameToPackageAndPathMap">
           <map>
             <entry key="base">
@@ -30,9 +30,9 @@
               <value>
                 <UserPackageAndPathInfoByModule>
                   <option name="javaMapperPackage" value="com.ht.screening.mapper" />
-                  <option name="javaMapperPath" value="$PROJECT_DIR$/common/src/main/java" />
+                  <option name="javaMapperPath" value="$PROJECT_DIR$/screening/src/main/java" />
                   <option name="javaModelPacakge" value="com.ht.screening.entity" />
-                  <option name="javaModelPath" value="$PROJECT_DIR$/common/src/main/java" />
+                  <option name="javaModelPath" value="$PROJECT_DIR$/screening/src/main/java" />
                   <option name="javaServiceInterfacePath" value="$PROJECT_DIR$/common/src/main/java" />
                   <option name="javaServicePath" value="$PROJECT_DIR$/common/src/main/java" />
                   <option name="xmlPackage" value="mapper" />
@@ -300,7 +300,7 @@
         </option>
         <option name="updateBatch" value="true" />
         <option name="xmlMapperPackage" value="mapper" />
-        <option name="xmlMapperPath" value="$PROJECT_DIR$/screening/src/main/resources" />
+        <option name="xmlMapperPath" value="$PROJECT_DIR$/screening/src/main/resources/mapper" />
       </ProjectProfile>
     </option>
   </component>
