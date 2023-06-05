@@ -39,7 +39,7 @@ public class ScLs1ServiceImpl extends ServiceImpl<ScLs1Mapper, ScLs1> implements
         drawBenchVo.setFilterLen(filterLen);
         BeanUtils.copyProperties(drawBenchInfo, drawBenchVo);
 
-        return AjaxResult.success(drawBenchInfo);
+        return AjaxResult.success(drawBenchVo);
     }
 
 
