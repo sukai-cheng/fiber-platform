@@ -13,12 +13,12 @@ public class FiberDrawingDefectInfo {
     /**
      * 开始位置
      */
-    String startPos;
+    Double startPos;
 
     /**
      * 结束位置
      */
-    String endPos;
+    Double endPos;
 
     /**
      * 分切长度
@@ -34,12 +34,12 @@ public class FiberDrawingDefectInfo {
     /**
      * 拉丝起始位置
      */
-    String fiberDrawingStartPos;
+    Double fiberDrawingStartPos;
 
     /**
      * 拉丝终止位置
      */
-    String fiberDrawingEndPos;
+    Double fiberDrawingEndPos;
 
     /**
      * 是否切除
