@@ -300,4 +300,11 @@ public interface CommonConstant {
 	public static final String TIME_FORMAT_YMD = "yyyy-MM-dd";
 	public static final String TIME_FORMAT_YMDHMS = "yyyy-MM-dd HH:mm:ss";
 	public static final String TIME_FORMAT_YMDHMSSZ = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
+
+	/**
+	 * 异常停机
+	 *
+	 */
+	public static final Integer  EXCEPTION_STOP = 1;
+	public static final Integer NORMAL_STOP = 1;
 }
