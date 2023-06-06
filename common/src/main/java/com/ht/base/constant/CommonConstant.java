@@ -10,6 +10,8 @@ public interface CommonConstant {
 	 */
 	public static final String UTF8 = "UTF-8";
 
+	public static final String SX =  "SX";
+
 	/**
 	 * 正常状态
 	 */
