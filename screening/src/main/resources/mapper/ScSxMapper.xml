@@ -181,6 +181,7 @@
       LastUpdateAccountId = #{lastupdateaccountid,jdbcType=VARCHAR}
     where SXBH = #{sxbh,jdbcType=VARCHAR}
   </update>
+  <insert id=""
   <update id="updateBatch" parameterType="java.util.List">
     <!--@mbg.generated-->
     update SC_SX

@@ -9,6 +9,9 @@ import org.joda.time.format.DateTimeFormatter;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.*;
 
 /**
@@ -410,5 +413,39 @@ public class DateUtils {
         return null;
     }
 
+    public static long dateDiff(Date initialTime, Date currentTime) {
+        System.out.println((((initialTime.getTime() - currentTime.getTime()) / 1000) % 60) + "分钟");
+        return 1L;
+    }
+
+    /**
+     * 计算两个时间差
+     */
+    public static String DateDiff(Date endDate, Date nowDate) {
+        long nd = 1000 * 24 * 60 * 60;
+        long nh = 1000 * 60 * 60;
+        long nm = 1000 * 60;
+        // long ns = 1000;
+        // 获得两个时间的毫秒时间差异
+        long diff = endDate.getTime() - nowDate.getTime();
+//        // 计算差多少天
+//        long day = diff / nd;
+//        // 计算差多少小时
+//        long hour = diff % nd / nh;
+        // 计算差多少分钟
+        long min = diff / nm;
+        // 计算差多少秒//输出结果
+        // long sec = diff % nd % nh % nm / ns;
+        return String.valueOf(min);
+    }
+
+    public static void main(String[] args) throws ParseException {
+        String startTime = "2023-06-06 10:05:00";
+        String endTime = "2023-06-07 10:05:00";
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date d1 = df.parse(startTime);
+        Date d2 = df.parse(endTime);
+        System.out.println(DateDiff(d2, d1));
+    }
 
 }
