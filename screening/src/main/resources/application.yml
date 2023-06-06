@@ -3,9 +3,9 @@ server:
 spring:
   datasource:
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
-    url: jdbc:sqlserver://10.6.100.236;database=pts
-    username: admin
-    password: dev_2019
+    url: jdbc:sqlserver://10.6.61.31;database=pts
+    username: gx-mes
+    password: x0h16p
     hikari:
       pool-name: DateHikariCP
       minimum-idle: 5
