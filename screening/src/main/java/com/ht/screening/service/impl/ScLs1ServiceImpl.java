@@ -1,6 +1,7 @@
 package com.ht.screening.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.ht.base.constant.CommonConstant;
 import com.ht.base.domain.AjaxResult;
 import com.ht.screening.dto.DrawBenchDto;
 import com.ht.screening.entity.ScLs1;
@@ -33,6 +34,9 @@ public class ScLs1ServiceImpl extends ServiceImpl<ScLs1Mapper, ScLs1> implements
     public AjaxResult getDrawBenchInfo(String fiberDiskNum) {
         DrawBenchVo drawBenchVo = new DrawBenchVo();
         DrawBenchDto drawBenchInfo = scLs1Mapper.getDrawBenchInfo(fiberDiskNum);
+        if(drawBenchInfo == null){
+            return AjaxResult.error("没有拉丝数据");
+        }
         String totalLen = scSxService.calTotalLen(fiberDiskNum);
         String filterLen = scSxService.calFilterLen(fiberDiskNum);
         drawBenchVo.setTotalLen(totalLen);
