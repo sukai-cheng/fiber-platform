@@ -9,7 +9,7 @@
         <option name="javaMapperPath" value="$PROJECT_DIR$/screening/src/main/java" />
         <option name="javaModelPackage" value="com.ht.screening.entity" />
         <option name="javaModelPath" value="$PROJECT_DIR$/screening/src/main/java" />
-        <option name="lastDatabaseCrudChooseModuleName" value="common" />
+        <option name="lastDatabaseCrudChooseModuleName" value="screening" />
         <option name="moduleNameToPackageAndPathMap">
           <map>
             <entry key="base">
@@ -93,6 +93,20 @@
                   <option name="generatedKey" value="" />
                   <option name="javaModelName" value="ScSx2" />
                   <option name="moduleName" value="base" />
+                  <option name="sequenceColumn" value="" />
+                  <option name="sequenceId" value="" />
+                  <option name="updateBatch" value="true" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
+            <entry key="dbo:SX_Log">
+              <value>
+                <TableGenerateConfig>
+                  <option name="batchInsert" value="true" />
+                  <option name="generatedKey" value="ID" />
+                  <option name="javaModelName" value="SxLog" />
+                  <option name="moduleName" value="screening" />
                   <option name="sequenceColumn" value="" />
                   <option name="sequenceId" value="" />
                   <option name="updateBatch" value="true" />
@@ -314,7 +328,7 @@
         </option>
         <option name="updateBatch" value="true" />
         <option name="xmlMapperPackage" value="mapper" />
-        <option name="xmlMapperPath" value="$PROJECT_DIR$/screening/src/main/resources/" />
+        <option name="xmlMapperPath" value="$PROJECT_DIR$/screening/src/main/resources" />
       </ProjectProfile>
     </option>
   </component>
