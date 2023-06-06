@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.screening.mapper.PaperInfoMapper">
+    <resultMap id="BaseResultMap" type="com.ht.screening.entity.PaperInfo">
+        <!--@mbg.generated-->
+        <!--@Table paperinfo-->
+        <id column="papermark" jdbcType="VARCHAR" property="paperMark"/>
+        <result column="paperfirst" jdbcType="VARCHAR" property="paperFirst"/>
+        <result column="tag" jdbcType="INTEGER" property="tag"/>
+        <result column="paperlastlen" jdbcType="INTEGER" property="paperLastLen"/>
+        <result column="tablename" jdbcType="VARCHAR" property="tableName"/>
+        <result column="papername" jdbcType="VARCHAR" property="paperName"/>
+        <result column="maxvalues" jdbcType="VARCHAR" property="maxValues"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        paperMark,
+        paperFirst,
+        tag,
+        paperLastLen,
+        tablename,
+        papername,
+        maxvalues
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from paperinfo
+        where paperMark = #{paperMark,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        <!--@mbg.generated-->
+        delete
+        from paperinfo
+        where paperMark = #{paperMark,jdbcType=VARCHAR}
+    </delete>
+    <insert id="insert" parameterType="com.ht.screening.entity.PaperInfo">
+        <!--@mbg.generated-->
+        insert into paperinfo (paperMark, paperFirst, tag,
+                               paperLastLen, tablename, papername,
+                               maxvalues)
+        values (#{paperMark,jdbcType=VARCHAR}, #{paperFirst,jdbcType=VARCHAR}, #{tag,jdbcType=INTEGER},
+                #{paperLastLen,jdbcType=INTEGER}, #{tableName,jdbcType=VARCHAR}, #{paperName,jdbcType=VARCHAR},
+                #{maxValues,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="com.ht.screening.entity.PaperInfo">
+        <!--@mbg.generated-->
+        insert into paperinfo
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="paperMark != null">
+                paperMark,
+            </if>
+            <if test="paperFirst != null">
+                paperFirst,
+            </if>
+            <if test="tag != null">
+                tag,
+            </if>
+            <if test="paperLastLen != null">
+                paperLastLen,
+            </if>
+            <if test="tableName != null">
+                tablename,
+            </if>
+            <if test="paperName != null">
+                papername,
+            </if>
+            <if test="maxValues != null">
+                maxvalues,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="paperMark != null">
+                #{paperMark,jdbcType=VARCHAR},
+            </if>
+            <if test="paperFirst != null">
+                #{paperFirst,jdbcType=VARCHAR},
+            </if>
+            <if test="tag != null">
+                #{tag,jdbcType=INTEGER},
+            </if>
+            <if test="paperLastLen != null">
+                #{paperLastLen,jdbcType=INTEGER},
+            </if>
+            <if test="tableName != null">
+                #{tableName,jdbcType=VARCHAR},
+            </if>
+            <if test="paperName != null">
+                #{paperName,jdbcType=VARCHAR},
+            </if>
+            <if test="maxValues != null">
+                #{maxValues,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.ht.screening.entity.PaperInfo">
+        <!--@mbg.generated-->
+        update paperinfo
+        <set>
+            <if test="paperFirst != null">
+                paperFirst = #{paperFirst,jdbcType=VARCHAR},
+            </if>
+            <if test="tag != null">
+                tag = #{tag,jdbcType=INTEGER},
+            </if>
+            <if test="paperLastLen != null">
+                paperLastLen = #{paperLastLen,jdbcType=INTEGER},
+            </if>
+            <if test="tableName != null">
+                tablename = #{tableName,jdbcType=VARCHAR},
+            </if>
+            <if test="paperName != null">
+                papername = #{paperName,jdbcType=VARCHAR},
+            </if>
+            <if test="maxValues != null">
+                maxvalues = #{maxValues,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where paperMark = #{paperMark,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.ht.screening.entity.PaperInfo">
+        <!--@mbg.generated-->
+        update paperinfo
+        set paperFirst   = #{paperFirst,jdbcType=VARCHAR},
+            tag          = #{tag,jdbcType=INTEGER},
+            paperLastLen = #{paperLastLen,jdbcType=INTEGER},
+            tablename    = #{tableName,jdbcType=VARCHAR},
+            papername    = #{paperName,jdbcType=VARCHAR},
+            maxvalues    = #{maxValues,jdbcType=VARCHAR}
+        where paperMark = #{paperMark,jdbcType=VARCHAR}
+    </update>
+    <update id="updateBatch" parameterType="java.util.List">
+        <!--@mbg.generated-->
+        update paperinfo
+        <trim prefix="set" suffixOverrides=",">
+            <trim prefix="paperFirst = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when paperMark = #{item.paperMark,jdbcType=VARCHAR} then #{item.paperFirst,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="tag = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when paperMark = #{item.paperMark,jdbcType=VARCHAR} then #{item.tag,jdbcType=INTEGER}
+                </foreach>
+            </trim>
+            <trim prefix="paperLastLen = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when paperMark = #{item.paperMark,jdbcType=VARCHAR} then #{item.paperLastLen,jdbcType=INTEGER}
+                </foreach>
+            </trim>
+            <trim prefix="tablename = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when paperMark = #{item.paperMark,jdbcType=VARCHAR} then #{item.tableName,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="papername = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when paperMark = #{item.paperMark,jdbcType=VARCHAR} then #{item.papername,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="maxvalues = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when paperMark = #{item.paperMark,jdbcType=VARCHAR} then #{item.maxvalues,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+        </trim>
+        where paperMark in
+        <foreach close=")" collection="list" item="item" open="(" separator=", ">
+            #{item.paperMark,jdbcType=VARCHAR}
+        </foreach>
+    </update>
+    <insert id="batchInsert" parameterType="map">
+        <!--@mbg.generated-->
+        insert into paperinfo
+        (papermark, paperfirst, tag, paperLastLen, tablename, papername, maxvalues)
+        values
+        <foreach collection="list" item="item" separator=",">
+            (#{item.paperMark,jdbcType=VARCHAR}, #{item.paperFirst,jdbcType=VARCHAR}, #{item.tag,jdbcType=INTEGER},
+             #{item.paperLastLen,jdbcType=INTEGER}, #{item.tablename,jdbcType=VARCHAR},
+             #{item.papername,jdbcType=VARCHAR},
+             #{item.maxvalues,jdbcType=VARCHAR})
+        </foreach>
+    </insert>
+
+    <select id="getPaperNo" resultType="java.lang.String">
+        select rtrim(maxvalues) from paperinfo where papermark = 'sc_sx1' and maxvalues like
+        #{sxbhPrefix,jdbcType=VARCHAR}
+    </select>
+</mapper>
