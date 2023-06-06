@@ -10,7 +10,17 @@ public interface CommonConstant {
 	 */
 	public static final String UTF8 = "UTF-8";
 
+	/**
+	 * 编号前缀
+	 */
 	public static final String SX =  "SX";
+
+	/**
+	 * 筛选机类型
+	 */
+	public static final String N = "N";
+
+	public static final String D = "D";
 
 	/**
 	 * 正常状态
