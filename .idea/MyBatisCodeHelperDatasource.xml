@@ -36,7 +36,7 @@
                   <option name="javaServiceInterfacePath" value="$PROJECT_DIR$/common/src/main/java" />
                   <option name="javaServicePath" value="$PROJECT_DIR$/common/src/main/java" />
                   <option name="xmlPackage" value="mapper" />
-                  <option name="xmlPath" value="$PROJECT_DIR$/screening/src/main/resources/mapper" />
+                  <option name="xmlPath" value="$PROJECT_DIR$/screening/src/main/resources/" />
                 </UserPackageAndPathInfoByModule>
               </value>
             </entry>
@@ -184,6 +184,20 @@
                 </TableGenerateConfig>
               </value>
             </entry>
+            <entry key="dbo:paperinfo">
+              <value>
+                <TableGenerateConfig>
+                  <option name="batchInsert" value="true" />
+                  <option name="generatedKey" value="" />
+                  <option name="javaModelName" value="Paperinfo" />
+                  <option name="moduleName" value="common" />
+                  <option name="sequenceColumn" value="" />
+                  <option name="sequenceId" value="" />
+                  <option name="updateBatch" value="true" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
             <entry key="dbo:sc_ls_cl">
               <value>
                 <TableGenerateConfig>
@@ -300,7 +314,7 @@
         </option>
         <option name="updateBatch" value="true" />
         <option name="xmlMapperPackage" value="mapper" />
-        <option name="xmlMapperPath" value="$PROJECT_DIR$/screening/src/main/resources/mapper" />
+        <option name="xmlMapperPath" value="$PROJECT_DIR$/screening/src/main/resources/" />
       </ProjectProfile>
     </option>
   </component>
