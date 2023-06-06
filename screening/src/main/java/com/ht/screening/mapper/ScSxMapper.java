@@ -30,6 +30,8 @@ public interface ScSxMapper extends BaseMapper<ScSx> {
      */
     ScSx findByMainDiskCode(String mainDiskCode);
 
+    String getSxbh(@Param("ysph") String ysph);
+
     /**
      * 获取已筛总长度
      * @param mainDiskCode 大盘号(光纤盘号)

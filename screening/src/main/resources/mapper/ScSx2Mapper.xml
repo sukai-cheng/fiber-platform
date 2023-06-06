@@ -942,6 +942,51 @@
   </insert>
 
   <select id="findByFilterCode" resultMap="BaseResultMap">
-    select t1.* from sc_sx2 t1 inner join sc_sx t2 on t1.SXBH = t2.SXBH and t2.YSPH = #{filterCode,jdbcType=VARCHAR};
+      select t1.*
+      from sc_sx2 t1
+               inner join sc_sx t2 on t1.SXBH = t2.SXBH and t2.YSPH = #{filterCode,jdbcType=VARCHAR};
+  </select>
+
+  <select id="getMaxId" resultType="java.lang.Integer">
+    select max(xh) as xh from SC_SX2 where sxbh = #{filterCode,jdbcType=VARCHAR}
+  </select>
+
+  <select id="getFilterCodeByMainDiskCode" resultType="java.lang.String">
+      select t1.SXBH
+      from SC_SX t1
+               left join SC_SX2 t2 on t1.SXBH = t2.SXBH
+      where t1.YSPH = #{mainDiskCode,jdbcType=VARCHAR};
+  </select>
+
+  <update id="updateScSx2DQCD">
+      update SC_SX2
+      set dqcd                = #{dqcd,jdbcType=BIGINT} + ISNULL(dqcd, 0),
+          dqjd                =dqjd + #{sj,jdbcType=INTEGER},
+          dqcs                =dqcs + 0,
+          qxlb                = #{qxlb,jdbcType=VARCHAR},
+          glqk                =#{glqk,jdbcType=VARCHAR},
+          blyy                = #{blyy,jdbcType=VARCHAR},
+          LastUpdateTime      = #{lastUpdateTime,jdbcType=TIMESTAMP},
+          LastUpdateAccountId = #{lastUpdateAccountId,jdbcType=VARCHAR}
+      where SXBH = #{sxbh,jdbcType=VARCHAR}
+        and xh   = #{xh,jdbcType=VARCHAR};
+  </update>
+
+  <update id="updateScSx2QGCD">
+      update SC_SX2
+      set qgcd                = #{qgcd,jdbcType=BIGINT} + ISNULL(qgcd, 0),
+          dqjd                =dqjd + #{sj,jdbcType=INTEGER},
+          dqcs                =dqcs + 0,
+          qxlb                = #{qxlb,jdbcType=VARCHAR},
+          glqk                =#{glqk,jdbcType=VARCHAR},
+          blyy                = #{blyy,jdbcType=VARCHAR},
+          LastUpdateTime      = #{lastUpdateTime,jdbcType=TIMESTAMP},
+          LastUpdateAccountId = #{lastUpdateAccountId,jdbcType=VARCHAR}
+      where SXBH = #{sxbh,jdbcType=VARCHAR}
+        and xh = #{xh,jdbcType=VARCHAR};
+  </update>
+
+  <select id="findByFilterCodeAndSerialNumber" resultMap="BaseResultMap">
+    select * from SC_SX2 sx2 where sx2.SXBH = #{filterCode,jdbcType=VARCHAR} and XH = #{serialNumber,jdbcType=VARCHAR}
   </select>
 </mapper>

@@ -287,18 +287,20 @@
     <select id="checkUploadDataFQ" resultType="int">
         select T2.ZZPCD - T1.zzwz as SXB, T2.ZZPCD - t1.qswz as SXE, T1.zzwz - T1.qswz as QXCD, T1.*
         from sc_ls_qxqc T1
-                 inner join SC_LS1 T2 on T1.LSBH = T2.LSBH and T1.sfqc = 'Yes' and qxdlx != '质管部留样' and
-                                         T2.ZZPBH = #{diskNumber,jdbcType=VARCHAR} and T2.ZZPCD - T1.zzwz - 2.05
-                                             &lt;= #{totalLen,jdbcType=DOUBLE} and
-                                         T2.ZZPCD - T1.qswz &gt; #{totalLen,jdbcType=DOUBLE}
+                 inner join SC_LS1 T2
+                            on T1.LSBH = T2.LSBH and T1.sfqc = 'Yes' and qxdlx != '质管部留样' and
+                               T2.ZZPBH = #{diskNumber,jdbcType=VARCHAR} and T2.ZZPCD - T1.zzwz - 2.05
+                                   &lt;= #{totalLen,jdbcType=DOUBLE} and
+                               T2.ZZPCD - T1.qswz &gt; #{totalLen,jdbcType=DOUBLE}
     </select>
 
     <select id="checkUploadDataGL" resultType="int">
-        select *
+        select T2.ZZPCD - T1.zzwz as SXB, T2.ZZPCD - T1.qswz as SXE, T1.zzwz - T1.qswz as qXCD, T1.*
         from sc_ls_qxqc T1
-                 inner join SC_LS1 T2 on T1.LSBH = T2.LSBH and T1.sfgl = 'Yes'
-            and T2.ZZPBH = #{diskNumber,jdbcType=VARCHAR}
-            and T2.ZZPCD - T1.zzwz - 2.05 &lt;= #{totalLen,jdbcType=DOUBLE} and T2.ZZPCD - T1.qswz &gt;
-                                                                                #{totalLen,jdbcType=DOUBLE}
+                 inner join SC_LS1 T2
+                            on T1.LSBH = T2.LSBH and T1.sfgl = 'YES' and T2.ZZPBH = #{diskNumber,jdbcType=VARCHAR} and
+                               T2.ZZPCD - T1.zzwz - 2.05 &lt;= #{totalLen,jdbcType=DOUBLE}
+                                and T2.ZZPCD - t1.qswz &gt;
+                                    #{totalLen,jdbcType=DOUBLE}
     </select>
 </mapper>

@@ -181,7 +181,7 @@
       LastUpdateAccountId = #{lastupdateaccountid,jdbcType=VARCHAR}
     where SXBH = #{sxbh,jdbcType=VARCHAR}
   </update>
-  <insert id=""
+<!--  <insert id=""-->
   <update id="updateBatch" parameterType="java.util.List">
     <!--@mbg.generated-->
     update SC_SX
@@ -371,5 +371,9 @@
   </select>
 
   <select id="calFilterLen" resultType="java.lang.String">
+  </select>
+
+  <select id="getSxbh" resultType="java.lang.String">
+    select SXBH from SC_SX where YSPH = #{ysph,jdbcType=VARCHAR}
   </select>
 </mapper>
