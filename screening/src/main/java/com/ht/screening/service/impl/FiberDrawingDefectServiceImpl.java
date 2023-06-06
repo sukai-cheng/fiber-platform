@@ -26,6 +26,9 @@ public class FiberDrawingDefectServiceImpl extends ServiceImpl<FiberCutMapper, W
     @Override
     public AjaxResult fiberCutDetail(String fiberDiskNum) {
         List<FiberDrawingDefectInfo> fiberDrawingDefectInfoList = fiberCutMapper.fiberCutDetail(fiberDiskNum);
+        if(fiberDrawingDefectInfoList.size() == 0){
+            return AjaxResult.error("");
+        }
         return AjaxResult.success(fiberDrawingDefectInfoList);
     }
 }

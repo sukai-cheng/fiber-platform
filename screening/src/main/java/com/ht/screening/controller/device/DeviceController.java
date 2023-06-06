@@ -25,7 +25,11 @@ public class DeviceController {
 
     @PostMapping("/getDeviceStatus")
     public AjaxResult getDeviceStatus(@RequestBody DeviceStatusRequest request) {
-        DeviceInfoVo deviceInfoVo = deviceInfoService.getDeviceInfo(request.getFiberDiskNum());
-        return AjaxResult.success(deviceInfoVo);
+        try {
+            DeviceInfoVo deviceInfoVo = deviceInfoService.getDeviceInfo(request.getFiberDiskNum());
+            return AjaxResult.success(deviceInfoVo);
+        } catch (Exception e) {
+            return AjaxResult.error("设备连接异常");
+        }
     }
 }
