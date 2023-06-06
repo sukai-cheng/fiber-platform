@@ -14,5 +14,5 @@ public class FilterInfoRequest implements Serializable {
     /**
      * 光纤盘号
      */
-    String mainDiskCode;
+    String fiberDiskNum;
 }

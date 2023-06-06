@@ -30,7 +30,7 @@ public class FiberFilterController {
      */
     @PostMapping(value = "/getFilterInfo")
     public AjaxResult getFilterInfo(@RequestBody FilterInfoRequest filterInfoRequest) {
-        return filterService.getMainPlateInfo(filterInfoRequest.getMainDiskCode());
+        return filterService.getMainPlateInfo(filterInfoRequest.getFiberDiskNum());
     }
 
     /**
@@ -48,7 +48,7 @@ public class FiberFilterController {
      */
     @PostMapping(value = "/getTotalLen")
     public AjaxResult getTotalLen(@RequestBody FilterInfoRequest filterInfoRequest) {
-        String totalLen = filterService.calTotalLen(filterInfoRequest.getMainDiskCode());
+        String totalLen = filterService.calTotalLen(filterInfoRequest.getFiberDiskNum());
         return AjaxResult.success(totalLen);
     }
 
