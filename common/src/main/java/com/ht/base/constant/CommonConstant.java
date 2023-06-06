@@ -21,6 +21,7 @@ public interface CommonConstant {
 	public static final String N = "N";
 
 	public static final String D = "D";
+	public static final String Y = "Y";
 
 	/**
 	 * 正常状态
@@ -319,4 +320,10 @@ public interface CommonConstant {
 	 */
 	public static final Integer  EXCEPTION_STOP = 1;
 	public static final Integer NORMAL_STOP = 1;
+
+	/**
+	 *
+	 */
+//	public static final String  = 1;
+
 }
