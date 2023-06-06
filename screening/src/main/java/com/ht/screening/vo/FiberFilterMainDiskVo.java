@@ -118,4 +118,9 @@ public class FiberFilterMainDiskVo implements Serializable {
      */
     private String zlh;
 
+    /**
+     * 类别
+     */
+    private String categoryName;
+
 }

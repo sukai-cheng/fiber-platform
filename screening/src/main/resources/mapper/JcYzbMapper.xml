@@ -1,0 +1,892 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.screening.mapper.JcYzbMapper">
+    <resultMap id="BaseResultMap" type="com.ht.screening.entity.JcYzb">
+        <!--@mbg.generated-->
+        <!--@Table JC_yzb-->
+        <id column="GSid" jdbcType="VARCHAR" property="gsid"/>
+        <result column="paperno" jdbcType="VARCHAR" property="paperno"/>
+        <result column="itemid" jdbcType="INTEGER" property="itemid"/>
+        <result column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="customerid" jdbcType="VARCHAR" property="customerid"/>
+        <result column="username" jdbcType="VARCHAR" property="username"/>
+        <result column="indate" jdbcType="TIMESTAMP" property="indate"/>
+        <result column="availabilityCD" jdbcType="NUMERIC" property="availabilitycd"/>
+        <result column="heft" jdbcType="NUMERIC" property="heft"/>
+        <result column="JZBC" jdbcType="VARCHAR" property="jzbc"/>
+        <result column="fjfcd" jdbcType="NUMERIC" property="fjfcd"/>
+        <result column="theoryCD" jdbcType="NUMERIC" property="theorycd"/>
+        <result column="diaMax" jdbcType="NUMERIC" property="diamax"/>
+        <result column="diaMin" jdbcType="NUMERIC" property="diamin"/>
+        <result column="diaPJ" jdbcType="NUMERIC" property="diapj"/>
+        <result column="type" jdbcType="VARCHAR" property="type"/>
+        <result column="Mstatus" jdbcType="VARCHAR" property="mstatus"/>
+        <result column="ManufactureType" jdbcType="VARCHAR" property="manufacturetype"/>
+        <result column="isTE" jdbcType="INTEGER" property="iste"/>
+        <result column="wlbh" jdbcType="VARCHAR" property="wlbh"/>
+        <result column="glzzwz" jdbcType="NUMERIC" property="glzzwz"/>
+        <result column="glkswz" jdbcType="NUMERIC" property="glkswz"/>
+        <result column="sybgl" jdbcType="INTEGER" property="sybgl"/>
+        <result column="lswc" jdbcType="INTEGER" property="lswc"/>
+        <result column="sxwc" jdbcType="INTEGER" property="sxwc"/>
+        <result column="jcwc" jdbcType="INTEGER" property="jcwc"/>
+        <result column="lssspcd" jdbcType="NUMERIC" property="lssspcd"/>
+        <result column="sxsspcd" jdbcType="NUMERIC" property="sxsspcd"/>
+        <result column="jcsspcd" jdbcType="NUMERIC" property="jcsspcd"/>
+        <result column="isclose" jdbcType="INTEGER" property="isclose"/>
+        <result column="TotalLen" jdbcType="FLOAT" property="totallen"/>
+        <result column="CutLen" jdbcType="FLOAT" property="cutlen"/>
+        <result column="IsLX" jdbcType="INTEGER" property="islx"/>
+        <result column="total_lslen" jdbcType="FLOAT" property="totalLslen"/>
+        <result column="total_SXlen" jdbcType="FLOAT" property="totalSxlen"/>
+        <result column="total_RiseLen" jdbcType="FLOAT" property="totalRiselen"/>
+        <result column="ischange" jdbcType="INTEGER" property="ischange"/>
+        <result column="Rbang" jdbcType="VARCHAR" property="rbang"/>
+        <result column="Hjdcd" jdbcType="VARCHAR" property="hjdcd"/>
+        <result column="fId" jdbcType="BIGINT" property="fid"/>
+        <result column="LastUpdateTime" jdbcType="TIMESTAMP" property="lastupdatetime"/>
+        <result column="SCZC" jdbcType="DECIMAL" property="sczc"/>
+        <result column="Ratio" jdbcType="DECIMAL" property="ratio"/>
+        <result column="TypeMark" jdbcType="VARCHAR" property="typemark"/>
+        <result column="SupplierLot" jdbcType="VARCHAR" property="supplierlot"/>
+        <result column="YF" jdbcType="VARCHAR" property="yf"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        GSid,
+        paperno,
+        itemid,
+        id,
+        customerid,
+        username,
+        indate,
+        availabilityCD,
+        heft,
+        JZBC,
+        fjfcd,
+        theoryCD,
+        diaMax,
+        diaMin,
+        diaPJ,
+        [type],
+        Mstatus,
+        ManufactureType,
+        isTE,
+        wlbh,
+        glzzwz,
+        glkswz,
+        sybgl,
+        lswc,
+        sxwc,
+        jcwc,
+        lssspcd,
+        sxsspcd,
+        jcsspcd,
+        isclose,
+        TotalLen,
+        CutLen,
+        IsLX,
+        total_lslen,
+        total_SXlen,
+        total_RiseLen,
+        ischange,
+        Rbang,
+        Hjdcd,
+        fId,
+        LastUpdateTime,
+        SCZC,
+        Ratio,
+        TypeMark,
+        SupplierLot,
+        YF
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        <!--@mbg.generated-->
+        select
+        <include refid="Base_Column_List"/>
+        from JC_yzb
+        where GSid = #{gsid,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        <!--@mbg.generated-->
+        delete
+        from JC_yzb
+        where GSid = #{gsid,jdbcType=VARCHAR}
+    </delete>
+    <insert id="insert" parameterType="com.ht.screening.entity.JcYzb">
+        <!--@mbg.generated-->
+        insert into JC_yzb (GSid, paperno, itemid,
+                            id, customerid, username,
+                            indate, availabilityCD, heft,
+                            JZBC, fjfcd, theoryCD,
+                            diaMax, diaMin, diaPJ,
+                            [type], Mstatus, ManufactureType,
+                            isTE, wlbh, glzzwz,
+                            glkswz, sybgl, lswc,
+                            sxwc, jcwc, lssspcd,
+                            sxsspcd, jcsspcd, isclose,
+                            TotalLen, CutLen, IsLX,
+                            total_lslen, total_SXlen, total_RiseLen,
+                            ischange, Rbang, Hjdcd,
+                            LastUpdateTime, SCZC,
+                            Ratio, TypeMark, SupplierLot,
+                            YF)
+        values (#{gsid,jdbcType=VARCHAR}, #{paperno,jdbcType=VARCHAR}, #{itemid,jdbcType=INTEGER},
+                #{id,jdbcType=VARCHAR}, #{customerid,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR},
+                #{indate,jdbcType=TIMESTAMP}, #{availabilitycd,jdbcType=NUMERIC}, #{heft,jdbcType=NUMERIC},
+                #{jzbc,jdbcType=VARCHAR}, #{fjfcd,jdbcType=NUMERIC}, #{theorycd,jdbcType=NUMERIC},
+                #{diamax,jdbcType=NUMERIC}, #{diamin,jdbcType=NUMERIC}, #{diapj,jdbcType=NUMERIC},
+                #{type,jdbcType=VARCHAR}, #{mstatus,jdbcType=VARCHAR}, #{manufacturetype,jdbcType=VARCHAR},
+                #{iste,jdbcType=INTEGER}, #{wlbh,jdbcType=VARCHAR}, #{glzzwz,jdbcType=NUMERIC},
+                #{glkswz,jdbcType=NUMERIC}, #{sybgl,jdbcType=INTEGER}, #{lswc,jdbcType=INTEGER},
+                #{sxwc,jdbcType=INTEGER}, #{jcwc,jdbcType=INTEGER}, #{lssspcd,jdbcType=NUMERIC},
+                #{sxsspcd,jdbcType=NUMERIC}, #{jcsspcd,jdbcType=NUMERIC}, #{isclose,jdbcType=INTEGER},
+                #{totallen,jdbcType=FLOAT}, #{cutlen,jdbcType=FLOAT}, #{islx,jdbcType=INTEGER},
+                #{totalLslen,jdbcType=FLOAT}, #{totalSxlen,jdbcType=FLOAT}, #{totalRiselen,jdbcType=FLOAT},
+                #{ischange,jdbcType=INTEGER}, #{rbang,jdbcType=VARCHAR}, #{hjdcd,jdbcType=VARCHAR},
+                #{lastupdatetime,jdbcType=TIMESTAMP}, #{sczc,jdbcType=DECIMAL},
+                #{ratio,jdbcType=DECIMAL}, #{typemark,jdbcType=VARCHAR}, #{supplierlot,jdbcType=VARCHAR},
+                #{yf,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="com.ht.screening.entity.JcYzb">
+        <!--@mbg.generated-->
+        insert into JC_yzb
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="gsid != null">
+                GSid,
+            </if>
+            <if test="paperno != null">
+                paperno,
+            </if>
+            <if test="itemid != null">
+                itemid,
+            </if>
+            <if test="id != null">
+                id,
+            </if>
+            <if test="customerid != null">
+                customerid,
+            </if>
+            <if test="username != null">
+                username,
+            </if>
+            <if test="indate != null">
+                indate,
+            </if>
+            <if test="availabilitycd != null">
+                availabilityCD,
+            </if>
+            <if test="heft != null">
+                heft,
+            </if>
+            <if test="jzbc != null">
+                JZBC,
+            </if>
+            <if test="fjfcd != null">
+                fjfcd,
+            </if>
+            <if test="theorycd != null">
+                theoryCD,
+            </if>
+            <if test="diamax != null">
+                diaMax,
+            </if>
+            <if test="diamin != null">
+                diaMin,
+            </if>
+            <if test="diapj != null">
+                diaPJ,
+            </if>
+            <if test="type != null">
+                [type],
+            </if>
+            <if test="mstatus != null">
+                Mstatus,
+            </if>
+            <if test="manufacturetype != null">
+                ManufactureType,
+            </if>
+            <if test="iste != null">
+                isTE,
+            </if>
+            <if test="wlbh != null">
+                wlbh,
+            </if>
+            <if test="glzzwz != null">
+                glzzwz,
+            </if>
+            <if test="glkswz != null">
+                glkswz,
+            </if>
+            <if test="sybgl != null">
+                sybgl,
+            </if>
+            <if test="lswc != null">
+                lswc,
+            </if>
+            <if test="sxwc != null">
+                sxwc,
+            </if>
+            <if test="jcwc != null">
+                jcwc,
+            </if>
+            <if test="lssspcd != null">
+                lssspcd,
+            </if>
+            <if test="sxsspcd != null">
+                sxsspcd,
+            </if>
+            <if test="jcsspcd != null">
+                jcsspcd,
+            </if>
+            <if test="isclose != null">
+                isclose,
+            </if>
+            <if test="totallen != null">
+                TotalLen,
+            </if>
+            <if test="cutlen != null">
+                CutLen,
+            </if>
+            <if test="islx != null">
+                IsLX,
+            </if>
+            <if test="totalLslen != null">
+                total_lslen,
+            </if>
+            <if test="totalSxlen != null">
+                total_SXlen,
+            </if>
+            <if test="totalRiselen != null">
+                total_RiseLen,
+            </if>
+            <if test="ischange != null">
+                ischange,
+            </if>
+            <if test="rbang != null">
+                Rbang,
+            </if>
+            <if test="hjdcd != null">
+                Hjdcd,
+            </if>
+            <if test="lastupdatetime != null">
+                LastUpdateTime,
+            </if>
+            <if test="sczc != null">
+                SCZC,
+            </if>
+            <if test="ratio != null">
+                Ratio,
+            </if>
+            <if test="typemark != null">
+                TypeMark,
+            </if>
+            <if test="supplierlot != null">
+                SupplierLot,
+            </if>
+            <if test="yf != null">
+                YF,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="gsid != null">
+                #{gsid,jdbcType=VARCHAR},
+            </if>
+            <if test="paperno != null">
+                #{paperno,jdbcType=VARCHAR},
+            </if>
+            <if test="itemid != null">
+                #{itemid,jdbcType=INTEGER},
+            </if>
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="customerid != null">
+                #{customerid,jdbcType=VARCHAR},
+            </if>
+            <if test="username != null">
+                #{username,jdbcType=VARCHAR},
+            </if>
+            <if test="indate != null">
+                #{indate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="availabilitycd != null">
+                #{availabilitycd,jdbcType=NUMERIC},
+            </if>
+            <if test="heft != null">
+                #{heft,jdbcType=NUMERIC},
+            </if>
+            <if test="jzbc != null">
+                #{jzbc,jdbcType=VARCHAR},
+            </if>
+            <if test="fjfcd != null">
+                #{fjfcd,jdbcType=NUMERIC},
+            </if>
+            <if test="theorycd != null">
+                #{theorycd,jdbcType=NUMERIC},
+            </if>
+            <if test="diamax != null">
+                #{diamax,jdbcType=NUMERIC},
+            </if>
+            <if test="diamin != null">
+                #{diamin,jdbcType=NUMERIC},
+            </if>
+            <if test="diapj != null">
+                #{diapj,jdbcType=NUMERIC},
+            </if>
+            <if test="type != null">
+                #{type,jdbcType=VARCHAR},
+            </if>
+            <if test="mstatus != null">
+                #{mstatus,jdbcType=VARCHAR},
+            </if>
+            <if test="manufacturetype != null">
+                #{manufacturetype,jdbcType=VARCHAR},
+            </if>
+            <if test="iste != null">
+                #{iste,jdbcType=INTEGER},
+            </if>
+            <if test="wlbh != null">
+                #{wlbh,jdbcType=VARCHAR},
+            </if>
+            <if test="glzzwz != null">
+                #{glzzwz,jdbcType=NUMERIC},
+            </if>
+            <if test="glkswz != null">
+                #{glkswz,jdbcType=NUMERIC},
+            </if>
+            <if test="sybgl != null">
+                #{sybgl,jdbcType=INTEGER},
+            </if>
+            <if test="lswc != null">
+                #{lswc,jdbcType=INTEGER},
+            </if>
+            <if test="sxwc != null">
+                #{sxwc,jdbcType=INTEGER},
+            </if>
+            <if test="jcwc != null">
+                #{jcwc,jdbcType=INTEGER},
+            </if>
+            <if test="lssspcd != null">
+                #{lssspcd,jdbcType=NUMERIC},
+            </if>
+            <if test="sxsspcd != null">
+                #{sxsspcd,jdbcType=NUMERIC},
+            </if>
+            <if test="jcsspcd != null">
+                #{jcsspcd,jdbcType=NUMERIC},
+            </if>
+            <if test="isclose != null">
+                #{isclose,jdbcType=INTEGER},
+            </if>
+            <if test="totallen != null">
+                #{totallen,jdbcType=FLOAT},
+            </if>
+            <if test="cutlen != null">
+                #{cutlen,jdbcType=FLOAT},
+            </if>
+            <if test="islx != null">
+                #{islx,jdbcType=INTEGER},
+            </if>
+            <if test="totalLslen != null">
+                #{totalLslen,jdbcType=FLOAT},
+            </if>
+            <if test="totalSxlen != null">
+                #{totalSxlen,jdbcType=FLOAT},
+            </if>
+            <if test="totalRiselen != null">
+                #{totalRiselen,jdbcType=FLOAT},
+            </if>
+            <if test="ischange != null">
+                #{ischange,jdbcType=INTEGER},
+            </if>
+            <if test="rbang != null">
+                #{rbang,jdbcType=VARCHAR},
+            </if>
+            <if test="hjdcd != null">
+                #{hjdcd,jdbcType=VARCHAR},
+            </if>
+            <if test="lastupdatetime != null">
+                #{lastupdatetime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="sczc != null">
+                #{sczc,jdbcType=DECIMAL},
+            </if>
+            <if test="ratio != null">
+                #{ratio,jdbcType=DECIMAL},
+            </if>
+            <if test="typemark != null">
+                #{typemark,jdbcType=VARCHAR},
+            </if>
+            <if test="supplierlot != null">
+                #{supplierlot,jdbcType=VARCHAR},
+            </if>
+            <if test="yf != null">
+                #{yf,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.ht.screening.entity.JcYzb">
+        <!--@mbg.generated-->
+        update JC_yzb
+        <set>
+            <if test="paperno != null">
+                paperno = #{paperno,jdbcType=VARCHAR},
+            </if>
+            <if test="itemid != null">
+                itemid = #{itemid,jdbcType=INTEGER},
+            </if>
+            <if test="id != null">
+                id = #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="customerid != null">
+                customerid = #{customerid,jdbcType=VARCHAR},
+            </if>
+            <if test="username != null">
+                username = #{username,jdbcType=VARCHAR},
+            </if>
+            <if test="indate != null">
+                indate = #{indate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="availabilitycd != null">
+                availabilityCD = #{availabilitycd,jdbcType=NUMERIC},
+            </if>
+            <if test="heft != null">
+                heft = #{heft,jdbcType=NUMERIC},
+            </if>
+            <if test="jzbc != null">
+                JZBC = #{jzbc,jdbcType=VARCHAR},
+            </if>
+            <if test="fjfcd != null">
+                fjfcd = #{fjfcd,jdbcType=NUMERIC},
+            </if>
+            <if test="theorycd != null">
+                theoryCD = #{theorycd,jdbcType=NUMERIC},
+            </if>
+            <if test="diamax != null">
+                diaMax = #{diamax,jdbcType=NUMERIC},
+            </if>
+            <if test="diamin != null">
+                diaMin = #{diamin,jdbcType=NUMERIC},
+            </if>
+            <if test="diapj != null">
+                diaPJ = #{diapj,jdbcType=NUMERIC},
+            </if>
+            <if test="type != null">
+                [type] = #{type,jdbcType=VARCHAR},
+            </if>
+            <if test="mstatus != null">
+                Mstatus = #{mstatus,jdbcType=VARCHAR},
+            </if>
+            <if test="manufacturetype != null">
+                ManufactureType = #{manufacturetype,jdbcType=VARCHAR},
+            </if>
+            <if test="iste != null">
+                isTE = #{iste,jdbcType=INTEGER},
+            </if>
+            <if test="wlbh != null">
+                wlbh = #{wlbh,jdbcType=VARCHAR},
+            </if>
+            <if test="glzzwz != null">
+                glzzwz = #{glzzwz,jdbcType=NUMERIC},
+            </if>
+            <if test="glkswz != null">
+                glkswz = #{glkswz,jdbcType=NUMERIC},
+            </if>
+            <if test="sybgl != null">
+                sybgl = #{sybgl,jdbcType=INTEGER},
+            </if>
+            <if test="lswc != null">
+                lswc = #{lswc,jdbcType=INTEGER},
+            </if>
+            <if test="sxwc != null">
+                sxwc = #{sxwc,jdbcType=INTEGER},
+            </if>
+            <if test="jcwc != null">
+                jcwc = #{jcwc,jdbcType=INTEGER},
+            </if>
+            <if test="lssspcd != null">
+                lssspcd = #{lssspcd,jdbcType=NUMERIC},
+            </if>
+            <if test="sxsspcd != null">
+                sxsspcd = #{sxsspcd,jdbcType=NUMERIC},
+            </if>
+            <if test="jcsspcd != null">
+                jcsspcd = #{jcsspcd,jdbcType=NUMERIC},
+            </if>
+            <if test="isclose != null">
+                isclose = #{isclose,jdbcType=INTEGER},
+            </if>
+            <if test="totallen != null">
+                TotalLen = #{totallen,jdbcType=FLOAT},
+            </if>
+            <if test="cutlen != null">
+                CutLen = #{cutlen,jdbcType=FLOAT},
+            </if>
+            <if test="islx != null">
+                IsLX = #{islx,jdbcType=INTEGER},
+            </if>
+            <if test="totalLslen != null">
+                total_lslen = #{totalLslen,jdbcType=FLOAT},
+            </if>
+            <if test="totalSxlen != null">
+                total_SXlen = #{totalSxlen,jdbcType=FLOAT},
+            </if>
+            <if test="totalRiselen != null">
+                total_RiseLen = #{totalRiselen,jdbcType=FLOAT},
+            </if>
+            <if test="ischange != null">
+                ischange = #{ischange,jdbcType=INTEGER},
+            </if>
+            <if test="rbang != null">
+                Rbang = #{rbang,jdbcType=VARCHAR},
+            </if>
+            <if test="hjdcd != null">
+                Hjdcd = #{hjdcd,jdbcType=VARCHAR},
+            </if>
+            <if test="fid != null">
+                fId = #{fid,jdbcType=BIGINT},
+            </if>
+            <if test="lastupdatetime != null">
+                LastUpdateTime = #{lastupdatetime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="sczc != null">
+                SCZC = #{sczc,jdbcType=DECIMAL},
+            </if>
+            <if test="ratio != null">
+                Ratio = #{ratio,jdbcType=DECIMAL},
+            </if>
+            <if test="typemark != null">
+                TypeMark = #{typemark,jdbcType=VARCHAR},
+            </if>
+            <if test="supplierlot != null">
+                SupplierLot = #{supplierlot,jdbcType=VARCHAR},
+            </if>
+            <if test="yf != null">
+                YF = #{yf,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where GSid = #{gsid,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.ht.screening.entity.JcYzb">
+        <!--@mbg.generated-->
+        update JC_yzb
+        set paperno         = #{paperno,jdbcType=VARCHAR},
+            itemid          = #{itemid,jdbcType=INTEGER},
+            id              = #{id,jdbcType=VARCHAR},
+            customerid      = #{customerid,jdbcType=VARCHAR},
+            username        = #{username,jdbcType=VARCHAR},
+            indate          = #{indate,jdbcType=TIMESTAMP},
+            availabilityCD  = #{availabilitycd,jdbcType=NUMERIC},
+            heft            = #{heft,jdbcType=NUMERIC},
+            JZBC            = #{jzbc,jdbcType=VARCHAR},
+            fjfcd           = #{fjfcd,jdbcType=NUMERIC},
+            theoryCD        = #{theorycd,jdbcType=NUMERIC},
+            diaMax          = #{diamax,jdbcType=NUMERIC},
+            diaMin          = #{diamin,jdbcType=NUMERIC},
+            diaPJ           = #{diapj,jdbcType=NUMERIC},
+            [type]          = #{type,jdbcType=VARCHAR},
+            Mstatus         = #{mstatus,jdbcType=VARCHAR},
+            ManufactureType = #{manufacturetype,jdbcType=VARCHAR},
+            isTE            = #{iste,jdbcType=INTEGER},
+            wlbh            = #{wlbh,jdbcType=VARCHAR},
+            glzzwz          = #{glzzwz,jdbcType=NUMERIC},
+            glkswz          = #{glkswz,jdbcType=NUMERIC},
+            sybgl           = #{sybgl,jdbcType=INTEGER},
+            lswc            = #{lswc,jdbcType=INTEGER},
+            sxwc            = #{sxwc,jdbcType=INTEGER},
+            jcwc            = #{jcwc,jdbcType=INTEGER},
+            lssspcd         = #{lssspcd,jdbcType=NUMERIC},
+            sxsspcd         = #{sxsspcd,jdbcType=NUMERIC},
+            jcsspcd         = #{jcsspcd,jdbcType=NUMERIC},
+            isclose         = #{isclose,jdbcType=INTEGER},
+            TotalLen        = #{totallen,jdbcType=FLOAT},
+            CutLen          = #{cutlen,jdbcType=FLOAT},
+            IsLX            = #{islx,jdbcType=INTEGER},
+            total_lslen     = #{totalLslen,jdbcType=FLOAT},
+            total_SXlen     = #{totalSxlen,jdbcType=FLOAT},
+            total_RiseLen   = #{totalRiselen,jdbcType=FLOAT},
+            ischange        = #{ischange,jdbcType=INTEGER},
+            Rbang           = #{rbang,jdbcType=VARCHAR},
+            Hjdcd           = #{hjdcd,jdbcType=VARCHAR},
+            fId             = #{fid,jdbcType=BIGINT},
+            LastUpdateTime  = #{lastupdatetime,jdbcType=TIMESTAMP},
+            SCZC            = #{sczc,jdbcType=DECIMAL},
+            Ratio           = #{ratio,jdbcType=DECIMAL},
+            TypeMark        = #{typemark,jdbcType=VARCHAR},
+            SupplierLot     = #{supplierlot,jdbcType=VARCHAR},
+            YF              = #{yf,jdbcType=VARCHAR}
+        where GSid = #{gsid,jdbcType=VARCHAR}
+    </update>
+    <update id="updateBatch" parameterType="java.util.List">
+        <!--@mbg.generated-->
+        update JC_yzb
+        <trim prefix="set" suffixOverrides=",">
+            <trim prefix="paperno = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when GSid = #{item.gsid,jdbcType=VARCHAR} then #{item.paperno,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="itemid = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when GSid = #{item.gsid,jdbcType=VARCHAR} then #{item.itemid,jdbcType=INTEGER}
+                </foreach>
+            </trim>
+            <trim prefix="id = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when GSid = #{item.gsid,jdbcType=VARCHAR} then #{item.id,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="customerid = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when GSid = #{item.gsid,jdbcType=VARCHAR} then #{item.customerid,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="username = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when GSid = #{item.gsid,jdbcType=VARCHAR} then #{item.username,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="indate = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when GSid = #{item.gsid,jdbcType=VARCHAR} then #{item.indate,jdbcType=TIMESTAMP}
+                </foreach>
+            </trim>
+            <trim prefix="availabilityCD = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when GSid = #{item.gsid,jdbcType=VARCHAR} then #{item.availabilitycd,jdbcType=NUMERIC}
+                </foreach>
+            </trim>
+            <trim prefix="heft = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when GSid = #{item.gsid,jdbcType=VARCHAR} then #{item.heft,jdbcType=NUMERIC}
+                </foreach>
+            </trim>
+            <trim prefix="JZBC = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when GSid = #{item.gsid,jdbcType=VARCHAR} then #{item.jzbc,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="fjfcd = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when GSid = #{item.gsid,jdbcType=VARCHAR} then #{item.fjfcd,jdbcType=NUMERIC}
+                </foreach>
+            </trim>
+            <trim prefix="theoryCD = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when GSid = #{item.gsid,jdbcType=VARCHAR} then #{item.theorycd,jdbcType=NUMERIC}
+                </foreach>
+            </trim>
+            <trim prefix="diaMax = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when GSid = #{item.gsid,jdbcType=VARCHAR} then #{item.diamax,jdbcType=NUMERIC}
+                </foreach>
+            </trim>
+            <trim prefix="diaMin = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when GSid = #{item.gsid,jdbcType=VARCHAR} then #{item.diamin,jdbcType=NUMERIC}
+                </foreach>
+            </trim>
+            <trim prefix="diaPJ = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when GSid = #{item.gsid,jdbcType=VARCHAR} then #{item.diapj,jdbcType=NUMERIC}
+                </foreach>
+            </trim>
+            <trim prefix="[type] = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when GSid = #{item.gsid,jdbcType=VARCHAR} then #{item.type,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="Mstatus = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when GSid = #{item.gsid,jdbcType=VARCHAR} then #{item.mstatus,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="ManufactureType = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when GSid = #{item.gsid,jdbcType=VARCHAR} then #{item.manufacturetype,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="isTE = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when GSid = #{item.gsid,jdbcType=VARCHAR} then #{item.iste,jdbcType=INTEGER}
+                </foreach>
+            </trim>
+            <trim prefix="wlbh = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when GSid = #{item.gsid,jdbcType=VARCHAR} then #{item.wlbh,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="glzzwz = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when GSid = #{item.gsid,jdbcType=VARCHAR} then #{item.glzzwz,jdbcType=NUMERIC}
+                </foreach>
+            </trim>
+            <trim prefix="glkswz = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when GSid = #{item.gsid,jdbcType=VARCHAR} then #{item.glkswz,jdbcType=NUMERIC}
+                </foreach>
+            </trim>
+            <trim prefix="sybgl = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when GSid = #{item.gsid,jdbcType=VARCHAR} then #{item.sybgl,jdbcType=INTEGER}
+                </foreach>
+            </trim>
+            <trim prefix="lswc = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when GSid = #{item.gsid,jdbcType=VARCHAR} then #{item.lswc,jdbcType=INTEGER}
+                </foreach>
+            </trim>
+            <trim prefix="sxwc = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when GSid = #{item.gsid,jdbcType=VARCHAR} then #{item.sxwc,jdbcType=INTEGER}
+                </foreach>
+            </trim>
+            <trim prefix="jcwc = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when GSid = #{item.gsid,jdbcType=VARCHAR} then #{item.jcwc,jdbcType=INTEGER}
+                </foreach>
+            </trim>
+            <trim prefix="lssspcd = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when GSid = #{item.gsid,jdbcType=VARCHAR} then #{item.lssspcd,jdbcType=NUMERIC}
+                </foreach>
+            </trim>
+            <trim prefix="sxsspcd = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when GSid = #{item.gsid,jdbcType=VARCHAR} then #{item.sxsspcd,jdbcType=NUMERIC}
+                </foreach>
+            </trim>
+            <trim prefix="jcsspcd = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when GSid = #{item.gsid,jdbcType=VARCHAR} then #{item.jcsspcd,jdbcType=NUMERIC}
+                </foreach>
+            </trim>
+            <trim prefix="isclose = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when GSid = #{item.gsid,jdbcType=VARCHAR} then #{item.isclose,jdbcType=INTEGER}
+                </foreach>
+            </trim>
+            <trim prefix="TotalLen = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when GSid = #{item.gsid,jdbcType=VARCHAR} then #{item.totallen,jdbcType=FLOAT}
+                </foreach>
+            </trim>
+            <trim prefix="CutLen = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when GSid = #{item.gsid,jdbcType=VARCHAR} then #{item.cutlen,jdbcType=FLOAT}
+                </foreach>
+            </trim>
+            <trim prefix="IsLX = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when GSid = #{item.gsid,jdbcType=VARCHAR} then #{item.islx,jdbcType=INTEGER}
+                </foreach>
+            </trim>
+            <trim prefix="total_lslen = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when GSid = #{item.gsid,jdbcType=VARCHAR} then #{item.totalLslen,jdbcType=FLOAT}
+                </foreach>
+            </trim>
+            <trim prefix="total_SXlen = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when GSid = #{item.gsid,jdbcType=VARCHAR} then #{item.totalSxlen,jdbcType=FLOAT}
+                </foreach>
+            </trim>
+            <trim prefix="total_RiseLen = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when GSid = #{item.gsid,jdbcType=VARCHAR} then #{item.totalRiselen,jdbcType=FLOAT}
+                </foreach>
+            </trim>
+            <trim prefix="ischange = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when GSid = #{item.gsid,jdbcType=VARCHAR} then #{item.ischange,jdbcType=INTEGER}
+                </foreach>
+            </trim>
+            <trim prefix="Rbang = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when GSid = #{item.gsid,jdbcType=VARCHAR} then #{item.rbang,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="Hjdcd = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when GSid = #{item.gsid,jdbcType=VARCHAR} then #{item.hjdcd,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="fId = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when GSid = #{item.gsid,jdbcType=VARCHAR} then #{item.fid,jdbcType=BIGINT}
+                </foreach>
+            </trim>
+            <trim prefix="LastUpdateTime = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when GSid = #{item.gsid,jdbcType=VARCHAR} then #{item.lastupdatetime,jdbcType=TIMESTAMP}
+                </foreach>
+            </trim>
+            <trim prefix="SCZC = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when GSid = #{item.gsid,jdbcType=VARCHAR} then #{item.sczc,jdbcType=DECIMAL}
+                </foreach>
+            </trim>
+            <trim prefix="Ratio = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when GSid = #{item.gsid,jdbcType=VARCHAR} then #{item.ratio,jdbcType=DECIMAL}
+                </foreach>
+            </trim>
+            <trim prefix="TypeMark = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when GSid = #{item.gsid,jdbcType=VARCHAR} then #{item.typemark,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="SupplierLot = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when GSid = #{item.gsid,jdbcType=VARCHAR} then #{item.supplierlot,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+            <trim prefix="YF = case" suffix="end,">
+                <foreach collection="list" index="index" item="item">
+                    when GSid = #{item.gsid,jdbcType=VARCHAR} then #{item.yf,jdbcType=VARCHAR}
+                </foreach>
+            </trim>
+        </trim>
+        where GSid in
+        <foreach close=")" collection="list" item="item" open="(" separator=", ">
+            #{item.gsid,jdbcType=VARCHAR}
+        </foreach>
+    </update>
+    <insert id="batchInsert" parameterType="map">
+        <!--@mbg.generated-->
+        insert into JC_yzb
+        (GSid, paperno, itemid, id, customerid, username, indate, availabilityCD, heft, JZBC,
+         fjfcd, theoryCD, diaMax, diaMin, diaPJ, [type], Mstatus, ManufactureType, isTE,
+         wlbh, glzzwz, glkswz, sybgl, lswc, sxwc, jcwc, lssspcd, sxsspcd, jcsspcd, isclose,
+         TotalLen, CutLen, IsLX, total_lslen, total_SXlen, total_RiseLen, ischange, Rbang,
+         Hjdcd, LastUpdateTime, SCZC, Ratio, TypeMark, SupplierLot, YF)
+        values
+        <foreach collection="list" item="item" separator=",">
+            (#{item.gsid,jdbcType=VARCHAR}, #{item.paperno,jdbcType=VARCHAR}, #{item.itemid,jdbcType=INTEGER},
+             #{item.id,jdbcType=VARCHAR}, #{item.customerid,jdbcType=VARCHAR}, #{item.username,jdbcType=VARCHAR},
+             #{item.indate,jdbcType=TIMESTAMP}, #{item.availabilitycd,jdbcType=NUMERIC}, #{item.heft,jdbcType=NUMERIC},
+             #{item.jzbc,jdbcType=VARCHAR}, #{item.fjfcd,jdbcType=NUMERIC}, #{item.theorycd,jdbcType=NUMERIC},
+             #{item.diamax,jdbcType=NUMERIC}, #{item.diamin,jdbcType=NUMERIC}, #{item.diapj,jdbcType=NUMERIC},
+             #{item.type,jdbcType=VARCHAR}, #{item.mstatus,jdbcType=VARCHAR}, #{item.manufacturetype,jdbcType=VARCHAR},
+             #{item.iste,jdbcType=INTEGER}, #{item.wlbh,jdbcType=VARCHAR}, #{item.glzzwz,jdbcType=NUMERIC},
+             #{item.glkswz,jdbcType=NUMERIC}, #{item.sybgl,jdbcType=INTEGER}, #{item.lswc,jdbcType=INTEGER},
+             #{item.sxwc,jdbcType=INTEGER}, #{item.jcwc,jdbcType=INTEGER}, #{item.lssspcd,jdbcType=NUMERIC},
+             #{item.sxsspcd,jdbcType=NUMERIC}, #{item.jcsspcd,jdbcType=NUMERIC}, #{item.isclose,jdbcType=INTEGER},
+             #{item.totallen,jdbcType=FLOAT}, #{item.cutlen,jdbcType=FLOAT}, #{item.islx,jdbcType=INTEGER},
+             #{item.totalLslen,jdbcType=FLOAT}, #{item.totalSxlen,jdbcType=FLOAT}, #{item.totalRiselen,jdbcType=FLOAT},
+             #{item.ischange,jdbcType=INTEGER}, #{item.rbang,jdbcType=VARCHAR}, #{item.hjdcd,jdbcType=VARCHAR},
+             #{item.lastupdatetime,jdbcType=TIMESTAMP}, #{item.sczc,jdbcType=DECIMAL},
+             #{item.ratio,jdbcType=DECIMAL}, #{item.typemark,jdbcType=VARCHAR}, #{item.supplierlot,jdbcType=VARCHAR},
+             #{item.yf,jdbcType=VARCHAR})
+        </foreach>
+    </insert>
+
+    <select id="getCategoryName" resultType="java.lang.String">
+        select Top 1 case
+                         when isnull(ismini, '0') = '1' then rtrim(b.ManufactureType) + '-Mini'
+                         else b.ManufactureType end as ManufactureType
+        from sc_ls1 a
+                 left join jc_yzb b on substring(ZZPBH, 3, 8) = gsid where ZZPBH = #{ZZPBH,jdbcType=VARCHAR}
+    </select>
+</mapper>

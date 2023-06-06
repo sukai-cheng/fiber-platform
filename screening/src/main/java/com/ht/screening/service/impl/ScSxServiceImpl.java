@@ -48,11 +48,15 @@ public class ScSxServiceImpl extends ServiceImpl<ScSxMapper, ScSx> implements Sc
     @Resource
     private FiberCutMapper fiberCutMapper;
 
+    @Resource
+    private JcYzbServiceImpl jcYzbService;
+
     @Override
     public AjaxResult getMainPlateInfo(String mainDiskCode) {
         ScSx scsx = mainPlateMapper.findByMainDiskCode(mainDiskCode);
         FiberFilterMainDiskVo fiberFilterInfo = new FiberFilterMainDiskVo();
         BeanUtils.copyProperties(scsx, fiberFilterInfo);
+        fiberFilterInfo.setCategoryName(jcYzbService.getCategoryName(mainDiskCode));
         List<FiberFilterSmallDiskVo> accessoryPlateInfo = getAccessoryPlateInfo(scsx.getYsph());
         FiberFilterVo fiberFilterVo = new FiberFilterVo();
         fiberFilterVo.setFiberFilterMainDiskVo(fiberFilterInfo);
