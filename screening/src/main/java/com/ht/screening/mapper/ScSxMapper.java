@@ -30,7 +30,7 @@ public interface ScSxMapper extends BaseMapper<ScSx> {
      */
     ScSx findByMainDiskCode(String mainDiskCode);
 
-    String getSxbh(@Param("ysph") String ysph);
+    ScSx getSxbh(@Param("ysph") String ysph);
 
     /**
      * 获取已筛总长度
@@ -43,6 +43,10 @@ public interface ScSxMapper extends BaseMapper<ScSx> {
      */
     String calFilterLen(String totalLen,String fiberDiskNum, String cutLen,String mainPlateLen,Object rstqx,String filterLen);
 
+    /**
+     * 根据筛选编号获取大盘筛选信息
+     */
+    ScSx selectByFilterCode(@Param("filterCode") String filterCode);
 
 }
 

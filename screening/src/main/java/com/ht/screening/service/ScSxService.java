@@ -32,4 +32,9 @@ public interface ScSxService extends IService<ScSx> {
      * @return
      */
     String calFilterLen(String mainDiskCode);
+
+    /**
+     * 该大盘是否已经获取筛选记录如果已经有筛选记录就需要上传
+     */
+    String getSxbh(String ph);
 }

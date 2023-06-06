@@ -20,6 +20,7 @@ import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,6 +38,9 @@ public class ScSxServiceImpl extends ServiceImpl<ScSxMapper, ScSx> implements Sc
 
     @Resource
     private ScLs1Mapper scLs1Mapper;
+
+    @Resource
+    private ScSxMapper scSxMapper;
 
     @Resource
     private ScSx2Mapper accessoryPlateMapper;
@@ -71,7 +75,9 @@ public class ScSxServiceImpl extends ServiceImpl<ScSxMapper, ScSx> implements Sc
 
     @Override
     public String calTotalLen(String mainDiskCode) {
-        return mainPlateMapper.calTotalLen(mainDiskCode);
+        String totalLen = mainPlateMapper.calTotalLen(mainDiskCode);
+        BigDecimal res = BigDecimal.valueOf(Double.parseDouble(totalLen));
+        return res.divide(new BigDecimal(1000),2,BigDecimal.ROUND_HALF_UP).toString();
     }
 
 
@@ -79,6 +85,9 @@ public class ScSxServiceImpl extends ServiceImpl<ScSxMapper, ScSx> implements Sc
     public String calFilterLen(String mainDiskCode) {
 
         DrawBenchDto drawBenchInfo = scLs1Mapper.getDrawBenchInfo(mainDiskCode);
+        if (drawBenchInfo == null) {
+            return "";
+        }
         // 获取已筛总长度
         Double totalLen = Double.parseDouble(calTotalLen(mainDiskCode));
         // 切割长度
@@ -91,6 +100,17 @@ public class ScSxServiceImpl extends ServiceImpl<ScSxMapper, ScSx> implements Sc
         Double filterLen = calculateQGCD(totalLen, cutLen, mainDiskLen, fiberDrawingDefectInfos);
 
         return String.valueOf(filterLen);
+    }
+
+    @Override
+    public String getSxbh(String ph) {
+        String sxbh = scSxMapper.getSxbh(ph).getSxbh();
+        if (StringUtils.isNotEmpty(sxbh)) {
+            return sxbh;
+        }
+        // 从paperInfo中获取最大的筛选编号
+
+        return null;
     }
 
     /**

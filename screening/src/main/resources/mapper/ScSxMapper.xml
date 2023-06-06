@@ -373,7 +373,11 @@
   <select id="calFilterLen" resultType="java.lang.String">
   </select>
 
-  <select id="getSxbh" resultType="java.lang.String">
-    select SXBH from SC_SX where YSPH = #{ysph,jdbcType=VARCHAR}
+  <select id="getSxbh" resultMap="BaseResultMap">
+    select * from SC_SX where YSPH = #{ysph,jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectByFilterCode" resultMap="BaseResultMap">
+    select * from sc_sx where SXBH = #{filterCode,jdbcType=VARCHAR}
   </select>
 </mapper>
