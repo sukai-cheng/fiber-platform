@@ -45,12 +45,12 @@ public class Ini4jUtils {
         return fileVo;
     }
 
-    public static void main(String[] args) throws IOException, NoSuchFieldException, IllegalAccessException {
+    public static Ini4jFileVo getPropertiesFromIni() throws IOException, NoSuchFieldException, IllegalAccessException {
         File file = new File("screening/src/main/resources/config/MyApp.ini");
         Map<String, List<String>> fileContent = new HashMap<>();
         fileContent.put("config", Arrays.asList("Level2", "Defect", "Airline", "Tfzjxx", "Tfzjsx", "Lxzjxx", "Lxzjsx", "ntbh", "wtbh", "ksgl", "scgl", "Mjbh", "Velocity", "SStrain", "XStrain", "Level1", "SBBH"));
         fileContent.put("DDESection", Arrays.asList("Text80", "Text83", "Text84", "Text81", "Text82", "Text85", "Text86", "Text87", "Text88", "Text89", "Text810", "Text811", "Text812", "Text813", "Text814", "Text815", "Text816", "Text817", "Text818", "Text819", "Text820", "Text821", "Text822", "Text823", "Text824", "Text825", "Text826", "Text827", "Text828", "Text829", "Text830", "Text831", "Text836", "Text837"));
         Ini4jFileVo fileVo = Ini4jUtils.readIniFile(file, fileContent);
-        System.out.println(fileVo);
+        return fileVo;
     }
 }

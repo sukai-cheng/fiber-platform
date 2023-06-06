@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-class Ini4jFileVo {
+public class Ini4jFileVo {
     private String Level2;
     private String Defect;
     private String Airline;
