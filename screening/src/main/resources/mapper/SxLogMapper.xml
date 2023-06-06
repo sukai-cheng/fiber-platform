@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.screening.mapper.SxLogMapper">
+  <resultMap id="BaseResultMap" type="com.ht.screening.entity.SxLog">
+    <!--@mbg.generated-->
+    <!--@Table SX_Log-->
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="lx" jdbcType="INTEGER" property="lx" />
+    <result column="sxbh" jdbcType="VARCHAR" property="sxbh" />
+    <result column="xptm" jdbcType="VARCHAR" property="xptm" />
+    <result column="dpph" jdbcType="VARCHAR" property="dpph" />
+    <result column="sxjt" jdbcType="VARCHAR" property="sxjt" />
+    <result column="dates" jdbcType="TIMESTAMP" property="dates" />
+    <result column="sqlError" jdbcType="VARCHAR" property="sqlerror" />
+    <result column="sql" jdbcType="VARCHAR" property="sql" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    ID, lx, sxbh, xptm, dpph, sxjt, dates, [sqlError], [sql]
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from SX_Log
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from SX_Log
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="ID" keyProperty="id" parameterType="com.ht.screening.entity.SxLog" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into SX_Log (lx, sxbh, xptm, 
+      dpph, sxjt, dates, 
+      [sqlError], [sql])
+    values (#{lx,jdbcType=INTEGER}, #{sxbh,jdbcType=VARCHAR}, #{xptm,jdbcType=VARCHAR}, 
+      #{dpph,jdbcType=VARCHAR}, #{sxjt,jdbcType=VARCHAR}, #{dates,jdbcType=TIMESTAMP}, 
+      #{sqlerror,jdbcType=VARCHAR}, #{sql,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="ID" keyProperty="id" parameterType="com.ht.screening.entity.SxLog" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into SX_Log
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="lx != null">
+        lx,
+      </if>
+      <if test="sxbh != null">
+        sxbh,
+      </if>
+      <if test="xptm != null">
+        xptm,
+      </if>
+      <if test="dpph != null">
+        dpph,
+      </if>
+      <if test="sxjt != null">
+        sxjt,
+      </if>
+      <if test="dates != null">
+        dates,
+      </if>
+      <if test="sqlerror != null">
+        [sqlError],
+      </if>
+      <if test="sql != null">
+        [sql],
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="lx != null">
+        #{lx,jdbcType=INTEGER},
+      </if>
+      <if test="sxbh != null">
+        #{sxbh,jdbcType=VARCHAR},
+      </if>
+      <if test="xptm != null">
+        #{xptm,jdbcType=VARCHAR},
+      </if>
+      <if test="dpph != null">
+        #{dpph,jdbcType=VARCHAR},
+      </if>
+      <if test="sxjt != null">
+        #{sxjt,jdbcType=VARCHAR},
+      </if>
+      <if test="dates != null">
+        #{dates,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sqlerror != null">
+        #{sqlerror,jdbcType=VARCHAR},
+      </if>
+      <if test="sql != null">
+        #{sql,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ht.screening.entity.SxLog">
+    <!--@mbg.generated-->
+    update SX_Log
+    <set>
+      <if test="lx != null">
+        lx = #{lx,jdbcType=INTEGER},
+      </if>
+      <if test="sxbh != null">
+        sxbh = #{sxbh,jdbcType=VARCHAR},
+      </if>
+      <if test="xptm != null">
+        xptm = #{xptm,jdbcType=VARCHAR},
+      </if>
+      <if test="dpph != null">
+        dpph = #{dpph,jdbcType=VARCHAR},
+      </if>
+      <if test="sxjt != null">
+        sxjt = #{sxjt,jdbcType=VARCHAR},
+      </if>
+      <if test="dates != null">
+        dates = #{dates,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sqlerror != null">
+        [sqlError] = #{sqlerror,jdbcType=VARCHAR},
+      </if>
+      <if test="sql != null">
+        [sql] = #{sql,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ht.screening.entity.SxLog">
+    <!--@mbg.generated-->
+    update SX_Log
+    set lx = #{lx,jdbcType=INTEGER},
+      sxbh = #{sxbh,jdbcType=VARCHAR},
+      xptm = #{xptm,jdbcType=VARCHAR},
+      dpph = #{dpph,jdbcType=VARCHAR},
+      sxjt = #{sxjt,jdbcType=VARCHAR},
+      dates = #{dates,jdbcType=TIMESTAMP},
+      [sqlError] = #{sqlerror,jdbcType=VARCHAR},
+      [sql] = #{sql,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update SX_Log
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="lx = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when ID = #{item.id,jdbcType=INTEGER} then #{item.lx,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="sxbh = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when ID = #{item.id,jdbcType=INTEGER} then #{item.sxbh,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="xptm = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when ID = #{item.id,jdbcType=INTEGER} then #{item.xptm,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="dpph = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when ID = #{item.id,jdbcType=INTEGER} then #{item.dpph,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="sxjt = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when ID = #{item.id,jdbcType=INTEGER} then #{item.sxjt,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="dates = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when ID = #{item.id,jdbcType=INTEGER} then #{item.dates,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="[sqlError] = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when ID = #{item.id,jdbcType=INTEGER} then #{item.sqlerror,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="[sql] = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when ID = #{item.id,jdbcType=INTEGER} then #{item.sql,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+    </trim>
+    where ID in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.id,jdbcType=INTEGER}
+    </foreach>
+  </update>
+  <insert id="batchInsert" keyColumn="ID" keyProperty="id" parameterType="map" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into SX_Log
+    (lx, sxbh, xptm, dpph, sxjt, dates, [sqlError], [sql])
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.lx,jdbcType=INTEGER}, #{item.sxbh,jdbcType=VARCHAR}, #{item.xptm,jdbcType=VARCHAR}, 
+        #{item.dpph,jdbcType=VARCHAR}, #{item.sxjt,jdbcType=VARCHAR}, #{item.dates,jdbcType=TIMESTAMP}, 
+        #{item.sqlerror,jdbcType=VARCHAR}, #{item.sql,jdbcType=VARCHAR})
+    </foreach>
+  </insert>
+</mapper>
