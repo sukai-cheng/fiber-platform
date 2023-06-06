@@ -448,4 +448,16 @@ public class DateUtils {
         System.out.println(DateDiff(d2, d1));
     }
 
+    public static final String getTime() {
+        return dateTimeNow(DATE_TIME_PATTERN);
+    }
+
+    public static final String dateTimeNow(final String format) {
+        return parseDateToStr(format, new Date());
+    }
+
+    public static final String parseDateToStr(final String format, final Date date) {
+        return new SimpleDateFormat(format).format(date);
+    }
+
 }
