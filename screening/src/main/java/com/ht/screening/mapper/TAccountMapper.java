@@ -1,6 +1,7 @@
 package com.ht.screening.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.ht.screening.dto.EmployeeDto;
 import com.ht.screening.entity.TAccount;
 
 import java.util.List;
@@ -24,5 +25,8 @@ public interface TAccountMapper extends BaseMapper<TAccount> {
     int batchInsert(@Param("list") List<TAccount> list);
 
     Integer findByUserNameAndPassWord(@Param("userName") String fAccount, @Param("password") String password);
+
+    EmployeeDto getUserInfo(@Param("userName") String fAccount, @Param("password") String password);
+
 
 }

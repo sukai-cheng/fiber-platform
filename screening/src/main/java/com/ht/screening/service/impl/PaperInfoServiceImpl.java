@@ -35,7 +35,7 @@ public class PaperInfoServiceImpl
 //        2023-06-06 13:31:36.650
         StringBuffer dateStr = new StringBuffer(DateUtils.getTime());
         String strFistLike = CommonConstant.SX + dateStr.substring(2, 4) + dateStr.substring(5, 7) + dateStr.substring(8, 10);
-        strFistLike = "SX2306060484";
+//        strFistLike = "SX2306060484";
         System.out.println(NumberUtils.addNum(strFistLike));
     }
 }

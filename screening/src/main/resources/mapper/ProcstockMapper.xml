@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.screening.mapper.ProcstockMapper">
+  <resultMap id="BaseResultMap" type="com.ht.screening.entity.Procstock">
+    <!--@mbg.generated-->
+    <!--@Table procstock-->
+    <id column="productid" jdbcType="VARCHAR" property="productid" />
+    <result column="procid" jdbcType="VARCHAR" property="procid" />
+    <result column="producttype" jdbcType="INTEGER" property="producttype" />
+    <result column="note" jdbcType="VARCHAR" property="note" />
+    <result column="gqcd" jdbcType="FLOAT" property="gqcd" />
+    <result column="sourceid" jdbcType="VARCHAR" property="sourceid" />
+    <result column="gsid" jdbcType="VARCHAR" property="gsid" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+    <result column="crdate" jdbcType="TIMESTAMP" property="crdate" />
+    <result column="cause" jdbcType="VARCHAR" property="cause" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="OkSL" jdbcType="FLOAT" property="oksl" />
+    <result column="DisSL" jdbcType="FLOAT" property="dissl" />
+    <result column="zlh" jdbcType="VARCHAR" property="zlh" />
+    <result column="MPSH" jdbcType="VARCHAR" property="mpsh" />
+    <result column="ManufactureType" jdbcType="VARCHAR" property="manufacturetype" />
+    <result column="ParentProcid" jdbcType="VARCHAR" property="parentprocid" />
+    <result column="LastUpdateAccountID" jdbcType="VARCHAR" property="lastupdateaccountid" />
+    <result column="LastUpdateTime" jdbcType="TIMESTAMP" property="lastupdatetime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    productid, procid, producttype, note, gqcd, sourceid, gsid, [state], crdate, cause, 
+    username, OkSL, DisSL, zlh, MPSH, ManufactureType, ParentProcid, LastUpdateAccountID, 
+    LastUpdateTime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from procstock
+    where productid = #{productid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from procstock
+    where productid = #{productid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.ht.screening.entity.Procstock">
+    <!--@mbg.generated-->
+    insert into procstock (productid, procid, producttype, 
+      note, gqcd, sourceid, 
+      gsid, [state], crdate, 
+      cause, username, OkSL, 
+      DisSL, zlh, MPSH, ManufactureType, 
+      ParentProcid, LastUpdateAccountID, LastUpdateTime
+      )
+    values (#{productid,jdbcType=VARCHAR}, #{procid,jdbcType=VARCHAR}, #{producttype,jdbcType=INTEGER}, 
+      #{note,jdbcType=VARCHAR}, #{gqcd,jdbcType=FLOAT}, #{sourceid,jdbcType=VARCHAR}, 
+      #{gsid,jdbcType=VARCHAR}, #{state,jdbcType=INTEGER}, #{crdate,jdbcType=TIMESTAMP}, 
+      #{cause,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{oksl,jdbcType=FLOAT}, 
+      #{dissl,jdbcType=FLOAT}, #{zlh,jdbcType=VARCHAR}, #{mpsh,jdbcType=VARCHAR}, #{manufacturetype,jdbcType=VARCHAR}, 
+      #{parentprocid,jdbcType=VARCHAR}, #{lastupdateaccountid,jdbcType=VARCHAR}, #{lastupdatetime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.ht.screening.entity.Procstock">
+    <!--@mbg.generated-->
+    insert into procstock
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="productid != null">
+        productid,
+      </if>
+      <if test="procid != null">
+        procid,
+      </if>
+      <if test="producttype != null">
+        producttype,
+      </if>
+      <if test="note != null">
+        note,
+      </if>
+      <if test="gqcd != null">
+        gqcd,
+      </if>
+      <if test="sourceid != null">
+        sourceid,
+      </if>
+      <if test="gsid != null">
+        gsid,
+      </if>
+      <if test="state != null">
+        [state],
+      </if>
+      <if test="crdate != null">
+        crdate,
+      </if>
+      <if test="cause != null">
+        cause,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="oksl != null">
+        OkSL,
+      </if>
+      <if test="dissl != null">
+        DisSL,
+      </if>
+      <if test="zlh != null">
+        zlh,
+      </if>
+      <if test="mpsh != null">
+        MPSH,
+      </if>
+      <if test="manufacturetype != null">
+        ManufactureType,
+      </if>
+      <if test="parentprocid != null">
+        ParentProcid,
+      </if>
+      <if test="lastupdateaccountid != null">
+        LastUpdateAccountID,
+      </if>
+      <if test="lastupdatetime != null">
+        LastUpdateTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="productid != null">
+        #{productid,jdbcType=VARCHAR},
+      </if>
+      <if test="procid != null">
+        #{procid,jdbcType=VARCHAR},
+      </if>
+      <if test="producttype != null">
+        #{producttype,jdbcType=INTEGER},
+      </if>
+      <if test="note != null">
+        #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="gqcd != null">
+        #{gqcd,jdbcType=FLOAT},
+      </if>
+      <if test="sourceid != null">
+        #{sourceid,jdbcType=VARCHAR},
+      </if>
+      <if test="gsid != null">
+        #{gsid,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="crdate != null">
+        #{crdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cause != null">
+        #{cause,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="oksl != null">
+        #{oksl,jdbcType=FLOAT},
+      </if>
+      <if test="dissl != null">
+        #{dissl,jdbcType=FLOAT},
+      </if>
+      <if test="zlh != null">
+        #{zlh,jdbcType=VARCHAR},
+      </if>
+      <if test="mpsh != null">
+        #{mpsh,jdbcType=VARCHAR},
+      </if>
+      <if test="manufacturetype != null">
+        #{manufacturetype,jdbcType=VARCHAR},
+      </if>
+      <if test="parentprocid != null">
+        #{parentprocid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastupdateaccountid != null">
+        #{lastupdateaccountid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastupdatetime != null">
+        #{lastupdatetime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ht.screening.entity.Procstock">
+    <!--@mbg.generated-->
+    update procstock
+    <set>
+      <if test="procid != null">
+        procid = #{procid,jdbcType=VARCHAR},
+      </if>
+      <if test="producttype != null">
+        producttype = #{producttype,jdbcType=INTEGER},
+      </if>
+      <if test="note != null">
+        note = #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="gqcd != null">
+        gqcd = #{gqcd,jdbcType=FLOAT},
+      </if>
+      <if test="sourceid != null">
+        sourceid = #{sourceid,jdbcType=VARCHAR},
+      </if>
+      <if test="gsid != null">
+        gsid = #{gsid,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        [state] = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="crdate != null">
+        crdate = #{crdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cause != null">
+        cause = #{cause,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="oksl != null">
+        OkSL = #{oksl,jdbcType=FLOAT},
+      </if>
+      <if test="dissl != null">
+        DisSL = #{dissl,jdbcType=FLOAT},
+      </if>
+      <if test="zlh != null">
+        zlh = #{zlh,jdbcType=VARCHAR},
+      </if>
+      <if test="mpsh != null">
+        MPSH = #{mpsh,jdbcType=VARCHAR},
+      </if>
+      <if test="manufacturetype != null">
+        ManufactureType = #{manufacturetype,jdbcType=VARCHAR},
+      </if>
+      <if test="parentprocid != null">
+        ParentProcid = #{parentprocid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastupdateaccountid != null">
+        LastUpdateAccountID = #{lastupdateaccountid,jdbcType=VARCHAR},
+      </if>
+      <if test="lastupdatetime != null">
+        LastUpdateTime = #{lastupdatetime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where productid = #{productid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ht.screening.entity.Procstock">
+    <!--@mbg.generated-->
+    update procstock
+    set procid = #{procid,jdbcType=VARCHAR},
+      producttype = #{producttype,jdbcType=INTEGER},
+      note = #{note,jdbcType=VARCHAR},
+      gqcd = #{gqcd,jdbcType=FLOAT},
+      sourceid = #{sourceid,jdbcType=VARCHAR},
+      gsid = #{gsid,jdbcType=VARCHAR},
+      [state] = #{state,jdbcType=INTEGER},
+      crdate = #{crdate,jdbcType=TIMESTAMP},
+      cause = #{cause,jdbcType=VARCHAR},
+      username = #{username,jdbcType=VARCHAR},
+      OkSL = #{oksl,jdbcType=FLOAT},
+      DisSL = #{dissl,jdbcType=FLOAT},
+      zlh = #{zlh,jdbcType=VARCHAR},
+      MPSH = #{mpsh,jdbcType=VARCHAR},
+      ManufactureType = #{manufacturetype,jdbcType=VARCHAR},
+      ParentProcid = #{parentprocid,jdbcType=VARCHAR},
+      LastUpdateAccountID = #{lastupdateaccountid,jdbcType=VARCHAR},
+      LastUpdateTime = #{lastupdatetime,jdbcType=TIMESTAMP}
+    where productid = #{productid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update procstock
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="procid = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when productid = #{item.productid,jdbcType=VARCHAR} then #{item.procid,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="producttype = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when productid = #{item.productid,jdbcType=VARCHAR} then #{item.producttype,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="note = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when productid = #{item.productid,jdbcType=VARCHAR} then #{item.note,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="gqcd = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when productid = #{item.productid,jdbcType=VARCHAR} then #{item.gqcd,jdbcType=FLOAT}
+        </foreach>
+      </trim>
+      <trim prefix="sourceid = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when productid = #{item.productid,jdbcType=VARCHAR} then #{item.sourceid,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="gsid = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when productid = #{item.productid,jdbcType=VARCHAR} then #{item.gsid,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="[state] = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when productid = #{item.productid,jdbcType=VARCHAR} then #{item.state,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="crdate = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when productid = #{item.productid,jdbcType=VARCHAR} then #{item.crdate,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="cause = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when productid = #{item.productid,jdbcType=VARCHAR} then #{item.cause,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="username = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when productid = #{item.productid,jdbcType=VARCHAR} then #{item.username,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="OkSL = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when productid = #{item.productid,jdbcType=VARCHAR} then #{item.oksl,jdbcType=FLOAT}
+        </foreach>
+      </trim>
+      <trim prefix="DisSL = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when productid = #{item.productid,jdbcType=VARCHAR} then #{item.dissl,jdbcType=FLOAT}
+        </foreach>
+      </trim>
+      <trim prefix="zlh = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when productid = #{item.productid,jdbcType=VARCHAR} then #{item.zlh,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="MPSH = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when productid = #{item.productid,jdbcType=VARCHAR} then #{item.mpsh,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="ManufactureType = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when productid = #{item.productid,jdbcType=VARCHAR} then #{item.manufacturetype,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="ParentProcid = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when productid = #{item.productid,jdbcType=VARCHAR} then #{item.parentprocid,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="LastUpdateAccountID = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when productid = #{item.productid,jdbcType=VARCHAR} then #{item.lastupdateaccountid,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="LastUpdateTime = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when productid = #{item.productid,jdbcType=VARCHAR} then #{item.lastupdatetime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+    </trim>
+    where productid in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.productid,jdbcType=VARCHAR}
+    </foreach>
+  </update>
+  <insert id="batchInsert" parameterType="map">
+    <!--@mbg.generated-->
+    insert into procstock
+    (productid, procid, producttype, note, gqcd, sourceid, gsid, [state], crdate, cause, 
+      username, OkSL, DisSL, zlh, MPSH, ManufactureType, ParentProcid, LastUpdateAccountID, 
+      LastUpdateTime)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.productid,jdbcType=VARCHAR}, #{item.procid,jdbcType=VARCHAR}, #{item.producttype,jdbcType=INTEGER}, 
+        #{item.note,jdbcType=VARCHAR}, #{item.gqcd,jdbcType=FLOAT}, #{item.sourceid,jdbcType=VARCHAR}, 
+        #{item.gsid,jdbcType=VARCHAR}, #{item.state,jdbcType=INTEGER}, #{item.crdate,jdbcType=TIMESTAMP}, 
+        #{item.cause,jdbcType=VARCHAR}, #{item.username,jdbcType=VARCHAR}, #{item.oksl,jdbcType=FLOAT}, 
+        #{item.dissl,jdbcType=FLOAT}, #{item.zlh,jdbcType=VARCHAR}, #{item.mpsh,jdbcType=VARCHAR}, 
+        #{item.manufacturetype,jdbcType=VARCHAR}, #{item.parentprocid,jdbcType=VARCHAR}, 
+        #{item.lastupdateaccountid,jdbcType=VARCHAR}, #{item.lastupdatetime,jdbcType=TIMESTAMP}
+        )
+    </foreach>
+  </insert>
+
+  <select id="checkExists" resultType="java.lang.String">
+    select productid from procstock where (procid = '069' or procid = '059') and producttype = 1 and productid = #{gqph,jdbcType=VARCHAR}
+  </select>
+
+  <select id="checkFinished" resultType="java.lang.String">
+    select ysph from SC_SX where SHR is not null and YSPH = #{gqph,jdbcType=VARCHAR}
+  </select>
+
+
+</mapper>

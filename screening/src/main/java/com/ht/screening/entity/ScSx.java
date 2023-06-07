@@ -116,7 +116,7 @@ public class ScSx {
     /**
      * 光纤长度
      */
-    @TableField(value = "GQCD")
+    @TableField(value = "gqcd")
     private Double gqcd;
 
     /**

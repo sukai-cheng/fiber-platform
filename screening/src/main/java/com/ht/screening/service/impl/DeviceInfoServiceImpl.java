@@ -2,15 +2,15 @@ package com.ht.screening.service.impl;
 
 import HslCommunication.Core.Types.OperateResultExOne;
 import HslCommunication.Profinet.Siemens.SiemensS7Net;
-import com.ht.base.constant.CommonConstant;
 import com.ht.base.exception.ServiceException;
 import com.ht.base.utils.DateUtils;
 import com.ht.base.utils.NumberUtils;
+import com.ht.base.utils.bean.BeanUtils;
 import com.ht.screening.dto.DeviceInfo;
 import com.ht.screening.dto.DrawBenchDto;
+import com.ht.screening.dto.FilterUploadDto;
 import com.ht.screening.entity.ScSx;
 import com.ht.screening.entity.ScSx2;
-import com.ht.screening.entity.SxLog;
 import com.ht.screening.mapper.*;
 import com.ht.screening.service.DeviceInfoService;
 import com.ht.screening.vo.DeviceInfoVo;
@@ -20,9 +20,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
-import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Filter;
 
 /**
  * 获取设备信息
@@ -37,16 +37,16 @@ public class DeviceInfoServiceImpl implements DeviceInfoService {
     private DeviceConnectServiceImpl deviceConnectService;
 
     @Resource
-    private ScLs1Mapper scLs1Mapper;
-
-    @Resource
     private ScSxMapper scSxMapper;
 
     @Resource
     private ScLsQxqcMapper scLsQxqcMapper;
 
     @Resource
+    ScLs1Mapper scLs1Mapper;
+    @Resource
     private ScSx2Mapper scSx2Mapper;
+
 
     @Resource
     private SxLogMapper sxLogMapper;
@@ -547,193 +547,15 @@ public class DeviceInfoServiceImpl implements DeviceInfoService {
     /**
      * 筛选数据上传
      *
-     * @param sxbh
-     * @param dpph
-     * @param bz
-     * @param sdate
-     * @param sbbh
-     * @param gh
-     * @param zl
-     * @param sxzk
-     * @param username
-     * @param dpcd
-     * @param scjhh
-     * @param zlh
+     * @param filterUploadDto 筛选数据上传对象
      */
-    private void addXSMAIN(String sxbh, String dpph, String bz, String sdate, String sbbh, String gh, String zl, String sxzk, String username, String dpcd, String scjhh, String zlh) {
-        if (StringUtils.isEmpty(sxbh)) {
-            log.info("筛选编号为空");
-        }
-        // 筛选数据上传
+    private void addXSMAIN(FilterUploadDto filterUploadDto) {
         ScSx scSx = new ScSx();
-        scSx.setSxbh(sxbh);
-        scSx.setYsph(dpph);
-        scSx.setScbz(bz);
-        scSx.setScrq(new Date(sdate));
-        scSx.setSbbh(sbbh);
-        scSx.setGh(gh);
-        scSx.setFxzl(0.26);
-        scSx.setSbzk("正常");
-        scSx.setSxzl(0.5);
-        scSx.setSxsd(2000);
-        scSx.setSfqx("");
-        scSx.setSfdq("");
-        scSx.setZdr(username);
-        scSx.setZdrq(new Date(sdate));
-        scSx.setChecker(null);
-        scSx.setShrq(null);
-        scSx.setGqcd(Double.valueOf(dpcd));
-        scSx.setYl("1.26%");
-        scSx.setLsrate(null);
-        scSx.setMpsh(scjhh);
-        scSx.setZlh(zlh);
-        scSx.setLastupdatetime(new Date());
-        scSx.setLastupdateaccountid(username);
+        BeanUtils.copyProperties(filterUploadDto, scSx);
         scSxMapper.insert(scSx);
     }
 
-    /**
-     * 筛选数据上传
-     *
-     * @param sxbh   筛选编号
-     * @param xh     序号
-     * @param ewz    开始位置
-     * @param CD     长度
-     * @param DQQK   断纤情况
-     * @param dqcd   断纤长度
-     * @param qxlb   缺陷类型
-     * @param qgcd   切割长度
-     * @param blyy   不良原因
-     * @param isfg
-     * @param dqmscd
-     */
-    private Boolean SXDetail(
-            String sxjlx,
-            String dpph,
-            String sxbh,
-            String xh,
-            String xptm,
-            Long ewz,
-            Long CD,
-            String DQQK,
-            Long dqcd,
-            String qxlb,
-            Long qgcd,
-            String blyy,
-            Long isfg,
-            Long dqmscd
-    ) {
-        // 根据大盘盘号获取筛选编号
-        ScSx scsx = scSxMapper.getSxbh(dpph);
-        String filterCode = scsx.getSxbh();
-        // 如果筛选编号为空,插入sx_log日志
-        if (StringUtils.isEmpty(filterCode)) {
-            SxLog sxLog = new SxLog();
-            sxLog.setLx(1);
-            sxLog.setSxbh(sxbh);
-            sxLog.setXptm(xptm);
-            sxLog.setDpph(dpph);
-            sxLog.setSxjt(scsx.getSbbh());
-            sxLogMapper.insert(sxLog);
-            return false;
-        }
-        // 如果小盘条码不为空
-        if (StringUtils.isNotEmpty(xptm)) {
-            // 大盘盘号
-            String ysph = scSxMapper.selectByFilterCode(sxbh).getYsph();
-            String xptmSubStr = xptm.substring(0, 13);
-            // 如果大盘号和小盘号一致
-            if (StringUtils.equals(xptmSubStr, ysph)) {
-                SxLog sxLog = new SxLog();
-                sxLog.setLx(2);
-                sxLog.setSxbh(sxbh);
-                sxLog.setXptm(xptm);
-                sxLog.setDpph(dpph);
-                sxLog.setSxjt(scsx.getSbbh());
-                sxLogMapper.insert(sxLog);
-            } else {
-                log.info("小盘2生成错误");
-                return false;
-            }
-            SxLog sxLog = new SxLog();
-            sxLog.setLx(4);
-            sxLog.setSxbh(sxbh);
-            sxLog.setXptm(xptm);
-            sxLog.setDpph(dpph);
-            sxLog.setSxjt(scsx.getSbbh());
-            sxLogMapper.insert(sxLog);
 
-            // 小盘条码和大盘盘号相等或者小盘条码是空的话
-            if (StringUtils.equals(dpph, xptm.substring(0, 13)) || StringUtils.isEmpty(xptm)) {
-
-                DrawBenchDto drawBenchInfo = scLs1Mapper.getDrawBenchInfo(dpph);
-                if (StringUtils.equals(CommonConstant.N, sxjlx)) {
-                    ScSx2 sx2 = new ScSx2();
-//                    sx2.setSxbh(sxbh);
-//                    sx2.setXh(xh);
-//                    sx2.setXptm(xptm);
-//                    sx2.setEwz(BigDecimal.valueOf(ewz));
-//                    sx2.setCd(BigDecimal.valueOf(CD));
-//                    sx2.setDqqk(DQQK);
-//                    sx2.setDqcd(BigDecimal.valueOf(dqcd));
-//                    sx2.setLabour(qxlb);
-//                    sx2.setSxr();
-//                    sx2.setBlyy();
-//                    sx2.setGlqk();
-//                    sx2.setCrdate();
-//                    sx2.setColor();
-//                    sx2.setStime();
-//                    sx2.setEtime();
-//                    sx2.setSyl();
-//                    sx2.setPj();
-//                    sx2.setXj();
-//                    sx2.setIsfg();
-//                    sx2.setDqmscd();
-//                    sx2.setSbbhd();
-//                    sx2.setIsdy();
-//                    sx2.setDqcs();
-//                    sx2.setSxms();
-//                    sx2.setLastupdatetime();
-//                    sx2.setLastupdateaccountid();
-                    scSx2Mapper.insert(sx2);
-                }
-                if (StringUtils.equals(CommonConstant.D, sxjlx) || StringUtils.equals(CommonConstant.Y, sxjlx)) {
-                    ScSx2 sx2 = new ScSx2();
-//                    sx2.setSxbh(sxbh);
-//                    sx2.setXh(xh);
-//                    sx2.setXptm(xptm);
-//                    sx2.setEwz(BigDecimal.valueOf(ewz));
-//                    sx2.setCd(BigDecimal.valueOf(CD));
-//                    sx2.setDqqk(DQQK);
-//                    sx2.setDqcd(BigDecimal.valueOf(dqcd));
-//                    sx2.setLabour(qxlb);
-//                    sx2.setSxr();
-//                    sx2.setBlyy();
-//                    sx2.setGlqk();
-//                    sx2.setCrdate();
-//                    sx2.setColor();
-//                    sx2.setStime();
-//                    sx2.setEtime();
-//                    sx2.setSyl();
-//                    sx2.setPj();
-//                    sx2.setXj();
-//                    sx2.setIsfg();
-//                    sx2.setDqmscd();
-//                    sx2.setSbbhd();
-//                    sx2.setIsdy();
-//                    sx2.setDqcs();
-//                    sx2.setLastupdatetime();
-//                    sx2.setLastupdateaccountid();
-                    scSx2Mapper.insert(sx2);
-                }
-                return true;
-            }
-        }
-
-        //
-
-        return null;
-    }
 
     public static void main(String[] args) {
         String xptm = "38H11LD650XXA04";

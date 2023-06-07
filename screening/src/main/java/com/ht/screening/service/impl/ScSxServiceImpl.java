@@ -5,12 +5,15 @@ import com.ht.base.domain.AjaxResult;
 import com.ht.base.utils.bean.BeanUtils;
 import com.ht.screening.dto.DrawBenchDto;
 import com.ht.screening.dto.FiberDrawingDefectInfo;
+import com.ht.screening.dto.FilterUploadDto;
 import com.ht.screening.entity.ScSx;
 import com.ht.screening.entity.ScSx2;
 import com.ht.screening.mapper.FiberCutMapper;
 import com.ht.screening.mapper.ScLs1Mapper;
 import com.ht.screening.mapper.ScSx2Mapper;
 import com.ht.screening.mapper.ScSxMapper;
+import com.ht.screening.request.FilterInfoRequest;
+import com.ht.screening.service.PaperInfoService;
 import com.ht.screening.service.ScSxService;
 import com.ht.screening.vo.FiberFilterMainDiskVo;
 import com.ht.screening.vo.FiberFilterSmallDiskVo;
@@ -23,7 +26,10 @@ import javax.annotation.Resource;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+
+import static com.ht.base.utils.Ini4jUtils.getPropertiesFromIni;
 
 /**
  * 获取筛选信息
@@ -52,10 +58,19 @@ public class ScSxServiceImpl extends ServiceImpl<ScSxMapper, ScSx> implements Sc
     @Resource
     private JcYzbServiceImpl jcYzbService;
 
+    @Resource
+    FilterUploadServiceImpl filterUploadService;
+
+    @Resource
+    PaperInfoService paperInfoService;
+
     @Override
-    public AjaxResult getMainPlateInfo(String mainDiskCode) {
+    public AjaxResult getMainPlateInfo(FilterInfoRequest request) {
+        String mainDiskCode = request.getFiberDiskCode();
+        // 筛选信息上传
+        getSxbh(request.getAccountId(), request.getBz(), mainDiskCode);
         ScSx scsx = mainPlateMapper.findByMainDiskCode(mainDiskCode);
-        if(scsx == null){
+        if (scsx == null) {
             return AjaxResult.error("大盘号无效或无筛选数据");
         }
         FiberFilterMainDiskVo fiberFilterInfo = new FiberFilterMainDiskVo();
@@ -85,7 +100,7 @@ public class ScSxServiceImpl extends ServiceImpl<ScSxMapper, ScSx> implements Sc
     public String calTotalLen(String mainDiskCode) {
         String totalLen = mainPlateMapper.calTotalLen(mainDiskCode);
         BigDecimal res = BigDecimal.valueOf(Double.parseDouble(totalLen));
-        return res.divide(new BigDecimal(1000),2,BigDecimal.ROUND_HALF_UP).toString();
+        return res.divide(new BigDecimal(1000), 2, BigDecimal.ROUND_HALF_UP).toString();
     }
 
 
@@ -109,9 +124,9 @@ public class ScSxServiceImpl extends ServiceImpl<ScSxMapper, ScSx> implements Sc
 
 
         char c = mainDiskCode.charAt(mainDiskCode.length() - 1);
-        if(StringUtils.equalsIgnoreCase(String.valueOf(Character.toUpperCase(c)),"Z")){
+        if (StringUtils.equalsIgnoreCase(String.valueOf(Character.toUpperCase(c)), "Z")) {
             String xptmByPh = accessoryPlateMapper.getXptmByPh(mainDiskCode);
-            if(StringUtils.isEmpty(xptmByPh)){
+            if (StringUtils.isEmpty(xptmByPh)) {
                 return String.valueOf(6.3);
             }
         }
@@ -125,23 +140,51 @@ public class ScSxServiceImpl extends ServiceImpl<ScSxMapper, ScSx> implements Sc
     }
 
     @Override
-    public String getSxbh(String ph) {
-        String sxbh = scSxMapper.getSxbh(ph).getSxbh();
+    public String getSxbh(String accountId, String bz, String ph) {
+        //
+        String sxbh = scSxMapper.getSxbh(ph);
+        // 如果有筛选记录则直接返回筛选编号
         if (StringUtils.isNotEmpty(sxbh)) {
             return sxbh;
+        } else {
+            // 上传
+            sxbh = paperInfoService.getPaperNo();
+            FilterUploadDto filterUploadDto = new FilterUploadDto();
+            filterUploadDto.setSxbh(sxbh);
+            filterUploadDto.setYsph(ph);
+            filterUploadDto.setScbz(bz);
+            filterUploadDto.setScrq(new Date());
+            filterUploadDto.setSbbh(getPropertiesFromIni().getText837());
+            filterUploadDto.setGh(accountId);
+            filterUploadDto.setFxzl(0.26);
+            filterUploadDto.setSbzk("正常");
+            filterUploadDto.setSxzl(0.5);
+            filterUploadDto.setSxsd(2000);
+            filterUploadDto.setSfqx("0");
+            filterUploadDto.setSfqx("0");
+            filterUploadDto.setZdr("");
+            filterUploadDto.setZdrq(new Date());
+            filterUploadDto.setChecker(null);
+            filterUploadDto.setShrq(null);
+            filterUploadDto.setGqcd(26.0);
+            filterUploadDto.setYl(null);
+            filterUploadDto.setLsrate(null);
+            filterUploadDto.setMpsh(scLs1Mapper.getDrawBenchInfo(ph).getCommandOrder());
+            filterUploadDto.setZlh(scLs1Mapper.getDrawBenchInfo(ph).getProductPlanNum());
+            filterUploadDto.setLastupdatetime(new Date());
+            filterUploadDto.setLastupdateaccountid(accountId);
+            scLs1Mapper.getDrawBenchInfo(ph);
+            filterUploadService.addXSMAIN(filterUploadDto);
         }
-        // 从paperInfo中获取最大的筛选编号
-
-        // 上传
-        return null;
+        return sxbh;
     }
 
     /**
      * 计算筛选长度
      *
-     * @param totalLen 已筛选总长度
-     * @param cutLen 切割长度
-     * @param mainDiskLen 大盘长度
+     * @param totalLen                已筛选总长度
+     * @param cutLen                  切割长度
+     * @param mainDiskLen             大盘长度
      * @param fiberDrawingDefectInfos
      * @return
      */
@@ -216,7 +259,6 @@ public class ScSxServiceImpl extends ServiceImpl<ScSxMapper, ScSx> implements Sc
 
         return res;
     }
-
 
 
 }

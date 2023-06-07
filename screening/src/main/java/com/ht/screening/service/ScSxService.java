@@ -6,22 +6,27 @@ import com.ht.base.domain.AjaxResult;
 import com.ht.screening.dto.CalFilterLenDto;
 import com.ht.screening.entity.ScSx;
 import com.ht.screening.entity.ScSx2;
+import com.ht.screening.request.FilterInfoRequest;
+import com.ht.screening.request.MainPlateInfoRequest;
 import com.ht.screening.vo.FiberFilterSmallDiskVo;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
  * 筛选接口类
+ *
  * @author chengsukai
  */
 public interface ScSxService extends IService<ScSx> {
 
-    AjaxResult getMainPlateInfo(String mainDiskCode);
+    AjaxResult getMainPlateInfo(FilterInfoRequest request);
 
     List<FiberFilterSmallDiskVo> getAccessoryPlateInfo(String filterCode);
 
     /**
      * 已筛总长度
+     *
      * @param mainDiskCode 光纤盘号
      * @return
      */
@@ -29,6 +34,7 @@ public interface ScSxService extends IService<ScSx> {
 
     /**
      * 计算筛选长度
+     *
      * @return
      */
     String calFilterLen(String mainDiskCode);
@@ -36,5 +42,5 @@ public interface ScSxService extends IService<ScSx> {
     /**
      * 该大盘是否已经获取筛选记录如果已经有筛选记录就需要上传
      */
-    String getSxbh(String ph);
+    String getSxbh(String accountId, String bz, String ph) throws IOException, NoSuchFieldException, IllegalAccessException;
 }

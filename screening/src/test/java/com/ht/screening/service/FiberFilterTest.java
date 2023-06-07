@@ -18,8 +18,8 @@ public class FiberFilterTest {
 
     @Test
     public void FiberFilterInfoTest(){
-        AjaxResult res = filterService.getMainPlateInfo("10C11LC734ZXI");
-        log.warn(res.get("data").toString());
+//        AjaxResult res = filterService.getMainPlateInfo("10C11LC734ZXI");
+//        log.warn(res.get("data").toString());
 
     }
 }

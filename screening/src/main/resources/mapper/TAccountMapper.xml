@@ -126,4 +126,12 @@
         and State = '1'
   </select>
 
+  <select id="getUserInfo" resultType="com.ht.screening.dto.EmployeeDto">
+      select tac.fAccount, tac.fName, (select top 1 ClassGroup from t_GroupInfo order by BeginTime desc)
+      from t_Account tac
+               left join ht_eln_psnaccount hep on tac.fAccount = hep.员工工号
+               left join t_AccountRole tar on tac.fId = tar.fAccountId
+               left join t_Role tr on tar.fRoleId = tr.fId
+      where tr.fId = 90 and tac.fAccount = #{userName,jdbcType=VARCHAR} and tac.fPassword = #{password,jdbcType=VARCHAR};
+  </select>
 </mapper>
