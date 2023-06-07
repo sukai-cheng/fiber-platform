@@ -55,6 +55,9 @@ public class ScSxServiceImpl extends ServiceImpl<ScSxMapper, ScSx> implements Sc
     @Override
     public AjaxResult getMainPlateInfo(String mainDiskCode) {
         ScSx scsx = mainPlateMapper.findByMainDiskCode(mainDiskCode);
+        if(scsx == null){
+            return AjaxResult.error("大盘号无效或无筛选数据");
+        }
         FiberFilterMainDiskVo fiberFilterInfo = new FiberFilterMainDiskVo();
         BeanUtils.copyProperties(scsx, fiberFilterInfo);
         fiberFilterInfo.setCategoryName(jcYzbService.getCategoryName(mainDiskCode));
