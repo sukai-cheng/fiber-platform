@@ -21,6 +21,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -101,9 +102,23 @@ public class ScSxServiceImpl extends ServiceImpl<ScSxMapper, ScSx> implements Sc
         // rstqx
         List<FiberDrawingDefectInfo> fiberDrawingDefectInfos = fiberCutMapper.fiberCutDetail(mainDiskCode);
 
-        Double filterLen = calculateQGCD(totalLen, cutLen, mainDiskLen, fiberDrawingDefectInfos);
+        BigDecimal filterLen = BigDecimal.valueOf(calculateQGCD(totalLen, cutLen, mainDiskLen, fiberDrawingDefectInfos)).setScale(2, RoundingMode.HALF_UP);
+
+
+        char c = mainDiskCode.charAt(mainDiskCode.length() - 1);
+        if(StringUtils.equalsIgnoreCase(String.valueOf(Character.toUpperCase(c)),"Z")){
+            String xptmByPh = accessoryPlateMapper.getXptmByPh(mainDiskCode);
+            if(StringUtils.isEmpty(xptmByPh)){
+                return String.valueOf(6.3);
+            }
+        }
 
         return String.valueOf(filterLen);
+    }
+
+    public static void main(String[] args) {
+        String code = "48S23F9055XXL";
+        System.out.println(code.charAt(code.length() - 1));
     }
 
     @Override
@@ -114,15 +129,16 @@ public class ScSxServiceImpl extends ServiceImpl<ScSxMapper, ScSx> implements Sc
         }
         // 从paperInfo中获取最大的筛选编号
 
+        // 上传
         return null;
     }
 
     /**
      * 计算筛选长度
      *
-     * @param totalLen
-     * @param cutLen
-     * @param mainDiskLen
+     * @param totalLen 已筛选总长度
+     * @param cutLen 切割长度
+     * @param mainDiskLen 大盘长度
      * @param fiberDrawingDefectInfos
      * @return
      */
@@ -197,6 +213,9 @@ public class ScSxServiceImpl extends ServiceImpl<ScSxMapper, ScSx> implements Sc
 
         return res;
     }
+
+
+
 }
 
 

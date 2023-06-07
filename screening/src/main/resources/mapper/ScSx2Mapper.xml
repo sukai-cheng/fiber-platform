@@ -989,4 +989,11 @@
   <select id="findByFilterCodeAndSerialNumber" resultMap="BaseResultMap">
     select * from SC_SX2 sx2 where sx2.SXBH = #{filterCode,jdbcType=VARCHAR} and XH = #{serialNumber,jdbcType=VARCHAR}
   </select>
+
+  <select id="getXptmByPh" resultType="java.lang.String">
+      select xptm
+      from SC_SX2
+      where left(XPTM, 13) = #{ph,jdbcType=VARCHAR}
+        and cd = '6300';
+  </select>
 </mapper>

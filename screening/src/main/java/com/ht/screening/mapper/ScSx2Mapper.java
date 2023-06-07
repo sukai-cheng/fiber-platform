@@ -103,4 +103,6 @@ public interface ScSx2Mapper {
                          @Param("lastUpdateAccountId") String lastUpdateAccountId,
                          @Param("sxbh") String sxbh,
                          @Param("xh") String xh);
+
+    String getXptmByPh(@Param("ph") String ph);
 }
