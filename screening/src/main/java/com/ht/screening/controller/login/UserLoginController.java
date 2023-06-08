@@ -34,7 +34,7 @@ public class UserLoginController {
     public AjaxResult userLogin(@RequestBody LoginVo loginInfo) {
         return accountService.userLogin(loginInfo);
     }
-
+//2015090124
     @GetMapping("/getProperties")
     public AjaxResult getProperties() throws IOException, NoSuchFieldException, IllegalAccessException {
         Ini4jFileVo res = getPropertiesFromIni();

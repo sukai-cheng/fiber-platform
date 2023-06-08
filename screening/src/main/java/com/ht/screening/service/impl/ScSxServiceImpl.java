@@ -63,7 +63,7 @@ public class ScSxServiceImpl extends ServiceImpl<ScSxMapper, ScSx> implements Sc
 
     @Override
     public AjaxResult getMainPlateInfo(FilterInfoRequest request) {
-        String mainDiskCode = request.getFiberDiskCode();
+        String mainDiskCode = request.getFiberDiskNumber();
         if (StringUtils.isEmpty(mainDiskCode) || StringUtils.isEmpty(request.getAccountId()) || StringUtils.isEmpty(request.getBz())) {
             return AjaxResult.error("查询请求信息不全");
         }

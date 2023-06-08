@@ -13,5 +13,5 @@ public class FilterInfoRequest implements Serializable {
 
     String accountId;
     String bz;
-    String fiberDiskCode;
+    String fiberDiskNumber;
 }
