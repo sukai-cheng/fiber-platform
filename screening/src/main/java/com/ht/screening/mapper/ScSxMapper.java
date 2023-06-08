@@ -38,6 +38,13 @@ public interface ScSxMapper extends BaseMapper<ScSx> {
     String getSxbh(@Param("ysph") String ysph);
 
     /**
+     * 根据筛选号获取大盘编号
+     * @param sxbh
+     * @return
+     */
+    String getYsph(@Param("sxbh") String sxbh);
+
+    /**
      * 获取已筛总长度
      * @param mainDiskCode 大盘号(光纤盘号)
      */
@@ -52,6 +59,7 @@ public interface ScSxMapper extends BaseMapper<ScSx> {
      * 根据筛选编号获取大盘筛选信息
      */
     ScSx selectByFilterCode(@Param("filterCode") String filterCode);
+
 
 }
 

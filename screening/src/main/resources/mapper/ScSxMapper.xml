@@ -380,4 +380,9 @@
   <select id="selectByFilterCode" resultMap="BaseResultMap">
     select * from sc_sx where SXBH = #{filterCode,jdbcType=VARCHAR}
   </select>
+
+  <select id="getYsph" resultType="java.lang.String">
+    select YSPH from sc_sx where SXBH = #{sxbh,jdbcType=VARCHAR}
+  </select>
+
 </mapper>

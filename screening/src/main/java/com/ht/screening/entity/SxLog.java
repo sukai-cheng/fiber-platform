@@ -8,11 +8,8 @@ import lombok.Data;
 
 import java.util.Date;
 
-/**
- * @author chengsukai
- */
+@TableName("SX_Log")
 @Data
-@TableName("SxLog")
 public class SxLog {
 
     @TableId(value = "ID", type = IdType.AUTO)
@@ -41,6 +38,5 @@ public class SxLog {
 
     @TableField("sql")
     private String sql;
-
 
 }

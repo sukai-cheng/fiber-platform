@@ -105,4 +105,8 @@ public interface ScSx2Mapper {
                          @Param("xh") String xh);
 
     String getXptmByPh(@Param("ph") String ph);
+
+    String getxh(String sxbh);
+
+    List<ScSx2> getXptm(@Param("sxbh") String sxbh);
 }

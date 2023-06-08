@@ -996,4 +996,14 @@
       where left(XPTM, 13) = #{ph,jdbcType=VARCHAR}
         and cd = '6300';
   </select>
+
+  <select id="getxh" resultType="java.lang.String">
+      select isnull(max(xh), '00')
+      from SC_SX2
+      where sxbh = #{sxbh,jdbcType=VARCHAR}
+  </select>
+
+  <select id="getXptm" resultMap="BaseResultMap">
+    select * from SC_SX2 where SXBH = #{sxbh,jdbcType=VARCHAR} and xh = '02';
+  </select>
 </mapper>
