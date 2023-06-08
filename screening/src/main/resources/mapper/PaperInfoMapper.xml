@@ -156,12 +156,12 @@
             </trim>
             <trim prefix="papername = case" suffix="end,">
                 <foreach collection="list" index="index" item="item">
-                    when paperMark = #{item.paperMark,jdbcType=VARCHAR} then #{item.papername,jdbcType=VARCHAR}
+                    when paperMark = #{item.paperMark,jdbcType=VARCHAR} then #{item.paperName,jdbcType=VARCHAR}
                 </foreach>
             </trim>
             <trim prefix="maxvalues = case" suffix="end,">
                 <foreach collection="list" index="index" item="item">
-                    when paperMark = #{item.paperMark,jdbcType=VARCHAR} then #{item.maxvalues,jdbcType=VARCHAR}
+                    when paperMark = #{item.paperMark,jdbcType=VARCHAR} then #{item.maxValues,jdbcType=VARCHAR}
                 </foreach>
             </trim>
         </trim>
@@ -177,14 +177,17 @@
         values
         <foreach collection="list" item="item" separator=",">
             (#{item.paperMark,jdbcType=VARCHAR}, #{item.paperFirst,jdbcType=VARCHAR}, #{item.tag,jdbcType=INTEGER},
-             #{item.paperLastLen,jdbcType=INTEGER}, #{item.tablename,jdbcType=VARCHAR},
-             #{item.papername,jdbcType=VARCHAR},
-             #{item.maxvalues,jdbcType=VARCHAR})
+             #{item.paperLastLen,jdbcType=INTEGER}, #{item.tableName,jdbcType=VARCHAR},
+             #{item.paperName,jdbcType=VARCHAR},
+             #{item.maxValues,jdbcType=VARCHAR})
         </foreach>
     </insert>
 
     <select id="getPaperNo" resultType="java.lang.String">
-        select rtrim(maxvalues) from paperinfo where papermark = 'sc_sx1' and maxvalues like
-        #{sxbhPrefix,jdbcType=VARCHAR}
+        select rtrim(maxvalues) 'maxvalues'
+        from paperinfo
+        where papermark = 'sc_sx1'
+          and maxvalues like
+              concat('%',#{sxbhPrefix,jdbcType=VARCHAR},'%')
     </select>
 </mapper>

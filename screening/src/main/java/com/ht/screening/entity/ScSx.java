@@ -20,7 +20,7 @@ public class ScSx {
     /**
      * 筛选编号
      */
-    @TableId(value = "XSBH", type = IdType.INPUT)
+    @TableId(value = "SXBH", type = IdType.INPUT)
     private String sxbh;
 
     /**
