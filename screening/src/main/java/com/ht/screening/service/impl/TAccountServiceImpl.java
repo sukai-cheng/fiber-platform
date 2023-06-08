@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ht.base.constant.HttpStatus;
 import com.ht.base.domain.AjaxResult;
 import com.ht.base.utils.StringUtils;
+import com.ht.screening.dto.EmployeeDto;
 import com.ht.screening.entity.TAccount;
 import com.ht.screening.mapper.TAccountMapper;
 import com.ht.screening.service.TAccountService;
@@ -27,11 +28,13 @@ public class TAccountServiceImpl extends ServiceImpl<TAccountMapper, TAccount> i
         Integer res = 0;
         if (StringUtils.isNotEmpty(userName)) {
             res = loginByAccount(userName, password);
+
         } else if (StringUtils.isNotEmpty(cardNum)) {
             res = loginByICCard(cardNum, password);
         }
         if (res != null) {
-            return AjaxResult.success("login success");
+            EmployeeDto userInfo = baseMapper.getUserInfo(userName, password);
+            return AjaxResult.success("login success",userInfo);
         }
 
         return AjaxResult.error(HttpStatus.ERROR, "log in error, ICid or password error !");
@@ -45,5 +48,8 @@ public class TAccountServiceImpl extends ServiceImpl<TAccountMapper, TAccount> i
     private Integer loginByICCard(String cardNum, String password) {
         return baseMapper.findByUserNameAndPassWord(cardNum, password);
     }
+
+
+
 
 }
