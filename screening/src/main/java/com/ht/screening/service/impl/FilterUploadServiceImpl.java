@@ -37,9 +37,6 @@ public class FilterUploadServiceImpl implements FilterUploadService {
     private ScSx2Mapper scSx2Mapper;
 
     @Resource
-    ScSxServiceImpl scSxService;
-
-    @Resource
     SxLogMapper sxLogMapper;
 
     /**
