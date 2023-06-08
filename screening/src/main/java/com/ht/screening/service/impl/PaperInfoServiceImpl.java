@@ -8,12 +8,14 @@ import com.ht.base.utils.StringUtils;
 import com.ht.screening.entity.PaperInfo;
 import com.ht.screening.mapper.PaperInfoMapper;
 import com.ht.screening.service.PaperInfoService;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
 /**
  * @author chengsukai
  */
+@Service
 public class PaperInfoServiceImpl
         extends ServiceImpl<PaperInfoMapper, PaperInfo> implements PaperInfoService {
 
