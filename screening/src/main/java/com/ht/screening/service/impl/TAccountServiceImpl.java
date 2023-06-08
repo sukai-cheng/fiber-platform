@@ -32,7 +32,7 @@ public class TAccountServiceImpl extends ServiceImpl<TAccountMapper, TAccount> i
         } else if (StringUtils.isNotEmpty(cardNum)) {
             res = loginByICCard(cardNum, password);
         }
-        if (res != null) {
+        if (res != 0 && res != null) {
             EmployeeDto userInfo = baseMapper.getUserInfo(userName, password);
             return AjaxResult.success("login success",userInfo);
         }

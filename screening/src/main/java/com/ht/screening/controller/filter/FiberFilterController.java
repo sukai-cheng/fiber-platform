@@ -48,7 +48,7 @@ public class FiberFilterController {
      */
     @PostMapping(value = "/getTotalLen")
     public AjaxResult getTotalLen(@RequestBody FilterInfoRequest filterInfoRequest) {
-        String totalLen = filterService.calTotalLen(filterInfoRequest.getFiberDiskCode());
+        String totalLen = filterService.calTotalLen(filterInfoRequest.getFiberDiskNumber());
         return AjaxResult.success(totalLen);
     }
 
