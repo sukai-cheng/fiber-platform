@@ -5,6 +5,9 @@ import com.ht.screening.entity.Procstock;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
+/**
+ * @author chengsukai
+ */
 public interface ProcstockMapper extends BaseMapper<Procstock> {
     int deleteByPrimaryKey(String productid);
 

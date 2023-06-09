@@ -7,6 +7,9 @@ import java.util.List;
 import com.ht.screening.entity.PaperInfo;
 import org.apache.ibatis.annotations.Param;
 
+/**
+ * @author chengsukai
+ */
 public interface JcYzbMapper extends BaseMapper<JcYzb> {
     int deleteByPrimaryKey(String gsid);
 
@@ -22,5 +25,9 @@ public interface JcYzbMapper extends BaseMapper<JcYzb> {
 
     int batchInsert(@Param("list") List<JcYzb> list);
 
+    /**
+     * 获取类别
+     * @param zzpbh 大盘长度
+     */
     String getCategoryName(@Param("ZZPBH") String zzpbh);
 }

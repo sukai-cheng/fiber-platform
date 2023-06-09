@@ -148,7 +148,7 @@
                   <option name="batchInsert" value="true" />
                   <option name="generatedKey" value="" />
                   <option name="javaModelName" value="ZlLsh" />
-                  <option name="moduleName" value="base" />
+                  <option name="moduleName" value="screening" />
                   <option name="sequenceColumn" value="" />
                   <option name="sequenceId" value="" />
                   <option name="updateBatch" value="true" />
@@ -162,7 +162,7 @@
                   <option name="batchInsert" value="true" />
                   <option name="generatedKey" value="" />
                   <option name="javaModelName" value="ZlLshFqxx" />
-                  <option name="moduleName" value="base" />
+                  <option name="moduleName" value="screening" />
                   <option name="sequenceColumn" value="" />
                   <option name="sequenceId" value="" />
                   <option name="updateBatch" value="true" />

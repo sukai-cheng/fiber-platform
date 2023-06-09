@@ -147,4 +147,25 @@
              #{item.lastupdateddatetime,jdbcType=TIMESTAMP})
         </foreach>
     </insert>
+
+    <select id="checkPreferredDisk" resultType="com.ht.screening.dto.PreferredDiskDto">
+        SELECT productid,
+               case
+                   when isnull(a.shr, '') is not null then '已测'
+                   else ''
+                   end         bs,
+               isnull(isyx, 0) isyx
+        from SX_LS
+                 LEFT JOIN procstock (nolock) ON Ls = LEFT(productid, 2)
+                 left join zl_lsh a on gqph = productid
+                 left join sc_ls1 (nolock) b on GQPH = zzpbh
+        WHERE (procid = '069' or procid = '059')
+          and sx = #{SX,jdbcType=VARCHAR}
+          and len(productid) = 13
+          and RIGHT(productid, 1) not in ('U', 'V', 'W', 'X', 'Y')
+          and zzpbh not in (select ysph from sc_sx (nolock))
+          AND crdate > '2017-05-01'
+          and isyx = '1'
+          and zzpbh != #{ph,jdbcType=VARCHAR};
+    </select>
 </mapper>

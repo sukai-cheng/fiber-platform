@@ -24,6 +24,7 @@ import java.util.List;
 import static com.ht.base.utils.Ini4jUtils.getPropertiesFromIni;
 
 /**
+ * 筛选数据上传实现类
  * @author chengsukai
  */
 @Service
