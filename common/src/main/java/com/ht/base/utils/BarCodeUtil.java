@@ -5,10 +5,17 @@ import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
 import com.google.zxing.client.j2se.MatrixToImageWriter;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.common.HybridBinarizer;
+import org.krysalis.barcode4j.impl.code39.Code39Bean;
+import org.krysalis.barcode4j.output.bitmap.BitmapCanvasProvider;
+import org.krysalis.barcode4j.tools.UnitConv;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.util.Base64;
 
 public class BarCodeUtil {
 
@@ -100,18 +107,62 @@ public class BarCodeUtil {
             File outputFile = new File(fileName);
 
             //吧位图矩阵写入指定的图片文件中
-            MatrixToImageWriter
-                    .writeToFile(bitMatrix, fileFormat, outputFile);
+            MatrixToImageWriter.writeToFile(bitMatrix, fileFormat, outputFile);
 
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    //绘制图片到流
+    public static void generate(String msg, OutputStream ous) {
+        if (StringUtils.isEmpty(msg) || ous == null) {
+            return;
+        }
+
+        Code39Bean bean = new Code39Bean();
+
+        // 精细度
+        final int dpi = 150;
+        // module宽度
+        final double moduleWidth = UnitConv.in2mm(1.0f / dpi);
+
+        // 配置对象
+        bean.setModuleWidth(moduleWidth);
+        bean.setWideFactor(3);
+        bean.doQuietZone(false);
+
+        String format = "image/png";
+        try {
+
+            // 输出到流
+            BitmapCanvasProvider canvas = new BitmapCanvasProvider(ous, format, dpi,
+                    BufferedImage.TYPE_BYTE_BINARY, false, 0);
+
+            // 生成条形码
+            bean.generateBarcode(canvas, msg);
+
+            // 结束绘制
+            canvas.finish();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static String getBarCodeToBase64(String code){
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        generate(code, outputStream);
+        Base64.Encoder encoder = Base64.getEncoder();
+        return encoder.encodeToString(outputStream.toByteArray());
+    }
+
+
     public static void main(String[] args) {
 //        String url = "D:\\\\workspace\\\\project\\\\gx-lasishaixuan-backend\\\\common\\\\src\\\\main\\\\java\\\\com\\\\ht\\\\base\\\\utils\\\\test.png";
-        genBarCode("05S23E8371XXP",105,50,"D:\\workspace\\project\\gx-lasishaixuan-backend\\common\\src\\main\\java\\com\\ht\\base\\utils\\test.png");
+//        genBarCode("05S23E8371XXP",98,25,"D:\\workspace\\project\\gx-lasishaixuan-backend\\common\\src\\main\\java\\com\\ht\\base\\utils\\test.png");
 //        String res = decode("D:\\workspace\\project\\gx-lasishaixuan-backend\\common\\src\\main\\java\\com\\ht\\base\\utils\\test.png");
 //        System.out.println(res);
+        String barCodeToBase64 = getBarCodeToBase64("05S23E8371XXP");
+        System.out.println(barCodeToBase64);
     }
 }

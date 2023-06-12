@@ -1,30 +1,24 @@
 package com.ht.screening.controller.device;
 
+import com.ht.base.domain.AjaxResult;
+import com.ht.base.utils.BarCodeUtil;
+import com.ht.screening.request.GenerateGenCodeRequest;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.awt.image.BufferedImage;
 
 @RestController
-@Deprecated
 public class BarCodeController {
 
-    @RequestMapping(value = {"/gen"})
-    public void gen(String name , HttpServletRequest request , HttpServletResponse response) throws Exception {
-        System.out.println(" name :" + name);
-        if(null == name || name == "") {
-            response.setContentType("application/json;charset=UTF-8");
-            response.setCharacterEncoding("UTF-8");
-            response.getWriter().print(" name can't be blank ，名字不能为空");
-            return;
-        }
-
-        response.setHeader("Pragma", "no-cache");
-        response.setHeader("Cache-Control", "no-cache");
-        response.setDateHeader("Expires", 0);
-        response.setContentType("image/jpeg");
-//        BufferedImage genQRCodeToBuffer = BarCodeUtil.genQRCodeToBuffer(name);
-//        ImageIO.write(genQRCodeToBuffer , "jpeg" ,response.getOutputStream());
+    @PostMapping("/generateGenCode")
+    public AjaxResult gen(@RequestBody GenerateGenCodeRequest request) throws Exception {
+        String barCodeToBase64 = BarCodeUtil.getBarCodeToBase64(request.getCode());
+        return AjaxResult.success(barCodeToBase64);
     }
 }
