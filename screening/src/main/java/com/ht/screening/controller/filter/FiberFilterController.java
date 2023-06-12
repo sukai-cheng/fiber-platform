@@ -2,6 +2,7 @@ package com.ht.screening.controller.filter;
 
 import com.ht.base.domain.AjaxResult;
 import com.ht.screening.entity.ScLsYcdj;
+import com.ht.screening.mapper.ScSxMapper;
 import com.ht.screening.request.ElevationDifferenceRequest;
 import com.ht.screening.request.FilterInfoRequest;
 import com.ht.screening.service.impl.ElevationDifferenceServiceImpl;
@@ -48,8 +49,14 @@ public class FiberFilterController {
      */
     @PostMapping(value = "/getTotalLen")
     public AjaxResult getTotalLen(@RequestBody FilterInfoRequest filterInfoRequest) {
-        String totalLen = filterService.calTotalLen(filterInfoRequest.getFiberDiskNumber());
-        return AjaxResult.success(totalLen);
+        String totalLen;
+        try {
+            totalLen = filterService.calTotalLen(filterInfoRequest.getFiberDiskNumber());
+            return AjaxResult.success(totalLen);
+        } catch (Exception e) {
+            return AjaxResult.error("", 0);
+        }
+
     }
 
 
