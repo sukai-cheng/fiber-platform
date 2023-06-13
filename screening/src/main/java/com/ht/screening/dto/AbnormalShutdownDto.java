@@ -1,5 +1,7 @@
 package com.ht.screening.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.ht.base.utils.DateUtils;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -29,6 +31,7 @@ public class AbnormalShutdownDto implements Serializable {
     /**
      * 初始化时间
      */
+    @JsonFormat(pattern = DateUtils.DATE_TIME_PATTERN)
     Date initialTime;
 
     /**
@@ -69,6 +72,7 @@ public class AbnormalShutdownDto implements Serializable {
     /**
      * 开始时间从前端获取
      */
+    @JsonFormat(pattern = DateUtils.DATE_TIME_PATTERN)
     private Date startDate;
 
     /**

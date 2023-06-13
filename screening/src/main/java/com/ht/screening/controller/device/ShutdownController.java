@@ -7,6 +7,7 @@ import com.ht.screening.response.AbnormalShutDownResponse;
 import com.ht.screening.response.NormalShutDownResponse;
 import com.ht.screening.service.impl.ShutDownServiceImpl;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -22,13 +23,13 @@ public class ShutdownController {
     private ShutDownServiceImpl shutDownService;
 
     @PostMapping("/shutdown/normal")
-    public AjaxResult normalShutdown(NormalShutdownDto normalShutdownDto) {
+    public AjaxResult normalShutdown(@RequestBody NormalShutdownDto normalShutdownDto) {
         NormalShutDownResponse res = shutDownService.normalShutdown(normalShutdownDto);
         return AjaxResult.success(res);
     }
 
     @PostMapping("/shutdown/abnormal")
-    public AjaxResult abnormalShutDown(AbnormalShutdownDto abnormalShutdownDto) {
+    public AjaxResult abnormalShutDown(@RequestBody AbnormalShutdownDto abnormalShutdownDto) {
 
         AbnormalShutDownResponse res = shutDownService.abnormalShutdown(abnormalShutdownDto);
         return AjaxResult.success(res);

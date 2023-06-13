@@ -19,6 +19,8 @@ spring:
       connection-timeout: 30000
       connection-test-query: SELECT 1
   jackson:
+    serialization:
+      write-dates-as-timestamps: false
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
 mybatis-plus:
