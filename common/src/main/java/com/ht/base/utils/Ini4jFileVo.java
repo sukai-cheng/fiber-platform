@@ -57,4 +57,5 @@ public class Ini4jFileVo {
     private String Text831;
     private String Text836;
     private String Text837;
+    private String Text838;
 }

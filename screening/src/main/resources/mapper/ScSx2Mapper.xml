@@ -1003,7 +1003,7 @@
       where sxbh = #{sxbh,jdbcType=VARCHAR}
   </select>
 
-  <select id="getXptm" resultMap="BaseResultMap">
+  <select id="selectBySxbhAndXh" resultMap="BaseResultMap">
     select * from SC_SX2 where SXBH = #{sxbh,jdbcType=VARCHAR} and xh = '02';
   </select>
 

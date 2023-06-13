@@ -55,13 +55,14 @@ public class ShutDownServiceImpl implements ShutDownService {
         String DQQK;
         double dqcd;
         String qxlb;
-        long qgcd;
+        double qgcd;
         String sxbh = normalShutdownDto.getSxbh();
         String xptm;
 
         Integer maxxh;
         String xh;
         Boolean SFFQ = fiberInfoUploadService.uploadDataCheckFQ(ph);
+        SFFQ = false;
         Boolean SFGL = fiberInfoUploadService.uploadDataCheckGL(ph);
         if (SFFQ || (cd < 2.05)) {
             List<ScSx2> recordCount = scSx2Mapper.findByFilterCode(ph);
@@ -79,12 +80,12 @@ public class ShutDownServiceImpl implements ShutDownService {
             } else {
                 xh = getxh(sxbh);
                 xptm = "";
-                ewz = Long.parseLong(scSxMapper.calTotalLen(ph));
+                ewz = Double.parseDouble(scSxMapper.calTotalLen(ph))*1000;
                 CD = 0L;
                 DQQK = "abnormity";
                 dqcd = 0L;
                 qxlb = "";
-                qgcd = cd.longValue() * 1000;
+                qgcd = cd * 1000;
 
                 FilterDetailUploadDto filterDetailUploadDto = new FilterDetailUploadDto();
                 filterDetailUploadDto.setSxbh(sxbh);
@@ -120,7 +121,6 @@ public class ShutDownServiceImpl implements ShutDownService {
             String defaultPh = ph + "00";
             xptm = fiberInfoUploadService.getxptm(sxbh, defaultPh, ph);
             ewz = Double.valueOf(fiberInfoUploadService.getTotalLen(ph)) * 1000;
-            BigDecimal cd1 = BigDecimal.valueOf(normalShutdownDto.getSxcd());
             // 通过获取设备状态拿到的
             CD = BigDecimal.valueOf(normalShutdownDto.getSxcd()).setScale(2, RoundingMode.HALF_UP).multiply(new BigDecimal(1000)).longValue();
             DQQK = "";
@@ -157,7 +157,7 @@ public class ShutDownServiceImpl implements ShutDownService {
             }
         }
 
-        response.setStatus(false);
+        response.setStatus(true);
         response.setPrintFlag(false);
         return response;
     }
@@ -300,7 +300,7 @@ public class ShutDownServiceImpl implements ShutDownService {
                 filterDetailUploadDto.setPj(abnormalShutdownDto.getPj());
                 filterDetailUploadDto.setXj(abnormalShutdownDto.getXj());
                 if (filterUploadService.SXdetail(filterDetailUploadDto)) {
-                    List<ScSx2> count = scSx2Mapper.getXptm(xptm);
+                    List<ScSx2> count = scSx2Mapper.selectByXptm(xptm);
                     if (count.size() != 0) {
                         response.setStatus(true);
                         response.setPrintFlag(true);
@@ -479,7 +479,7 @@ public class ShutDownServiceImpl implements ShutDownService {
                 filterDetailUploadDto.setPj(abnormalShutdownDto.getPj());
                 filterDetailUploadDto.setXj(abnormalShutdownDto.getXj());
                 if (filterUploadService.SXdetail(filterDetailUploadDto)) {
-                    List<ScSx2> count = scSx2Mapper.getXptm(xptm);
+                    List<ScSx2> count = scSx2Mapper.selectByXptm(xptm);
                     if (count.size() != 0) {
                         response.setStatus(true);
                         response.setPrintFlag(true);

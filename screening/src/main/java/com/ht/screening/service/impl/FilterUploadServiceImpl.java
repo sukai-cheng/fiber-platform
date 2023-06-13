@@ -14,6 +14,7 @@ import com.ht.screening.mapper.SxLogMapper;
 import com.ht.screening.service.FilterUploadService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 
@@ -53,6 +54,7 @@ public class FilterUploadServiceImpl implements FilterUploadService {
     }
 
     @Override
+    @Transactional
     public Boolean SXdetail(FilterDetailUploadDto filterDetailUploadDto) {
 
         Double dqcd = filterDetailUploadDto.getDqcd();
@@ -66,6 +68,7 @@ public class FilterUploadServiceImpl implements FilterUploadService {
         } else {
             yccs = 0;
         }
+        // 如果筛选编号为空
         if (StringUtils.isEmpty(strsxbh)) {
             SxLog sxLog = new SxLog();
             sxLog.setLx(1);
@@ -90,31 +93,30 @@ public class FilterUploadServiceImpl implements FilterUploadService {
                 log.info("小盘1生成错误");
                 return false;
             }
-        }
-        List<ScSx2> res = scSx2Mapper.getXptm(strsxbh);
-        if (res.size() > 0) {
+            List<ScSx2> res = scSx2Mapper.selectBySxbhAndXh(strsxbh);
+            if (res.size() > 0) {
+                SxLog sxLog = new SxLog();
+                sxLog.setLx(3);
+                sxLog.setSxbh(strsxbh);
+                sxLog.setXptm(filterDetailUploadDto.getXptm());
+                sxLog.setDpph(filterDetailUploadDto.getPh());
+                sxLog.setSxjt(getPropertiesFromIni().getText837());
+                sxLog.setDates(new Date());
+                sxLogMapper.insert(sxLog);
+                log.info("小盘2生成错误");
+                return false;
+            }
+
             SxLog sxLog = new SxLog();
-            sxLog.setLx(2);
+            sxLog.setLx(4);
             sxLog.setSxbh(strsxbh);
             sxLog.setXptm(filterDetailUploadDto.getXptm());
             sxLog.setDpph(filterDetailUploadDto.getPh());
             sxLog.setSxjt(getPropertiesFromIni().getText837());
-            sxLog.setDates(new Date());
             sxLogMapper.insert(sxLog);
-            log.info("小盘2生成错误");
-            return false;
         }
-        SxLog sxLog = new SxLog();
-        sxLog.setLx(4);
-        sxLog.setSxbh(strsxbh);
-        sxLog.setXptm(filterDetailUploadDto.getXptm());
-        sxLog.setDpph(filterDetailUploadDto.getPh());
-        sxLog.setSxjt(getPropertiesFromIni().getText837());
-        sxLogMapper.insert(sxLog);
-        log.info("小盘2生成错误");
-
         if (StringUtils.equals(xptm.substring(0, 13), ysph) || StringUtils.isEmpty(xptm)) {
-            if (StringUtils.equals(getPropertiesFromIni().getText837(), "N")) {
+            if (StringUtils.equals(getPropertiesFromIni().getText838(), "N")) {
                 ScSx2 scSx2 = new ScSx2();
                 scSx2.setSxbh(strsxbh);
                 scSx2.setXh(filterDetailUploadDto.getXh());
@@ -140,13 +142,13 @@ public class FilterUploadServiceImpl implements FilterUploadService {
                 scSx2.setSbbhd(getPropertiesFromIni().getText836());
                 scSx2.setIsdy(2);
                 scSx2.setDqcd(BigDecimal.valueOf(yccs));
-                scSx2.setSxms(2); // todo 筛选模式不确定
+                scSx2.setSxms(2);
                 scSx2.setLastupdatetime(new Date());
                 scSx2.setLastupdateaccountid(filterDetailUploadDto.getUsername());
 
                 scSx2Mapper.insert(scSx2);
             }
-            if (StringUtils.equals(getPropertiesFromIni().getText837(), "D") || StringUtils.equals(getPropertiesFromIni().getText837(), "Y")) {
+            if (StringUtils.equals(getPropertiesFromIni().getText838(), "D") || StringUtils.equals(getPropertiesFromIni().getText838(), "Y")) {
                 ScSx2 scSx2 = new ScSx2();
                 scSx2.setSxbh(strsxbh);
                 scSx2.setXh(filterDetailUploadDto.getXh());
