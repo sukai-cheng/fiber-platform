@@ -1,4 +1,4 @@
-package com.ht.screening.service;
+package com.ht.screening.service.account;
 
 import com.ht.screening.entity.TAccount;
 import com.ht.screening.service.impl.TAccountServiceImpl;

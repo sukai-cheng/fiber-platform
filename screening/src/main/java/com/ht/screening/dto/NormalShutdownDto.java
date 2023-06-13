@@ -24,7 +24,7 @@ public class NormalShutdownDto implements Serializable {
     /**
      * 已筛长度
      */
-    Double cd;
+    Double sxcd;
 
     /**
      * 用户登陆后的时候
@@ -34,7 +34,7 @@ public class NormalShutdownDto implements Serializable {
     /**
      * 断纤长度
      */
-    Long dqcd;
+    Double dqcd;
 
     /**
      * 用户编号

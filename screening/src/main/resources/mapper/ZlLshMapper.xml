@@ -417,17 +417,17 @@
 
 
   <select id="checkFromLsh2" resultType="com.ht.screening.dto.DpCheckResult2Dto">
-      select fqxh, fqcd cd, fqdm bs
-      from ZL_LSH a
-               inner join zl_lsh_fqxx b on a.JYDH = b.jydh
-      where cast(b.jydh as varchar) + cast(b.fqxh as varchar) not in
-            (select cast(b.jydh as varchar) + cast(b.fqxh as varchar)
-             from ZL_LSH a
-                      inner join zl_lsh_fqxxmx b on a.JYDH = b.jydh
-             where GQPH = #{gqph,jdbcType=VARCHAR})
-        and GQPH = #{gqph,jdbcType=VARCHAR}
-        and isnull(fqdm, '') = '外端'
-        and isnull(shr, '') = ''
+    select fqxh, fqcd cd, fqdm bs
+    from ZL_LSH a
+           inner join zl_lsh_fqxx b on a.JYDH = b.jydh
+    where cast(b.jydh as varchar) + cast(b.fqxh as varchar) not in
+          (select cast(b.jydh as varchar) + cast(b.fqxh as varchar)
+           from ZL_LSH a
+                  inner join zl_lsh_fqxxmx b on a.JYDH = b.jydh
+           where GQPH = #{gqph,jdbcType=VARCHAR})
+      and GQPH = #{gqph,jdbcType=VARCHAR}
+      and isnull(fqdm, '') = '外端'
+      and isnull(shr, '') = ''
   </select>
 
   <select id="selectFromLsh" resultMap="BaseResultMap">

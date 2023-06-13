@@ -28,11 +28,11 @@ public class FilterDetailUploadDto implements Serializable {
     /**
      * 开始位置
      */
-    private Long ewz;
+    private Double ewz;
     /**
      * 盘长
      */
-    private Long cd;
+    private Double cd;
     /**
      * 断纤损失
      */
@@ -40,7 +40,7 @@ public class FilterDetailUploadDto implements Serializable {
     /**
      * 断纤长度
      */
-    private Long dqcd;
+    private Double dqcd;
     /**
      * 缺陷类型
      */

@@ -34,7 +34,7 @@ public class AbnormalShutdownDto implements Serializable {
     /**
      * 断纤长度
      */
-    Long dqcd;
+    Double dqcd;
 
     /**
      * 用户编号

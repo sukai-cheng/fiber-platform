@@ -1,4 +1,4 @@
-package com.ht.screening.service;
+package com.ht.screening.service.fiberinfo;
 
 
 import com.ht.base.domain.AjaxResult;
@@ -17,9 +17,8 @@ public class FiberFilterTest {
     private ScSxServiceImpl filterService;
 
     @Test
-    public void FiberFilterInfoTest(){
-//        AjaxResult res = filterService.getMainPlateInfo("10C11LC734ZXI");
-//        log.warn(res.get("data").toString());
+    public void FiberFilterInfoTest() {
+
 
     }
 }

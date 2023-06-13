@@ -49,20 +49,21 @@ public class ShutDownServiceImpl implements ShutDownService {
 
         NormalShutDownResponse response = new NormalShutDownResponse();
         String ph = normalShutdownDto.getPh();
-        long ewz;
-        long CD;
+        Double cd = normalShutdownDto.getSxcd();
+        double ewz;
+        double CD;
         String DQQK;
-        long dqcd;
+        double dqcd;
         String qxlb;
         long qgcd;
         String sxbh = normalShutdownDto.getSxbh();
         String xptm;
-        BigDecimal cd = BigDecimal.valueOf(normalShutdownDto.getCd()).setScale(2, RoundingMode.HALF_UP);
+
         Integer maxxh;
         String xh;
         Boolean SFFQ = fiberInfoUploadService.uploadDataCheckFQ(ph);
         Boolean SFGL = fiberInfoUploadService.uploadDataCheckGL(ph);
-        if (SFFQ || (cd.doubleValue() < 2.05)) {
+        if (SFFQ || (cd < 2.05)) {
             List<ScSx2> recordCount = scSx2Mapper.findByFilterCode(ph);
             if (recordCount.size() >= 1) {
                 maxxh = scSx2Mapper.getMaxId(sxbh);
@@ -117,10 +118,11 @@ public class ShutDownServiceImpl implements ShutDownService {
         } else {
             xh = getxh(sxbh);
             String defaultPh = ph + "00";
-            xptm = fiberInfoUploadService.getxptm(sxbh, defaultPh);
-            ewz = Long.parseLong(fiberInfoUploadService.getTotalLen(ph)) * 1000;
-            BigDecimal cd1 = BigDecimal.valueOf(normalShutdownDto.getCd());
-            CD = BigDecimal.valueOf(normalShutdownDto.getCd()).setScale(2, RoundingMode.HALF_UP).multiply(new BigDecimal(1000)).longValue();
+            xptm = fiberInfoUploadService.getxptm(sxbh, defaultPh, ph);
+            ewz = Double.valueOf(fiberInfoUploadService.getTotalLen(ph)) * 1000;
+            BigDecimal cd1 = BigDecimal.valueOf(normalShutdownDto.getSxcd());
+            // 通过获取设备状态拿到的
+            CD = BigDecimal.valueOf(normalShutdownDto.getSxcd()).setScale(2, RoundingMode.HALF_UP).multiply(new BigDecimal(1000)).longValue();
             DQQK = "";
             dqcd = 0L;
             qxlb = "";
@@ -166,12 +168,12 @@ public class ShutDownServiceImpl implements ShutDownService {
 
         AbnormalShutDownResponse response = new AbnormalShutDownResponse();
         String ph = abnormalShutdownDto.getPh();
-        long ewz;
-        long CD = 0L;
+        double ewz;
+        double CD = 0L;
         String machineCategory = "D";
         String region = "四区";
         String DQQK;
-        long dqcd;
+        double dqcd;
         Integer isfg = 0;
         String strCD = ""; // 小盘打印长度
         Long dqmscd = 0L;
@@ -251,7 +253,7 @@ public class ShutDownServiceImpl implements ShutDownService {
             if (cd.doubleValue() > 2.05 && cd.doubleValue() < kpcd) {
                 xh = getxh(sxbh);
                 String defaultPh = ph + "00";
-                xptm = fiberInfoUploadService.getxptm(sxbh, defaultPh);
+                xptm = fiberInfoUploadService.getxptm(sxbh, defaultPh, ph);
                 ewz = Long.parseLong(fiberInfoUploadService.getTotalLen(ph)) * 1000;
                 DQQK = "abnormity";
                 if (StringUtils.equals(region, "四区")) {
@@ -312,7 +314,7 @@ public class ShutDownServiceImpl implements ShutDownService {
             } else {
                 xh = getxh(sxbh);
                 String defaultPh = ph + "00";
-                xptm = fiberInfoUploadService.getxptm(sxbh, defaultPh);
+                xptm = fiberInfoUploadService.getxptm(sxbh, defaultPh, ph);
                 ewz = Long.parseLong(fiberInfoUploadService.getTotalLen(ph)) * 1000;
                 DQQK = "abnormity";
                 if (StringUtils.contains(pj, "61") || StringUtils.contains(pj, "50") || StringUtils.contains(pj, "100")) {

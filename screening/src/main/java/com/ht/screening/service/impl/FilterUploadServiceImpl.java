@@ -55,7 +55,7 @@ public class FilterUploadServiceImpl implements FilterUploadService {
     @Override
     public Boolean SXdetail(FilterDetailUploadDto filterDetailUploadDto) {
 
-        Long dqcd = filterDetailUploadDto.getDqcd();
+        Double dqcd = filterDetailUploadDto.getDqcd();
         String xptm = filterDetailUploadDto.getXptm();
         String strPxptm = xptm;
         String strsxbh = filterDetailUploadDto.getSxbh();
@@ -99,6 +99,7 @@ public class FilterUploadServiceImpl implements FilterUploadService {
             sxLog.setXptm(filterDetailUploadDto.getXptm());
             sxLog.setDpph(filterDetailUploadDto.getPh());
             sxLog.setSxjt(getPropertiesFromIni().getText837());
+            sxLog.setDates(new Date());
             sxLogMapper.insert(sxLog);
             log.info("小盘2生成错误");
             return false;

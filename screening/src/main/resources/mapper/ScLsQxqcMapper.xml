@@ -285,7 +285,7 @@
     </insert>
 
     <select id="checkUploadDataFQ" resultType="int">
-        select T2.ZZPCD - T1.zzwz as SXB, T2.ZZPCD - t1.qswz as SXE, T1.zzwz - T1.qswz as QXCD, T1.*
+        select count(*)
         from sc_ls_qxqc T1
                  inner join SC_LS1 T2
                             on T1.LSBH = T2.LSBH and T1.sfqc = 'Yes' and qxdlx != '质管部留样' and
@@ -295,7 +295,7 @@
     </select>
 
     <select id="checkUploadDataGL" resultType="int">
-        select T2.ZZPCD - T1.zzwz as SXB, T2.ZZPCD - T1.qswz as SXE, T1.zzwz - T1.qswz as qXCD, T1.*
+        select count(*)
         from sc_ls_qxqc T1
                  inner join SC_LS1 T2
                             on T1.LSBH = T2.LSBH and T1.sfgl = 'YES' and T2.ZZPBH = #{diskNumber,jdbcType=VARCHAR} and

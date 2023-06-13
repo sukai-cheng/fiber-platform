@@ -48,7 +48,7 @@ public class FiberInfoUploadServiceImpl implements FiberInfoUploadService {
      */
     @Override
     public Boolean uploadDataCheckFQ(String diskNum) {
-        Double totalLen = Double.valueOf(scSxMapper.calTotalLen(diskNum));
+        Double totalLen = new BigDecimal(Double.valueOf(scSxMapper.calTotalLen(diskNum))).divide(new BigDecimal(1000),2,BigDecimal.ROUND_HALF_UP).doubleValue();
         int recordCount = scLsQxqcMapper.checkUploadDataFQ(diskNum, totalLen);
         return recordCount >= 1;
 
@@ -61,7 +61,7 @@ public class FiberInfoUploadServiceImpl implements FiberInfoUploadService {
      */
     @Override
     public Boolean uploadDataCheckGL(String diskNum) {
-        Double totalLen = Double.valueOf(scSxMapper.calTotalLen(diskNum));
+        Double totalLen = new BigDecimal(Double.valueOf(scSxMapper.calTotalLen(diskNum))).divide(new BigDecimal(1000),2,BigDecimal.ROUND_HALF_UP).doubleValue();
         int recordCount = scLsQxqcMapper.checkUploadDataGL(diskNum, totalLen);
         return recordCount >= 1;
 
@@ -148,27 +148,28 @@ public class FiberInfoUploadServiceImpl implements FiberInfoUploadService {
         return true;
     }
 
-    public String getxptm(String sxbh, String ph) {
+    public String getxptm(String sxbh, String defaultPh, String ph1) {
         String totalLen;
         String res = "";
         String maxxptm = "";
         String xh = "";
-        totalLen = getTotalLen(ph);
+        totalLen = getTotalLen(ph1);
         String xptm = scSx2Mapper.getxptm(sxbh);
         if (StringUtils.isNotEmpty(xptm)) {
             maxxptm = xptm;
         } else {
-            maxxptm = ph.substring(0, 13) + "00";
+            maxxptm = defaultPh.substring(0, 13) + "00";
         }
         xh = NumberUtils.addNum2(maxxptm.substring(13, 15));
         // 质量部留样
-        if (scLsQxqcMapper.isLy(ph, Double.valueOf(totalLen)).size() != 0) {
+        if (scLsQxqcMapper.isLy(ph1, Double.valueOf(totalLen)).size() != 0) {
             xh = "00";
         }
-        res = ph.substring(0, 13) + xh;
-        List<DpCheckResult2Dto> dpCheckResult2DtoList = zlLshMapper.checkFromLsh2(ph);
+        res = ph1.substring(0, 13) + xh;
+        // 外端分切生成的小盘号带"-"
+        List<DpCheckResult2Dto> dpCheckResult2DtoList = zlLshMapper.checkFromLsh2(ph1);
         if (dpCheckResult2DtoList.size() > 0) {
-            res = ph.substring(0, 13) + "-" + xh;
+            res = ph1.substring(0, 13) + "-" + xh;
         }
 
 

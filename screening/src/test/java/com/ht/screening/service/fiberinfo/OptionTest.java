@@ -1,4 +1,4 @@
-package com.ht.screening.service;
+package com.ht.screening.service.fiberinfo;
 
 
 import com.ht.base.domain.AjaxResult;
