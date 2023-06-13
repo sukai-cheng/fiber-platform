@@ -15,6 +15,7 @@ import com.ht.screening.response.NormalShutDownResponse;
 import com.ht.screening.service.ShutDownService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.math.BigDecimal;
@@ -43,6 +44,7 @@ public class ShutDownServiceImpl implements ShutDownService {
     private ScSxMapper scSxMapper;
 
     @Override
+    @Transactional
     public NormalShutDownResponse normalShutdown(NormalShutdownDto normalShutdownDto) {
 
         NormalShutDownResponse response = new NormalShutDownResponse();
@@ -159,6 +161,7 @@ public class ShutDownServiceImpl implements ShutDownService {
     }
 
     @Override
+    @Transactional
     public AbnormalShutDownResponse abnormalShutdown(AbnormalShutdownDto abnormalShutdownDto) {
 
         AbnormalShutDownResponse response = new AbnormalShutDownResponse();
