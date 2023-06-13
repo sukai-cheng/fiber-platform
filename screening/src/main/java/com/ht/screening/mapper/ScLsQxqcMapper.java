@@ -1,6 +1,7 @@
 package com.ht.screening.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.ht.screening.dto.LYDto;
 import com.ht.screening.entity.ScLsQxqc;
 
 import java.util.List;
@@ -28,6 +29,8 @@ public interface ScLsQxqcMapper extends BaseMapper<ScLsQxqc> {
     int checkUploadDataFQ(@Param("diskNumber") String diskNumber, @Param("totalLen") Double totalLen);
 
     int checkUploadDataGL(@Param("diskNumber") String diskNumber, @Param("totalLen") Double totalLen);
+
+    List<LYDto> isLy(@Param("diskNumber") String disNumber, @Param("TotalLen") Double totalLen);
 
 
 }

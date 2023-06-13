@@ -303,4 +303,13 @@
                                 and T2.ZZPCD - t1.qswz &gt;
                                     #{totalLen,jdbcType=DOUBLE}
     </select>
+
+    <select id="isLy" resultType="com.ht.screening.dto.LYDto">
+        SELECT t2.zzpcd - t1.zzwz as SXB, t2.zzpcd - t1.qswz as SXE, T1.zzwz - t1.qswz as QXCD, T1.*
+        FROM SC_LS_QXQC T1
+                 INNER JOIN Sc_LS1 T2
+                            ON T1.LSBH = T2.LSBH AND T1.sfqc = '" &amp; "Yes" &amp; "' and qxdlx = '质管部留样' AND
+                               T2.ZZPBH = #{diskNumber,jdbcType=VARCHAR} AND  t2.zzpcd -t1.zzwz -2.05 &lt;= #{TotalLen,jdbcType=DOUBLE} AND  t2.zzpcd -t1.qswz &gt;
+                                                                                                                                             #{TotalLen,jdbcType=DOUBLE}
+    </select>
 </mapper>

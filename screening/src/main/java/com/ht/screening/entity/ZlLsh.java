@@ -1,215 +1,78 @@
 package com.ht.screening.entity;
 
+import com.baomidou.mybatisplus.annotation.*;
+import lombok.Data;
+
 import java.util.Date;
 
+/**
+ * @author chengsukai
+ */
+@TableName("ZL_LSH")
+@Data
 public class ZlLsh {
+    @TableId(value = "JYDH", type = IdType.AUTO)
     private String jydh;
 
+    @TableField("JYRQ")
     private Date jyrq;
 
+    @TableField("SCBZ")
     private String scbz;
 
+    @TableField("JYJG")
     private String jyjg;
 
+    @TableField("GH")
     private String gh;
 
+    @TableField("GQPH")
     private String gqph;
 
+    @TableField("WLBH")
     private String wlbh;
 
+    @TableField("ZDR")
     private String zdr;
 
+    @TableField("ZDRQ")
     private Date zdrq;
 
-    private String shr;
+    @TableField("SHR")
+    private String checker;
 
+    @TableField("SHRQ")
     private Date shrq;
 
+    @TableField("bhg")
     private Integer bhg;
 
+    @TableField("ManufactureType")
     private String manufacturetype;
 
+    @TableField("ISOK_pk2200")
     private Integer isokPk2200;
 
+    @TableField("ISOK_pk2400")
     private Integer isokPk2400;
 
+    @TableField("isYB")
     private Integer isyb;
 
+    @TableField("ischange")
     private Integer ischange;
 
+    @TableField("GLPH")
     private String glph;
 
+    @TableField("ismini")
     private String ismini;
 
+    @TableField("isYellow")
     private Integer isyellow;
 
+    @TableField("isCoatingYC")
     private Integer iscoatingyc;
 
-    public String getJydh() {
-        return jydh;
-    }
 
-    public void setJydh(String jydh) {
-        this.jydh = jydh;
-    }
-
-    public Date getJyrq() {
-        return jyrq;
-    }
-
-    public void setJyrq(Date jyrq) {
-        this.jyrq = jyrq;
-    }
-
-    public String getScbz() {
-        return scbz;
-    }
-
-    public void setScbz(String scbz) {
-        this.scbz = scbz;
-    }
-
-    public String getJyjg() {
-        return jyjg;
-    }
-
-    public void setJyjg(String jyjg) {
-        this.jyjg = jyjg;
-    }
-
-    public String getGh() {
-        return gh;
-    }
-
-    public void setGh(String gh) {
-        this.gh = gh;
-    }
-
-    public String getGqph() {
-        return gqph;
-    }
-
-    public void setGqph(String gqph) {
-        this.gqph = gqph;
-    }
-
-    public String getWlbh() {
-        return wlbh;
-    }
-
-    public void setWlbh(String wlbh) {
-        this.wlbh = wlbh;
-    }
-
-    public String getZdr() {
-        return zdr;
-    }
-
-    public void setZdr(String zdr) {
-        this.zdr = zdr;
-    }
-
-    public Date getZdrq() {
-        return zdrq;
-    }
-
-    public void setZdrq(Date zdrq) {
-        this.zdrq = zdrq;
-    }
-
-    public String getShr() {
-        return shr;
-    }
-
-    public void setShr(String shr) {
-        this.shr = shr;
-    }
-
-    public Date getShrq() {
-        return shrq;
-    }
-
-    public void setShrq(Date shrq) {
-        this.shrq = shrq;
-    }
-
-    public Integer getBhg() {
-        return bhg;
-    }
-
-    public void setBhg(Integer bhg) {
-        this.bhg = bhg;
-    }
-
-    public String getManufacturetype() {
-        return manufacturetype;
-    }
-
-    public void setManufacturetype(String manufacturetype) {
-        this.manufacturetype = manufacturetype;
-    }
-
-    public Integer getIsokPk2200() {
-        return isokPk2200;
-    }
-
-    public void setIsokPk2200(Integer isokPk2200) {
-        this.isokPk2200 = isokPk2200;
-    }
-
-    public Integer getIsokPk2400() {
-        return isokPk2400;
-    }
-
-    public void setIsokPk2400(Integer isokPk2400) {
-        this.isokPk2400 = isokPk2400;
-    }
-
-    public Integer getIsyb() {
-        return isyb;
-    }
-
-    public void setIsyb(Integer isyb) {
-        this.isyb = isyb;
-    }
-
-    public Integer getIschange() {
-        return ischange;
-    }
-
-    public void setIschange(Integer ischange) {
-        this.ischange = ischange;
-    }
-
-    public String getGlph() {
-        return glph;
-    }
-
-    public void setGlph(String glph) {
-        this.glph = glph;
-    }
-
-    public String getIsmini() {
-        return ismini;
-    }
-
-    public void setIsmini(String ismini) {
-        this.ismini = ismini;
-    }
-
-    public Integer getIsyellow() {
-        return isyellow;
-    }
-
-    public void setIsyellow(Integer isyellow) {
-        this.isyellow = isyellow;
-    }
-
-    public Integer getIscoatingyc() {
-        return iscoatingyc;
-    }
-
-    public void setIscoatingyc(Integer iscoatingyc) {
-        this.iscoatingyc = iscoatingyc;
-    }
 }

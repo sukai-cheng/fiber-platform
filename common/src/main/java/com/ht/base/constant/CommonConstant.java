@@ -23,6 +23,11 @@ public interface CommonConstant {
 	public static final String D = "D";
 	public static final String Y = "Y";
 
+	String FifityKilometreDish = "50公里盘具";
+
+	String SixtyOneKilometreDish = "61公里盘具";
+
+
 	/**
 	 * 正常状态
 	 */

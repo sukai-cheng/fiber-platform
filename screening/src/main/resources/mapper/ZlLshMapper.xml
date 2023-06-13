@@ -13,7 +13,7 @@
     <result column="WLBH" jdbcType="VARCHAR" property="wlbh" />
     <result column="ZDR" jdbcType="VARCHAR" property="zdr" />
     <result column="ZDRQ" jdbcType="TIMESTAMP" property="zdrq" />
-    <result column="SHR" jdbcType="VARCHAR" property="shr" />
+    <result column="SHR" jdbcType="VARCHAR" property="checker" />
     <result column="SHRQ" jdbcType="TIMESTAMP" property="shrq" />
     <result column="bhg" jdbcType="INTEGER" property="bhg" />
     <result column="ManufactureType" jdbcType="CHAR" property="manufacturetype" />
@@ -54,7 +54,7 @@
       isCoatingYC)
     values (#{jydh,jdbcType=VARCHAR}, #{jyrq,jdbcType=TIMESTAMP}, #{scbz,jdbcType=VARCHAR}, 
       #{jyjg,jdbcType=VARCHAR}, #{gh,jdbcType=VARCHAR}, #{gqph,jdbcType=VARCHAR}, #{wlbh,jdbcType=VARCHAR}, 
-      #{zdr,jdbcType=VARCHAR}, #{zdrq,jdbcType=TIMESTAMP}, #{shr,jdbcType=VARCHAR}, #{shrq,jdbcType=TIMESTAMP}, 
+      #{zdr,jdbcType=VARCHAR}, #{zdrq,jdbcType=TIMESTAMP}, #{checker,jdbcType=VARCHAR}, #{shrq,jdbcType=TIMESTAMP},
       #{bhg,jdbcType=INTEGER}, #{manufacturetype,jdbcType=CHAR}, #{isokPk2200,jdbcType=INTEGER}, 
       #{isokPk2400,jdbcType=INTEGER}, #{isyb,jdbcType=INTEGER}, #{ischange,jdbcType=INTEGER}, 
       #{glph,jdbcType=VARCHAR}, #{ismini,jdbcType=VARCHAR}, #{isyellow,jdbcType=INTEGER}, 
@@ -91,7 +91,7 @@
       <if test="zdrq != null">
         ZDRQ,
       </if>
-      <if test="shr != null">
+      <if test="checker != null">
         SHR,
       </if>
       <if test="shrq != null">
@@ -156,8 +156,8 @@
       <if test="zdrq != null">
         #{zdrq,jdbcType=TIMESTAMP},
       </if>
-      <if test="shr != null">
-        #{shr,jdbcType=VARCHAR},
+      <if test="checker != null">
+        #{checker,jdbcType=VARCHAR},
       </if>
       <if test="shrq != null">
         #{shrq,jdbcType=TIMESTAMP},
@@ -222,8 +222,8 @@
       <if test="zdrq != null">
         ZDRQ = #{zdrq,jdbcType=TIMESTAMP},
       </if>
-      <if test="shr != null">
-        SHR = #{shr,jdbcType=VARCHAR},
+      <if test="checker != null">
+        SHR = #{checker,jdbcType=VARCHAR},
       </if>
       <if test="shrq != null">
         SHRQ = #{shrq,jdbcType=TIMESTAMP},
@@ -272,7 +272,7 @@
       WLBH = #{wlbh,jdbcType=VARCHAR},
       ZDR = #{zdr,jdbcType=VARCHAR},
       ZDRQ = #{zdrq,jdbcType=TIMESTAMP},
-      SHR = #{shr,jdbcType=VARCHAR},
+      SHR = #{checker,jdbcType=VARCHAR},
       SHRQ = #{shrq,jdbcType=TIMESTAMP},
       bhg = #{bhg,jdbcType=INTEGER},
       ManufactureType = #{manufacturetype,jdbcType=CHAR},
@@ -332,7 +332,7 @@
       </trim>
       <trim prefix="SHR = case" suffix="end,">
         <foreach collection="list" index="index" item="item">
-          when JYDH = #{item.jydh,jdbcType=VARCHAR} then #{item.shr,jdbcType=VARCHAR}
+          when JYDH = #{item.jydh,jdbcType=VARCHAR} then #{item.checker,jdbcType=VARCHAR}
         </foreach>
       </trim>
       <trim prefix="SHRQ = case" suffix="end,">
@@ -406,7 +406,7 @@
       (#{item.jydh,jdbcType=VARCHAR}, #{item.jyrq,jdbcType=TIMESTAMP}, #{item.scbz,jdbcType=VARCHAR}, 
         #{item.jyjg,jdbcType=VARCHAR}, #{item.gh,jdbcType=VARCHAR}, #{item.gqph,jdbcType=VARCHAR}, 
         #{item.wlbh,jdbcType=VARCHAR}, #{item.zdr,jdbcType=VARCHAR}, #{item.zdrq,jdbcType=TIMESTAMP}, 
-        #{item.shr,jdbcType=VARCHAR}, #{item.shrq,jdbcType=TIMESTAMP}, #{item.bhg,jdbcType=INTEGER}, 
+        #{item.checker,jdbcType=VARCHAR}, #{item.shrq,jdbcType=TIMESTAMP}, #{item.bhg,jdbcType=INTEGER},
         #{item.manufacturetype,jdbcType=CHAR}, #{item.isokPk2200,jdbcType=INTEGER}, #{item.isokPk2400,jdbcType=INTEGER}, 
         #{item.isyb,jdbcType=INTEGER}, #{item.ischange,jdbcType=INTEGER}, #{item.glph,jdbcType=VARCHAR}, 
         #{item.ismini,jdbcType=VARCHAR}, #{item.isyellow,jdbcType=INTEGER}, #{item.iscoatingyc,jdbcType=INTEGER}

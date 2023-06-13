@@ -238,39 +238,6 @@ public class DeviceInfoServiceImpl implements DeviceInfoService {
     }
 
 
-    /**
-     * 异常停机 todo
-     *
-     * @param mainDiskNum 大盘号
-     * @param deviceInfo  设备信息
-     * @param initialTime 小盘开始拉时间
-     * @return
-     */
-    @Override
-    @Transactional
-    public Boolean abnormalStop(String mainDiskNum, DeviceInfo deviceInfo, Date initialTime) {
-
-        String filterCode = getFilterCodeByMainDiskCode(mainDiskNum);
-        float stryscd = deviceInfo.getRetractLength();
-        float fxcd = deviceInfo.getPayOffLength();
-        List<ScSx2> scSx2List = scSx2Mapper.findByFilterCode(filterCode);
-        Boolean SFFQ = uploadDataCheckFQ(mainDiskNum);
-        Boolean SFGL = uploadDataCheckGL(mainDiskNum);
-        if (SFFQ || NumberUtils.scale(stryscd) < 2.05) {
-            if (scSx2List.size() >= 1) {
-                scSx2Mapper.getMaxId(filterCode);
-                if (SFFQ == false) {
-
-
-                }
-            }
-        }
-
-
-        return null;
-
-    }
-
     private String getFilterCodeByMainDiskCode(String mainDiskCode) {
         return scSx2Mapper.getFilterCodeByMainDiskCode(mainDiskCode);
     }

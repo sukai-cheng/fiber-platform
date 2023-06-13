@@ -1006,4 +1006,18 @@
   <select id="getXptm" resultMap="BaseResultMap">
     select * from SC_SX2 where SXBH = #{sxbh,jdbcType=VARCHAR} and xh = '02';
   </select>
+
+  <select id="getxptm" resultType="java.lang.String">
+      select xptm
+      from sc_sx2
+      where sxbh = #{sxbh,jdbcType=VARCHAR}
+        and xh = (select max(isnull(xh, '')) as maxxptm
+                  from sc_sx2
+                  where sxbh = #{sxbh,jdbcType=VARCHAR}
+                    and isnull(xptm, '') is not null);
+  </select>
+
+  <select id="selectByXptm" resultMap="BaseResultMap">
+    select * from sc_sx2 where xptm = #{xptm,jdbcType=VARCHAR};
+  </select>
 </mapper>
