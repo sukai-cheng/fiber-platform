@@ -26,7 +26,7 @@ public class AbnormalShutdownDto implements Serializable {
     /**
      * 已筛长度
      */
-    Double cd;
+    Double sxcd;
 
     /**
      * 初始化时间

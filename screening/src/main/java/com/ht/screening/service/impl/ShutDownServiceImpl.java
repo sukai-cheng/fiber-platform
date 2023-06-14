@@ -10,6 +10,8 @@ import com.ht.screening.dto.NormalShutdownDto;
 import com.ht.screening.entity.ScSx2;
 import com.ht.screening.mapper.ScSx2Mapper;
 import com.ht.screening.mapper.ScSxMapper;
+import com.ht.screening.request.AbnormalShutdownRequest;
+import com.ht.screening.request.NormalShutdownRequest;
 import com.ht.screening.response.AbnormalShutDownResponse;
 import com.ht.screening.response.NormalShutDownResponse;
 import com.ht.screening.service.ShutDownService;
@@ -43,10 +45,47 @@ public class ShutDownServiceImpl implements ShutDownService {
     @Resource
     private ScSxMapper scSxMapper;
 
+    private void initNormalShutdownRequest(NormalShutdownDto normalShutdownDto, NormalShutdownRequest request) {
+        normalShutdownDto.setPh(request.getFilterInfo().getPh());
+        normalShutdownDto.setSxbh(request.getFilterInfo().getSxbh());
+        normalShutdownDto.setSxcd(request.getDeviceDataDto().getSxcd());
+        normalShutdownDto.setInitialTime(request.getLoginDataDto().getStartDate());
+        normalShutdownDto.setDqcd(request.getFilterInfo().getDqcd());
+        normalShutdownDto.setAccoutId(request.getLoginDataDto().getAccountId());
+        normalShutdownDto.setBz(request.getLoginDataDto().getBz());
+        normalShutdownDto.setUsername(request.getLoginDataDto().getUsername());
+        normalShutdownDto.setGlqk(request.getFilterInfo().getGlqk());
+        normalShutdownDto.setColor(request.getSelectDataDto().getColor());
+        normalShutdownDto.setStartDate(request.getInitialTime());
+        normalShutdownDto.setYl(String.valueOf(request.getSelectDataDto().getYl()));
+        normalShutdownDto.setPj(request.getSelectDataDto().getPj());
+        normalShutdownDto.setXj(request.getSelectDataDto().getXj());
+    }
+
+    private void initAbnormalShutdownRequest(AbnormalShutdownDto abnormalShutdownDto, AbnormalShutdownRequest request) {
+        abnormalShutdownDto.setPh(request.getFilterInfo().getPh());
+        abnormalShutdownDto.setSxbh(request.getFilterInfo().getSxbh());
+        abnormalShutdownDto.setSxcd(request.getDeviceDataDto().getSxcd());
+        abnormalShutdownDto.setInitialTime(request.getLoginDataDto().getStartDate());
+        abnormalShutdownDto.setDqcd(request.getFilterInfo().getDqcd());
+        abnormalShutdownDto.setAccoutId(request.getLoginDataDto().getAccountId());
+        abnormalShutdownDto.setBz(request.getLoginDataDto().getBz());
+        abnormalShutdownDto.setUsername(request.getLoginDataDto().getUsername());
+        abnormalShutdownDto.setGlqk(request.getFilterInfo().getGlqk());
+        abnormalShutdownDto.setColor(request.getSelectDataDto().getColor());
+        abnormalShutdownDto.setStartDate(request.getInitialTime());
+        abnormalShutdownDto.setYl(String.valueOf(request.getSelectDataDto().getYl()));
+        abnormalShutdownDto.setPj(request.getSelectDataDto().getPj());
+        abnormalShutdownDto.setXj(request.getSelectDataDto().getXj());
+        abnormalShutdownDto.setPyccd(request.getDeviceDataDto().getPyccd());
+        abnormalShutdownDto.setHlcd(String.valueOf(request.getDeviceDataDto().getHlcd()));
+    }
+
     @Override
     @Transactional
-    public NormalShutDownResponse normalShutdown(NormalShutdownDto normalShutdownDto) {
-
+    public NormalShutDownResponse normalShutdown(NormalShutdownRequest normalShutdownRequest) {
+        NormalShutdownDto normalShutdownDto = new NormalShutdownDto();
+        initNormalShutdownRequest(normalShutdownDto, normalShutdownRequest);
         NormalShutDownResponse response = new NormalShutDownResponse();
         String ph = normalShutdownDto.getPh();
         Double cd = normalShutdownDto.getSxcd();
@@ -80,7 +119,7 @@ public class ShutDownServiceImpl implements ShutDownService {
             } else {
                 xh = getxh(sxbh);
                 xptm = "";
-                ewz = Double.parseDouble(scSxMapper.calTotalLen(ph))*1000;
+                ewz = Double.parseDouble(scSxMapper.calTotalLen(ph)) * 1000;
                 CD = 0L;
                 DQQK = "abnormity";
                 dqcd = 0L;
@@ -164,8 +203,10 @@ public class ShutDownServiceImpl implements ShutDownService {
 
     @Override
     @Transactional
-    public AbnormalShutDownResponse abnormalShutdown(AbnormalShutdownDto abnormalShutdownDto) {
+    public AbnormalShutDownResponse abnormalShutdown(AbnormalShutdownRequest abnormalShutdownRequest) {
 
+        AbnormalShutdownDto abnormalShutdownDto = new AbnormalShutdownDto();
+        initAbnormalShutdownRequest(abnormalShutdownDto, abnormalShutdownRequest);
         AbnormalShutDownResponse response = new AbnormalShutDownResponse();
         String ph = abnormalShutdownDto.getPh();
         double ewz;
@@ -509,9 +550,5 @@ public class ShutDownServiceImpl implements ShutDownService {
         return xh;
     }
 
-    public static void main(String[] args) {
-        String str = "富鑫100公里";
-        System.out.println(StringUtils.contains(str, "100"));
-    }
 
 }

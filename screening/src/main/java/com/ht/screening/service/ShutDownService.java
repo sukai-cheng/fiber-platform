@@ -2,6 +2,8 @@ package com.ht.screening.service;
 
 import com.ht.screening.dto.AbnormalShutdownDto;
 import com.ht.screening.dto.NormalShutdownDto;
+import com.ht.screening.request.AbnormalShutdownRequest;
+import com.ht.screening.request.NormalShutdownRequest;
 import com.ht.screening.response.AbnormalShutDownResponse;
 import com.ht.screening.response.NormalShutDownResponse;
 
@@ -15,11 +17,11 @@ public interface ShutDownService {
     /**
      * 正常停机
      */
-    NormalShutDownResponse normalShutdown(NormalShutdownDto normalShutdownDto);
+    NormalShutDownResponse normalShutdown(NormalShutdownRequest normalShutdownRequest);
 
     /**
      * 异常停机
      */
-    AbnormalShutDownResponse abnormalShutdown(AbnormalShutdownDto normalShutdownDto);
+    AbnormalShutDownResponse abnormalShutdown(AbnormalShutdownRequest abnormalShutdownRequest);
 
 }
