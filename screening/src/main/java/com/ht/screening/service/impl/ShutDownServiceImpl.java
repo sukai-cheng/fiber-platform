@@ -182,7 +182,7 @@ public class ShutDownServiceImpl implements ShutDownService {
         long qgcd;
         String sxbh = abnormalShutdownDto.getSxbh();
         String xptm;
-        BigDecimal cd = BigDecimal.valueOf(abnormalShutdownDto.getCd()).setScale(2, RoundingMode.HALF_UP);
+        BigDecimal cd = BigDecimal.valueOf(abnormalShutdownDto.getSxcd()).setScale(2, RoundingMode.HALF_UP);
         Integer maxxh;
         String xh;
         Boolean SFFQ = fiberInfoUploadService.uploadDataCheckFQ(ph);

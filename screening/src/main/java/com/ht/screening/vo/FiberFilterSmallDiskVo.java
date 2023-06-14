@@ -150,4 +150,9 @@ public class FiberFilterSmallDiskVo {
      * 测试端差
      */
     private Integer istestdc;
+
+    /**
+     * 隔离情况
+     */
+    private String qlqk;
 }
