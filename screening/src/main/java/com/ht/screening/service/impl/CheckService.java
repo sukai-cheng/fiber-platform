@@ -24,6 +24,7 @@ public class CheckService {
     @Resource
     private SxLsMapper sxLsMapper;
 
+
     /**
      * 判断是否有优先盘
      *
@@ -43,6 +44,7 @@ public class CheckService {
     }
 
     public Boolean checkDpcl(String gqph) {
+        Boolean res = false;
         Integer ps = 0;
         List<DpCheckResultDto> dpCheckResultDtoList = zlLshMapper.checkFromLs(gqph);
         if (dpCheckResultDtoList != null && dpCheckResultDtoList.size() != 0) {
@@ -54,14 +56,16 @@ public class CheckService {
             if (ps > 0) {
                 List<DpCheckResult2Dto> dpCheckResult2DtoList = zlLshMapper.checkFromLsh2(gqph);
                 if (dpCheckResult2DtoList.size() < ps) {
-                    return true;
+                    res = true;
                 }
             }
+        }else{
+            res = true;
         }
         List<ZlLsh> recordCount = zlLshMapper.selectFromLsh(gqph);
         if (recordCount == null || recordCount.size() == 0) {
-            return false;
+            res =  false;
         }
-        return false;
+        return res;
     }
 }
