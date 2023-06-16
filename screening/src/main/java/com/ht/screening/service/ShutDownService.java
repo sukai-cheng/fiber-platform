@@ -1,7 +1,5 @@
 package com.ht.screening.service;
 
-import com.ht.screening.dto.AbnormalShutdownDto;
-import com.ht.screening.dto.NormalShutdownDto;
 import com.ht.screening.request.AbnormalShutdownRequest;
 import com.ht.screening.request.NormalShutdownRequest;
 import com.ht.screening.response.AbnormalShutDownResponse;
