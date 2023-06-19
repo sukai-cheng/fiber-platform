@@ -37,6 +37,7 @@ public class DeviceConnectServiceImpl implements DeviceConnectService {
         SiemensS7Net siemensS7Net = new SiemensS7Net(s1500,ip);
         siemensS7Net.setPort(port);
         siemensS7Net.setConnectTimeOut(2000);
+        // todo 每次都要重启一下
         OperateResult operateResult = siemensS7Net.ConnectServer();
         boolean isSuccess = operateResult.IsSuccess;
         if (!isSuccess) {

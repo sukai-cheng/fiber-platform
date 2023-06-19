@@ -1,26 +1,64 @@
 package com.ht.screening.config;
 
 import com.github.benmanes.caffeine.cache.Caffeine;
+import com.github.benmanes.caffeine.cache.Ticker;
+import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.cache.CacheManager;
-import org.springframework.cache.caffeine.CaffeineCacheManager;
+import org.springframework.cache.caffeine.CaffeineCache;
+import org.springframework.cache.support.SimpleCacheManager;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 
+/**
+ * @author chengsukai
+ */
+@Slf4j
+@Data
 @Configuration
+@ConfigurationProperties("cache-config")
 public class CacheConfig {
-    @Bean
-    public CacheManager cacheManager() {
-        CaffeineCacheManager cacheManager = new CaffeineCacheManager();
-        cacheManager.setCaffeine(Caffeine.newBuilder()
-                // 设置最后一次写入或访问后经过固定时间过期
-                .expireAfterAccess(600, TimeUnit.SECONDS)
-                // 初始的缓存空间大小
-                .initialCapacity(100)
-                // 缓存的最大条数
-                .maximumSize(500));
-        return cacheManager;
 
+    private Map<String, CacheSpec> specs;
+
+    @Data
+    public static class CacheSpec {
+        private Integer expireTime;
+        private Integer maxSize;
+    }
+
+    @Bean
+    public CacheManager cacheManager(Ticker ticker) {
+        SimpleCacheManager manager = new SimpleCacheManager();
+        if (specs != null) {
+            List<CaffeineCache> caches =
+                    specs.entrySet().stream()
+                            .map(entry -> buildCache(entry.getKey(),
+                                    entry.getValue(),
+                                    ticker))
+                            .collect(Collectors.toList());
+            manager.setCaches(caches);
+        }
+        return manager;
+    }
+
+    private CaffeineCache buildCache(String name, CacheConfig.CacheSpec cacheSpec, Ticker ticker) {
+        final Caffeine<Object, Object> caffeineBuilder
+                = Caffeine.newBuilder()
+                .expireAfterWrite(cacheSpec.getExpireTime(), TimeUnit.SECONDS)
+                .maximumSize(cacheSpec.getMaxSize())
+                .ticker(ticker);
+        return new CaffeineCache(name, caffeineBuilder.build());
+    }
+
+    @Bean
+    public Ticker ticker() {
+        return Ticker.systemTicker();
     }
 }

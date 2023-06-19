@@ -3,9 +3,9 @@ server:
 spring:
   datasource:
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
-#    url: jdbc:sqlserver://10.6.100.236;database=pts
-#    username: admin
-#    password: dev_2019
+    #    url: jdbc:sqlserver://10.6.100.236;database=pts
+    #    username: admin
+    #    password: dev_2019
     url: jdbc:sqlserver://10.6.61.31;database=pts
     username: gx-mes
     password: x0h16p
@@ -26,6 +26,16 @@ spring:
 mybatis-plus:
   mapper-locations: classpath:/mapper/*.xml
   type-aliases-package: com.ht.shaixuan.entity
+cache-config:
+  specs:
+    deviceInfo:
+      # 过期时间
+      expire-time: 2678400
+      # 缓存最大数量
+      max-size: 200
+    admin:
+      expire-time: 20
+      max-size: 200
 # MyBatis SQL打印
 logging:
   level:

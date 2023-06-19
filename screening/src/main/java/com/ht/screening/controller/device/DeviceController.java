@@ -1,9 +1,13 @@
 package com.ht.screening.controller.device;
 
 import com.ht.base.domain.AjaxResult;
+import com.ht.screening.entity.DeviceInfo;
 import com.ht.screening.request.DeviceStatusRequest;
 import com.ht.screening.service.impl.DeviceInfoServiceImpl;
 import com.ht.screening.vo.DeviceInfoVo;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,6 +19,7 @@ import javax.annotation.Resource;
  *
  * @author chengsukai
  */
+@Slf4j
 @RestController
 public class DeviceController {
 
@@ -29,6 +34,12 @@ public class DeviceController {
         } catch (Exception e) {
             return AjaxResult.error("设备连接异常");
         }
+    }
+
+    @GetMapping("/getDeviceInfo")
+    public AjaxResult getDeviceInfo(){
+        DeviceInfo res = deviceInfoService.detailForDevice();
+        return AjaxResult.success(res);
     }
 
 }

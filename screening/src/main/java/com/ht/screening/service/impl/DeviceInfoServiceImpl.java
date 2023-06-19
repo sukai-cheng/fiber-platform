@@ -10,6 +10,7 @@ import com.ht.screening.mapper.*;
 import com.ht.screening.service.DeviceInfoService;
 import com.ht.screening.vo.DeviceInfoVo;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -34,10 +35,16 @@ public class DeviceInfoServiceImpl implements DeviceInfoService {
     @Resource
     ScLs1Mapper scLs1Mapper;
 
+    @Cacheable(value = "deviceInfo")
+    public com.ht.screening.entity.DeviceInfo detailForDevice(){
+        log.info("没走缓存");
+        com.ht.screening.entity.DeviceInfo deviceIpAndPort = getDeviceIpAndPort();
+        return deviceIpAndPort;
+    }
     @Override
     public DeviceInfoVo getDeviceInfo(String fiberDiskNum) {
         DeviceInfo deviceInfo = new DeviceInfo();
-        com.ht.screening.entity.DeviceInfo deviceIpAndPort = getDeviceIpAndPort();
+        com.ht.screening.entity.DeviceInfo deviceIpAndPort = detailForDevice();
         String ip = deviceIpAndPort.getDeviceIp();
         Integer port = Integer.valueOf(deviceIpAndPort.getDevicePort());
         // 通过西门子S7-S1500协议模块连接设备
@@ -223,7 +230,8 @@ public class DeviceInfoServiceImpl implements DeviceInfoService {
     }
 
     private com.ht.screening.entity.DeviceInfo getDeviceIpAndPort() {
-        String sbbh = getPropertiesFromIni().getText837();
+//        String sbbh = getPropertiesFromIni().getText837();
+        String sbbh = "C-P-9";
         com.ht.screening.entity.DeviceInfo deviceInfo = deviceInfoMapper.selectByDeviceName(sbbh);
         return deviceInfo;
     }
