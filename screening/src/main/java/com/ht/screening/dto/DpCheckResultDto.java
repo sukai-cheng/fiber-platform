@@ -9,7 +9,7 @@ import java.math.BigDecimal;
  */
 @Data
 public class DpCheckResultDto {
-    String gpph;
+    String gqph;
     BigDecimal fqcd;
     String fqdm;
 }

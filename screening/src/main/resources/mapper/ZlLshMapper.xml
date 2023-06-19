@@ -435,7 +435,7 @@
   </select>
 
   <select id="checkFromLs" resultType="com.ht.screening.dto.DpCheckResultDto">
-      select gqph, 0 cd, '' bs
+      select gqph, 0 fqcd, '' fqdm
       from ZL_LSH
       where isnull(shr, '') = ''
         and GQPH = #{gqph,jdbcType=VARCHAR}
