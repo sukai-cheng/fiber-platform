@@ -1,12 +1,9 @@
 package com.ht.screening.controller.device;
 
 import com.ht.base.domain.AjaxResult;
-import com.ht.screening.dto.DeviceInfo;
 import com.ht.screening.request.DeviceStatusRequest;
 import com.ht.screening.service.impl.DeviceInfoServiceImpl;
-import com.ht.screening.service.impl.ShutDownServiceImpl;
 import com.ht.screening.vo.DeviceInfoVo;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,9 +21,6 @@ public class DeviceController {
     @Resource
     private DeviceInfoServiceImpl deviceInfoService;
 
-    @Resource
-    private ShutDownServiceImpl shutDownService;
-
     @PostMapping("/getDeviceStatus")
     public AjaxResult getDeviceStatus(@RequestBody DeviceStatusRequest request) {
         try {
@@ -36,4 +30,5 @@ public class DeviceController {
             return AjaxResult.error("设备连接异常");
         }
     }
+
 }

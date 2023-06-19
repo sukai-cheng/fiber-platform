@@ -212,6 +212,20 @@
                 </TableGenerateConfig>
               </value>
             </entry>
+            <entry key="dbo:device_info">
+              <value>
+                <TableGenerateConfig>
+                  <option name="batchInsert" value="true" />
+                  <option name="generatedKey" value="device_id" />
+                  <option name="javaModelName" value="DeviceInfo" />
+                  <option name="moduleName" value="screening" />
+                  <option name="sequenceColumn" value="" />
+                  <option name="sequenceId" value="" />
+                  <option name="updateBatch" value="true" />
+                  <option name="useActualColumnName" value="false" />
+                </TableGenerateConfig>
+              </value>
+            </entry>
             <entry key="dbo:paperinfo">
               <value>
                 <TableGenerateConfig>

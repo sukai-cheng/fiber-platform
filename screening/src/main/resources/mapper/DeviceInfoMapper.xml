@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.screening.mapper.DeviceInfoMapper">
+  <resultMap id="BaseResultMap" type="com.ht.screening.entity.DeviceInfo">
+    <!--@mbg.generated-->
+    <!--@Table device_info-->
+    <id column="device_id" jdbcType="INTEGER" property="deviceId" />
+    <result column="device_ip" jdbcType="VARCHAR" property="deviceIp" />
+    <result column="device_name" jdbcType="VARCHAR" property="deviceName" />
+    <result column="device_port" jdbcType="VARCHAR" property="devicePort" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    device_id, device_ip, device_name, device_port
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from device_info
+    where device_id = #{deviceId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from device_info
+    where device_id = #{deviceId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="device_id" keyProperty="deviceId" parameterType="com.ht.screening.entity.DeviceInfo" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into device_info (device_ip, device_name, device_port
+      )
+    values (#{deviceIp,jdbcType=VARCHAR}, #{deviceName,jdbcType=VARCHAR}, #{devicePort,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="device_id" keyProperty="deviceId" parameterType="com.ht.screening.entity.DeviceInfo" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into device_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="deviceIp != null">
+        device_ip,
+      </if>
+      <if test="deviceName != null">
+        device_name,
+      </if>
+      <if test="devicePort != null">
+        device_port,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="deviceIp != null">
+        #{deviceIp,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceName != null">
+        #{deviceName,jdbcType=VARCHAR},
+      </if>
+      <if test="devicePort != null">
+        #{devicePort,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ht.screening.entity.DeviceInfo">
+    <!--@mbg.generated-->
+    update device_info
+    <set>
+      <if test="deviceIp != null">
+        device_ip = #{deviceIp,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceName != null">
+        device_name = #{deviceName,jdbcType=VARCHAR},
+      </if>
+      <if test="devicePort != null">
+        device_port = #{devicePort,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where device_id = #{deviceId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ht.screening.entity.DeviceInfo">
+    <!--@mbg.generated-->
+    update device_info
+    set device_ip = #{deviceIp,jdbcType=VARCHAR},
+      device_name = #{deviceName,jdbcType=VARCHAR},
+      device_port = #{devicePort,jdbcType=VARCHAR}
+    where device_id = #{deviceId,jdbcType=INTEGER}
+  </update>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated-->
+    update device_info
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="device_ip = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when device_id = #{item.deviceId,jdbcType=INTEGER} then #{item.deviceIp,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="device_name = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when device_id = #{item.deviceId,jdbcType=INTEGER} then #{item.deviceName,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="device_port = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when device_id = #{item.deviceId,jdbcType=INTEGER} then #{item.devicePort,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+    </trim>
+    where device_id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.deviceId,jdbcType=INTEGER}
+    </foreach>
+  </update>
+  <insert id="batchInsert" keyColumn="device_id" keyProperty="deviceId" parameterType="map" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into device_info
+    (device_ip, device_name, device_port)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.deviceIp,jdbcType=VARCHAR}, #{item.deviceName,jdbcType=VARCHAR}, #{item.devicePort,jdbcType=VARCHAR}
+        )
+    </foreach>
+  </insert>
+
+  <select id="selectByDeviceName" resultMap="BaseResultMap">
+      select *
+      from device_info
+      where device_name = #{deviceName,jdbcType=VARCHAR}
+  </select>
+</mapper>

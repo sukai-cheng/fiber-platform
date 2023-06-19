@@ -2,10 +2,11 @@ package com.ht.base.utils;
 
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Data
-public class Ini4jFileVo {
+public class Ini4jFileVo implements Serializable {
     private String Level2;
     private String Defect;
     private String Airline;
