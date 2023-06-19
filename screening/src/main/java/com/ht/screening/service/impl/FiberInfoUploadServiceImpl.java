@@ -48,8 +48,12 @@ public class FiberInfoUploadServiceImpl implements FiberInfoUploadService {
      */
     @Override
     public Boolean uploadDataCheckFQ(String diskNum) {
-        Double totalLen = new BigDecimal(Double.valueOf(scSxMapper.calTotalLen(diskNum))).divide(new BigDecimal(1000),2,BigDecimal.ROUND_HALF_UP).doubleValue();
-        int recordCount = scLsQxqcMapper.checkUploadDataFQ(diskNum, totalLen);
+        BigDecimal totalLen = BigDecimal.ZERO;
+        String res = scSxMapper.calTotalLen(diskNum);
+        if (StringUtils.isNotEmpty(res)) {
+            totalLen = new BigDecimal(res).divide(new BigDecimal(1000), 2, BigDecimal.ROUND_HALF_UP);
+        }
+        int recordCount = scLsQxqcMapper.checkUploadDataFQ(diskNum, totalLen.doubleValue());
         return recordCount >= 1;
 
     }
@@ -61,8 +65,12 @@ public class FiberInfoUploadServiceImpl implements FiberInfoUploadService {
      */
     @Override
     public Boolean uploadDataCheckGL(String diskNum) {
-        Double totalLen = new BigDecimal(Double.valueOf(scSxMapper.calTotalLen(diskNum))).divide(new BigDecimal(1000),2,BigDecimal.ROUND_HALF_UP).doubleValue();
-        int recordCount = scLsQxqcMapper.checkUploadDataGL(diskNum, totalLen);
+        BigDecimal totalLen = BigDecimal.ZERO;
+        String res = scSxMapper.calTotalLen(diskNum);
+        if (StringUtils.isNotEmpty(res)) {
+            totalLen = new BigDecimal(res).divide(new BigDecimal(1000), 2, BigDecimal.ROUND_HALF_UP);
+        }
+        int recordCount = scLsQxqcMapper.checkUploadDataGL(diskNum, totalLen.doubleValue());
         return recordCount >= 1;
 
     }
