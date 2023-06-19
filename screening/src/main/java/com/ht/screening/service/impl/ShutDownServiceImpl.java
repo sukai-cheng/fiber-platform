@@ -97,11 +97,11 @@ public class ShutDownServiceImpl implements ShutDownService {
         double qgcd;
         String sxbh = normalShutdownDto.getSxbh();
         String xptm;
+        String glyy;
 
         Integer maxxh;
         String xh;
         Boolean SFFQ = fiberInfoUploadService.uploadDataCheckFQ(ph);
-        SFFQ = false;
         Boolean SFGL = fiberInfoUploadService.uploadDataCheckGL(ph);
         if (SFFQ || (cd < 2.05)) {
             List<ScSx2> recordCount = scSx2Mapper.findByFilterCode(ph);
@@ -119,7 +119,7 @@ public class ShutDownServiceImpl implements ShutDownService {
             } else {
                 xh = getxh(sxbh);
                 xptm = "";
-                ewz = Double.parseDouble(scSxMapper.calTotalLen(ph)) * 1000;
+                ewz = Double.valueOf(fiberInfoUploadService.getTotalLen(ph)) * 1000;
                 CD = 0L;
                 DQQK = "abnormity";
                 dqcd = 0L;
@@ -191,6 +191,7 @@ public class ShutDownServiceImpl implements ShutDownService {
             filterDetailUploadDto.setXj(normalShutdownDto.getXj());
             if (filterUploadService.SXdetail(filterDetailUploadDto)) {
                 response.setStatus(true);
+                response.setXptm(xptm);
                 response.setPrintFlag(true);
                 return response;
             }
@@ -244,7 +245,7 @@ public class ShutDownServiceImpl implements ShutDownService {
             } else {
                 xh = getxh(sxbh);
                 xptm = "";
-                ewz = Long.parseLong(scSxMapper.calTotalLen(ph));
+                ewz = Double.valueOf(fiberInfoUploadService.getTotalLen(ph)) * 1000;
                 CD = 0L;
                 DQQK = "abnormity";
                 if (SFFQ) {
@@ -291,10 +292,10 @@ public class ShutDownServiceImpl implements ShutDownService {
             } else {
                 kpcd = 2.07 + 0.6;
             }
-            if (cd.doubleValue() > 2.05 && cd.doubleValue() < kpcd) {
+            if (cd.doubleValue() >= 2.05 && cd.doubleValue() < kpcd) {
                 xh = getxh(sxbh);
-                String defaultPh = ph + "00";
-                xptm = fiberInfoUploadService.getxptm(sxbh, defaultPh, ph);
+                String defaultxpbh = ph + "00";
+                xptm = fiberInfoUploadService.getxptm(sxbh, defaultxpbh, ph);
                 ewz = Long.parseLong(fiberInfoUploadService.getTotalLen(ph)) * 1000;
                 DQQK = "abnormity";
                 if (StringUtils.equals(region, "四区")) {
@@ -344,6 +345,8 @@ public class ShutDownServiceImpl implements ShutDownService {
                     List<ScSx2> count = scSx2Mapper.selectByXptm(xptm);
                     if (count.size() != 0) {
                         response.setStatus(true);
+                        response.setPh(ph);
+                        response.setXptm(xptm);
                         response.setPrintFlag(true);
                         return response;
                     } else {
@@ -363,13 +366,13 @@ public class ShutDownServiceImpl implements ShutDownService {
                         if (StringUtils.equals(machineCategory, "D")) {
                             if (StringUtils.equals(region, "四区")) {
                                 dqcd = 0 + 170 + 1000;
-                                CD = cd.multiply(new BigDecimal(1000)).subtract(new BigDecimal(1000)).longValue();
+                                CD = cd.setScale(2, RoundingMode.HALF_UP).multiply(new BigDecimal(1000)).subtract(new BigDecimal(1000)).longValue();
                             } else if (StringUtils.equals(region, "五区")) {
                                 dqcd = 0 + 1000;
-                                CD = cd.subtract(new BigDecimal(1000)).longValue();
+                                CD = cd.setScale(2, RoundingMode.HALF_UP).subtract(new BigDecimal(1000)).longValue();
                             } else {
                                 dqcd = 0 + 1000;
-                                CD = cd.multiply(new BigDecimal(1000)).subtract(new BigDecimal(1000)).longValue();
+                                CD = cd.setScale(2, RoundingMode.HALF_UP).multiply(new BigDecimal(1000)).subtract(new BigDecimal(1000)).longValue();
                             }
                             dqmscd = 0L;
                             dyms = "外端1.0km未处理";
@@ -377,10 +380,10 @@ public class ShutDownServiceImpl implements ShutDownService {
                         if (StringUtils.equals(machineCategory, "N")) {
                             if (StringUtils.equals(region, "五区")) {
                                 dqcd = 1000;
-                                CD = cd.multiply(new BigDecimal(1000)).subtract(new BigDecimal(1000)).longValue();
+                                CD = cd.setScale(2, RoundingMode.HALF_UP).multiply(new BigDecimal(1000)).subtract(new BigDecimal(1000)).longValue();
                             } else {
                                 dqcd = 1000;
-                                CD = cd.subtract(new BigDecimal(1000)).longValue();
+                                CD = cd.setScale(2, RoundingMode.HALF_UP).subtract(new BigDecimal(1000)).longValue();
                             }
                             DQQK = "abnormity";
                             dqmscd = 0L;
@@ -392,20 +395,20 @@ public class ShutDownServiceImpl implements ShutDownService {
                             CD = cd.multiply(new BigDecimal(1000)).subtract(new BigDecimal(1000)).longValue();
                             DQQK = "abnormity";
                             dqmscd = 0L;
-                            dyms = "外端600m未处理";
+                            dyms = "外端1.0km未处理";
                         }
                     }
                     if (StringUtils.contains(pj, "100")) {
                         if (StringUtils.equals(machineCategory, "D")) {
                             if (StringUtils.equals(region, "四区")) {
                                 dqcd = 0 + 170 + 1000;
-                                CD = cd.multiply(new BigDecimal(1000)).subtract(new BigDecimal(1200)).longValue();
+                                CD = cd.setScale(2, RoundingMode.HALF_UP).multiply(new BigDecimal(1000)).subtract(new BigDecimal(1200)).longValue();
                             } else if (StringUtils.equals(region, "五区")) {
                                 dqcd = 0 + 1000;
-                                CD = cd.subtract(new BigDecimal(1200)).longValue();
+                                CD = cd.setScale(2, RoundingMode.HALF_UP).subtract(new BigDecimal(1200)).longValue();
                             } else {
                                 dqcd = 0 + 1000;
-                                CD = cd.multiply(new BigDecimal(1000)).subtract(new BigDecimal(1200)).longValue();
+                                CD = cd.setScale(2, RoundingMode.HALF_UP).multiply(new BigDecimal(1000)).subtract(new BigDecimal(1200)).longValue();
                             }
                             dqmscd = 0L;
                             dyms = "外端1.2m未处理";
@@ -413,10 +416,10 @@ public class ShutDownServiceImpl implements ShutDownService {
                         if (StringUtils.contains(machineCategory, "N")) {
                             if (StringUtils.equals(region, "五区")) {
                                 dqcd = 1000;
-                                CD = cd.multiply(new BigDecimal(1000)).subtract(new BigDecimal(1200)).longValue();
+                                CD = cd.setScale(2, RoundingMode.HALF_UP).multiply(new BigDecimal(1000)).subtract(new BigDecimal(1200)).longValue();
                             } else {
                                 dqcd = 1000;
-                                CD = cd.subtract(new BigDecimal(1200)).longValue();
+                                CD = cd.setScale(2, RoundingMode.HALF_UP).subtract(new BigDecimal(1200)).longValue();
                             }
                             DQQK = "abnormity";
                             dqmscd = 0L;
@@ -427,12 +430,12 @@ public class ShutDownServiceImpl implements ShutDownService {
                         if (StringUtils.equals(machineCategory, "D")) {
                             if (StringUtils.equals(region, "四区")) {
                                 dqcd = 0 + 170 + 1000;
-                                CD = cd.multiply(new BigDecimal(1000)).subtract(new BigDecimal(1000)).longValue();
+                                CD = cd.setScale(2, RoundingMode.HALF_UP).multiply(new BigDecimal(1000)).subtract(new BigDecimal(1000)).longValue();
                                 dqmscd = 0L;
                                 dyms = "外端1.0km未处理";
                             } else {
                                 dqcd = 0 + 1000;
-                                CD = cd.multiply(new BigDecimal(1000)).subtract(new BigDecimal(1000)).longValue();
+                                CD = cd.setScale(2, RoundingMode.HALF_UP).multiply(new BigDecimal(1000)).subtract(new BigDecimal(1000)).longValue();
                                 dqmscd = 0L;
                                 dyms = "外端1.0km未处理";
                             }
@@ -475,7 +478,7 @@ public class ShutDownServiceImpl implements ShutDownService {
                     if (StringUtils.equals(machineCategory, "N")) {
                         if (StringUtils.equals(region, "五区")) {
                             dqcd = 1000;
-                            CD = cd.multiply(new BigDecimal(1000)).subtract(new BigDecimal(1000)).longValue();
+                            CD = cd.setScale(2, RoundingMode.HALF_UP).multiply(new BigDecimal(1000)).subtract(new BigDecimal(1000)).longValue();
                         } else {
                             dqcd = 600;
                             CD = new BigDecimal(abnormalShutdownDto.getHlcd()).subtract(new BigDecimal(600)).setScale(2, RoundingMode.HALF_UP).longValue();
@@ -487,7 +490,7 @@ public class ShutDownServiceImpl implements ShutDownService {
                     if (StringUtils.equals(machineCategory, "Y")) {
                         long pyccd = new BigDecimal(abnormalShutdownDto.getPyccd()).setScale(2, RoundingMode.HALF_UP).longValue();
                         dqcd = 0 + 600 + pyccd;
-                        CD = cd.multiply(new BigDecimal(1000)).subtract(new BigDecimal(1000)).longValue();
+                        CD = cd.setScale(2, RoundingMode.HALF_UP).multiply(new BigDecimal(1000)).subtract(new BigDecimal(1000)).longValue();
                         DQQK = "abnormity";
                         dqmscd = 0L;
                         dyms = "外端600m未处理";
@@ -524,6 +527,8 @@ public class ShutDownServiceImpl implements ShutDownService {
                     if (count.size() != 0) {
                         response.setStatus(true);
                         response.setPrintFlag(true);
+                        response.setDyms(dyms);
+                        response.setXptm(xptm);
                         return response;
                     } else {
                         response.setStatus(true);
@@ -535,13 +540,17 @@ public class ShutDownServiceImpl implements ShutDownService {
 
         }
 
-        response.setStatus(true);
-        response.setPrintFlag(true);
-        response.setXptm("27W23F9676XXK02");
-        response.setDyms("外端1.0km未处理");
         return response;
     }
 
+    /**
+     * 获取序号
+     * 如果没有则返回01
+     * 如果有就在此基础上+1
+     *
+     * @param sxbh 筛选编号
+     * @return 序号
+     */
     private String getxh(String sxbh) {
         String xh = scSx2Mapper.getxh(sxbh);
         if (StringUtils.isNotEmpty(xh)) {
