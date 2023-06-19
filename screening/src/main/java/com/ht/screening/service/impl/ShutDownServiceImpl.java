@@ -356,7 +356,7 @@ public class ShutDownServiceImpl implements ShutDownService {
                 xh = getxh(sxbh);
                 String defaultPh = ph + "00";
                 xptm = fiberInfoUploadService.getxptm(sxbh, defaultPh, ph);
-                ewz = Long.parseLong(fiberInfoUploadService.getTotalLen(ph)) * 1000;
+                ewz = Double.parseDouble(fiberInfoUploadService.getTotalLen(ph)) * 1000;
                 DQQK = "abnormity";
                 if (StringUtils.contains(pj, "61") || StringUtils.contains(pj, "50") || StringUtils.contains(pj, "100")) {
                     if (StringUtils.equals(CommonConstant.SixtyOneKilometreDish, pj)) {
@@ -535,8 +535,10 @@ public class ShutDownServiceImpl implements ShutDownService {
 
         }
 
-        response.setStatus(false);
-        response.setPrintFlag(false);
+        response.setStatus(true);
+        response.setPrintFlag(true);
+        response.setXptm("27W23F9676XXK02");
+        response.setDyms("外端1.0km未处理");
         return response;
     }
 
