@@ -3,6 +3,7 @@ package com.ht.screening.controller.device;
 import com.ht.base.domain.AjaxResult;
 import com.ht.screening.entity.DeviceInfo;
 import com.ht.screening.request.DeviceStatusRequest;
+import com.ht.screening.service.cacheService.DeviceCacheService;
 import com.ht.screening.service.impl.DeviceInfoServiceImpl;
 import com.ht.screening.vo.DeviceInfoVo;
 import lombok.extern.slf4j.Slf4j;
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+
+import static com.ht.base.utils.Ini4jUtils.getPropertiesFromIni;
 
 /**
  * 设备信息
@@ -29,17 +32,12 @@ public class DeviceController {
     @PostMapping("/getDeviceStatus")
     public AjaxResult getDeviceStatus(@RequestBody DeviceStatusRequest request) {
         try {
+            String sbbh = getPropertiesFromIni().getText837();
             DeviceInfoVo deviceInfoVo = deviceInfoService.getDeviceInfo(request.getFiberDiskNum());
             return AjaxResult.success(deviceInfoVo);
         } catch (Exception e) {
             return AjaxResult.error("设备连接异常");
         }
-    }
-
-    @GetMapping("/getDeviceInfo")
-    public AjaxResult getDeviceInfo(){
-        DeviceInfo res = deviceInfoService.detailForDevice();
-        return AjaxResult.success(res);
     }
 
 }

@@ -23,19 +23,34 @@ spring:
       write-dates-as-timestamps: false
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
+  redis:
+    # 地址
+    host: 10.6.61.75
+    # 端口，默认为6379
+    port: 6379
+    # 数据库索引
+    database: 0
+    # 密码
+    password:
+    # 连接超时时间
+    timeout: 10s
+    lettuce:
+      pool:
+        # 连接池中的最小空闲连接
+        min-idle: 0
+        # 连接池中的最大空闲连接
+        max-idle: 8
+        # 连接池的最大数据库连接数
+        max-active: 8
+        # #连接池最大阻塞等待时间（使用负值表示没有限制）
+        max-wait: -1ms
+cache-expire:
+  ttl:
+    #秒
+    deviceInfoList: -1
 mybatis-plus:
   mapper-locations: classpath:/mapper/*.xml
   type-aliases-package: com.ht.shaixuan.entity
-cache-config:
-  specs:
-    deviceInfo:
-      # 过期时间
-      expire-time: 2678400
-      # 缓存最大数量
-      max-size: 200
-    admin:
-      expire-time: 20
-      max-size: 200
 # MyBatis SQL打印
 logging:
   level:

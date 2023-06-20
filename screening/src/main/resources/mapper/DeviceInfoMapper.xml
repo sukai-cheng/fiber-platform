@@ -123,4 +123,8 @@
       from device_info
       where device_name = #{deviceName,jdbcType=VARCHAR}
   </select>
+
+  <select id="selectAll" resultMap="BaseResultMap">
+    select * from device_info;
+  </select>
 </mapper>

@@ -25,4 +25,6 @@ public interface DeviceInfoMapper  extends BaseMapper<DeviceInfo> {
     int batchInsert(@Param("list") List<DeviceInfo> list);
 
     DeviceInfo selectByDeviceName(@Param("deviceName") String deviceName);
+
+    List<DeviceInfo> selectAll();
 }
