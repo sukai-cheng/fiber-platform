@@ -439,15 +439,6 @@ public class DateUtils {
         return String.valueOf(min);
     }
 
-    public static void main(String[] args) throws ParseException {
-        String startTime = "2023-06-06 10:05:00";
-        String endTime = "2023-06-07 10:05:00";
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        Date d1 = df.parse(startTime);
-        Date d2 = df.parse(endTime);
-        System.out.println(DateDiff(d2, d1));
-    }
-
     public static final String getTime() {
         return dateTimeNow(DATE_TIME_PATTERN);
     }

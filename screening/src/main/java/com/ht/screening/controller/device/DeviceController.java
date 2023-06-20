@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 
-import static com.ht.base.utils.Ini4jUtils.getPropertiesFromIni;
 
 /**
  * 设备信息

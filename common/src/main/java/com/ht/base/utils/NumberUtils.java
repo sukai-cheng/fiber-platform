@@ -48,8 +48,5 @@ public class NumberUtils {
         }
     }
 
-    public static void main(String[] args) {
-        System.out.println(addNum2("00"));
-    }
 
 }
