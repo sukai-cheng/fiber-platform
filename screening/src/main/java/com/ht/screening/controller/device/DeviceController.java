@@ -32,7 +32,6 @@ public class DeviceController {
     @PostMapping("/getDeviceStatus")
     public AjaxResult getDeviceStatus(@RequestBody DeviceStatusRequest request) {
         try {
-            String sbbh = getPropertiesFromIni().getText837();
             DeviceInfoVo deviceInfoVo = deviceInfoService.getDeviceInfo(request.getFiberDiskNum());
             return AjaxResult.success(deviceInfoVo);
         } catch (Exception e) {
