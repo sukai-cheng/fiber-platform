@@ -134,4 +134,8 @@
                left join t_Role tr on tar.fRoleId = tr.fId
       where tr.fId = 90 and tac.fAccount = #{userName,jdbcType=VARCHAR} and tac.fPassword = #{password,jdbcType=VARCHAR};
   </select>
+
+  <select id="findByAccountId" resultType="java.lang.String">
+    select fName from t_Account where fAccount = #{accountId,jdbcType=VARCHAR}
+  </select>
 </mapper>

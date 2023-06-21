@@ -24,9 +24,19 @@ public class AbnormalShutdownDto implements Serializable {
     String sxbh;
 
     /**
-     * 已筛长度
+     * 筛选长度
      */
     Double sxcd;
+
+    /**
+     * 已筛长度 retractLength
+     */
+    Double yscd;
+
+    /**
+     * 剩余长度 residualLen
+     */
+    Double sycd;
 
     /**
      * 初始化时间

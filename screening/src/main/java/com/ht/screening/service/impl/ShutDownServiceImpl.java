@@ -49,6 +49,8 @@ public class ShutDownServiceImpl implements ShutDownService {
         normalShutdownDto.setPh(request.getFilterInfo().getPh());
         normalShutdownDto.setSxbh(request.getFilterInfo().getSxbh());
         normalShutdownDto.setSxcd(request.getDeviceDataDto().getSxcd());
+        normalShutdownDto.setYscd(request.getDeviceDataDto().getYscd());
+        normalShutdownDto.setSycd(request.getDeviceDataDto().getSycd());
         normalShutdownDto.setInitialTime(request.getLoginDataDto().getStartDate());
         normalShutdownDto.setDqcd(request.getFilterInfo().getDqcd());
         normalShutdownDto.setAccoutId(request.getLoginDataDto().getAccountId());
@@ -66,6 +68,8 @@ public class ShutDownServiceImpl implements ShutDownService {
         abnormalShutdownDto.setPh(request.getFilterInfo().getPh());
         abnormalShutdownDto.setSxbh(request.getFilterInfo().getSxbh());
         abnormalShutdownDto.setSxcd(request.getDeviceDataDto().getSxcd());
+        abnormalShutdownDto.setYscd(request.getDeviceDataDto().getYscd());
+        abnormalShutdownDto.setSycd(request.getDeviceDataDto().getSycd());
         abnormalShutdownDto.setInitialTime(request.getLoginDataDto().getStartDate());
         abnormalShutdownDto.setDqcd(request.getFilterInfo().getDqcd());
         abnormalShutdownDto.setAccoutId(request.getLoginDataDto().getAccountId());
@@ -88,7 +92,9 @@ public class ShutDownServiceImpl implements ShutDownService {
         initNormalShutdownRequest(normalShutdownDto, normalShutdownRequest);
         NormalShutDownResponse response = new NormalShutDownResponse();
         String ph = normalShutdownDto.getPh();
-        Double cd = normalShutdownDto.getSxcd();
+        String pyccd = normalShutdownRequest.getDeviceDataDto().getPyccd();
+        Double yscd = normalShutdownDto.getYscd();
+
         double ewz;
         double CD;
         String DQQK;
@@ -103,15 +109,15 @@ public class ShutDownServiceImpl implements ShutDownService {
         String xh;
         Boolean SFFQ = fiberInfoUploadService.uploadDataCheckFQ(ph);
         Boolean SFGL = fiberInfoUploadService.uploadDataCheckGL(ph);
-        if (SFFQ || (cd < 2.05)) {
+        if (SFFQ || (yscd < 2.05)) {
             List<ScSx2> recordCount = scSx2Mapper.findByFilterCode(ph);
             if (recordCount.size() >= 1) {
                 maxxh = scSx2Mapper.getMaxId(sxbh);
                 if (!SFFQ) {
-                    if (!fiberInfoUploadService.updateDetailDQCD(sxbh, String.valueOf(maxxh), cd.longValue() * 1000, normalShutdownDto.getInitialTime())) {
+                    if (!fiberInfoUploadService.updateDetailDQCD(sxbh, String.valueOf(maxxh), yscd.longValue() * 1000, normalShutdownDto.getInitialTime())) {
                         log.info("update DQCD error");
                     } else {
-                        if (!fiberInfoUploadService.updateDetailQGCD(sxbh, String.valueOf(maxxh), cd.longValue() * 1000, normalShutdownDto.getInitialTime())) {
+                        if (!fiberInfoUploadService.updateDetailQGCD(sxbh, String.valueOf(maxxh), yscd.longValue() * 1000, normalShutdownDto.getInitialTime())) {
                             log.info("update qgcd error");
                         }
                     }
@@ -124,7 +130,7 @@ public class ShutDownServiceImpl implements ShutDownService {
                 DQQK = "abnormity";
                 dqcd = 0L;
                 qxlb = "";
-                qgcd = cd * 1000;
+                qgcd = yscd * 1000;
 
                 FilterDetailUploadDto filterDetailUploadDto = new FilterDetailUploadDto();
                 filterDetailUploadDto.setSxbh(sxbh);
@@ -161,7 +167,7 @@ public class ShutDownServiceImpl implements ShutDownService {
             xptm = fiberInfoUploadService.getxptm(sxbh, defaultPh, ph);
             ewz = Double.valueOf(fiberInfoUploadService.getTotalLen(ph)) * 1000;
             // 通过获取设备状态拿到的
-            CD = BigDecimal.valueOf(normalShutdownDto.getSxcd()).setScale(2, RoundingMode.HALF_UP).multiply(new BigDecimal(1000)).longValue();
+            CD = BigDecimal.valueOf(normalShutdownDto.getYscd()).setScale(2, RoundingMode.HALF_UP).multiply(new BigDecimal(1000)).longValue();
             DQQK = "";
             dqcd = 0L;
             qxlb = "";
@@ -189,6 +195,7 @@ public class ShutDownServiceImpl implements ShutDownService {
             filterDetailUploadDto.setYl(normalShutdownDto.getYl());
             filterDetailUploadDto.setPj(normalShutdownDto.getPj());
             filterDetailUploadDto.setXj(normalShutdownDto.getXj());
+            filterDetailUploadDto.setPyccd(Double.valueOf(pyccd));
             if (filterUploadService.SXdetail(filterDetailUploadDto)) {
                 response.setStatus(true);
                 response.setXptm(xptm);
@@ -224,7 +231,7 @@ public class ShutDownServiceImpl implements ShutDownService {
         long qgcd;
         String sxbh = abnormalShutdownDto.getSxbh();
         String xptm;
-        BigDecimal cd = BigDecimal.valueOf(abnormalShutdownDto.getSxcd()).setScale(2, RoundingMode.HALF_UP);
+        BigDecimal cd = BigDecimal.valueOf(abnormalShutdownDto.getYscd()).setScale(2, RoundingMode.HALF_UP);
         Integer maxxh;
         String xh;
         Boolean SFFQ = fiberInfoUploadService.uploadDataCheckFQ(ph);

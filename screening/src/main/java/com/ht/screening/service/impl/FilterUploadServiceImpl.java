@@ -11,6 +11,7 @@ import com.ht.screening.entity.SxLog;
 import com.ht.screening.mapper.ScSx2Mapper;
 import com.ht.screening.mapper.ScSxMapper;
 import com.ht.screening.mapper.SxLogMapper;
+import com.ht.screening.request.NormalShutdownRequest;
 import com.ht.screening.service.FilterUploadService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Resource;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Date;
 import java.util.List;
 
@@ -95,16 +97,18 @@ public class FilterUploadServiceImpl implements FilterUploadService {
             }
             List<ScSx2> res = scSx2Mapper.selectBySxbhAndXh(strsxbh);
             if (res.size() > 0) {
-                SxLog sxLog = new SxLog();
-                sxLog.setLx(3);
-                sxLog.setSxbh(strsxbh);
-                sxLog.setXptm(filterDetailUploadDto.getXptm());
-                sxLog.setDpph(filterDetailUploadDto.getPh());
-                sxLog.setSxjt(getPropertiesFromIni().getText837());
-                sxLog.setDates(new Date());
-                sxLogMapper.insert(sxLog);
-                log.info("小盘2生成错误");
-                return false;
+                if(!StringUtils.equals(xptm.substring(0, 13), ysph)){
+                    SxLog sxLog = new SxLog();
+                    sxLog.setLx(3);
+                    sxLog.setSxbh(strsxbh);
+                    sxLog.setXptm(filterDetailUploadDto.getXptm());
+                    sxLog.setDpph(filterDetailUploadDto.getPh());
+                    sxLog.setSxjt(getPropertiesFromIni().getText837());
+                    sxLog.setDates(new Date());
+                    sxLogMapper.insert(sxLog);
+                    log.info("小盘2生成错误");
+                    return false;
+                }
             }
 
             SxLog sxLog = new SxLog();
@@ -132,9 +136,10 @@ public class FilterUploadServiceImpl implements FilterUploadService {
                 scSx2.setBlyy(filterDetailUploadDto.getBlyy());
                 scSx2.setGlqk(filterDetailUploadDto.getGlqk());
                 scSx2.setCrdate(new Date());
+                scSx2.setColor(filterDetailUploadDto.getColor());
                 scSx2.setStime(filterDetailUploadDto.getStartDate());
                 scSx2.setEtime(new Date());
-                scSx2.setSyl(filterDetailUploadDto.getYl());
+                scSx2.setSyl(filterDetailUploadDto.getYl()+"%");
                 scSx2.setPj(filterDetailUploadDto.getPj());
                 scSx2.setXj(filterDetailUploadDto.getXj());
                 scSx2.setIsfg(0);
@@ -144,7 +149,7 @@ public class FilterUploadServiceImpl implements FilterUploadService {
                 scSx2.setDqcd(BigDecimal.valueOf(yccs));
                 scSx2.setSxms(2);
                 scSx2.setLastupdatetime(new Date());
-                scSx2.setLastupdateaccountid(filterDetailUploadDto.getUsername());
+                scSx2.setLastupdateaccountid(filterDetailUploadDto.getAccoutId());
 
                 scSx2Mapper.insert(scSx2);
             }
@@ -156,6 +161,7 @@ public class FilterUploadServiceImpl implements FilterUploadService {
                 scSx2.setEwz(BigDecimal.valueOf(filterDetailUploadDto.getEwz()));
                 scSx2.setCd(BigDecimal.valueOf(filterDetailUploadDto.getCd()));
                 scSx2.setDqqk(filterDetailUploadDto.getDqqk());
+                scSx2.setBpcd(BigDecimal.valueOf(filterDetailUploadDto.getPyccd()).setScale(2, RoundingMode.HALF_UP).doubleValue());
                 scSx2.setDqcd(BigDecimal.valueOf(filterDetailUploadDto.getDqcd()));
                 scSx2.setQxlb(filterDetailUploadDto.getQxlb());
                 scSx2.setQgcd(BigDecimal.valueOf(filterDetailUploadDto.getQgcd()));
@@ -166,17 +172,30 @@ public class FilterUploadServiceImpl implements FilterUploadService {
                 scSx2.setCrdate(new Date());
                 scSx2.setStime(filterDetailUploadDto.getStartDate());
                 scSx2.setEtime(new Date());
-                scSx2.setSyl(filterDetailUploadDto.getYl());
+                scSx2.setSyl(filterDetailUploadDto.getYl()+"%");
                 scSx2.setPj(filterDetailUploadDto.getPj());
                 scSx2.setXj(filterDetailUploadDto.getXj());
                 scSx2.setIsfg(0);
                 scSx2.setDqmscd(BigDecimal.ZERO);
-                scSx2.setSbbhd(getPropertiesFromIni().getText836());
+                scSx2.setSbbhd(getPropertiesFromIni().getText837());
+                scSx2.setIssh(1);
                 scSx2.setIsdy(2);
+                scSx2.setIstest2200(1);
+                scSx2.setIstest2400(1);
                 scSx2.setDqcd(BigDecimal.valueOf(yccs));
                 scSx2.setSxms(null);
+                scSx2.setIspt(0);
+                scSx2.setIsbigtray(1);
+                scSx2.setColor(filterDetailUploadDto.getColor());
+                scSx2.setSxr(filterDetailUploadDto.getUsername());
+                scSx2.setShLabour(filterDetailUploadDto.getAccoutId());
+                scSx2.setJdwz(null);
+                scSx2.setLsbz(null);
+                scSx2.setZzpcd(null);
+                scSx2.setDqcs(0);
                 scSx2.setLastupdatetime(new Date());
-                scSx2.setLastupdateaccountid(filterDetailUploadDto.getUsername());
+                scSx2.setLastupdateaccountid(filterDetailUploadDto.getAccoutId());
+
 
                 scSx2Mapper.insert(scSx2);
             }

@@ -2,7 +2,6 @@ package com.ht.screening.controller.filter;
 
 import com.ht.base.domain.AjaxResult;
 import com.ht.screening.entity.ScLsYcdj;
-import com.ht.screening.mapper.ScSxMapper;
 import com.ht.screening.request.ElevationDifferenceRequest;
 import com.ht.screening.request.FilterInfoRequest;
 import com.ht.screening.service.impl.ElevationDifferenceServiceImpl;

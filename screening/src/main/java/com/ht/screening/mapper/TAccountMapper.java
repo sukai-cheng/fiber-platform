@@ -28,5 +28,7 @@ public interface TAccountMapper extends BaseMapper<TAccount> {
 
     EmployeeDto getUserInfo(@Param("userName") String fAccount, @Param("password") String password);
 
+    String findByAccountId(@Param("accountId") String accountId);
+
 
 }

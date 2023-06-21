@@ -79,6 +79,9 @@ public class FilterDetailUploadDto implements Serializable {
      */
     private String ph;
 
+    /**
+     * 员工名字
+     */
     private String username;
 
     /**
@@ -111,4 +114,8 @@ public class FilterDetailUploadDto implements Serializable {
      */
     private String xj;
 
+    /**
+     * 标准盘长
+     */
+    private Double pyccd;
 }

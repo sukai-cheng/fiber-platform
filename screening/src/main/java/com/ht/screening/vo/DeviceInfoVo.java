@@ -10,17 +10,17 @@ import java.io.Serializable;
 @Data
 public class DeviceInfoVo implements Serializable {
     //实际速度 sjsd
-    private float actualVelocity;
+    private Double actualVelocity;
     //放线长度 fxcd
-    private float payOffLength;
+    private Double payOffLength;
     //收线长度 sxcd
-    private float retractLength;
+    private Double retractLength;
     // 剩余长度
-    private float residualLen;
+    private Double residualLen;
     //收线长度设定 sxcdsd
-    private float assignRetractLength;
+    private Double assignRetractLength;
     //实际张力 sjzl
-    private float actualTension;
+    private Double actualTension;
     //正常运行 zcyx
     private int normalRun;
     //异常停止 yctz

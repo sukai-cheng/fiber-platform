@@ -61,6 +61,9 @@ public class ScSxServiceImpl extends ServiceImpl<ScSxMapper, ScSx> implements Sc
     @Resource
     PaperInfoService paperInfoService;
 
+    @Resource
+    private TAccountMapper tAccountMapper;
+
     @Override
     public AjaxResult getMainPlateInfo(FilterInfoRequest request) {
         String mainDiskCode = request.getFiberDiskNumber();
@@ -162,7 +165,7 @@ public class ScSxServiceImpl extends ServiceImpl<ScSxMapper, ScSx> implements Sc
             filterUploadDto.setSxsd(2000);
             filterUploadDto.setSfqx("0");
             filterUploadDto.setSfqx("0");
-            filterUploadDto.setZdr("");
+            filterUploadDto.setZdr(tAccountMapper.findByAccountId(accountId));
             filterUploadDto.setZdrq(new Date());
             filterUploadDto.setChecker(null);
             filterUploadDto.setShrq(null);

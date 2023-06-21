@@ -28,7 +28,7 @@ public class PaperInfoServiceImpl
         String strFirstLike = CommonConstant.SX + dateStr.substring(2, 4) + dateStr.substring(5, 7) + dateStr.substring(8, 10);
         String paperNo = paperInfoMapper.getPaperNo(strFirstLike);
         if (StringUtils.isNotEmpty(paperNo)) {
-            NumberUtils.addNum(paperNo);
+           paperNo =  NumberUtils.addNum(paperNo);
         }
         return paperNo;
     }

@@ -12,7 +12,6 @@ import com.ht.screening.service.DeviceInfoService;
 import com.ht.screening.service.cacheService.DeviceCacheService;
 import com.ht.screening.vo.DeviceInfoVo;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -151,16 +150,16 @@ public class DeviceInfoServiceImpl implements DeviceInfoService {
         }
 
         DeviceInfoVo deviceInfoVo = new DeviceInfoVo();
-        deviceInfoVo.setActualVelocity(deviceInfo.getActualVelocity());
-        deviceInfoVo.setPayOffLength(deviceInfo.getPayOffLength());
-        deviceInfoVo.setRetractLength(deviceInfo.getRetractLength());
-        deviceInfoVo.setAssignRetractLength(deviceInfo.getAssignRetractLength());
-        deviceInfoVo.setActualTension(deviceInfo.getActualTension());
+        deviceInfoVo.setActualVelocity((double) deviceInfo.getActualVelocity());
+        deviceInfoVo.setPayOffLength((double) deviceInfo.getPayOffLength());
+        deviceInfoVo.setRetractLength((double) deviceInfo.getRetractLength());
+        deviceInfoVo.setAssignRetractLength((double) deviceInfo.getAssignRetractLength());
+        deviceInfoVo.setActualTension((double) deviceInfo.getActualTension());
         deviceInfoVo.setNormalRun(deviceInfo.getNormalRun());
         deviceInfoVo.setExceptionStop(deviceInfo.getExceptionStop());
         DrawBenchDto drawBenchInfo = scLs1Mapper.getDrawBenchInfo(fiberDiskNum);
         Double cutLen = drawBenchInfo.getCutLen();// 切割长度
-        deviceInfoVo.setResidualLen((float) (cutLen - deviceInfo.getRetractLength()));
+        deviceInfoVo.setResidualLen(cutLen - deviceInfo.getRetractLength());
 
         return deviceInfoVo;
     }

@@ -23,6 +23,9 @@ public class FilterUploadDto implements Serializable {
      */
     private String ysph;
 
+    private String color;
+    private String pj;
+    private String xj;
     /**
      * 生产班组
      */

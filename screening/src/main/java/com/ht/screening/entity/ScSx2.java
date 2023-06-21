@@ -328,4 +328,5 @@ public class ScSx2 {
     @TableField(value = "istestPMD")
     private Integer istestpmd;
 
+
 }
