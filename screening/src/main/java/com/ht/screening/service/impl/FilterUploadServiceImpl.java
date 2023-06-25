@@ -161,7 +161,7 @@ public class FilterUploadServiceImpl implements FilterUploadService {
                 scSx2.setEwz(BigDecimal.valueOf(filterDetailUploadDto.getEwz()));
                 scSx2.setCd(BigDecimal.valueOf(filterDetailUploadDto.getCd()));
                 scSx2.setDqqk(filterDetailUploadDto.getDqqk());
-                scSx2.setBpcd(BigDecimal.valueOf(filterDetailUploadDto.getPyccd()).setScale(2, RoundingMode.HALF_UP).doubleValue());
+                scSx2.setBpcd(BigDecimal.valueOf(filterDetailUploadDto.getPyccd()).multiply(new BigDecimal(1000)).setScale(2, RoundingMode.HALF_UP).doubleValue());
                 scSx2.setDqcd(BigDecimal.valueOf(filterDetailUploadDto.getDqcd()));
                 scSx2.setQxlb(filterDetailUploadDto.getQxlb());
                 scSx2.setQgcd(BigDecimal.valueOf(filterDetailUploadDto.getQgcd()));
