@@ -525,6 +525,7 @@ public class ShutDownServiceImpl implements ShutDownService {
                 filterDetailUploadDto.setUsername(abnormalShutdownDto.getUsername());
                 filterDetailUploadDto.setGlqk(abnormalShutdownDto.getGlqk());
                 filterDetailUploadDto.setColor(abnormalShutdownDto.getColor());
+                filterDetailUploadDto.setPyccd(Double.valueOf(abnormalShutdownDto.getPyccd()));
                 filterDetailUploadDto.setStartDate(abnormalShutdownDto.getStartDate());
                 filterDetailUploadDto.setYl(abnormalShutdownDto.getYl());
                 filterDetailUploadDto.setPj(abnormalShutdownDto.getPj());

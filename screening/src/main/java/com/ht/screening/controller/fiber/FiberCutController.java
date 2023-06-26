@@ -36,15 +36,9 @@ public class FiberCutController {
         Boolean ischecked = checkService.checkDpcl(request.getFiberDiskNum());
         if (ischecked == false) {
             return AjaxResult.error("大盘检测未审核, 不能够筛选");
-        }
-        Boolean isExisted = procstockService.checkExists(request.getFiberDiskNum());
-        Boolean isFinished = procstockService.checkFinished(request.getFiberDiskNum());
-        if (isExisted && !isFinished) {
-            return fiberDrawingDefectService.fiberCutDetail(request.getFiberDiskNum());
         } else {
-            return AjaxResult.error("您输入的盘号没有拉丝数据, 或该盘已经审核");
+            return fiberDrawingDefectService.fiberCutDetail(request.getFiberDiskNum());
         }
-
 
     }
 
