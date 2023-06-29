@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 
-import java.io.IOException;
-
 import static com.ht.base.utils.Ini4jUtils.getPropertiesFromIni;
 
 /**
@@ -34,9 +32,9 @@ public class UserLoginController {
     public AjaxResult userLogin(@RequestBody LoginVo loginInfo) {
         return accountService.userLogin(loginInfo);
     }
-//2015090124
+
     @GetMapping("/getProperties")
-    public AjaxResult getProperties() throws IOException, NoSuchFieldException, IllegalAccessException {
+    public AjaxResult getProperties() {
         Ini4jFileVo res = getPropertiesFromIni();
         return AjaxResult.success(res);
     }

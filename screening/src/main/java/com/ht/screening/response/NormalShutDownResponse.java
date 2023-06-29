@@ -15,4 +15,8 @@ public class NormalShutDownResponse implements Serializable {
     String xptm;
     Boolean status;
     Boolean printFlag;
+    /**
+     * 打印机IP地址
+     */
+    String computerIP;
 }

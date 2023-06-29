@@ -29,4 +29,9 @@ public class AbnormalShutDownResponse implements Serializable {
      * 是否打印(1 - 打印   0 - 不打印)
      */
     Boolean printFlag;
+
+    /**
+     * 打印机IP地址
+     */
+    String computerIP;
 }

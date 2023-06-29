@@ -1,6 +1,7 @@
 package com.ht.screening.service.impl;
 
 
+import cn.hutool.extra.servlet.ServletUtil;
 import com.ht.base.constant.CommonConstant;
 import com.ht.base.utils.NumberUtils;
 import com.ht.base.utils.StringUtils;
@@ -18,6 +19,8 @@ import com.ht.screening.service.ShutDownService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.annotation.Resource;
 import java.math.BigDecimal;
@@ -44,6 +47,8 @@ public class ShutDownServiceImpl implements ShutDownService {
 
     @Resource
     private ScSxMapper scSxMapper;
+
+    private String computerIp;
 
     private void initNormalShutdownRequest(NormalShutdownDto normalShutdownDto, NormalShutdownRequest request) {
         normalShutdownDto.setPh(request.getFilterInfo().getPh());
@@ -200,6 +205,8 @@ public class ShutDownServiceImpl implements ShutDownService {
                 response.setStatus(true);
                 response.setXptm(xptm);
                 response.setPrintFlag(true);
+                ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+                response.setComputerIP(ServletUtil.getClientIP(requestAttributes.getRequest()));
                 return response;
             }
         }
@@ -537,6 +544,8 @@ public class ShutDownServiceImpl implements ShutDownService {
                         response.setPrintFlag(true);
                         response.setDyms(dyms);
                         response.setXptm(xptm);
+                        ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+                        response.setComputerIP(ServletUtil.getClientIP(requestAttributes.getRequest()));
                         return response;
                     } else {
                         response.setStatus(true);
