@@ -58,4 +58,5 @@ mybatis-plus:
 logging:
   level:
     com.ht.screening.mapper: debug
-log.home: /Users/chengsukai/Desktop/workspace/work/ht/end/fiber-platform/screening/src/main/java/com/ht/screening/log
+#log.home: /Users/chengsukai/Desktop/workspace/work/ht/end/fiber-platform/screening/src/main/java/com/ht/screening/log
+#log.home: D:/workspace/logs
