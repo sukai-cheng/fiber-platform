@@ -180,8 +180,8 @@ public class FilterUploadServiceImpl implements FilterUploadService {
                 scSx2.setSbbhd(getPropertiesFromIni().getText837());
                 scSx2.setIssh(1);
                 scSx2.setIsdy(2);
-                scSx2.setIstest2200(1);
-                scSx2.setIstest2400(1);
+                scSx2.setIstest2200(0);
+                scSx2.setIstest2400(0);
                 scSx2.setDqcd(BigDecimal.valueOf(yccs));
                 scSx2.setSxms(null);
                 scSx2.setIspt(0);
@@ -190,7 +190,7 @@ public class FilterUploadServiceImpl implements FilterUploadService {
                 scSx2.setSxr(filterDetailUploadDto.getUsername());
                 scSx2.setShLabour(filterDetailUploadDto.getAccoutId());
                 scSx2.setJdwz(null);
-                scSx2.setLsbz(null);
+                scSx2.setLsbz(filterDetailUploadDto.getBz());
                 scSx2.setZzpcd(null);
                 scSx2.setDqcs(0);
                 scSx2.setLastupdatetime(new Date());
