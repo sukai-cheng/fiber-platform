@@ -146,11 +146,10 @@ public class FilterUploadServiceImpl implements FilterUploadService {
                 scSx2.setDqmscd(BigDecimal.ZERO);
                 scSx2.setSbbhd(getPropertiesFromIni().getText836());
                 scSx2.setIsdy(2);
-                scSx2.setDqcd(BigDecimal.valueOf(yccs));
+                scSx2.setDqcs(0);
                 scSx2.setSxms(2);
                 scSx2.setLastupdatetime(new Date());
                 scSx2.setLastupdateaccountid(filterDetailUploadDto.getAccoutId());
-
                 scSx2Mapper.insert(scSx2);
             }
             if (StringUtils.equals(getPropertiesFromIni().getText838(), "D") || StringUtils.equals(getPropertiesFromIni().getText838(), "Y")) {
@@ -178,11 +177,11 @@ public class FilterUploadServiceImpl implements FilterUploadService {
                 scSx2.setIsfg(0);
                 scSx2.setDqmscd(BigDecimal.ZERO);
                 scSx2.setSbbhd(getPropertiesFromIni().getText837());
-                scSx2.setIssh(1);
+                scSx2.setIssh(0);
                 scSx2.setIsdy(2);
                 scSx2.setIstest2200(0);
                 scSx2.setIstest2400(0);
-                scSx2.setDqcd(BigDecimal.valueOf(yccs));
+                scSx2.setDqcs(0);
                 scSx2.setSxms(null);
                 scSx2.setIspt(0);
                 scSx2.setIsbigtray(1);
@@ -195,8 +194,6 @@ public class FilterUploadServiceImpl implements FilterUploadService {
                 scSx2.setDqcs(0);
                 scSx2.setLastupdatetime(new Date());
                 scSx2.setLastupdateaccountid(filterDetailUploadDto.getAccoutId());
-
-
                 scSx2Mapper.insert(scSx2);
             }
             return true;
