@@ -10,6 +10,7 @@ import com.ht.screening.entity.ScSx;
 import com.ht.screening.entity.ScSx2;
 import com.ht.screening.mapper.*;
 import com.ht.screening.request.FilterInfoRequest;
+import com.ht.screening.response.CalculateQGCDResponse;
 import com.ht.screening.service.PaperInfoService;
 import com.ht.screening.service.ScSxService;
 import com.ht.screening.vo.FiberFilterMainDiskVo;
@@ -122,8 +123,8 @@ public class ScSxServiceImpl extends ServiceImpl<ScSxMapper, ScSx> implements Sc
         Double mainDiskLen = Double.parseDouble(drawBenchInfo.getMainDiskLen());
         // rstqx
         List<FiberDrawingDefectInfo> fiberDrawingDefectInfos = fiberCutMapper.fiberCutDetail(mainDiskCode);
-
-        BigDecimal filterLen = BigDecimal.valueOf(calculateQGCD(totalLen, cutLen, mainDiskLen, fiberDrawingDefectInfos)).setScale(2, RoundingMode.HALF_UP);
+        CalculateQGCDResponse response = calculateQGCD(totalLen, cutLen, mainDiskLen, fiberDrawingDefectInfos);
+        BigDecimal filterLen = BigDecimal.valueOf(response.getValue()).setScale(2, RoundingMode.HALF_UP);
 
 
         char c = mainDiskCode.charAt(mainDiskCode.length() - 1);
@@ -191,8 +192,9 @@ public class ScSxServiceImpl extends ServiceImpl<ScSxMapper, ScSx> implements Sc
      * @param fiberDrawingDefectInfos
      * @return
      */
-    private Double calculateQGCD(Double totalLen, Double cutLen, Double mainDiskLen, List<FiberDrawingDefectInfo> fiberDrawingDefectInfos) {
+    private CalculateQGCDResponse calculateQGCD(Double totalLen, Double cutLen, Double mainDiskLen, List<FiberDrawingDefectInfo> fiberDrawingDefectInfos) {
 
+        CalculateQGCDResponse response = new CalculateQGCDResponse();
         int q = 0;
         int i = 0;
         double isqc = 0;
@@ -236,7 +238,7 @@ public class ScSxServiceImpl extends ServiceImpl<ScSxMapper, ScSx> implements Sc
                 }
             }
             sqxlx = drawingDefectInfo.getDefectType();
-            log.info("Please cut");
+            response.setMsg("Please cut");
             if (totalLen >= drawingDefectInfo.getStartPos() && totalLen < drawingDefectInfo.getEndPos() && StringUtils.equals(drawingDefectInfo.getIsIsolation(), "yes")) {
                 q = 1;
                 if (drawingDefectInfo.getEndPos() - totalLen < cutLen) {
@@ -245,7 +247,7 @@ public class ScSxServiceImpl extends ServiceImpl<ScSxMapper, ScSx> implements Sc
                     res = cutLen;
                 }
                 sglqk = drawingDefectInfo.getIsolationReason();
-                log.info("Please cut");
+                response.setMsg("Please cut");
             }
             if (totalLen >= drawingDefectInfo.getStartPos() && totalLen < drawingDefectInfo.getEndPos() && StringUtils.equals(drawingDefectInfo.getIsDefective(), "yes")) {
                 sblyy = drawingDefectInfo.getIsDefective();
@@ -259,8 +261,8 @@ public class ScSxServiceImpl extends ServiceImpl<ScSxMapper, ScSx> implements Sc
                 res = mainDiskLen - totalLen - 0.5;
             }
         }
-
-        return res;
+        response.setValue(res);
+        return response;
     }
 
 
