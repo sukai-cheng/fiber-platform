@@ -7,7 +7,7 @@ import com.ht.base.utils.NumberUtils;
 import com.ht.base.utils.StringUtils;
 import com.ht.screening.dto.DeviceInfo;
 import com.ht.screening.dto.DrawBenchDto;
-import com.ht.screening.mapper.*;
+import com.ht.screening.mapper.ScLs1Mapper;
 import com.ht.screening.service.DeviceInfoService;
 import com.ht.screening.service.cacheService.DeviceCacheService;
 import com.ht.screening.vo.DeviceInfoVo;
@@ -15,7 +15,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-
 import java.util.List;
 
 import static com.ht.base.utils.Ini4jUtils.getPropertiesFromIni;
@@ -162,6 +161,22 @@ public class DeviceInfoServiceImpl implements DeviceInfoService {
         deviceInfoVo.setResidualLen(cutLen - deviceInfo.getRetractLength());
 
         return deviceInfoVo;
+    }
+
+    /**
+     * 数据写入
+     */
+    public void write(float value){
+        if (siemensS7Net == null) {
+            com.ht.screening.entity.DeviceInfo detail = detailForDevice();
+            String ip = detail.getDeviceIp();
+            Integer port = Integer.valueOf(detail.getDevicePort());
+            siemensS7Net = getSiemensS7Net(ip, port);
+        }
+        if (siemensS7Net != null) {
+            siemensS7Net.Write("DB22.DBD8",value);
+            System.out.print("写入成功");
+        }
     }
 
     private com.ht.screening.entity.DeviceInfo getDeviceIpAndPort() {

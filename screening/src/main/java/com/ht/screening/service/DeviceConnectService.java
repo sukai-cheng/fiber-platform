@@ -13,4 +13,5 @@ public interface DeviceConnectService {
     S7Connector getConnection(String ip, int port);
 
 
+
 }
