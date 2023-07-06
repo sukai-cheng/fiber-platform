@@ -108,6 +108,11 @@ public class ScSxServiceImpl extends ServiceImpl<ScSxMapper, ScSx> implements Sc
     }
 
 
+    /**
+     * 计算收线长度
+     * @param mainDiskCode 大盘号
+     * @return 收线长度
+     */
     @Override
     public String calFilterLen(String mainDiskCode) {
 
@@ -125,8 +130,6 @@ public class ScSxServiceImpl extends ServiceImpl<ScSxMapper, ScSx> implements Sc
         List<FiberDrawingDefectInfo> fiberDrawingDefectInfos = fiberCutMapper.fiberCutDetail(mainDiskCode);
         CalculateQGCDResponse response = calculateQGCD(totalLen, cutLen, mainDiskLen, fiberDrawingDefectInfos);
         BigDecimal filterLen = BigDecimal.valueOf(response.getValue()).setScale(2, RoundingMode.HALF_UP);
-
-
         char c = mainDiskCode.charAt(mainDiskCode.length() - 1);
         if (StringUtils.equalsIgnoreCase(String.valueOf(Character.toUpperCase(c)), "Z")) {
             String xptmByPh = accessoryPlateMapper.getXptmByPh(mainDiskCode);
@@ -138,20 +141,21 @@ public class ScSxServiceImpl extends ServiceImpl<ScSxMapper, ScSx> implements Sc
         return String.valueOf(filterLen);
     }
 
-    public static void main(String[] args) {
-        String code = "48S23F9055XXL";
-        System.out.println(code.charAt(code.length() - 1));
-    }
-
+    /**
+     * 如果筛选编号未空说明第一次筛选则需要将改大盘录入SC_LS1中
+     * @param accountId 员工ID
+     * @param bz 班组类别
+     * @param ph 大盘号
+     * @return sxbh 筛选编号
+     */
     @Override
     public String getSxbh(String accountId, String bz, String ph) {
-        //
         String sxbh = scSxMapper.getSxbh(ph);
         // 如果有筛选记录则直接返回筛选编号
         if (StringUtils.isNotEmpty(sxbh)) {
             return sxbh;
         } else {
-            // 上传
+            // 保存数据到SC_LS1中
             sxbh = paperInfoService.getPaperNo();
             FilterUploadDto filterUploadDto = new FilterUploadDto();
             filterUploadDto.setSxbh(sxbh);
@@ -184,7 +188,7 @@ public class ScSxServiceImpl extends ServiceImpl<ScSxMapper, ScSx> implements Sc
     }
 
     /**
-     * 计算筛选长度
+     * 计算切割长度
      *
      * @param totalLen                已筛选总长度
      * @param cutLen                  切割长度
