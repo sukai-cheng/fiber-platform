@@ -156,9 +156,7 @@ public class DeviceInfoServiceImpl implements DeviceInfoService {
         deviceInfoVo.setActualTension((double) deviceInfo.getActualTension());
         deviceInfoVo.setNormalRun(deviceInfo.getNormalRun());
         deviceInfoVo.setExceptionStop(deviceInfo.getExceptionStop());
-        DrawBenchDto drawBenchInfo = scLs1Mapper.getDrawBenchInfo(fiberDiskNum);
-        Double cutLen = drawBenchInfo.getCutLen();// 切割长度
-        deviceInfoVo.setResidualLen(cutLen - deviceInfo.getRetractLength());
+        deviceInfoVo.setResidualLen((double)deviceInfo.getAssignRetractLength() - deviceInfo.getRetractLength());
 
         return deviceInfoVo;
     }
