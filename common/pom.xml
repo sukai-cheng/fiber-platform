@@ -59,9 +59,4 @@
             <version>2.0</version>
         </dependency>
     </dependencies>
-    <build>
-        <plugins>
-        </plugins>
-        <finalName>base</finalName>
-    </build>
 </project>
