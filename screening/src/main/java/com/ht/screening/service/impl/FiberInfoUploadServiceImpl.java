@@ -85,7 +85,10 @@ public class FiberInfoUploadServiceImpl implements FiberInfoUploadService {
      */
     @Override
     public Boolean updateDetailDQCD(String filterCode, String serialNum, Long dqcd, Date initialTime) {
-        checkFilterCodeIsExist(filterCode);
+        Boolean aBoolean = checkFilterCodeIsExist(filterCode);
+        if (aBoolean == false) {
+            return false;
+        }
         ScSx2 scSx2 = scSx2Mapper.findByFilterCodeAndSerialNumber(filterCode, serialNum);
         String qxlb = scSx2.getQxlb();
         String glqk = scSx2.getGlqk();

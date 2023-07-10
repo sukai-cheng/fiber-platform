@@ -947,7 +947,7 @@
                inner join sc_sx t2 on t1.SXBH = t2.SXBH and t2.YSPH = #{filterCode,jdbcType=VARCHAR};
   </select>
 
-  <select id="getMaxId" resultType="java.lang.Integer">
+  <select id="getMaxId" resultType="java.lang.String">
     select max(xh) as xh from SC_SX2 where sxbh = #{filterCode,jdbcType=VARCHAR}
   </select>
 

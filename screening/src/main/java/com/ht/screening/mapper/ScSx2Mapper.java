@@ -48,7 +48,7 @@ public interface ScSx2Mapper {
     /**
      * 根据筛选编号获取最大的ID
      */
-    Integer getMaxId(String filterCode);
+    String getMaxId(String filterCode);
 
     /**
      * 根据大盘号获取筛选编号
