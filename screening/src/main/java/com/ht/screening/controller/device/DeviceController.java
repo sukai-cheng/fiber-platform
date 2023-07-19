@@ -28,7 +28,16 @@ public class DeviceController {
     @PostMapping("/getDeviceStatus")
     public AjaxResult getDeviceStatus(@RequestBody DeviceStatusRequest request) {
         try {
-            DeviceInfoVo deviceInfoVo = deviceInfoService.getDeviceInfo(request.getFiberDiskNum());
+//            DeviceInfoVo deviceInfoVo = deviceInfoService.getDeviceInfo(request.getFiberDiskNum());
+            DeviceInfoVo deviceInfoVo = new DeviceInfoVo();
+            deviceInfoVo.setActualVelocity(1500d);
+            deviceInfoVo.setPayOffLength(285.63);
+            deviceInfoVo.setRetractLength(35.84);
+            deviceInfoVo.setResidualLen(14.12);
+            deviceInfoVo.setAssignRetractLength(48.9);
+            deviceInfoVo.setActualTension(9.0);
+            deviceInfoVo.setNormalRun(0);
+            deviceInfoVo.setExceptionStop(1);
             return AjaxResult.success(deviceInfoVo);
         } catch (Exception e) {
             return AjaxResult.error("设备连接异常");
@@ -36,7 +45,7 @@ public class DeviceController {
     }
 
     @GetMapping("/test")
-    public AjaxResult test(){
+    public AjaxResult test() {
         deviceInfoService.write(26.20f);
         return AjaxResult.success();
     }

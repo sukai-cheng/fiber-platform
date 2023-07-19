@@ -1,5 +1,6 @@
 package com.ht.screening.vo;
 
+import com.ht.screening.response.CalculateQGCDResponse;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -57,4 +58,6 @@ public class DrawBenchVo implements Serializable {
      * 切割长度
      */
     Double cutLen;
+
+    CalculateQGCDResponse calculateQGCDResponse;
 }

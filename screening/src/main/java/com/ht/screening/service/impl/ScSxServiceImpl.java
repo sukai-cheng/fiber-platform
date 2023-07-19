@@ -65,6 +65,9 @@ public class ScSxServiceImpl extends ServiceImpl<ScSxMapper, ScSx> implements Sc
     @Resource
     private TAccountMapper tAccountMapper;
 
+    @Resource
+    private DeviceInfoServiceImpl deviceInfoService;
+
     @Override
     public AjaxResult getMainPlateInfo(FilterInfoRequest request) {
         String mainDiskCode = request.getFiberDiskNumber();
@@ -104,48 +107,69 @@ public class ScSxServiceImpl extends ServiceImpl<ScSxMapper, ScSx> implements Sc
     public String calTotalLen(String mainDiskCode) {
         String totalLen = mainPlateMapper.calTotalLen(mainDiskCode);
         BigDecimal res = BigDecimal.valueOf(Double.parseDouble(totalLen));
-        return res.divide(new BigDecimal(1000), 2, BigDecimal.ROUND_HALF_UP).toString();
+        return res.divide(new BigDecimal(1000), 2, RoundingMode.HALF_UP).toString();
     }
 
 
     /**
      * 计算收线长度
+     *
      * @param mainDiskCode 大盘号
      * @return 收线长度
      */
     @Override
-    public String calFilterLen(String mainDiskCode) {
+    public CalculateQGCDResponse calFilterLen(String mainDiskCode) {
 
+        // 获取拉丝信息
         DrawBenchDto drawBenchInfo = scLs1Mapper.getDrawBenchInfo(mainDiskCode);
-        if (drawBenchInfo == null) {
-            return "";
-        }
         // 获取已筛总长度
         Double totalLen = Double.parseDouble(calTotalLen(mainDiskCode));
         // 切割长度
         Double cutLen = drawBenchInfo.getCutLen();
         // 大盘长度
         Double mainDiskLen = Double.parseDouble(drawBenchInfo.getMainDiskLen());
-        // rstqx
+        // 拉丝缺陷信息
         List<FiberDrawingDefectInfo> fiberDrawingDefectInfos = fiberCutMapper.fiberCutDetail(mainDiskCode);
+        // 计算切割长度
         CalculateQGCDResponse response = calculateQGCD(totalLen, cutLen, mainDiskLen, fiberDrawingDefectInfos);
-        BigDecimal filterLen = BigDecimal.valueOf(response.getValue()).setScale(2, RoundingMode.HALF_UP);
         char c = mainDiskCode.charAt(mainDiskCode.length() - 1);
         if (StringUtils.equalsIgnoreCase(String.valueOf(Character.toUpperCase(c)), "Z")) {
             String xptmByPh = accessoryPlateMapper.getXptmByPh(mainDiskCode);
             if (StringUtils.isEmpty(xptmByPh)) {
-                return String.valueOf(6.3);
+                response.setValue(6.3);
+                return response;
             }
         }
 
-        return String.valueOf(filterLen);
+        return response;
+    }
+
+    /**
+     * 获取切割长度
+     *
+     * @param mainDiskCode 大盘长度
+     */
+    public CalculateQGCDResponse calculateQGCD(String mainDiskCode) {
+
+        DrawBenchDto drawBenchInfo = scLs1Mapper.getDrawBenchInfo(mainDiskCode);
+        // 获取已筛总长度
+        Double totalLen = Double.parseDouble(calTotalLen(mainDiskCode));
+        // 切割长度
+        Double cutLen = drawBenchInfo.getCutLen();
+        // 大盘长度
+        Double mainDiskLen = Double.parseDouble(drawBenchInfo.getMainDiskLen());
+        // 拉丝缺陷信息
+        List<FiberDrawingDefectInfo> fiberDrawingDefectInfos = fiberCutMapper.fiberCutDetail(mainDiskCode);
+
+        return calculateQGCD(totalLen, cutLen, mainDiskLen, fiberDrawingDefectInfos);
     }
 
     /**
      * 如果筛选编号未空说明第一次筛选则需要将改大盘录入SC_LS1中
+     *
      * @param accountId 员工ID
-     * @param bz 班组类别
-     * @param ph 大盘号
+     * @param bz        班组类别
+     * @param ph        大盘号
      * @return sxbh 筛选编号
      */
     @Override
@@ -174,7 +198,7 @@ public class ScSxServiceImpl extends ServiceImpl<ScSxMapper, ScSx> implements Sc
             filterUploadDto.setZdrq(new Date());
             filterUploadDto.setChecker(null);
             filterUploadDto.setShrq(null);
-            filterUploadDto.setGqcd(26.0);
+            filterUploadDto.setGqcd(Double.parseDouble(scLs1Mapper.getDrawBenchInfo(ph).getMainDiskLen()));
             filterUploadDto.setYl(null);
             filterUploadDto.setLsrate(null);
             filterUploadDto.setZlh(scLs1Mapper.getDrawBenchInfo(ph).getCommandOrder());
@@ -188,88 +212,83 @@ public class ScSxServiceImpl extends ServiceImpl<ScSxMapper, ScSx> implements Sc
     }
 
     /**
-     * 计算切割长度
+     * 每次在生成的小盘之前都要计算一下切割长度
      *
      * @param totalLen                已筛选总长度
-     * @param cutLen                  切割长度
+     * @param cutLen                  切割长度(默认是一个标盘的长度)
      * @param mainDiskLen             大盘长度
-     * @param fiberDrawingDefectInfos
-     * @return
+     * @param fiberDrawingDefectInfos 拉丝缺陷的信息
      */
     private CalculateQGCDResponse calculateQGCD(Double totalLen, Double cutLen, Double mainDiskLen, List<FiberDrawingDefectInfo> fiberDrawingDefectInfos) {
 
         CalculateQGCDResponse response = new CalculateQGCDResponse();
-        int q = 0;
-        int i = 0;
-        double isqc = 0;
-        double QCCD = 0;
-        double Xqcqcd = 0;
-        double res = 0;
-        String sblyy = "";
-        String sqxlx = "";
-        String sglqk = "";
+        Double slittingLength;
+        Double totalDefectLength;
+        Double res;
 
-        for (int index = 0; index < fiberDrawingDefectInfos.size() && q != 1; index++) {
-            FiberDrawingDefectInfo drawingDefectInfo = fiberDrawingDefectInfos.get(index);
-            if (totalLen < drawingDefectInfo.getStartPos()) {
-                q = 1;
-                if (totalLen + cutLen < drawingDefectInfo.getStartPos()) {
-                    res = cutLen;
-                    isqc = 0;
-                    QCCD = 0;
-                    Xqcqcd = 0;
-                } else {
-                    QCCD = drawingDefectInfo.getSlitterLen();
-                    Xqcqcd = drawingDefectInfo.getStartPos() - totalLen;
-                    if (Xqcqcd >= 2.05) {
-                        res = Xqcqcd;
-                        sqxlx = drawingDefectInfo.getDefectType();
+        for (FiberDrawingDefectInfo drawingDefectInfo : fiberDrawingDefectInfos) {
+            // 获取拉丝缺陷的信息
+            if (StringUtils.equals(drawingDefectInfo.getIsExcision(), "Yes")) {
+                if (totalLen < drawingDefectInfo.getStartPos()) {
+                    // 可以筛一个标盘
+                    if (totalLen + cutLen < drawingDefectInfo.getStartPos()) {
+                        response.setValue(cutLen);
+                        response.setMsg("满足标盘长度");
+                        response.setIsAutoGenerateDisc(true);
                     } else {
-                        res = Xqcqcd + QCCD;
-                        sqxlx = drawingDefectInfo.getDefectType();
+                        // 如果不满足一个标盘
+                        // 获取缺陷总共长度
+                        slittingLength = drawingDefectInfo.getSlitterLen();
+                        // 不满足一个标盘的剩余长度
+                        totalDefectLength = drawingDefectInfo.getStartPos() - totalLen;
+
+                        // 如果剩余长度大于2.05的话, 那么就需要单独生成一个小盘
+                        if (totalDefectLength >= 2.05) {
+                            //向机器发送写指令修改收线长度
+                            deviceInfoService.write(Float.parseFloat(totalDefectLength.toString()));
+                            response.setValue(totalDefectLength);
+                            response.setMsg("不满足标盘长度, 但目前长度大于2.05");
+                            response.setDefectType(drawingDefectInfo.getDefectType());
+                            response.setIsAutoGenerateDisc(true);
+                        } else {
+                            // 如果剩余长度 < 2.05的话, 那么就需要把它切除掉
+                            Double abandonLen = totalDefectLength + slittingLength;
+                            response.setValue(totalDefectLength + slittingLength);
+                            response.setMsg("请切除 " + abandonLen);
+                            //向机器发送写指令修改收线长度
+                            deviceInfoService.write(Float.parseFloat(abandonLen.toString()));
+                            response.setDefectType(drawingDefectInfo.getDefectType());
+                            response.setIsAutoGenerateDisc(false);
+                        }
+                        return response;
                     }
+                } else if (drawingDefectInfo.getStartPos().equals(totalLen)) {
+                    slittingLength = drawingDefectInfo.getSlitterLen();
+                    response.setValue(slittingLength);
+                    response.setMsg("请切除 " + slittingLength);
+                    response.setDefectType(drawingDefectInfo.getDefectType());
+                    response.setIsAutoGenerateDisc(false);
+                    return response;
                 }
-                if (StringUtils.isNotEmpty(drawingDefectInfo.getIsDefective())) {
-                    sqxlx = drawingDefectInfo.getDefectType();
-                }
-            }
-            if (totalLen >= drawingDefectInfo.getStartPos() && totalLen < drawingDefectInfo.getEndPos() && StringUtils.equals(drawingDefectInfo.getIsExcision(), "yes")) {
-                q = 1;
-                if (drawingDefectInfo.getEndPos() - totalLen < 34) {
-                    res = drawingDefectInfo.getEndPos() - totalLen;
-                } else {
-                    res = 34;
-                }
-            }
-            sqxlx = drawingDefectInfo.getDefectType();
-            response.setMsg("Please cut");
-            if (totalLen >= drawingDefectInfo.getStartPos() && totalLen < drawingDefectInfo.getEndPos() && StringUtils.equals(drawingDefectInfo.getIsIsolation(), "yes")) {
-                q = 1;
-                if (drawingDefectInfo.getEndPos() - totalLen < cutLen) {
-                    res = drawingDefectInfo.getEndPos() - totalLen;
-                } else {
-                    res = cutLen;
-                }
-                sglqk = drawingDefectInfo.getIsolationReason();
-                response.setMsg("Please cut");
-            }
-            if (totalLen >= drawingDefectInfo.getStartPos() && totalLen < drawingDefectInfo.getEndPos() && StringUtils.equals(drawingDefectInfo.getIsDefective(), "yes")) {
-                sblyy = drawingDefectInfo.getIsDefective();
             }
         }
 
-        if (q == 0) {
-            if (totalLen + cutLen <= mainDiskLen - 0.5) {
-                res = cutLen;
-            } else {
-                res = mainDiskLen - totalLen - 0.5;
-            }
+        if (totalLen + cutLen <= mainDiskLen - 0.5) {
+            res = cutLen;
+            response.setValue(res);
+            response.setMsg("没有缺陷按照标盘筛选");
+        } else {
+            res = mainDiskLen - totalLen - 0.5;
+            response.setValue(res);
+            response.setMsg("末端位置默认扣除0.5km");
         }
-        response.setValue(res);
+        response.setDefectType("");
+        response.setIsAutoGenerateDisc(true);
         return response;
     }
-
-
 }
+
+
+
 
 

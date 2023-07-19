@@ -952,7 +952,7 @@
   </select>
 
   <select id="getFilterCodeByMainDiskCode" resultType="java.lang.String">
-      select t1.SXBH
+      select distinct t1.SXBH
       from SC_SX t1
                left join SC_SX2 t2 on t1.SXBH = t2.SXBH
       where t1.YSPH = #{mainDiskCode,jdbcType=VARCHAR};

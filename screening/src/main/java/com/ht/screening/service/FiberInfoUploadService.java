@@ -2,6 +2,7 @@ package com.ht.screening.service;
 
 
 import com.ht.screening.dto.FilterUploadDto;
+import com.ht.screening.response.CalculateQGCDResponse;
 
 import java.util.Date;
 
@@ -34,7 +35,7 @@ public interface FiberInfoUploadService {
      * @param initialTime 初始时间
      * @return
      */
-    Boolean updateDetailDQCD(String filterCode, String serialNum, Long dqcd, Date initialTime);
+    Boolean updateDetailDQCD(String filterCode, String serialNum, Double dqcd, Date initialTime);
 
     /**
      * 断纤更新小盘信息
@@ -44,7 +45,7 @@ public interface FiberInfoUploadService {
      * @param initialTime 初始时间
      * @return
      */
-    Boolean updateDetailQGCD(String filterCode, String serialNum, Long dqcd, Date initialTime);
+    Boolean updateDetailQGCD(CalculateQGCDResponse response, String filterCode, String serialNum, Double dqcd, Date initialTime);
 
     /**
      * 筛选数据上传

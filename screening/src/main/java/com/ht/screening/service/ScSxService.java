@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.ht.base.domain.AjaxResult;
 import com.ht.screening.entity.ScSx;
 import com.ht.screening.request.FilterInfoRequest;
+import com.ht.screening.response.CalculateQGCDResponse;
 import com.ht.screening.vo.FiberFilterSmallDiskVo;
 
 import java.io.IOException;
@@ -34,7 +35,7 @@ public interface ScSxService extends IService<ScSx> {
      *
      * @return
      */
-    String calFilterLen(String mainDiskCode);
+    CalculateQGCDResponse calFilterLen(String mainDiskCode);
 
     /**
      * 该大盘是否已经获取筛选记录如果已经有筛选记录就需要上传

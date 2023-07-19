@@ -11,6 +11,7 @@ import com.ht.screening.mapper.ScLsQxqcMapper;
 import com.ht.screening.mapper.ScSx2Mapper;
 import com.ht.screening.mapper.ScSxMapper;
 import com.ht.screening.mapper.ZlLshMapper;
+import com.ht.screening.response.CalculateQGCDResponse;
 import com.ht.screening.service.FiberInfoUploadService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
@@ -84,7 +85,7 @@ public class FiberInfoUploadServiceImpl implements FiberInfoUploadService {
      * @param initialTime 初始时间
      */
     @Override
-    public Boolean updateDetailDQCD(String filterCode, String serialNum, Long dqcd, Date initialTime) {
+    public Boolean updateDetailDQCD(String filterCode, String serialNum, Double dqcd, Date initialTime) {
         Boolean aBoolean = checkFilterCodeIsExist(filterCode);
         if (aBoolean == false) {
             return false;
@@ -113,20 +114,27 @@ public class FiberInfoUploadServiceImpl implements FiberInfoUploadService {
      * @param initialTime 初始时间
      */
     @Override
-    public Boolean updateDetailQGCD(String filterCode, String serialNum, Long dqcd, Date initialTime) {
+    public Boolean updateDetailQGCD(CalculateQGCDResponse response, String filterCode, String serialNum, Double yscd, Date initialTime) {
         if (!checkFilterCodeIsExist(filterCode)) {
             return false;
         }
         ScSx2 scSx2 = scSx2Mapper.findByFilterCodeAndSerialNumber(filterCode, serialNum);
-        long qgcd = scSx2.getQgcd().longValue();
+        long dqcd = scSx2.getDqcd().longValue();
         String qxlb = scSx2.getQxlb();
         String glqk = scSx2.getGlqk();
-        String blyy = scSx2.getBlyy();
+        BigDecimal qgcd = scSx2.getQgcd();
+        String blyy = response.getDefectType();
         Date lastupdatetime = scSx2.getLastupdatetime();
         String lastupdateaccountid = scSx2.getLastupdateaccountid();
         String gapTime = DateUtils.DateDiff(new Date(), initialTime);
         try {
-            scSx2Mapper.updateScSx2QGCD(qgcd, Integer.valueOf(gapTime), qxlb, glqk, blyy, lastupdatetime, lastupdateaccountid, filterCode, serialNum);
+            if (yscd < response.getValue()) {
+                BigDecimal cd = new BigDecimal(dqcd).add(new BigDecimal(yscd));
+                scSx2Mapper.updateScSx2DQCD(cd.doubleValue(), Integer.valueOf(gapTime), qxlb, glqk, blyy, lastupdatetime, lastupdateaccountid, filterCode, serialNum);
+            } else {
+                BigDecimal cd = qgcd.add(new BigDecimal(yscd));
+                scSx2Mapper.updateScSx2QGCD(qgcd.doubleValue(), Integer.valueOf(gapTime), qxlb, glqk, blyy, lastupdatetime, lastupdateaccountid, filterCode, serialNum);
+            }
             return true;
         } catch (Exception e) {
             log.info("数据库写入失败");

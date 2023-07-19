@@ -59,7 +59,7 @@ public class FilterUploadServiceImpl implements FilterUploadService {
     @Transactional
     public Boolean SXdetail(FilterDetailUploadDto filterDetailUploadDto) {
 
-        Double dqcd = filterDetailUploadDto.getDqcd();
+        Double dqcd = 0d;
         String xptm = filterDetailUploadDto.getXptm();
         String strPxptm = xptm;
         String strsxbh = filterDetailUploadDto.getSxbh();
@@ -201,62 +201,62 @@ public class FilterUploadServiceImpl implements FilterUploadService {
         return false;
     }
 
-    /**
-     * 更新断纤长度
-     *
-     * @param sxbh
-     * @param xh
-     * @param dqcd
-     * @param qxlx
-     * @param glqk
-     * @param blyy
-     * @param startDrawingTime
-     * @param accountId
-     * @return
-     */
-    public Boolean updateDetailDQCD(String sxbh, String xh, Long dqcd, String qxlx, String glqk, String blyy, Date startDrawingTime, String accountId) {
-        if (StringUtils.isEmpty(sxbh)) {
-            log.info("筛选编号为空");
-            return false;
-        }
-        if (StringUtils.isEmpty(qxlx)) {
-            log.info("切割原因为空");
-        }
-        // 计算小盘开始拉时间和当前时间相差的分钟数
-        String diff = DateUtils.DateDiff(new Date(), startDrawingTime);
-        scSx2Mapper.updateScSx2DQCD(dqcd, Integer.valueOf(diff), qxlx, glqk, blyy, new Date(), accountId, sxbh, xh);
-        // todo 前端要清空不良原因,缺陷类别,隔离情况
-        return true;
-    }
-
-
-    /**
-     * 更新切割长度
-     *
-     * @param sxbh
-     * @param xh
-     * @param qgcd
-     * @param qxlx
-     * @param glqk
-     * @param blyy
-     * @param startDrawingTime
-     * @param accountId
-     * @return
-     */
-    public Boolean updateDetailQGCD(String sxbh, String xh, Long qgcd, String qxlx, String glqk, String blyy, Date startDrawingTime, String accountId) {
-        if (StringUtils.isEmpty(sxbh)) {
-            log.info("筛选编号为空");
-            return false;
-        }
-        if (StringUtils.isEmpty(qxlx)) {
-            log.info("切割原因为空");
-        }
-        // 计算小盘开始拉时间和当前时间相差的分钟数
-        String diff = DateUtils.DateDiff(new Date(), startDrawingTime);
-        scSx2Mapper.updateScSx2QGCD(qgcd, Integer.valueOf(diff), qxlx, glqk, blyy, new Date(), accountId, sxbh, xh);
-        // todo 前端要清空不良原因,缺陷类别,隔离情况
-        return true;
-    }
+//    /**
+//     * 更新断纤长度
+//     *
+//     * @param sxbh
+//     * @param xh
+//     * @param dqcd
+//     * @param qxlx
+//     * @param glqk
+//     * @param blyy
+//     * @param startDrawingTime
+//     * @param accountId
+//     * @return
+//     */
+//    public Boolean updateDetailDQCD(String sxbh, String xh, Long dqcd, String qxlx, String glqk, String blyy, Date startDrawingTime, String accountId) {
+//        if (StringUtils.isEmpty(sxbh)) {
+//            log.info("筛选编号为空");
+//            return false;
+//        }
+//        if (StringUtils.isEmpty(qxlx)) {
+//            log.info("切割原因为空");
+//        }
+//        // 计算小盘开始拉时间和当前时间相差的分钟数
+//        String diff = DateUtils.DateDiff(new Date(), startDrawingTime);
+//        scSx2Mapper.updateScSx2DQCD(dqcd, Integer.valueOf(diff), qxlx, glqk, blyy, new Date(), accountId, sxbh, xh);
+//        // todo 前端要清空不良原因,缺陷类别,隔离情况
+//        return true;
+//    }
+//
+//
+//    /**
+//     * 更新切割长度
+//     *
+//     * @param sxbh
+//     * @param xh
+//     * @param qgcd
+//     * @param qxlx
+//     * @param glqk
+//     * @param blyy
+//     * @param startDrawingTime
+//     * @param accountId
+//     * @return
+//     */
+//    public Boolean updateDetailQGCD(String sxbh, String xh, Long qgcd, String qxlx, String glqk, String blyy, Date startDrawingTime, String accountId) {
+//        if (StringUtils.isEmpty(sxbh)) {
+//            log.info("筛选编号为空");
+//            return false;
+//        }
+//        if (StringUtils.isEmpty(qxlx)) {
+//            log.info("切割原因为空");
+//        }
+//        // 计算小盘开始拉时间和当前时间相差的分钟数
+//        String diff = DateUtils.DateDiff(new Date(), startDrawingTime);
+//        scSx2Mapper.updateScSx2QGCD(qgcd, Integer.valueOf(diff), qxlx, glqk, blyy, new Date(), accountId, sxbh, xh);
+//        // todo 前端要清空不良原因,缺陷类别,隔离情况
+//        return true;
+//    }
 
 
 }

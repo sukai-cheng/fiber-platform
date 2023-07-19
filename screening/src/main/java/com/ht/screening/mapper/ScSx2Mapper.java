@@ -71,7 +71,7 @@ public interface ScSx2Mapper {
      * @param sxbh                筛选编号
      * @param xh                  序号
      */
-    void updateScSx2DQCD(@Param("dqcd") Long dqcd,
+    void updateScSx2DQCD(@Param("dqcd") Double dqcd,
                          @Param("sj") Integer time,
                          @Param("qxlb") String qxlb,
                          @Param("glqk") String glqk,
@@ -94,7 +94,7 @@ public interface ScSx2Mapper {
      * @param sxbh                筛选编号
      * @param xh                  序号
      */
-    void updateScSx2QGCD(@Param("qgcd") Long qgcd,
+    void updateScSx2QGCD(@Param("qgcd") Double qgcd,
                          @Param("sj") Integer time,
                          @Param("qxlb") String qxlb,
                          @Param("glqk") String glqk,

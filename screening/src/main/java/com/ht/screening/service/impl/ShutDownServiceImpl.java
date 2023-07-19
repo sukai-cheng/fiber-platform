@@ -10,10 +10,10 @@ import com.ht.screening.dto.FilterDetailUploadDto;
 import com.ht.screening.dto.NormalShutdownDto;
 import com.ht.screening.entity.ScSx2;
 import com.ht.screening.mapper.ScSx2Mapper;
-import com.ht.screening.mapper.ScSxMapper;
 import com.ht.screening.request.AbnormalShutdownRequest;
 import com.ht.screening.request.NormalShutdownRequest;
 import com.ht.screening.response.AbnormalShutDownResponse;
+import com.ht.screening.response.CalculateQGCDResponse;
 import com.ht.screening.response.NormalShutDownResponse;
 import com.ht.screening.service.ShutDownService;
 import lombok.extern.slf4j.Slf4j;
@@ -46,9 +46,7 @@ public class ShutDownServiceImpl implements ShutDownService {
     private ScSx2Mapper scSx2Mapper;
 
     @Resource
-    private ScSxMapper scSxMapper;
-
-    private String computerIp;
+    ScSxServiceImpl scSxService;
 
     private void initNormalShutdownRequest(NormalShutdownDto normalShutdownDto, NormalShutdownRequest request) {
         normalShutdownDto.setPh(request.getFilterInfo().getPh());
@@ -114,23 +112,28 @@ public class ShutDownServiceImpl implements ShutDownService {
         String xh;
         Boolean SFFQ = fiberInfoUploadService.uploadDataCheckFQ(ph);
         Boolean SFGL = fiberInfoUploadService.uploadDataCheckGL(ph);
-        if (SFFQ || (yscd < 2.05)) {
+
+        if (yscd < 2.05) {
+            CalculateQGCDResponse calculateQGCDResponse = scSxService.calculateQGCD(ph);
             List<ScSx2> recordCount = scSx2Mapper.findByFilterCode(ph);
             if (recordCount.size() >= 1) {
                 maxxh = scSx2Mapper.getMaxId(sxbh);
-                if (!SFFQ) {
-                    if (!fiberInfoUploadService.updateDetailDQCD(sxbh, String.valueOf(maxxh), yscd.longValue() * 1000, normalShutdownDto.getInitialTime())) {
-                        log.info("update DQCD error");
-                    } else {
-                        if (!fiberInfoUploadService.updateDetailQGCD(sxbh, String.valueOf(maxxh), yscd.longValue() * 1000, normalShutdownDto.getInitialTime())) {
-                            log.info("update qgcd error");
-                        }
-                    }
+                if (!fiberInfoUploadService.updateDetailQGCD(calculateQGCDResponse, sxbh, String.valueOf(maxxh), BigDecimal.valueOf(yscd).multiply(new BigDecimal(1000).setScale(2, RoundingMode.HALF_UP)).doubleValue(), normalShutdownDto.getInitialTime())) {
+                    log.info("update qgcd error");
                 }
+//                if (!SFFQ) {
+//                    if (!fiberInfoUploadService.updateDetailDQCD(sxbh, String.valueOf(maxxh), yscd.longValue() * 1000, normalShutdownDto.getInitialTime())) {
+//                        log.info("update DQCD error");
+//                    } else {
+//                        if (!fiberInfoUploadService.updateDetailQGCD(sxbh, String.valueOf(maxxh), yscd.longValue() * 1000, normalShutdownDto.getInitialTime())) {
+//                            log.info("update qgcd error");
+//                        }
+//                    }
+//                }
             } else {
                 xh = getxh(sxbh);
                 xptm = "";
-                ewz = Double.valueOf(fiberInfoUploadService.getTotalLen(ph)) * 1000;
+                ewz = Double.parseDouble(fiberInfoUploadService.getTotalLen(ph)) * 1000;
                 CD = 0L;
                 DQQK = "abnormity";
                 dqcd = 0L;
@@ -229,7 +232,7 @@ public class ShutDownServiceImpl implements ShutDownService {
         String machineCategory = "D";
         String region = "四区";
         String DQQK;
-        double dqcd;
+        double dqcd = 0d;
         Integer isfg = 0;
         String strCD = ""; // 小盘打印长度
         Long dqmscd = 0L;
@@ -243,18 +246,14 @@ public class ShutDownServiceImpl implements ShutDownService {
         String xh;
         Boolean SFFQ = fiberInfoUploadService.uploadDataCheckFQ(ph);
         Boolean SFGL = fiberInfoUploadService.uploadDataCheckGL(ph);
+
         if (SFFQ || (cd.doubleValue() < 2.05)) {
+            CalculateQGCDResponse calculateQGCDResponse = scSxService.calculateQGCD(ph);
             List<ScSx2> recordCount = scSx2Mapper.findByFilterCode(ph);
             if (recordCount.size() >= 1) {
                 maxxh = scSx2Mapper.getMaxId(sxbh);
-                if (!SFFQ) {
-                    if (!fiberInfoUploadService.updateDetailDQCD(sxbh, String.valueOf(maxxh), cd.longValue() * 1000, abnormalShutdownDto.getInitialTime())) {
-                        log.info("update DQCD error");
-                    } else {
-                        if (!fiberInfoUploadService.updateDetailQGCD(sxbh, String.valueOf(maxxh), cd.longValue() * 1000, abnormalShutdownDto.getInitialTime())) {
-                            log.info("update qgcd error");
-                        }
-                    }
+                if (!fiberInfoUploadService.updateDetailQGCD(calculateQGCDResponse, sxbh, String.valueOf(maxxh), cd.multiply(new BigDecimal(1000).setScale(2, RoundingMode.HALF_UP)).doubleValue(), abnormalShutdownDto.getInitialTime())) {
+                    log.info("update qgcd error");
                 }
             } else {
                 xh = getxh(sxbh);
@@ -301,7 +300,7 @@ public class ShutDownServiceImpl implements ShutDownService {
         } else {
             String pj = abnormalShutdownDto.getPj();
             Double kpcd = 0d;
-            if (StringUtils.equals(CommonConstant.FifityKilometreDish, pj) || StringUtils.equals(CommonConstant.SixtyOneKilometreDish, pj)) {
+            if (StringUtils.equals(CommonConstant.FiftyKilometreDish, pj) || StringUtils.equals(CommonConstant.SixtyOneKilometreDish, pj) || StringUtils.equals(CommonConstant.FiftyKilometreHengLiL1,pj) || StringUtils.equals(CommonConstant.FiftyKilometreHengLiL2,pj) || StringUtils.equals(CommonConstant.FiftyKilometreHengLiL3,pj)) {
                 kpcd = 2.07 + 1;
             } else {
                 kpcd = 2.07 + 0.6;
@@ -313,12 +312,12 @@ public class ShutDownServiceImpl implements ShutDownService {
                 ewz = Long.parseLong(fiberInfoUploadService.getTotalLen(ph)) * 1000;
                 DQQK = "abnormity";
                 if (StringUtils.equals(region, "四区")) {
-                    if (StringUtils.equals(CommonConstant.FifityKilometreDish, pj) || StringUtils.equals(CommonConstant.SixtyOneKilometreDish, pj)) {
+                    if (StringUtils.equals(CommonConstant.FiftyKilometreDish, pj) || StringUtils.equals(CommonConstant.SixtyOneKilometreDish, pj)) {
                         dqcd = 170;
                         CD = cd.multiply(new BigDecimal(1000)).longValue();
                     }
                 } else {
-                    if (StringUtils.equals(CommonConstant.FifityKilometreDish, pj) || StringUtils.equals(CommonConstant.SixtyOneKilometreDish, pj)) {
+                    if (StringUtils.equals(CommonConstant.FiftyKilometreDish, pj) || StringUtils.equals(CommonConstant.SixtyOneKilometreDish, pj)) {
                         CD = cd.multiply(new BigDecimal(1000)).longValue();
                         dqcd = 130;
                     } else {
@@ -341,7 +340,7 @@ public class ShutDownServiceImpl implements ShutDownService {
                 filterDetailUploadDto.setDqqk(DQQK);
                 filterDetailUploadDto.setDqcd(abnormalShutdownDto.getDqcd());
                 filterDetailUploadDto.setQxlb(qxlb);
-                filterDetailUploadDto.setQgcd(Double.valueOf(qgcd));
+                filterDetailUploadDto.setQgcd((double) qgcd);
                 filterDetailUploadDto.setBlyy("");
                 filterDetailUploadDto.setIsfg(0L);
                 filterDetailUploadDto.setDqmscd(0L);
@@ -520,7 +519,7 @@ public class ShutDownServiceImpl implements ShutDownService {
                 filterDetailUploadDto.setEwz(ewz);
                 filterDetailUploadDto.setCd(CD);
                 filterDetailUploadDto.setDqqk(DQQK);
-                filterDetailUploadDto.setDqcd(abnormalShutdownDto.getDqcd());
+                filterDetailUploadDto.setDqcd(dqcd);
                 filterDetailUploadDto.setQxlb(qxlb);
                 filterDetailUploadDto.setQgcd(Double.valueOf(qgcd));
                 filterDetailUploadDto.setBlyy("");

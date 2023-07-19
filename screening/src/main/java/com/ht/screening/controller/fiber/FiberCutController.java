@@ -27,9 +27,6 @@ public class FiberCutController {
     private ScLs1ServiceImpl scLs1Service;
     @Resource
     CheckService checkService;
-    @Resource
-    private ProcstockServiceImpl procstockService;
-
 
     @PostMapping("/fiberCut")
     public AjaxResult fiberCut(@RequestBody FiberCutRequest request) {
@@ -49,6 +46,11 @@ public class FiberCutController {
             return AjaxResult.error("大盘检测未审核, 不能够筛选");
         }
         return scLs1Service.getDrawBenchInfo(request.getFiberDiskNum());
+    }
+
+    @PostMapping("/scsx2/refresh")
+    public AjaxResult refreshScsx2(@RequestBody DrawInfoRequest request){
+        return AjaxResult.success();
     }
 
 }

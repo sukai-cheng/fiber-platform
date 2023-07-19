@@ -17,10 +17,8 @@ import java.util.List;
 public class DeviceCacheService {
     @Resource
     private DeviceInfoMapper deviceInfoMapper;
-    @Cacheable(cacheManager = "redisCacheManager", value = "deviceInfoList")
     public List<DeviceInfo> deviceInfoList() {
 
-        log.info("不走缓存");
         List<com.ht.screening.entity.DeviceInfo> deviceInfos = deviceInfoMapper.selectAll();
         return deviceInfos;
     }
