@@ -12,4 +12,5 @@ public class EmployeeDto implements Serializable {
     String account;
     String name;
     String bz;
+    String computerIP;
 }

@@ -12,6 +12,8 @@ import com.ht.screening.vo.LoginVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+
 
 /**
  * @author chengsukai
@@ -20,6 +22,8 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class TAccountServiceImpl extends ServiceImpl<TAccountMapper, TAccount> implements TAccountService {
 
+    @Resource
+    private DeviceInfoServiceImpl deviceInfoService;
     @Override
     public AjaxResult userLogin(LoginVo loginInfo) {
         String cardNum = loginInfo.getCardNum();
@@ -34,6 +38,8 @@ public class TAccountServiceImpl extends ServiceImpl<TAccountMapper, TAccount> i
         }
         if (res != 0 && res != null) {
             EmployeeDto userInfo = baseMapper.getUserInfo(userName, password);
+            String computerIP = deviceInfoService.getComputerIP();
+            userInfo.setComputerIP(computerIP);
             return AjaxResult.success("login success",userInfo);
         }
 

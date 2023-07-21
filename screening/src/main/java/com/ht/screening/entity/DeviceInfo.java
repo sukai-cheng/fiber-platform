@@ -27,4 +27,7 @@ public class DeviceInfo implements Serializable {
 
     @TableField("device_port")
     private String devicePort;
+
+    @TableField("computer_ip")
+    private String computerIp;
 }

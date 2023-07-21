@@ -2,6 +2,7 @@ package com.ht.screening.controller.login;
 
 import com.ht.base.domain.AjaxResult;
 import com.ht.base.utils.Ini4jFileVo;
+import com.ht.screening.service.impl.DeviceInfoServiceImpl;
 import com.ht.screening.service.impl.TAccountServiceImpl;
 import com.ht.screening.vo.LoginVo;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,7 +31,8 @@ public class UserLoginController {
      */
     @PostMapping("/user/login")
     public AjaxResult userLogin(@RequestBody LoginVo loginInfo) {
-        return accountService.userLogin(loginInfo);
+        AjaxResult ajaxResult = accountService.userLogin(loginInfo);
+        return ajaxResult;
     }
 
     @GetMapping("/getProperties")

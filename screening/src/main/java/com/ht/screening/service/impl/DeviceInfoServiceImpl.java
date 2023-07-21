@@ -49,6 +49,11 @@ public class DeviceInfoServiceImpl implements DeviceInfoService {
         this.port = Integer.valueOf(deviceIpAndPort.getDevicePort());
     }
 
+    public String getComputerIP() {
+        com.ht.screening.entity.DeviceInfo deviceInfo = getDeviceIpAndPort();
+        return deviceInfo.getComputerIp();
+    }
+
     public SiemensS7Net getSiemensS7Net() {
         detailForDevice();
         SiemensS7Net siemensS7Net = deviceConnectService.getLongSiemensS7Net(ip, port);
@@ -159,7 +164,7 @@ public class DeviceInfoServiceImpl implements DeviceInfoService {
         deviceInfoVo.setActualTension((double) deviceInfo.getActualTension());
         deviceInfoVo.setNormalRun(deviceInfo.getNormalRun());
         deviceInfoVo.setExceptionStop(deviceInfo.getExceptionStop());
-        deviceInfoVo.setResidualLen((double)deviceInfo.getAssignRetractLength() - deviceInfo.getRetractLength());
+        deviceInfoVo.setResidualLen((double) deviceInfo.getAssignRetractLength() - deviceInfo.getRetractLength());
 
         return deviceInfoVo;
     }
@@ -167,18 +172,18 @@ public class DeviceInfoServiceImpl implements DeviceInfoService {
     /**
      * 数据写入
      */
-    public void write(float value){
+    public void write(float value) {
         if (siemensS7Net == null) {
             detailForDevice();
             siemensS7Net = getSiemensS7Net();
         }
         if (siemensS7Net != null) {
-            siemensS7Net.Write("DB22.DBD8",value);
+            siemensS7Net.Write("DB22.DBD8", value);
             System.out.print("写入成功");
         }
     }
 
-    private com.ht.screening.entity.DeviceInfo getDeviceIpAndPort() {
+    public com.ht.screening.entity.DeviceInfo getDeviceIpAndPort() {
         String sbbh = getPropertiesFromIni().getText837();
         List<com.ht.screening.entity.DeviceInfo> deviceInfos = deviceCacheService.deviceInfoList();
         for (com.ht.screening.entity.DeviceInfo deviceInfo :
