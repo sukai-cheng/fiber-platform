@@ -165,7 +165,7 @@ public class ShutDownServiceImpl implements ShutDownService {
                 filterDetailUploadDto.setXj(normalShutdownDto.getXj());
                 if (filterUploadService.SXdetail(filterDetailUploadDto)) {
                     response.setStatus(true);
-                    response.setPrintFlag(false);
+                    response.setPrintFlag(true);
                     return response;
                 }
             }
