@@ -39,12 +39,18 @@ public class DeviceInfoServiceImpl implements DeviceInfoService {
 
     private SiemensS7Net siemensS7Net;
 
-    public com.ht.screening.entity.DeviceInfo detailForDevice() {
+    private String ip;
+
+    private Integer port;
+
+    public void detailForDevice() {
         com.ht.screening.entity.DeviceInfo deviceIpAndPort = getDeviceIpAndPort();
-        return deviceIpAndPort;
+        this.ip = deviceIpAndPort.getDeviceIp();
+        this.port = Integer.valueOf(deviceIpAndPort.getDevicePort());
     }
 
-    public SiemensS7Net getSiemensS7Net(String ip, int port) {
+    public SiemensS7Net getSiemensS7Net() {
+        detailForDevice();
         SiemensS7Net siemensS7Net = deviceConnectService.getLongSiemensS7Net(ip, port);
         return siemensS7Net;
     }
@@ -52,11 +58,8 @@ public class DeviceInfoServiceImpl implements DeviceInfoService {
     @Override
     public DeviceInfoVo getDeviceInfo(String fiberDiskNum) {
         DeviceInfo deviceInfo = new DeviceInfo();
-        com.ht.screening.entity.DeviceInfo detail = detailForDevice();
-        String ip = detail.getDeviceIp();
-        Integer port = Integer.valueOf(detail.getDevicePort());
         if (siemensS7Net == null) {
-            siemensS7Net = getSiemensS7Net(ip, port);
+            siemensS7Net = getSiemensS7Net();
         }
         if (siemensS7Net != null) {
             // 通过西门子S7-S1500协议模块连接设备
@@ -166,10 +169,8 @@ public class DeviceInfoServiceImpl implements DeviceInfoService {
      */
     public void write(float value){
         if (siemensS7Net == null) {
-            com.ht.screening.entity.DeviceInfo detail = detailForDevice();
-            String ip = detail.getDeviceIp();
-            Integer port = Integer.valueOf(detail.getDevicePort());
-            siemensS7Net = getSiemensS7Net(ip, port);
+            detailForDevice();
+            siemensS7Net = getSiemensS7Net();
         }
         if (siemensS7Net != null) {
             siemensS7Net.Write("DB22.DBD8",value);
