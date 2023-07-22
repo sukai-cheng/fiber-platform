@@ -36,9 +36,11 @@ public class TOptionServiceImpl extends ServiceImpl<TOptionMapper, TOption> impl
         List<String> xjList = optionMapper.findByAction("xj");
         List<String> colorList = optionMapper.findByAction("color");
         List<String> pjList = optionMapper.findByAction("pj");
+        List<String> stressList = optionMapper.findByAction("stress");
         optionDto.setNewOldList(xjList);
         optionDto.setColorList(colorList);
         optionDto.setPlateList(pjList);
+        optionDto.setStressList(stressList);
 
         return AjaxResult.success(optionDto);
 

@@ -13,4 +13,5 @@ public class OptionDto implements Serializable {
     List<String> colorList;
     List<String> plateList;
     List<String> newOldList;
+    List<String> stressList;
 }
