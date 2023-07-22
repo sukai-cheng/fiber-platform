@@ -119,7 +119,7 @@ public class FilterUploadServiceImpl implements FilterUploadService {
             sxLog.setSxjt(getPropertiesFromIni().getText837());
             sxLogMapper.insert(sxLog);
         }
-        if (StringUtils.equals(xptm.substring(0, 13), ysph) || StringUtils.isEmpty(xptm)) {
+        if (StringUtils.isEmpty(xptm) || StringUtils.equals(xptm.substring(0, 13), ysph) ) {
             if (StringUtils.equals(getPropertiesFromIni().getText838(), "N")) {
                 ScSx2 scSx2 = new ScSx2();
                 scSx2.setSxbh(strsxbh);
