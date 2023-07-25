@@ -10,7 +10,7 @@ import java.io.Serializable;
 @Data
 public class SelectDataDto implements Serializable {
     String color;
-    Double yl;
+    String yl;
     String pj;
     String xj;
 }

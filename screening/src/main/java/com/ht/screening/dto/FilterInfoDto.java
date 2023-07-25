@@ -15,8 +15,6 @@ public class FilterInfoDto implements Serializable {
     String ph;
     @JsonProperty("sxbh")
     String sxbh;
-    @JsonProperty("dqcd")
-    Double dqcd;
     @JsonProperty("glqk")
     String glqk;
 }

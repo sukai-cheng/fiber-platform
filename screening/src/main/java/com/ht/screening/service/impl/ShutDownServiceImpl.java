@@ -55,7 +55,6 @@ public class ShutDownServiceImpl implements ShutDownService {
         normalShutdownDto.setYscd(request.getDeviceDataDto().getYscd());
         normalShutdownDto.setSycd(request.getDeviceDataDto().getSycd());
         normalShutdownDto.setInitialTime(request.getLoginDataDto().getStartDate());
-        normalShutdownDto.setDqcd(request.getFilterInfo().getDqcd());
         normalShutdownDto.setAccoutId(request.getLoginDataDto().getAccountId());
         normalShutdownDto.setBz(request.getLoginDataDto().getBz());
         normalShutdownDto.setUsername(request.getLoginDataDto().getUsername());
@@ -74,7 +73,6 @@ public class ShutDownServiceImpl implements ShutDownService {
         abnormalShutdownDto.setYscd(request.getDeviceDataDto().getYscd());
         abnormalShutdownDto.setSycd(request.getDeviceDataDto().getSycd());
         abnormalShutdownDto.setInitialTime(request.getLoginDataDto().getStartDate());
-        abnormalShutdownDto.setDqcd(request.getFilterInfo().getDqcd());
         abnormalShutdownDto.setAccoutId(request.getLoginDataDto().getAccountId());
         abnormalShutdownDto.setBz(request.getLoginDataDto().getBz());
         abnormalShutdownDto.setUsername(request.getLoginDataDto().getUsername());
@@ -121,15 +119,6 @@ public class ShutDownServiceImpl implements ShutDownService {
                 if (!fiberInfoUploadService.updateDetailQGCD(calculateQGCDResponse, sxbh, String.valueOf(maxxh), BigDecimal.valueOf(yscd).multiply(new BigDecimal(1000).setScale(2, RoundingMode.HALF_UP)).doubleValue(), normalShutdownDto.getInitialTime())) {
                     log.info("update qgcd error");
                 }
-//                if (!SFFQ) {
-//                    if (!fiberInfoUploadService.updateDetailDQCD(sxbh, String.valueOf(maxxh), yscd.longValue() * 1000, normalShutdownDto.getInitialTime())) {
-//                        log.info("update DQCD error");
-//                    } else {
-//                        if (!fiberInfoUploadService.updateDetailQGCD(sxbh, String.valueOf(maxxh), yscd.longValue() * 1000, normalShutdownDto.getInitialTime())) {
-//                            log.info("update qgcd error");
-//                        }
-//                    }
-//                }
             } else {
                 xh = getxh(sxbh);
                 xptm = "";
@@ -214,7 +203,7 @@ public class ShutDownServiceImpl implements ShutDownService {
             }
         }
 
-        response.setStatus(true);
+            response.setStatus(true);
         response.setPrintFlag(false);
         return response;
     }

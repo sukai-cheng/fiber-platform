@@ -128,12 +128,12 @@ public class FiberInfoUploadServiceImpl implements FiberInfoUploadService {
         String lastupdateaccountid = scSx2.getLastupdateaccountid();
         String gapTime = DateUtils.DateDiff(new Date(), initialTime);
         try {
-            if (yscd < response.getValue()) {
+            if (yscd < response.getValue() * 1000) {
                 BigDecimal cd = new BigDecimal(dqcd).add(new BigDecimal(yscd));
                 scSx2Mapper.updateScSx2DQCD(cd.doubleValue(), Integer.valueOf(gapTime), qxlb, glqk, blyy, lastupdatetime, lastupdateaccountid, filterCode, serialNum);
             } else {
                 BigDecimal cd = qgcd.add(new BigDecimal(yscd));
-                scSx2Mapper.updateScSx2QGCD(qgcd.doubleValue(), Integer.valueOf(gapTime), qxlb, glqk, blyy, lastupdatetime, lastupdateaccountid, filterCode, serialNum);
+                scSx2Mapper.updateScSx2QGCD(cd.doubleValue(), Integer.valueOf(gapTime), qxlb, glqk, blyy, lastupdatetime, lastupdateaccountid, filterCode, serialNum);
             }
             return true;
         } catch (Exception e) {
